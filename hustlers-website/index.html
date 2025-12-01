@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hustlers & Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: "Montserrat", sans-serif;
+            background: radial-gradient(circle at top, #0b0f17, #000000 70%);
+            color: #ffffff;
+        }
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 60px;
+        }
+        h1 {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        h1 .gold {
+            color: #f4d57c;
+        }
+        .subtext {
+            max-width: 550px;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 30px;
+            background: #f4b400;
+            color: #000;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            margin-right: 12px;
+            margin-top: 12px;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background: #ffcc4d;
+        }
+        .form-box {
+            margin-top: 50px;
+            padding: 26px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            max-width: 650px;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="badge">LOOKBOOK • 2025 DROP ZERO</div>
+
+        <h1>
+            Dress like the <span class="gold">life you’re<br>building</span>,<br>
+            not the one you’re trying to escape.
+        </h1>
+
+        <p class="subtext">
+            Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
+            the ones who work late, bet on themselves, and refuse to settle for average.
+        </p>
+
+        <div>
+            <span class="badge">BORN IN DUBAI</span>
+            <span class="badge">BUILT FOR MODERN HUSTLERS</span>
+            <span class="badge">PROFESSIONAL • LUXURIOUS • PREMIUM</span>
+        </div>
+
+        <button class="btn">PREVIEW FIRST DROP</button>
+
+        <div class="form-box">
+            <h3>JOIN THE HUSTLE LIST</h3>
+            <p>No spam. Only curated drops & insider updates.</p>
+
+            <!-- FINAL FORMSPREE FORM -->
+            <form action="https://formspree.io/f/meoykqpp" method="POST">
+                <input type="email" name="email" placeholder="Enter your best email" required />
+
+                <!-- Redirect after submit -->
+                <input type="hidden" name="_redirect" value="https://hustlersandco.com/thank-you.html">
+
+                <button type="submit" class="btn">GET EARLY ACCESS</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
