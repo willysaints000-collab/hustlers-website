@@ -1,123 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hustlers & Co.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Styling -->
     <style>
         body {
             margin: 0;
             font-family: "Montserrat", sans-serif;
-            background: radial-gradient(circle at top, #0b0f17, #000000 70%);
-            color: #ffffff;
+            background: #000;
+            color: #fff;
         }
+
+        /* HEADER */
+        nav {
+            width: 100%;
+            padding: 20px 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+        }
+
+        nav .logo {
+            font-weight: 900;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+        }
+
+        nav li {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+
+        nav li:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        /* MAIN WRAPPER */
         .container {
             width: 88%;
             max-width: 1200px;
             margin: auto;
-            padding-top: 60px;
+            padding-top: 170px;
         }
+
         h1 {
-            font-size: 52px;
+            font-size: 58px;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            line-height: 1.15;
+            margin-bottom: 25px;
         }
+
         h1 .gold {
             color: #f4d57c;
         }
+
         .subtext {
-            max-width: 550px;
-            font-size: 16px;
+            font-size: 20px;
+            max-width: 700px;
+            color: #ddd;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
-        .badge {
+
+        /* TAGS */
+        .tags {
+            margin: 35px 0;
+        }
+
+        .tag {
             display: inline-block;
-            padding: 6px 14px;
-            margin-right: 8px;
-            margin-bottom: 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            margin-right: 10px;
+            padding: 9px 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            font-size: 13px;
+            letter-spacing: 0.6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
+
+        /* BUTTON */
         .btn {
             display: inline-block;
-            padding: 14px 24px;
-            border-radius: 30px;
-            background: #f4b400;
+            margin-top: 25px;
+            padding: 15px 28px;
+            background: #f4d57c;
             color: #000;
-            font-size: 14px;
             font-weight: 700;
-            border: none;
-            cursor: pointer;
-            margin-right: 12px;
-            margin-top: 12px;
+            border-radius: 30px;
+            text-decoration: none;
             transition: 0.2s;
         }
+
         .btn:hover {
-            background: #ffcc4d;
+            background: #ffe39c;
         }
-        .form-box {
-            margin-top: 50px;
-            padding: 26px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
+
+        /* ABOUT SECTION */
+        .about {
+            margin-top: 100px;
+            max-width: 900px;
+            line-height: 1.7;
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* SIGNUP BOX */
+        .signup-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
             max-width: 650px;
         }
-        input {
-            width: 100%;
+
+        .signup-box h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        input[type="email"] {
+            width: 95%;
             padding: 14px;
+            margin: 15px 0;
             border-radius: 8px;
             border: none;
-            margin-bottom: 18px;
-            font-size: 16px;
+            outline: none;
+        }
+
+        .btn-access {
+            padding: 15px 28px;
+            background: #f4d57c;
+            color: #000;
+            font-weight: 700;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: 120px;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 750px) {
+            nav {
+                padding: 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
+    <nav>
+        <div class="logo">Hustlers & Co.</div>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Drops</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
     <div class="container">
-
-        <div class="badge">LOOKBOOK • 2025 DROP ZERO</div>
-
+        
         <h1>
-            Dress like the <span class="gold">life you’re<br>building</span>,<br>
+            Dress like the <span class="gold">life you’re</span><br>
+            building,<br>
             not the one you’re trying to escape.
         </h1>
 
         <p class="subtext">
-            Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
-            the ones who work late, bet on themselves, and refuse to settle for average.
+            Hustlers & Co. is a luxury streetwear brand built for ambitious thinkers,
+            creators, risk-takers, and visionaries. Designed for those who bet on
+            themselves and choose discipline over excuses.
         </p>
 
-        <div>
-            <span class="badge">BORN IN DUBAI</span>
-            <span class="badge">BUILT FOR MODERN HUSTLERS</span>
-            <span class="badge">PROFESSIONAL • LUXURIOUS • PREMIUM</span>
+        <!-- TAGS -->
+        <div class="tags">
+            <span class="tag">BORN IN DUBAI</span>
+            <span class="tag">BUILT FOR MODERN HUSTLERS</span>
+            <span class="tag">PREMIUM STREETWEAR</span>
         </div>
 
-        <button class="btn">PREVIEW FIRST DROP</button>
+        <a class="btn" href="#">PREVIEW FIRST DROP</a>
 
-        <div class="form-box">
+        <!-- ABOUT SECTION -->
+        <div class="about">
+            <p>
+                Hustlers & Co. was created with one mission — to make streetwear that reflects
+                ambition, discipline, and the hunger to build a better life. This is more than
+                clothing. It’s a mindset. A movement. A reminder that you are your only limit.
+            </p>
+        </div>
+
+        <!-- SIGNUP -->
+        <div class="signup-box">
             <h3>JOIN THE HUSTLE LIST</h3>
-            <p>No spam. Only curated drops & insider updates.</p>
+            <p>Be the first to get notified when Drop Zero launches.</p>
 
-            <!-- FINAL FORMSPREE FORM -->
-            <form action="https://formspree.io/f/meoykqpp" method="POST">
-                <input type="email" name="email" placeholder="Enter your best email" required />
-
-                <!-- Redirect after submit -->
-                <input type="hidden" name="_redirect" value="https://hustlersandco.com/thank-you.html">
-
-                <button type="submit" class="btn">GET EARLY ACCESS</button>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="Enter your best email" required>
+                <button type="submit" class="btn-access">GET EARLY ACCESS</button>
             </form>
         </div>
-
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Hustlers & Co. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
