@@ -2,302 +2,236 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hustlers & Co. — Crafted for the Modern Hustler</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H&CO. — Hustlers and Company</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-  <style>
-    footer {
-  margin-top: 120px;
-  padding: 50px 0;
-  text-align: center;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+        }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
+        /* NAVIGATION */
+        nav {
+            width: 100%;
+            padding: 22px 60px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
 
-.footer-content .tagline {
-  font-size: 12px;
-  letter-spacing: 1px;
-  opacity: 0.7;
-}
+        .brand {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
 
-.footer-content .socials {
-  display: flex;
-  gap: 25px;
-  margin-top: 10px;
-}
+        .brand:hover {
+            color: #f4d57c;
+        }
 
-.footer-content .socials a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.3s ease;
-}
+        .tagline {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: -4px;
+        }
 
-.footer-content .socials a:hover {
-  color: #f4d57c;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            margin: 0;
+        }
 
-.footer-content p {
-  margin: 0;
-  color: #777;
-  font-size: 12px;
-}
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
+        nav ul li a:hover {
+            color: #f4d57c;
+        }
 
-    /* NAVIGATION */
-    nav {
-      width: 100%;
-      padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 200;
-    }
+        /* MOBILE MENU */
+        .mobile-menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
 
-    nav .brand {
-      font-weight: 900;
-      font-size: 22px;
-      letter-spacing: 1px;
-    }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #000;
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-    nav .tagline {
-      font-size: 11px;
-      opacity: 0.7;
-      margin-top: -4px;
-    }
+        .mobile-menu a {
+            padding: 10px 0;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 35px;
-      margin: 0;
-    }
+        @media(max-width: 800px) {
+            nav ul {
+                display: none;
+            }
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
+            .mobile-menu-icon {
+                display: block;
+            }
+        }
 
-    nav ul li a:hover {
-      color: #f4d57c;
-    }
+        /* HERO SECTION */
+        .container {
+            padding-top: 160px;
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    /* SUBTLE BUTTON GOLD HOVER */
-    .btn:hover {
-      background: #f4d57c;
-      opacity: 0.9;
-    }
+        h1 {
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 1.15;
+        }
 
-    /* MOBILE MENU */
-    .menu-btn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: white;
-    }
+        .gold {
+            color: #f4d57c;
+        }
 
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: #000;
-      width: 100%;
-      padding: 20px 30px;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      border-top: 1px solid #222;
-      animation: slideDown 0.4s ease forwards;
-    }
+        .subtitle {
+            margin-top: 22px;
+            font-size: 20px;
+            max-width: 550px;
+            opacity: 0.9;
+        }
 
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 0;
-      font-size: 18px;
-      border-bottom: 1px solid #222;
-      transition: 0.3s ease;
-    }
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 20px;
+        }
 
-    .mobile-menu a:hover {
-      color: #f4d57c;
-    }
+        .btn-yellow {
+            background: #f4d57c;
+            padding: 15px 32px;
+            border-radius: 50px;
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+        }
 
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .btn-yellow:hover {
+            background: #ffeaa7;
+        }
 
-    /* CONTENT */
-    .container {
-      padding-top: 150px;
-      width: 88%;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
+        .btn-dark {
+            border: 1px solid #555;
+            padding: 15px 32px;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+        }
 
-    h1 {
-      font-size: 64px;
-      font-weight: 900;
-      line-height: 1.1;
-    }
+        .btn-dark:hover {
+            border-color: #f4d57c;
+            color: #f4d57c;
+        }
 
-    .gold {
-      color: #f4d57c;
-    }
+        .tags {
+            margin-top: 35px;
+            display: flex;
+            gap: 20px;
+            opacity: 0.8;
+        }
 
-    .subtitle {
-      margin-top: 18px;
-      font-size: 20px;
-      max-width: 650px;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 32px;
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 40px;
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s ease;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 120px;
-      color: #777;
-    }
-
-    /* FADE UP EFFECT */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 1s ease-out forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 850px) {
-      nav ul {
-        display: none;
-      }
-      .menu-btn {
-        display: block;
-      }
-      h1 {
-        font-size: 48px;
-      }
-    }
-  </style>
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 120px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div>
-      <div class="brand">HUSTLERS & CO.</div>
-      <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
+    <!-- NAVIGATION -->
+    <nav>
+        <div>
+            <div class="brand">H&CO.</div>
+            <div class="tagline">HUSTLERS AND COMPANY</div>
+        </div>
+
+        <ul class="desktop-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="collection.html">COLLECTION</a></li>
+            <li><a href="drop-zero.html">DROP ZERO</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+
+        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+
+        <ul class="mobile-menu" id="mobileMenu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="collection.html">COLLECTION</a></li>
+            <li><a href="drop-zero.html">DROP ZERO</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="container">
+        <div class="tags">
+            <span>DUBAI • FOR MODERN HUSTLERS • 2025</span>
+        </div>
+
+        <h1>
+            Dress like the <span class="gold">life you're</span> building,<br>
+            not the one you're trying to escape.
+        </h1>
+
+        <p class="subtitle">
+            Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds — the ones who refuse to settle for average.
+        </p>
+
+        <div class="buttons">
+            <a href="contact.html" class="btn-yellow">JOIN THE HUSTLE LIST</a>
+            <a href="collection.html" class="btn-dark">PREVIEW COLLECTION</a>
+        </div>
     </div>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <!-- FOOTER -->
+    <footer>
+        © 2025 H&CO. — Hustlers and Company. All Rights Reserved.
+    </footer>
 
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="collection.html">COLLECTION</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-      <li><a href="drop-zero.html">DROP ZERO</a></li>
-    </ul>
-
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="index.html">HOME</a>
-      <a href="collection.html">COLLECTION</a>
-      <a href="about.html">ABOUT</a>
-      <a href="contact.html">CONTACT</a>
-      <a href="drop-zero.html">DROP ZERO</a>
-    </div>
-  </nav>
-
-  <!-- JS -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-  </script>
-
-  <!-- CONTENT -->
-  <div class="container">
-
-    <h1 class="fade-up" style="animation-delay:.2s;">
-      Dress like the <span class="gold">life you're</span><br> building.
-    </h1>
-
-    <p class="subtitle fade-up" style="animation-delay:.4s;">
-      Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
-      the ones who work late, dream bigger, and move with purpose.
-    </p>
-
-    <a class="btn fade-up" style="animation-delay:.6s;" href="collection.html">
-      EXPLORE COLLECTION
-    </a>
-
-  </div>
-
-  <footer>
-  <div class="footer-content">
-    <p class="tagline">CRAFTED FOR THE MODERN HUSTLER.</p>
-
-    <div class="socials">
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">TikTok</a>
-      <a href="#" target="_blank">YouTube</a>
-    </div>
-
-    <p class="copyright">© 2025 Hustlers & Co. All Rights Reserved.</p>
-  </div>
-</footer>
-
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
 
 </body>
-
 </html>
