@@ -54,15 +54,32 @@
             margin: 0;
         }
 
+        /* GOLD MENU HOVER ANIMATION */
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #f4d57c;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
             color: #f4d57c;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* MOBILE MENU */
@@ -234,4 +251,5 @@
     </script>
 
 </body>
+
 </html>
