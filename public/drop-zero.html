@@ -54,7 +54,7 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     nav ul li a:hover {
@@ -66,6 +66,7 @@
       display: none;
       font-size: 28px;
       cursor: pointer;
+      color: white;
     }
 
     .mobile-menu {
@@ -87,6 +88,7 @@
       padding: 12px 0;
       font-size: 18px;
       border-bottom: 1px solid #222;
+      transition: 0.3s ease;
     }
 
     .mobile-menu a:hover {
@@ -104,7 +106,7 @@
       }
     }
 
-    /* MAIN CONTENT */
+    /* CONTENT */
     .container {
       padding-top: 160px;
       width: 88%;
@@ -135,17 +137,20 @@
       margin-top: 35px;
       display: inline-block;
       padding: 15px 32px;
-      background: #f4d57c;
-      color: #000;
+      background: #111;
+      border: 1px solid #333;
       border-radius: 40px;
+      color: white;
       text-decoration: none;
       font-weight: 700;
-      transition: 0.3s;
+      transition: 0.3s ease;
       font-size: 16px;
     }
 
     .btn:hover {
-      background: #ffe49f;
+      background: #f4d57c;
+      color: #000;
+      opacity: 0.9;
     }
 
     /* FADE UP EFFECT */
@@ -212,7 +217,6 @@
     </div>
   </nav>
 
-  <!-- JS -->
   <script>
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
@@ -224,14 +228,12 @@
   <div class="container">
 
     <h1 class="fade-up" style="animation-delay:.2s;">
-      DROP <span class="gold">ZERO</span><br>
-      IS COMING.
+      DROP <span class="gold">ZERO</span><br> IS COMING.
     </h1>
 
     <p class="subtitle fade-up" style="animation-delay:.4s;">
-      A capsule built for the disciplined.<br>
-      Premium. Minimal. Purpose-driven.<br>
-      Designed for those who wake up hungry.
+      The first-ever capsule by Hustlers & Co.<br>
+      Built for discipline, ambition, and the pursuit of greatness.
     </p>
 
     <a href="contact.html" class="btn fade-up" style="animation-delay:.6s;">
