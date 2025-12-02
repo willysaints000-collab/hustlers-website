@@ -54,19 +54,18 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     nav ul li a:hover {
       color: #f4d57c;
     }
 
-    /* HAMBURGER MOBILE */
+    /* MOBILE MENU */
     .menu-btn {
       display: none;
       font-size: 28px;
       cursor: pointer;
-      color: white;
     }
 
     .mobile-menu {
@@ -88,6 +87,7 @@
       padding: 12px 0;
       font-size: 18px;
       border-bottom: 1px solid #222;
+      transition: 0.3s ease;
     }
 
     .mobile-menu a:hover {
@@ -152,15 +152,22 @@
 
     button {
       padding: 15px 28px;
-      background: #f4d57c;
-      color: #000;
-      border: none;
+      background: #111;
+      border: 1px solid #333;
+      color: white;
       border-radius: 30px;
       font-weight: 700;
       cursor: pointer;
       margin-top: 15px;
       width: 100%;
       font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #f4d57c;
+      color: #000;
+      opacity: 0.9;
     }
 
     footer {
@@ -170,7 +177,7 @@
       color: #777;
     }
 
-    /* 🔥 FADE-UP ANIMATIONS */
+    /* FADE-UP ANIMATION */
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -226,7 +233,7 @@
     </div>
   </nav>
 
-  <!-- JS -->
+  <!-- MOBILE MENU JS -->
   <script>
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
@@ -240,7 +247,7 @@
     <h1 class="fade-up" style="animation-delay:.2s;">CONTACT US</h1>
 
     <p class="subtitle fade-up" style="animation-delay:.4s;">
-      For inquiries, partnerships, or updates on Drop Zero, send us a message below.
+      For inquiries, collaborations, or Drop Zero updates — send us a message.
     </p>
 
     <div class="form-box fade-up" style="animation-delay:.6s;">
