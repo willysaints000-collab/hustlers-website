@@ -34,6 +34,7 @@
         .brand {
             font-size: 28px;
             font-weight: 900;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
@@ -51,18 +52,34 @@
             list-style: none;
             display: flex;
             gap: 35px;
-            margin: 0;
         }
 
+        /* GOLD HOVER ANIMATION */
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #f4d57c;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
             color: #f4d57c;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* MOBILE MENU */
@@ -72,7 +89,7 @@
             cursor: pointer;
         }
 
-        @media(max-width: 800px) {
+        @media (max-width: 800px) {
             nav ul {
                 display: none;
             }
@@ -97,79 +114,54 @@
             padding: 10px 0;
         }
 
-        /* CONTENT */
+        /* PAGE CONTENT */
         .container {
             padding-top: 160px;
-            width: 90%;
-            max-width: 1200px;
+            width: 88%;
             margin: auto;
+            max-width: 1200px;
+            text-align: left;
         }
 
         h1 {
-            font-size: 50px;
+            font-size: 52px;
             font-weight: 900;
-            margin-bottom: 10px;
         }
 
         .gold {
             color: #f4d57c;
         }
 
-        .subtext {
-            font-size: 18px;
-            opacity: 0.9;
+        .subtitle {
+            margin-top: 15px;
+            font-size: 20px;
+            opacity: 0.85;
             max-width: 650px;
-            line-height: 1.7;
         }
 
-        .banner {
-            margin-top: 40px;
-            width: 100%;
-            height: 440px;
-            background: url("https://via.placeholder.com/1200x500") center/cover no-repeat;
-            border-radius: 14px;
-        }
-
+        /* LOOKBOOK GRID */
         .grid {
-            margin-top: 50px;
+            margin-top: 60px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .item {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 25px;
-            border-radius: 14px;
-            text-align: center;
+        .grid img {
+            width: 100%;
+            border-radius: 12px;
             transition: 0.3s;
         }
 
-        .item:hover {
-            border: 1px solid #f4d57c;
-        }
-
-        .item img {
-            width: 100%;
-            border-radius: 12px;
-        }
-
-        .item-title {
-            margin-top: 12px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .item-status {
-            margin-top: 4px;
-            opacity: 0.8;
+        .grid img:hover {
+            transform: scale(1.03);
         }
 
         /* FOOTER */
         footer {
             text-align: center;
             padding: 60px 0;
-            margin-top: 100px;
+            margin-top: 120px;
             color: #777;
             font-size: 14px;
         }
@@ -206,36 +198,17 @@
 
     <!-- CONTENT -->
     <div class="container">
-        <h1>Drop <span class="gold">Zero</span></h1>
-        <p class="subtext">The first official launch of H&CO. A curated selection of premium crafted pieces built for
-            ambition, discipline, and modern hustle.</p>
-
-        <div class="banner"></div>
+        <h1>DROP <span class="gold">ZERO</span></h1>
+        <p class="subtitle">
+            The first official lookbook from H&CO. — clean silhouettes, disciplined design,  
+            and premium streetwear crafted for the modern hustler.
+        </p>
 
         <div class="grid">
-            <div class="item">
-                <img src="https://via.placeholder.com/300x350" alt="Product">
-                <div class="item-title">Prototype Hoodie</div>
-                <div class="item-status">COMING SOON</div>
-            </div>
-
-            <div class="item">
-                <img src="https://via.placeholder.com/300x350" alt="Product">
-                <div class="item-title">Heavyweight Tee</div>
-                <div class="item-status">COMING SOON</div>
-            </div>
-
-            <div class="item">
-                <img src="https://via.placeholder.com/300x350" alt="Product">
-                <div class="item-title">Hustler Cap</div>
-                <div class="item-status">COMING SOON</div>
-            </div>
-
-            <div class="item">
-                <img src="https://via.placeholder.com/300x350" alt="Product">
-                <div class="item-title">Oversized Sweats</div>
-                <div class="item-status">COMING SOON</div>
-            </div>
+            <img src="https://via.placeholder.com/400x500" alt="Drop Zero Image">
+            <img src="https://via.placeholder.com/400x500" alt="Drop Zero Image">
+            <img src="https://via.placeholder.com/400x500" alt="Drop Zero Image">
+            <img src="https://via.placeholder.com/400x500" alt="Drop Zero Image">
         </div>
     </div>
 
@@ -247,7 +220,8 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById("mobileMenu");
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            menu.style.display =
+                menu.style.display === "flex" ? "none" : "flex";
         }
     </script>
 
