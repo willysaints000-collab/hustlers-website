@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Hustlers & Co.</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -15,26 +14,34 @@
       font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
+      overflow-x: hidden;
     }
 
     /* NAVIGATION */
     nav {
       width: 100%;
       padding: 22px 60px;
-      background: rgba(0,0,0,0.65);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
-      align-items:center;
+      align-items: center;
       position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      z-index: 200;
     }
 
     nav .brand {
       font-weight: 900;
       font-size: 22px;
       letter-spacing: 1px;
+    }
+
+    nav .tagline {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: -4px;
     }
 
     nav ul {
@@ -45,114 +52,148 @@
     }
 
     nav ul li a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      opacity: 0.85;
+      transition: 0.3s;
     }
 
     nav ul li a:hover {
-      opacity: 1;
+      color: #f4d57c;
     }
 
-    /* CONTACT PAGE */
+    /* HAMBURGER MOBILE */
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+      padding: 20px 30px;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      border-top: 1px solid #222;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #222;
+    }
+
+    .mobile-menu a:hover {
+      color: #f4d57c;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CONTENT */
     .container {
-      width: 85%;
-      max-width: 900px;
+      padding-top: 160px;
+      width: 88%;
+      max-width: 700px;
       margin: auto;
-      padding-top: 150px;
-      text-align: center;
     }
 
     h1 {
       font-size: 48px;
       font-weight: 900;
-      margin-bottom: 10px;
     }
 
-    .gold {
-      color: #f4d57c;
-    }
-
-    .subtext {
+    .subtitle {
       font-size: 18px;
-      opacity: 0.7;
+      color: #ccc;
       margin-top: 10px;
+      margin-bottom: 40px;
+      line-height: 1.6;
     }
 
-    /* FORM */
-    form {
-      margin-top: 40px;
-      text-align: left;
-      background: rgba(255,255,255,0.04);
-      padding: 40px;
-      border-radius: 12px;
-    }
-
-    label {
-      font-size: 15px;
-      opacity: 0.85;
+    .form-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     input, textarea {
       width: 100%;
       padding: 14px;
+      margin-top: 15px;
       border-radius: 8px;
       border: none;
-      margin-top: 8px;
-      margin-bottom: 20px;
+      outline: none;
+      background: #111;
+      color: #fff;
       font-size: 15px;
     }
 
     textarea {
-      height: 130px;
+      height: 140px;
       resize: none;
     }
 
-    .btn {
+    button {
+      padding: 15px 28px;
       background: #f4d57c;
-      width: 100%;
-      padding: 14px;
-      font-weight: 700;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
       color: #000;
-    }
-
-    /* SOCIALS */
-    .socials {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-    }
-
-    .socials a {
-      text-decoration: none;
-      color: #f4d57c;
-      font-size: 28px;
-      transition: 0.3s;
-    }
-
-    .socials a:hover {
-      opacity: 0.7;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+      font-size: 16px;
     }
 
     footer {
       text-align: center;
-      margin-top: 80px;
-      padding: 40px;
-      opacity: 0.6;
+      padding: 40px 0;
+      margin-top: 100px;
+      color: #777;
     }
 
-    /* MOBILE */
-    @media(max-width: 768px) {
-      nav { padding: 20px; }
-      nav ul { display: none; }
-      h1 { font-size: 34px; }
-      form { padding: 25px; }
+    /* 🔥 FADE-UP ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 850px) {
+      nav ul {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+      h1 {
+        font-size: 38px;
+      }
     }
   </style>
 </head>
@@ -161,46 +202,61 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <div class="brand">HUSTLERS & CO.</div>
+    <div>
+      <div class="brand">HUSTLERS & CO.</div>
+      <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
     <ul>
-      <li><a href="/index.html">HOME</a></li>
-      <li><a href="/collection.html">COLLECTION</a></li>
-      <li><a href="/about.html">ABOUT</a></li>
-      <li><a href="/contact.html">CONTACT</a></li>
-      <li><a href="/drop-zero.html">DROP ZERO</a></li>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="collection.html">COLLECTION</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="drop-zero.html">DROP ZERO</a></li>
     </ul>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">HOME</a>
+      <a href="collection.html">COLLECTION</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="drop-zero.html">DROP ZERO</a>
+    </div>
   </nav>
 
-  <!-- CONTACT CONTENT -->
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
+  <!-- CONTENT -->
   <div class="container">
 
-    <h1>Contact <span class="gold">Hustlers & Co.</span></h1>
-    <div class="subtext">We’d love to hear from you.</div>
+    <h1 class="fade-up" style="animation-delay:.2s;">CONTACT US</h1>
 
-    <!-- FORM -->
-    <form action="https://formspree.io/f/mnnevvyp" method="POST">
-      <label>Your Name</label>
-      <input type="text" name="name" placeholder="Enter your full name" required>
+    <p class="subtitle fade-up" style="animation-delay:.4s;">
+      For inquiries, partnerships, or updates on Drop Zero, send us a message below.
+    </p>
 
-      <label>Your Email</label>
-      <input type="email" name="email" placeholder="Enter your best email" required>
-
-      <label>Your Message</label>
-      <textarea name="message" placeholder="Write your message here..." required></textarea>
-
-      <button type="submit" class="btn">SEND MESSAGE</button>
-    </form>
-
-    <!-- SOCIAL ICONS -->
-    <div class="socials">
-      <a href="https://instagram.com" target="_blank">📸</a>
-      <a href="https://tiktok.com" target="_blank">🎵</a>
-      <a href="mailto:hustlersandco@gmail.com">✉️</a>
+    <div class="form-box fade-up" style="animation-delay:.6s;">
+      <form action="https://formspree.io/f/meoykqpp" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">SEND MESSAGE</button>
+      </form>
     </div>
 
   </div>
 
-  <footer>© 2025 Hustlers & Co. All Rights Reserved.</footer>
+  <footer>
+    © 2025 Hustlers & Co. All Rights Reserved.
+  </footer>
 
 </body>
 
