@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,13 +14,14 @@
       font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
+      overflow-x: hidden;
     }
 
     /* NAVIGATION */
     nav {
       width: 100%;
       padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
@@ -137,12 +137,39 @@
       opacity: 0.8;
     }
 
+    .highlight-box {
+      margin-top: 25px;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
     footer {
       text-align: center;
       margin-top: 120px;
       padding: 40px 0;
       color: #777;
       font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        width: 90%;
+        text-align: center;
+      }
+      .left, .right {
+        width: 100%;
+      }
+      nav {
+        padding: 18px 25px;
+      }
+      nav ul {
+        gap: 18px;
+      }
+      .hero-title {
+        font-size: 38px;
+      }
     }
   </style>
 </head>
@@ -157,20 +184,17 @@
     </div>
 
     <ul>
-      <li>HOME</li>
-      <li>COLLECTION</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
+      <li><a href="/index.html" style="color:white;text-decoration:none;">HOME</a></li>
+      <li><a href="/collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
+      <li><a href="/about.html" style="color:white;text-decoration:none;">ABOUT</a></li>
+      <li><a href="/contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
+      <li><a href="/drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
     </ul>
-
   </nav>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <div class="container">
-
-    <!-- LEFT SIDE -->
     <div class="left">
-
       <div class="tags">
         <span>DUBAI · ONLINE · FOR MODERN HUSTLERS</span>
       </div>
@@ -186,78 +210,23 @@
       </p>
 
       <div class="buttons">
-        <a class="btn btn-yellow" href="#signup">JOIN THE HUSTLE LIST</a>
-        <a class="btn btn-dark" href="#">PREVIEW FIRST DROP</a>
+        <a class="btn btn-yellow" href="/contact.html">JOIN THE HUSTLE LIST</a>
+        <a class="btn btn-dark" href="/collection.html">PREVIEW FIRST DROP</a>
       </div>
 
       <div class="tags" style="margin-top: 25px;">
         <span>BORN IN DUBAI</span>
         <span>BUILT FOR MODERN HUSTLERS</span>
       </div>
-
     </div>
 
-    <!-- RIGHT SIDE QUOTE BOX -->
     <div class="right">
       <h4 style="margin-top: 0;">“Your outfit should match your ambition.”</h4>
       <p>
-        This space can later showcase your main product shot, lookbook highlight or campaign visual.
+        This space will soon showcase your main product shot, lookbook highlight, or campaign visual.
         For now, it holds the essence of what you're building.
       </p>
     </div>
-
-  </div>
-
-  <!-- EMAIL SIGNUP FORM -->
-  <div id="signup" style="
-    width: 88%;
-    margin: 80px auto 0 auto;
-    background: rgba(255,255,255,0.05);
-    padding: 40px;
-    border-radius: 12px;
-    max-width: 700px;
-  ">
-
-    <h2 style="margin-top:0;">JOIN THE HUSTLE LIST</h2>
-    <p style="opacity:0.8; margin-bottom:25px;">
-      No spam — only curated drops, early access & insider updates.
-    </p>
-
-    <form action="https://formspree.io/f/mnnevvyvp" method="POST">
-
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="Enter your best email"
-        required
-        style="
-          width: 100%;
-          padding: 14px;
-          border-radius: 8px;
-          border: none;
-          margin-bottom: 15px;
-          font-size: 15px;
-        "
-      >
-
-      <button 
-        type="submit"
-        style="
-          background:#f4d57c;
-          color:#000;
-          padding:14px 28px;
-          border-radius:30px;
-          border:none;
-          font-weight:700;
-          cursor:pointer;
-          font-size:15px;
-        "
-      >
-        GET EARLY ACCESS
-      </button>
-
-    </form>
-
   </div>
 
   <footer>
@@ -265,5 +234,5 @@
   </footer>
 
 </body>
-
 </html>
+
