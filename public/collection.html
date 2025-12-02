@@ -2,259 +2,210 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collection — Hustlers & Co.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collection — Hustlers & Co.</title>
 
-    <!-- FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #000;
-            color: #fff;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      background: #000;
+      color: #fff;
+    }
 
-        /* NAVIGATION */
-        nav {
-            width: 100%;
-            padding: 22px 60px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            z-index: 100;
-        }
+    /* NAVIGATION */
+    nav {
+      width: 100%;
+      padding: 22px 60px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+    }
 
-        nav .brand {
-            font-weight: 900;
-            font-size: 22px;
-            letter-spacing: 1px;
-        }
+    nav .brand {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            margin: 0;
-        }
+    nav .tagline {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: -4px;
+    }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            opacity: 0.85;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+      margin: 0;
+    }
 
-        nav ul li a:hover {
-            opacity: 1;
-        }
+    nav ul li {
+      font-weight: 500;
+      font-size: 15px;
+      opacity: 0.85;
+      transition: 0.2s;
+    }
 
-        /* PAGE HEADER */
-        .page-header {
-            padding-top: 150px;
-            text-align: center;
-        }
+    nav ul li:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
 
-        .page-header h1 {
-            font-size: 50px;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
 
-        .page-header p {
-            font-size: 16px;
-            opacity: 0.7;
-        }
+    /* COLLECTION */
+    .collection-container {
+      width: 90%;
+      margin: auto;
+      padding-top: 150px;
+    }
 
-        /* FEATURED PRODUCT */
-        .featured {
-            width: 85%;
-            margin: 60px auto;
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            justify-content: center;
-        }
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
 
-        .featured img {
-            width: 55%;
-            border-radius: 14px;
-        }
+    .gold {
+      color: #f4d57c;
+    }
 
-        .featured-info {
-            width: 45%;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      margin-top: 40px;
+    }
 
-        .featured-info h2 {
-            font-size: 38px;
-            font-weight: 800;
-        }
+    .item {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #1a1a1a;
+    }
 
-        .featured-info p {
-            opacity: 0.8;
-            line-height: 1.7;
-            margin-top: 10px;
-        }
+    .item:hover {
+      transform: translateY(-5px);
+      border-color: #f4d57c;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            border-radius: 40px;
-            background: #f4d57c;
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
+    .product-img {
+      width: 100%;
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+    }
 
-        .btn:hover {
-            background: #ffe9a6;
-        }
+    .item h3 {
+      margin-top: 18px;
+      font-size: 20px;
+      font-weight: 700;
+    }
 
-        /* COLLECTION GRID */
-        .grid {
-            width: 85%;
-            margin: 80px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-        }
+    .item p {
+      margin-top: 5px;
+      opacity: 0.8;
+      font-size: 15px;
+    }
 
-        .item {
-            background: rgba(255, 255, 255, 0.06);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.3s;
-        }
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #777;
+      font-size: 14px;
+      margin-top: 60px;
+    }
 
-        .item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 0 18px rgba(244, 213, 124, 0.25);
-        }
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav {
+        padding: 18px 25px;
+      }
 
-        .item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .item-name {
-            font-weight: 700;
-            font-size: 18px;
-            margin-top: 14px;
-        }
-
-        .item-tag {
-            opacity: 0.7;
-            font-size: 14px;
-        }
-
-        footer {
-            text-align: center;
-            margin: 90px 0 40px;
-            opacity: 0.6;
-        }
-
-        /* MOBILE */
-        @media(max-width: 850px) {
-            nav {
-                padding: 20px;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .featured {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .featured img {
-                width: 100%;
-            }
-
-            .featured-info {
-                width: 100%;
-            }
-
-            .page-header h1 {
-                font-size: 34px;
-            }
-        }
-    </style>
+      h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <nav>
-        <div class="brand">HUSTLERS & CO.</div>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-
-    <!-- PAGE HEADER -->
-    <div class="page-header">
-        <h1>2025 COLLECTION</h1>
-        <p>Crafted for the modern hustler.</p>
+  <!-- NAVIGATION -->
+  <nav>
+    <div>
+      <div class="brand">HUSTLERS & CO.</div>
+      <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
-    <!-- FEATURED PRODUCT -->
-    <div class="featured">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80" />
+    <ul>
+      <li><a href="/index.html">HOME</a></li>
+      <li><a href="/collection.html">COLLECTION</a></li>
+      <li><a href="/about.html">ABOUT</a></li>
+      <li><a href="/contact.html">CONTACT</a></li>
+      <li><a href="/drop-zero.html">DROP ZERO</a></li>
+    </ul>
+  </nav>
 
-        <div class="featured-info">
-            <h2>LIMITED EDITION — BLACKOUT JACKET</h2>
-            <p>
-                Premium heavyweight fabric. Minimalist silhouette.
-                Designed for creators, leaders, and visionaries who move with intention.
-            </p>
-            <a class="btn" href="#">PRE-ORDER NOW</a>
-        </div>
-    </div>
+  <!-- COLLECTION SECTION -->
+  <div class="collection-container">
 
-    <!-- GRID -->
+    <h1><span class="gold">Drop Zero —</span> The First Collection</h1>
+
     <div class="grid">
 
-        <div class="item">
-            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80">
-            <div class="item-name">Oversized Hoodie</div>
-            <div class="item-tag">Drop Zero</div>
-        </div>
+      <!-- PRODUCT 1 -->
+      <div class="item">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=800&q=80');"></div>
+        <h3>Midnight Hoodie</h3>
+        <p>Premium heavyweight black hoodie</p>
+      </div>
 
-        <div class="item">
-            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=800&q=80">
-            <div class="item-name">Everyday Tee</div>
-            <div class="item-tag">Signature Line</div>
-        </div>
+      <!-- PRODUCT 2 -->
+      <div class="item">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80');"></div>
+        <h3>Signature Tee</h3>
+        <p>Minimal design. Maximum presence.</p>
+      </div>
 
-        <div class="item">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80">
-            <div class="item-name">Utility Cargo Pants</div>
-            <div class="item-tag">Core Essentials</div>
-        </div>
+      <!-- PRODUCT 3 -->
+      <div class="item">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1520975918319-5372f81d1a97?auto=format&fit=crop&w=800&q=80');"></div>
+        <h3>Urban Cargo Pants</h3>
+        <p>Comfort meets street luxury.</p>
+      </div>
 
-        <div class="item">
-            <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80">
-            <div class="item-name">Classic Street Cap</div>
-            <div class="item-tag">Everyday Line</div>
-        </div>
+      <!-- PRODUCT 4 -->
+      <div class="item">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1593032465171-8a6e3a8821df?auto=format&fit=crop&w=800&q=80');"></div>
+        <h3>Stealth Cap</h3>
+        <p>For the silent achievers.</p>
+      </div>
 
     </div>
+  </div>
 
-    <footer>© 2025 Hustlers & Co. All Rights Reserved.</footer>
+  <footer>
+    © 2025 Hustlers & Co. All Rights Reserved.
+  </footer>
 
 </body>
 
