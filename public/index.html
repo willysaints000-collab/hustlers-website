@@ -54,14 +54,20 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     nav ul li a:hover {
       color: #f4d57c;
     }
 
-    /* HAMBURGER (MOBILE) */
+    /* SUBTLE BUTTON GOLD HOVER */
+    .btn:hover {
+      background: #f4d57c;
+      opacity: 0.9;
+    }
+
+    /* MOBILE MENU */
     .menu-btn {
       display: none;
       font-size: 28px;
@@ -69,7 +75,6 @@
       color: white;
     }
 
-    /* MOBILE MENU DROPDOWN */
     .mobile-menu {
       display: none;
       flex-direction: column;
@@ -89,6 +94,7 @@
       padding: 12px 0;
       font-size: 18px;
       border-bottom: 1px solid #222;
+      transition: 0.3s ease;
     }
 
     .mobile-menu a:hover {
@@ -106,32 +112,20 @@
       }
     }
 
-    /* MAIN LAYOUT */
+    /* CONTENT */
     .container {
       padding-top: 150px;
       width: 88%;
       margin: auto;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 30px;
     }
 
-    .left {
-      width: 60%;
-    }
-
-    .right {
-      width: 30%;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 25px;
-      border-radius: 12px;
-      line-height: 1.6;
-    }
-
-    .hero-title {
-      font-size: 60px;
+    h1 {
+      font-size: 64px;
       font-weight: 900;
-      line-height: 1.15;
+      line-height: 1.1;
     }
 
     .gold {
@@ -139,56 +133,33 @@
     }
 
     .subtitle {
-      margin-top: 22px;
-      font-size: 18px;
-      opacity: 0.9;
-      max-width: 520px;
-      line-height: 1.7;
-    }
-
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      gap: 20px;
+      margin-top: 18px;
+      font-size: 20px;
+      max-width: 650px;
+      line-height: 1.6;
+      color: #ccc;
     }
 
     .btn {
+      display: inline-block;
       padding: 15px 32px;
-      border-radius: 50px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 40px;
+      color: white;
       text-decoration: none;
       font-weight: 700;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .btn-yellow {
-      background: #f4d57c;
-      color: #000;
-    }
-
-    .btn-dark {
-      background: #111;
-      color: #fff;
-      border: 1px solid #444;
-    }
-
-    .tags {
-      margin-top: 35px;
-      display: flex;
-      gap: 20px;
-      font-size: 12px;
-      opacity: 0.8;
+      transition: 0.3s ease;
     }
 
     footer {
       text-align: center;
-      margin-top: 120px;
       padding: 40px 0;
+      margin-top: 120px;
       color: #777;
     }
 
-    /* 🔥 FADE-UP ANIMATIONS */
+    /* FADE UP EFFECT */
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -202,26 +173,15 @@
       }
     }
 
-    /* MOBILE RESPONSIVE */
     @media (max-width: 850px) {
       nav ul {
         display: none;
       }
-
       .menu-btn {
         display: block;
       }
-
-      .container {
-        flex-direction: column;
-      }
-
-      .left, .right {
-        width: 100%;
-      }
-
-      .hero-title {
-        font-size: 42px;
+      h1 {
+        font-size: 48px;
       }
     }
   </style>
@@ -246,7 +206,6 @@
       <li><a href="drop-zero.html">DROP ZERO</a></li>
     </ul>
 
-    <!-- MOBILE MENU -->
     <div id="mobileMenu" class="mobile-menu">
       <a href="index.html">HOME</a>
       <a href="collection.html">COLLECTION</a>
@@ -256,7 +215,7 @@
     </div>
   </nav>
 
-  <!-- JS SCRIPT -->
+  <!-- JS -->
   <script>
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
@@ -264,42 +223,21 @@
     }
   </script>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <div class="container">
 
-    <div class="left">
-      <div class="tags fade-up" style="animation-delay: .1s;">
-        <span>DUBAI · ONLINE · FOR MODERN HUSTLERS</span>
-      </div>
+    <h1 class="fade-up" style="animation-delay:.2s;">
+      Dress like the <span class="gold">life you're</span><br> building.
+    </h1>
 
-      <h1 class="hero-title fade-up" style="animation-delay: .2s;">
-        Dress like the <span class="gold">life you're</span> building,<br>
-        not the one you're trying to escape.
-      </h1>
+    <p class="subtitle fade-up" style="animation-delay:.4s;">
+      Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
+      the ones who work late, dream bigger, and move with purpose.
+    </p>
 
-      <p class="subtitle fade-up" style="animation-delay: .4s;">
-        Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
-        the ones who work late, dream bigger and refuse to settle for average.
-      </p>
-
-      <div class="buttons fade-up" style="animation-delay: .6s;">
-        <a class="btn btn-yellow" href="contact.html">JOIN THE HUSTLE LIST</a>
-        <a class="btn btn-dark" href="collection.html">PREVIEW FIRST DROP</a>
-      </div>
-
-      <div class="tags fade-up" style="margin-top: 25px; animation-delay: .8s;">
-        <span>BORN IN DUBAI</span>
-        <span>BUILT FOR MODERN HUSTLERS</span>
-      </div>
-    </div>
-
-    <div class="right fade-up" style="animation-delay: 1s;">
-      <h4 style="margin-top: 0;">“Your outfit should match your ambition.”</h4>
-      <p>
-        This space will later showcase your campaign visuals or product preview.
-        For now, it holds the essence of your brand’s story.
-      </p>
-    </div>
+    <a class="btn fade-up" style="animation-delay:.6s;" href="collection.html">
+      EXPLORE COLLECTION
+    </a>
 
   </div>
 
