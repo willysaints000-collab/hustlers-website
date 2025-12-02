@@ -14,20 +14,22 @@
       font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
+      overflow-x: hidden;
     }
 
     /* NAVIGATION */
     nav {
       width: 100%;
       padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      z-index: 200;
     }
 
     nav .brand {
@@ -49,19 +51,60 @@
       margin: 0;
     }
 
-    nav ul li {
-      font-weight: 500;
-      font-size: 15px;
-      opacity: 0.85;
-      transition: 0.2s;
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    nav ul li:hover {
-      opacity: 1;
+    nav ul li a:hover {
+      color: #f4d57c;
+    }
+
+    /* MOBILE MENU */
+    .menu-btn {
+      display: none;
+      font-size: 28px;
       cursor: pointer;
     }
 
-    /* HERO SECTION */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+      padding: 20px 30px;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      border-top: 1px solid #222;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #222;
+    }
+
+    .mobile-menu a:hover {
+      color: #f4d57c;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MAIN CONTENT */
     .container {
       padding-top: 160px;
       width: 88%;
@@ -71,9 +114,9 @@
     }
 
     h1 {
-      font-size: 60px;
+      font-size: 72px;
       font-weight: 900;
-      line-height: 1.15;
+      line-height: 1.1;
     }
 
     .gold {
@@ -81,47 +124,31 @@
     }
 
     .subtitle {
-      font-size: 20px;
       margin-top: 20px;
-      line-height: 1.6;
+      font-size: 20px;
+      max-width: 600px;
       color: #ccc;
+      line-height: 1.65;
     }
 
-    .box {
-      margin-top: 50px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 35px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .box h3 {
-      margin-top: 0;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .btn-yellow {
+    .btn {
+      margin-top: 35px;
+      display: inline-block;
+      padding: 15px 32px;
       background: #f4d57c;
       color: #000;
-      padding: 14px 30px;
-      font-weight: 700;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 20px;
+      border-radius: 40px;
       text-decoration: none;
-      border: none;
-      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s;
+      font-size: 16px;
     }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 100px;
-      color: #777;
+    .btn:hover {
+      background: #ffe49f;
     }
 
-    /* 🔥 FADE-UP ANIMATIONS */
+    /* FADE UP EFFECT */
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -135,17 +162,23 @@
       }
     }
 
-    @media (max-width: 750px) {
-      h1 {
-        font-size: 42px;
-      }
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      margin-top: 120px;
+      color: #777;
+    }
 
-      .box {
-        padding: 25px;
-      }
-
+    /* MOBILE */
+    @media (max-width: 850px) {
       nav ul {
         display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+      h1 {
+        font-size: 48px;
       }
     }
   </style>
@@ -160,39 +193,50 @@
       <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
     <ul>
-      <li><a href="index.html" style="color:white;text-decoration:none;">HOME</a></li>
-      <li><a href="collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
-      <li><a href="about.html" style="color:white;text-decoration:none;">ABOUT</a></li>
-      <li><a href="contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
-      <li><a href="drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="collection.html">COLLECTION</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="drop-zero.html">DROP ZERO</a></li>
     </ul>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">HOME</a>
+      <a href="collection.html">COLLECTION</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="drop-zero.html">DROP ZERO</a>
+    </div>
   </nav>
 
-  <!-- DROP ZERO CONTENT -->
-  <div class="container fade-up" style="animation-delay:.2s;">
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 
-    <h1 class="fade-up" style="animation-delay:.4s;">
-      DROP <span class="gold">ZERO</span>
+  <!-- CONTENT -->
+  <div class="container">
+
+    <h1 class="fade-up" style="animation-delay:.2s;">
+      DROP <span class="gold">ZERO</span><br>
+      IS COMING.
     </h1>
 
-    <p class="subtitle fade-up" style="animation-delay:.6s;">
-      The first official release from Hustlers & Co.  
-      Crafted with precision. Designed with intention.  
-      For the modern hustler — the one who chooses growth over comfort.
+    <p class="subtitle fade-up" style="animation-delay:.4s;">
+      A capsule built for the disciplined.<br>
+      Premium. Minimal. Purpose-driven.<br>
+      Designed for those who wake up hungry.
     </p>
 
-    <div class="box fade-up" style="animation-delay:.8s;">
-      <h3>COMING SOON</h3>
-      <p>
-        Drop Zero will feature our first lineup of essential luxury streetwear pieces —
-        made with premium materials and timeless silhouettes.
-      </p>
-
-      <a href="contact.html" class="btn-yellow fade-up" style="animation-delay:1s;">
-        JOIN THE HUSTLE LIST
-      </a>
-    </div>
+    <a href="contact.html" class="btn fade-up" style="animation-delay:.6s;">
+      JOIN THE HUSTLE LIST
+    </a>
 
   </div>
 
