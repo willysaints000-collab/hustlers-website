@@ -2,262 +2,218 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hustlers & Co.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hustlers & Co. — Crafted for the Modern Hustler</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #000;
-            color: #fff;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+    }
 
-        /* HEADER */
-        nav {
-            width: 100%;
-            padding: 22px 60px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(0,0,0,0.55);
-            backdrop-filter: blur(6px);
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* NAVIGATION */
+    nav {
+      width: 100%;
+      padding: 22px 60px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+    }
 
-        nav .logo {
-            font-size: 28px;
-            font-weight: 900;
-        }
+    nav .brand {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-        }
+    nav .tagline {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: -4px;
+    }
 
-        nav li {
-            font-size: 16px;
-            font-weight: 600;
-            opacity: 0.85;
-            transition: 0.3s;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+      margin: 0;
+    }
 
-        nav li:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
+    nav ul li {
+      font-weight: 500;
+      font-size: 15px;
+      opacity: 0.85;
+      transition: 0.2s;
+    }
 
-        /* CONTAINER */
-        .container {
-            width: 88%;
-            max-width: 1200px;
-            margin: auto;
-            padding-top: 180px;
-        }
+    nav ul li:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
 
-        h1 {
-            font-size: 64px;
-            font-weight: 900;
-            line-height: 1.1;
-        }
+    .container {
+      padding-top: 150px;
+      width: 88%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
-        .gold {
-            color: #f4d57c;
-        }
+    .left {
+      width: 60%;
+    }
 
-        .subtitle {
-            margin-top: 18px;
-            font-size: 20px;
-            max-width: 650px;
-            line-height: 1.6;
-            color: #ccc;
-        }
+    .right {
+      width: 30%;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 25px;
+      border-radius: 12px;
+      line-height: 1.6;
+    }
 
-        /* TAGS */
-        .tags {
-            margin: 40px 0;
-        }
+    .hero-title {
+      font-size: 60px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
 
-        .tag {
-            display: inline-block;
-            margin-right: 12px;
-            padding: 9px 20px;
-            border-radius: 25px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            font-size: 13px;
-            letter-spacing: 0.6px;
-        }
+    .gold {
+      color: #f4d57c;
+    }
 
-        /* BUTTON */
-        .btn {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 15px 32px;
-            background: #f4d57c;
-            border-radius: 30px;
-            color: #000;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+    .subtitle {
+      margin-top: 22px;
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 520px;
+      line-height: 1.7;
+    }
 
-        .btn:hover {
-            background: #ffe49f;
-        }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
 
-        /* ABOUT SECTION */
-        .about-section {
-            margin-top: 100px;
-            max-width: 900px;
-            font-size: 18px;
-            line-height: 1.75;
-            color: #ccc;
-        }
+    .btn {
+      padding: 15px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-        /* MISSION BOX */
-        .mission {
-            margin-top: 70px;
-            padding: 35px;
-            border-radius: 14px;
-            background: rgba(255,255,255,0.05);
-            max-width: 850px;
-        }
+    .btn-yellow {
+      background: #f4d57c;
+      color: #000;
+    }
 
-        .mission h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
+    .btn-dark {
+      background: #111;
+      color: #fff;
+      border: 1px solid #444;
+    }
 
-        /* EMAIL SIGNUP */
-        .signup-box {
-            margin-top: 80px;
-            padding: 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 14px;
-            max-width: 650px;
-        }
+    .tags {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      font-size: 12px;
+      opacity: 0.8;
+    }
 
-        .signup-box h3 {
-            margin: 0;
-            font-size: 24px;
-        }
+    .highlight-box {
+      margin-top: 25px;
+      font-size: 15px;
+      opacity: 0.9;
+    }
 
-        input[type="email"] {
-            width: 95%;
-            padding: 14px;
-            margin: 18px 0;
-            border: none;
-            border-radius: 8px;
-            outline: none;
-        }
-
-        .btn-access {
-            padding: 15px 26px;
-            background: #f4d57c;
-            color: #000;
-            font-weight: 700;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        footer {
-            margin-top: 120px;
-            text-align: center;
-            padding: 40px 0;
-            color: #777;
-            font-size: 14px;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 750px) {
-            nav { padding: 20px; }
-            nav ul { display: none; }
-            h1 { font-size: 42px; }
-        }
-    </style>
+    footer {
+      text-align: center;
+      margin-top: 120px;
+      padding: 40px 0;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <nav>
-        <div class="logo">Hustlers & Co.</div>
-        <ul>
-            <li>Home</li>
-            <li>Drops</li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-
-        <h1>
-            Dress like the <span class="gold">life you're</span><br>
-            building,<br>
-            not the one you're trying to escape.
-        </h1>
-
-        <p class="subtitle">
-            Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds — the ones
-            who work late, bet on themselves, and refuse to settle for average.
-        </p>
-
-        <div class="tags">
-            <span class="tag">LOOKBOOK • 2025 DROP ZERO</span>
-            <span class="tag">BORN IN DUBAI</span>
-            <span class="tag">BUILT FOR MODERN HUSTLERS</span>
-            <span class="tag">PREMIUM • LUXURIOUS • PROFESSIONAL</span>
-        </div>
-
-        <a class="btn" href="#">PREVIEW FIRST DROP</a>
-
-        <div class="about-section">
-            <p>
-                Hustlers & Co. was created with one purpose — to inspire discipline, ambition,
-                and the mindset of building the life you deserve. This brand represents the
-                modern hustler: leaders, creators, risk-takers, dreamers, and doers.
-            </p>
-        </div>
-
-        <div class="mission">
-            <h2>OUR MISSION</h2>
-            <p>
-                To redefine modern streetwear with luxury-quality materials, timeless designs,
-                and meaningful storytelling. Every piece is crafted for individuals who wake up
-                with intention, who choose growth, who choose greatness.
-            </p>
-        </div>
-
-        <!-- EMAIL SIGNUP -->
-        <div class="signup-box">
-            <h3>JOIN THE HUSTLE LIST</h3>
-            <p>No spam. Only curated drops & insider updates.</p>
-
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <input type="email" name="email" placeholder="Enter your best email" required>
-                <button type="submit" class="btn-access">GET EARLY ACCESS</button>
-            </form>
-        </div>
-
+  <!-- NAVIGATION -->
+  <nav>
+    <div>
+      <div class="brand">HUSTLERS & CO.</div>
+      <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
-    <footer>
-        © 2025 Hustlers & Co. All Rights Reserved.
-    </footer>
+    <ul>
+      <li>HOME</li>
+      <li>COLLECTION</li>
+      <li>ABOUT</li>
+      <li>CONTACT</li>
+    </ul>
+
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <div class="tags">
+        <span>DUBAI · ONLINE · FOR MODERN HUSTLERS</span>
+      </div>
+
+      <h1 class="hero-title">
+        Dress like the <span class="gold">life you're</span> building,<br>
+        not the one you're trying to escape.
+      </h1>
+
+      <p class="subtitle">
+        Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
+        the ones who work late, dream bigger and refuse to settle for average.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-yellow" href="#">JOIN THE HUSTLE LIST</a>
+        <a class="btn btn-dark" href="#">PREVIEW FIRST DROP</a>
+      </div>
+
+      <div class="tags" style="margin-top: 25px;">
+        <span>BORN IN DUBAI</span>
+        <span>BUILT FOR MODERN HUSTLERS</span>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE BOX -->
+    <div class="right">
+      <h4 style="margin-top: 0;">“Your outfit should match your ambition.”</h4>
+      <p>
+        This space can later showcase your main product shot, lookbook highlight or campaign visual.
+        For now, it holds the essence of what you're building.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Hustlers & Co. All Rights Reserved.
+  </footer>
 
 </body>
+
 </html>
