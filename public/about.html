@@ -54,13 +54,14 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     nav ul li a:hover {
       color: #f4d57c;
     }
 
+    /* MOBILE MENU */
     .menu-btn {
       display: none;
       font-size: 28px;
@@ -87,6 +88,7 @@
       padding: 12px 0;
       font-size: 18px;
       border-bottom: 1px solid #222;
+      transition: 0.3s ease;
     }
 
     .mobile-menu a:hover {
@@ -113,34 +115,49 @@
     }
 
     h1 {
-      font-size: 52px;
+      font-size: 60px;
       font-weight: 900;
-      line-height: 1.2;
+      line-height: 1.1;
+    }
+
+    .gold {
+      color: #f4d57c;
     }
 
     .subtitle {
+      margin-top: 18px;
       font-size: 18px;
       color: #ccc;
-      margin-top: 20px;
       line-height: 1.6;
     }
 
     .section {
-      margin-top: 50px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 35px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+      line-height: 1.7;
+      color: #ddd;
     }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 100px;
-      color: #777;
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 30px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s ease;
     }
 
-    /* 🔥 FADE-UP ANIMATIONS */
+    .btn:hover {
+      background: #f4d57c;
+      color: #000;
+      opacity: 0.9;
+    }
+
+    /* FADE UP */
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -154,17 +171,22 @@
       }
     }
 
+    footer {
+      margin-top: 120px;
+      padding: 40px 0;
+      text-align: center;
+      color: #777;
+    }
+
     @media (max-width: 850px) {
       nav ul {
         display: none;
       }
-
       .menu-btn {
         display: block;
       }
-
       h1 {
-        font-size: 40px;
+        font-size: 42px;
       }
     }
   </style>
@@ -172,7 +194,7 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <nav>
     <div>
       <div class="brand">HUSTLERS & CO.</div>
@@ -198,7 +220,6 @@
     </div>
   </nav>
 
-  <!-- JS -->
   <script>
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
@@ -206,32 +227,26 @@
     }
   </script>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <div class="container">
-
-    <h1 class="fade-up" style="animation-delay:.2s;">ABOUT US</h1>
+    <h1 class="fade-up" style="animation-delay:.2s;">ABOUT <span class="gold">US</span></h1>
 
     <p class="subtitle fade-up" style="animation-delay:.4s;">
-      Hustlers & Co. was founded with one mission — to create luxury streetwear for the modern hustler:
-      the builders, dreamers, and risk-takers who refuse to settle for an average life.
+      Hustlers & Co. is built on discipline, ambition, and the mindset of creating a better life.
+      Crafted in Dubai, made for modern hustlers worldwide.
     </p>
 
     <div class="section fade-up" style="animation-delay:.6s;">
-      <h3>OUR STORY</h3>
       <p>
-        Born in Dubai, Hustlers & Co. represents ambition and discipline. Our designs reflect a mindset —
-        the hunger to grow, the courage to take risks, and the belief that you are your only limit.
+        We believe streetwear is more than fashion — it’s a form of identity. A quiet signal of who you are,
+        what you stand for, and what you’re building. Hustlers & Co. creates premium essentials for creators,
+        leaders, and visionaries who choose growth over comfort.
       </p>
     </div>
 
-    <div class="section fade-up" style="animation-delay:.8s;">
-      <h3>OUR MISSION</h3>
-      <p>
-        We focus on neutral, timeless silhouettes crafted from premium materials. Every piece is created
-        with intention — for individuals who build their life with purpose.
-      </p>
-    </div>
-
+    <a href="collection.html" class="btn fade-up" style="animation-delay:.8s;">
+      EXPLORE COLLECTION
+    </a>
   </div>
 
   <footer>
@@ -241,4 +256,3 @@
 </body>
 
 </html>
-   
