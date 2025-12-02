@@ -132,7 +132,6 @@
       border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
-      border: none;
       cursor: pointer;
       font-size: 14px;
     }
@@ -140,6 +139,7 @@
     .btn-yellow {
       background: #f4d57c;
       color: #000;
+      border: none;
     }
 
     .btn-dark {
@@ -175,7 +175,7 @@
       letter-spacing: 2px;
     }
 
-    /* EMAIL SIGNUP FORM */
+    /* SIGNUP BOX */
     .signup-box {
       width: 88%;
       margin: 80px auto;
@@ -183,10 +183,6 @@
       padding: 40px;
       border-radius: 12px;
       max-width: 700px;
-    }
-
-    .signup-box h2 {
-      margin-top: 0;
     }
 
     input[type="email"] {
@@ -207,6 +203,7 @@
       font-weight: 700;
       cursor: pointer;
       font-size: 15px;
+      width: 100%;
     }
 
     footer {
@@ -217,23 +214,56 @@
       font-size: 14px;
     }
 
+    /* POPUP OVERLAY */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* POPUP BOX */
+    .popup-box {
+      background: #111;
+      padding: 40px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 450px;
+      border: 1px solid #f4d57c33;
+      box-shadow: 0 0 15px #f4d57c22;
+      position: relative;
+    }
+
+    /* CLOSE BUTTON */
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
     /* MOBILE RESPONSIVE */
     @media(max-width: 850px) {
       .container {
         flex-direction: column;
-        text-align: left;
       }
       .left, .right {
         width: 100%;
-      }
-      .right {
-        margin-top: 40px;
       }
       .hero-title {
         font-size: 42px;
       }
       .teaser h1 {
-        font-size: 38px;
+        font-size: 36px;
       }
     }
   </style>
@@ -241,13 +271,12 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <nav class="fade-in">
     <div>
       <div class="brand">HUSTLERS & CO.</div>
       <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
-
     <ul>
       <li>HOME</li>
       <li>COLLECTION</li>
@@ -256,10 +285,9 @@
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <div class="container fade-in">
 
-    <!-- LEFT -->
     <div class="left">
       <div class="tags">
         <span>DUBAI · ONLINE · FOR MODERN HUSTLERS</span>
@@ -276,7 +304,7 @@
       </p>
 
       <div class="buttons">
-        <a class="btn btn-yellow" href="#signup">JOIN THE HUSTLE LIST</a>
+        <a class="btn btn-yellow" onclick="openPopup()">JOIN THE HUSTLE LIST</a>
         <a class="btn btn-dark" href="#">PREVIEW FIRST DROP</a>
       </div>
 
@@ -286,11 +314,10 @@
       </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="right fade-in">
-      <h4 style="margin-top: 0;">“Your outfit should match your ambition.”</h4>
+      <h4>“Your outfit should match your ambition.”</h4>
       <p>
-        This space will later showcase your Drop Zero preview image.  
+        This space will later showcase your Drop Zero preview image.
         For now, it carries the essence of your vision.
       </p>
     </div>
@@ -302,22 +329,53 @@
     <h1 class="gold">THE HUSTLE BEGINS.</h1>
   </div>
 
-  <!-- EMAIL SIGNUP -->
+  <!-- EMAIL SIGNUP SECTION -->
   <div id="signup" class="signup-box fade-in">
-    <h2>JOIN THE HUSTLE LIST</h2>
-    <p style="opacity:0.8;">Exclusive updates. Early access. No spam — ever.</p>
+    <h2 class="gold">JOIN THE HUSTLE LIST</h2>
+    <p style="opacity:0.8;">Exclusive updates. Early access. VIP notifications.</p>
 
     <form action="https://formspree.io/f/mnnevvyp" method="POST">
-  <input type="hidden" name="_redirect" value="https://hustlers-website.vercel.app/thank-you.html">
-  <input type="email" name="email" placeholder="Enter your best email" required>
-  <button type="submit" class="btn btn-yellow">JOIN THE HUSTLE LIST</button>
-</form>
+      <input type="email" name="email" placeholder="Enter your best email" required>
+      <button class="submit-btn">GET EARLY ACCESS</button>
+    </form>
+  </div>
 
+  <!-- POPUP MODAL -->
+  <div id="popup-modal" class="popup-overlay">
+    <div class="popup-box fade-in">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+
+      <h2 class="gold" style="margin-top:0;">JOIN THE HUSTLE LIST</h2>
+      <p style="opacity:0.8; margin-bottom:20px;">
+        Get early access to drops, exclusive updates & VIP notifications.
+      </p>
+
+      <form action="https://formspree.io/f/mnnevvyp" method="POST">
+        <input type="email" name="email" placeholder="Enter your best email" required
+          style="width:100%; padding:14px; border-radius:8px; border:none; margin-bottom:15px;">
+        <button type="submit"
+          style="background:#f4d57c; color:#000; padding:14px 28px; border:none; border-radius:30px;
+          font-weight:700; cursor:pointer; width:100%; font-size:16px;">
+          GET EARLY ACCESS
+        </button>
+      </form>
+    </div>
   </div>
 
   <footer>
     © 2025 Hustlers & Co. All Rights Reserved.
   </footer>
+
+  <!-- POPUP JS -->
+  <script>
+    function openPopup() {
+      document.getElementById("popup-modal").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup-modal").style.display = "none";
+    }
+  </script>
 
 </body>
 
