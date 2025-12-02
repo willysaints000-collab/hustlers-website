@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hustlers & Co. — Crafted for the Modern Hustler</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
+  <!-- STYLES -->
   <style>
     body {
       margin: 0;
@@ -17,7 +19,7 @@
       overflow-x: hidden;
     }
 
-    /* SOFT FADE ANIMATION */
+    /* GLOBAL FADE-IN */
     .fade-in {
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
@@ -139,7 +141,6 @@
     .btn-yellow {
       background: #f4d57c;
       color: #000;
-      border: none;
     }
 
     .btn-dark {
@@ -197,9 +198,9 @@
 
     .products-grid {
       display: flex;
-      justify-content: space-between;
-      gap: 35px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
     }
 
     .product-card {
@@ -207,8 +208,8 @@
       border: 1px solid #f4d57c33;
       border-radius: 14px;
       padding: 20px;
-      width: 30%;
-      min-width: 280px;
+      width: 100%;
+      max-width: 380px;
       transition: 0.3s ease;
     }
 
@@ -288,21 +289,21 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      padding: 20px;
     }
 
     /* POPUP BOX */
     .popup-box {
       background: #111;
-      padding: 40px;
+      padding: 35px;
       border-radius: 16px;
-      width: 90%;
-      max-width: 450px;
+      width: 100%;
+      max-width: 420px;
       border: 1px solid #f4d57c33;
       box-shadow: 0 0 15px #f4d57c22;
       position: relative;
     }
 
-    /* CLOSE BUTTON */
     .close-btn {
       position: absolute;
       top: 12px;
@@ -312,19 +313,45 @@
       cursor: pointer;
     }
 
-    /* MOBILE RESPONSIVE */
+    /* MOBILE RESPONSIVE OVERRIDES */
     @media(max-width: 850px) {
+
+      nav {
+        padding: 20px;
+      }
+
       .container {
         flex-direction: column;
+        gap: 50px;
       }
+
       .left, .right {
         width: 100%;
       }
+
       .hero-title {
-        font-size: 42px;
+        font-size: 34px;
+        line-height: 1.25;
       }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .teaser {
+        padding: 50px 20px;
+      }
+
       .teaser h1 {
-        font-size: 36px;
+        font-size: 34px;
+      }
+
+      .product-card {
+        max-width: 100%;
+      }
+
+      .products-title {
+        font-size: 28px;
       }
     }
   </style>
@@ -332,7 +359,7 @@
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav class="fade-in">
     <div>
       <div class="brand">HUSTLERS & CO.</div>
@@ -390,7 +417,7 @@
     <h1 class="gold">THE HUSTLE BEGINS.</h1>
   </div>
 
-  <!-- PRODUCT PREVIEW SECTION -->
+  <!-- PRODUCT SECTION -->
   <section class="products-section fade-in">
 
     <h2 class="products-title gold">DROP ZERO — PRODUCT PREVIEW</h2>
@@ -398,23 +425,20 @@
 
     <div class="products-grid">
 
-      <!-- PRODUCT 1 -->
       <div class="product-card">
-        <img src="https://i.imgur.com/w3bV3vO.jpeg" alt="Hoodie" />
+        <img src="https://i.imgur.com/w3bV3vO.jpeg" alt="Hoodie">
         <h3>HUSTLERS® SIGNATURE HOODIE</h3>
         <p class="coming-soon">COMING SOON</p>
       </div>
 
-      <!-- PRODUCT 2 -->
       <div class="product-card">
-        <img src="https://i.imgur.com/zbS7niB.jpeg" alt="Tshirt" />
+        <img src="https://i.imgur.com/zbS7niB.jpeg" alt="Tee">
         <h3>ESSENTIAL OVERSIZED TEE</h3>
         <p class="coming-soon">COMING SOON</p>
       </div>
 
-      <!-- PRODUCT 3 -->
       <div class="product-card">
-        <img src="https://i.imgur.com/0j7WI9l.jpeg" alt="Cap" />
+        <img src="https://i.imgur.com/0j7WI9l.jpeg" alt="Cap">
         <h3>THE HUSTLER CAP</h3>
         <p class="coming-soon">COMING SOON</p>
       </div>
@@ -422,7 +446,7 @@
     </div>
   </section>
 
-  <!-- EMAIL SIGNUP SECTION -->
+  <!-- EMAIL SIGNUP -->
   <div id="signup" class="signup-box fade-in">
     <h2 class="gold">JOIN THE HUSTLE LIST</h2>
     <p style="opacity:0.8;">Exclusive updates. Early access. VIP notifications.</p>
@@ -438,7 +462,7 @@
     <div class="popup-box fade-in">
       <span class="close-btn" onclick="closePopup()">&times;</span>
 
-      <h2 class="gold" style="margin-top:0;">JOIN THE HUSTLE LIST</h2>
+      <h2 class="gold">JOIN THE HUSTLE LIST</h2>
       <p style="opacity:0.8; margin-bottom:20px;">
         Get early access to drops, exclusive updates & VIP notifications.
       </p>
@@ -456,21 +480,21 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 Hustlers & Co. All Rights Reserved.
   </footer>
 
-  <!-- POPUP JS -->
+  <!-- POPUP SCRIPT -->
   <script>
     function openPopup() {
       document.getElementById("popup-modal").style.display = "flex";
     }
-
     function closePopup() {
       document.getElementById("popup-modal").style.display = "none";
     }
   </script>
 
 </body>
-
 </html>
+
