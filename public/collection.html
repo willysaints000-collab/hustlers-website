@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collection — Hustlers & Co.</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet">
 
   <style>
     body {
@@ -17,19 +19,24 @@
       overflow-x: hidden;
     }
 
-    /* NAVIGATION */
+    /* MOBILE MENU */
+    .mobile-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
     nav {
       width: 100%;
-      padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.75);
+      padding: 22px 40px;
+      background: rgba(0, 0, 0, 0.65);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: fixed;
       top: 0;
-      left: 0;
-      z-index: 200;
+      z-index: 100;
     }
 
     nav .brand {
@@ -47,137 +54,98 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 35px;
+      gap: 32px;
       margin: 0;
+      transition: 0.3s ease;
     }
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
+    nav ul li {
+      font-weight: 500;
+      font-size: 15px;
+      opacity: 0.85;
+      transition: 0.3s ease;
     }
 
-    nav ul li a:hover {
+    nav ul li:hover {
       color: #f4d57c;
-    }
-
-    /* HAMBURGER MOBILE */
-    .menu-btn {
-      display: none;
-      font-size: 28px;
+      opacity: 1;
       cursor: pointer;
-      color: white;
     }
 
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: #000;
-      width: 100%;
-      padding: 20px 30px;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      border-top: 1px solid #222;
-      animation: slideDown 0.4s ease forwards;
-    }
-
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 0;
-      font-size: 18px;
-      border-bottom: 1px solid #222;
-    }
-
-    .mobile-menu a:hover {
-      color: #f4d57c;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        padding: 25px 0;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
       }
     }
 
-    /* PAGE CONTENT */
+    /* CONTENT */
     .container {
-      padding-top: 160px;
       width: 90%;
       margin: auto;
-      max-width: 1200px;
+      padding-top: 150px;
     }
 
     h1 {
-      font-size: 52px;
+      font-size: 48px;
       font-weight: 900;
-      margin-bottom: 10px;
     }
 
-    .subtitle {
-      font-size: 18px;
-      color: #ccc;
-      margin-bottom: 50px;
+    .gold {
+      color: #f4d57c;
     }
 
-    /* LUXURY GRID */
+    /* GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 45px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
+      margin-top: 40px;
     }
 
     .item {
       background: #111;
-      border-radius: 16px;
-      padding: 25px;
+      padding: 20px;
+      border-radius: 12px;
       text-align: center;
-      border: 1px solid #222;
       transition: 0.3s;
     }
 
     .item:hover {
-      border-color: #f4d57c;
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(244, 213, 124, 0.2);
     }
 
-    .placeholder {
+    .item img {
       width: 100%;
-      height: 300px;
-      background: linear-gradient(135deg, #222, #333);
-      border-radius: 10px;
-      margin-bottom: 20px;
+      border-radius: 8px;
     }
 
-    .item h3 {
-      margin: 0;
-      font-size: 19px;
+    .item-name {
+      margin-top: 15px;
+      font-size: 18px;
       font-weight: 600;
     }
 
-    .item p {
-      margin-top: 8px;
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 80px;
-      color: #777;
-    }
-
-    /* 🔥 FADE-UP ANIMATIONS */
     .fade-up {
       opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 1s ease-out forwards;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s forwards ease-out;
     }
 
     @keyframes fadeUp {
@@ -187,118 +155,117 @@
       }
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    /* FOOTER */
+    footer {
+      margin-top: 120px;
+      padding: 60px 0;
+      text-align: center;
     }
 
-    @media (max-width: 650px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
 
-      nav ul {
-        display: none;
-      }
+    .footer-content .tagline {
+      font-size: 12px;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
 
-      .menu-btn {
-        display: block;
-      }
+    .socials {
+      display: flex;
+      gap: 25px;
+      margin-top: 10px;
+    }
+
+    .socials a {
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #f4d57c;
+    }
+
+    .copyright {
+      margin-top: 10px;
+      opacity: 0.6;
+      font-size: 13px;
     }
   </style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("show");
+    }
+  </script>
+
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <nav>
     <div>
       <div class="brand">HUSTLERS & CO.</div>
       <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <span class="mobile-toggle" onclick="toggleMenu()">☰</span>
 
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="collection.html">COLLECTION</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-      <li><a href="drop-zero.html">DROP ZERO</a></li>
+    <ul id="mobileMenu">
+      <li><a href="index.html" style="color:white;text-decoration:none;">HOME</a></li>
+      <li><a href="collection.html" style="color:#f4d57c;text-decoration:none;">COLLECTION</a></li>
+      <li><a href="drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
+      <li><a href="contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
     </ul>
-
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="index.html">HOME</a>
-      <a href="collection.html">COLLECTION</a>
-      <a href="about.html">ABOUT</a>
-      <a href="contact.html">CONTACT</a>
-      <a href="drop-zero.html">DROP ZERO</a>
-    </div>
   </nav>
 
-  <!-- JS -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-  </script>
+  <!-- CONTENT -->
+  <div class="container fade-up" style="animation-delay:.2s;">
+    <h1>Our <span class="gold">Collection</span></h1>
 
-  <!-- PAGE CONTENT -->
-  <div class="container">
-
-    <h1 class="fade-up" style="animation-delay:.2s;">THE COLLECTION</h1>
-
-    <p class="subtitle fade-up" style="animation-delay:.4s;">
-      Crafted for ambition. Designed for modern hustlers.
-    </p>
-
-    <div class="grid fade-up" style="animation-delay:.6s;">
-
+    <div class="grid fade-up" style="animation-delay:.4s;">
       <div class="item">
-        <div class="placeholder"></div>
-        <h3>Signature Hoodie</h3>
-        <p>Drop Zero — Coming Soon</p>
+        <img src="https://via.placeholder.com/400x400" />
+        <div class="item-name">Classic Hoodie</div>
       </div>
 
       <div class="item">
-        <div class="placeholder"></div>
-        <h3>Premium Oversized Tee</h3>
-        <p>Drop Zero — Coming Soon</p>
+        <img src="https://via.placeholder.com/400x400" />
+        <div class="item-name">Ambition Tee</div>
       </div>
 
       <div class="item">
-        <div class="placeholder"></div>
-        <h3>Everyday Sweatpants</h3>
-        <p>Drop Zero — Coming Soon</p>
+        <img src="https://via.placeholder.com/400x400" />
+        <div class="item-name">Midnight Cap</div>
       </div>
 
       <div class="item">
-        <div class="placeholder"></div>
-        <h3>Heavyweight Long Sleeve</h3>
-        <p>Drop Zero — Coming Soon</p>
+        <img src="https://via.placeholder.com/400x400" />
+        <div class="item-name">Hustler Cargo Pants</div>
       </div>
-
-      <div class="item">
-        <div class="placeholder"></div>
-        <h3>Minimalist Crewneck</h3>
-        <p>Drop Zero — Coming Soon</p>
-      </div>
-
-      <div class="item">
-        <div class="placeholder"></div>
-        <h3>Studio Shorts</h3>
-        <p>Drop Zero — Coming Soon</p>
-      </div>
-
     </div>
-
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    © 2025 Hustlers & Co. All Rights Reserved.
+    <div class="footer-content">
+      <p class="tagline">CRAFTED FOR THE MODERN HUSTLER.</p>
+
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+
+      <p class="copyright">© 2025 Hustlers & Co. All Rights Reserved.</p>
+    </div>
   </footer>
 
 </body>
