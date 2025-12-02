@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,14 +15,13 @@
       font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
-      overflow-x: hidden;
     }
 
     /* NAVIGATION */
     nav {
       width: 100%;
       padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.65);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
@@ -62,7 +62,6 @@
       cursor: pointer;
     }
 
-    /* MAIN LAYOUT */
     .container {
       padding-top: 150px;
       width: 88%;
@@ -137,12 +136,6 @@
       opacity: 0.8;
     }
 
-    .highlight-box {
-      margin-top: 25px;
-      font-size: 15px;
-      opacity: 0.9;
-    }
-
     footer {
       text-align: center;
       margin-top: 120px;
@@ -151,24 +144,40 @@
       font-size: 14px;
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
+    /* 🔥 FADE-UP ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 750px) {
       .container {
         flex-direction: column;
-        width: 90%;
-        text-align: center;
       }
-      .left, .right {
+
+      .left,
+      .right {
         width: 100%;
       }
+
       nav {
-        padding: 18px 25px;
+        padding: 20px;
       }
+
       nav ul {
-        gap: 18px;
+        display: none;
       }
+
       .hero-title {
-        font-size: 38px;
+        font-size: 42px;
       }
     }
   </style>
@@ -184,49 +193,53 @@
     </div>
 
     <ul>
-      <li><a href="/index.html" style="color:white;text-decoration:none;">HOME</a></li>
-      <li><a href="/collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
-      <li><a href="/about.html" style="color:white;text-decoration:none;">ABOUT</a></li>
-      <li><a href="/contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
-      <li><a href="/drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
+      <li><a href="index.html" style="color:white;text-decoration:none;">HOME</a></li>
+      <li><a href="collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
+      <li><a href="about.html" style="color:white;text-decoration:none;">ABOUT</a></li>
+      <li><a href="contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
+      <li><a href="drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
     </ul>
   </nav>
 
-  <!-- CONTENT -->
+  <!-- MAIN CONTENT -->
   <div class="container">
+
+    <!-- LEFT SIDE -->
     <div class="left">
-      <div class="tags">
+      <div class="tags fade-up" style="animation-delay: .1s;">
         <span>DUBAI · ONLINE · FOR MODERN HUSTLERS</span>
       </div>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title fade-up" style="animation-delay: .2s;">
         Dress like the <span class="gold">life you're</span> building,<br>
         not the one you're trying to escape.
       </h1>
 
-      <p class="subtitle">
+      <p class="subtitle fade-up" style="animation-delay: .4s;">
         Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds —
         the ones who work late, dream bigger and refuse to settle for average.
       </p>
 
-      <div class="buttons">
-        <a class="btn btn-yellow" href="/contact.html">JOIN THE HUSTLE LIST</a>
-        <a class="btn btn-dark" href="/collection.html">PREVIEW FIRST DROP</a>
+      <div class="buttons fade-up" style="animation-delay: .6s;">
+        <a class="btn btn-yellow" href="contact.html">JOIN THE HUSTLE LIST</a>
+        <a class="btn btn-dark" href="collection.html">PREVIEW FIRST DROP</a>
       </div>
 
-      <div class="tags" style="margin-top: 25px;">
+      <div class="tags fade-up" style="margin-top: 25px; animation-delay: .8s;">
         <span>BORN IN DUBAI</span>
         <span>BUILT FOR MODERN HUSTLERS</span>
       </div>
     </div>
 
-    <div class="right">
+    <!-- RIGHT SIDE BOX -->
+    <div class="right fade-up" style="animation-delay: 1s;">
       <h4 style="margin-top: 0;">“Your outfit should match your ambition.”</h4>
       <p>
-        This space will soon showcase your main product shot, lookbook highlight, or campaign visual.
+        This space can later showcase your main product shot, lookbook highlight or campaign visual.
         For now, it holds the essence of what you're building.
       </p>
     </div>
+
   </div>
 
   <footer>
@@ -234,5 +247,5 @@
   </footer>
 
 </body>
-</html>
 
+</html>
