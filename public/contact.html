@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Hustlers & Co.</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    /* NAVIGATION */
+    nav {
+      width: 100%;
+      padding: 22px 60px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .brand {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.85;
+    }
+
+    nav ul li a:hover {
+      opacity: 1;
+    }
+
+    /* CONTACT SECTION */
+    .container {
+      width: 85%;
+      max-width: 900px;
+      margin: auto;
+      padding-top: 150px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .gold {
+      color: #f4d57c;
+    }
+
+    .subtext {
+      font-size: 18px;
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+
+    /* FORM */
+    form {
+      margin-top: 40px;
+      text-align: left;
+      background: rgba(255,255,255,0.04);
+      padding: 40px;
+      border-radius: 12px;
+    }
+
+    label {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    textarea {
+      height: 130px;
+      resize: none;
+    }
+
+    .btn {
+      background: #f4d57c;
+      width: 100%;
+      padding: 14px;
+      font-weight: 700;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: #000;
+    }
+
+    /* SOCIAL ICONS */
+    .socials {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: #f4d57c;
+      font-size: 28px;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      opacity: 0.7;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding: 40px;
+      opacity: 0.6;
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      nav { padding: 20px; }
+      nav ul { display: none; }
+      h1 { font-size: 34px; }
+      form { padding: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="brand">HUSTLERS & CO.</div>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="collection.html">COLLECTION</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTACT CONTAINER -->
+  <div class="container">
+
+    <h1>Contact <span class="gold">Hustlers & Co.</span></h1>
+    <div class="subtext">We’d love to hear from you.</div>
+
+    <!-- FORM -->
+    <form action="https://formspree.io/f/mnnevvyp" method="POST">
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="Enter your full name" required>
+
+      <label>Your Email</label>
+      <input type="email" name="email" placeholder="Enter your best email" required>
+
+      <label>Your Message</label>
+      <textarea name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" class="btn">SEND MESSAGE</button>
+    </form>
+
+    <!-- SOCIAL ICONS -->
+    <div class="socials">
+      <a href="https://instagram.com" target="_blank">📸</a>
+      <a href="https://tiktok.com" target="_blank">🎵</a>
+      <a href="mailto:hustlersandco@gmail.com">✉️</a>
+    </div>
+
+  </div>
+
+  <footer>© 2025 Hustlers & Co. All Rights Reserved.</footer>
+
+</body>
+
+</html>
