@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collection — Hustlers & Co.</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
     }
@@ -62,86 +61,84 @@
       cursor: pointer;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-
-    /* COLLECTION */
-    .collection-container {
-      width: 90%;
+    /* PAGE CONTAINER */
+    .container {
+      padding-top: 160px;
+      width: 88%;
       margin: auto;
-      padding-top: 150px;
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 52px;
       font-weight: 900;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
-    .gold {
-      color: #f4d57c;
+    .subtitle {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 50px;
     }
 
+    /* GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 35px;
-      margin-top: 40px;
     }
 
     .item {
       background: #111;
+      border-radius: 14px;
       padding: 20px;
-      border-radius: 12px;
-      transition: 0.3s;
-      cursor: pointer;
       text-align: center;
-      border: 1px solid #1a1a1a;
+      border: 1px solid #222;
     }
 
-    .item:hover {
-      transform: translateY(-5px);
-      border-color: #f4d57c;
-    }
-
-    .product-img {
+    .placeholder {
       width: 100%;
-      height: 350px;
-      background-size: cover;
-      background-position: center;
+      height: 260px;
+      background: linear-gradient(135deg, #222, #333);
       border-radius: 10px;
+      margin-bottom: 20px;
     }
 
     .item h3 {
-      margin-top: 18px;
-      font-size: 20px;
-      font-weight: 700;
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .item p {
-      margin-top: 5px;
-      opacity: 0.8;
-      font-size: 15px;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #aaa;
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
+      margin-top: 80px;
       color: #777;
-      font-size: 14px;
-      margin-top: 60px;
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
-      nav {
-        padding: 18px 25px;
-      }
+    /* 🔥 FADE-UP ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease-out forwards;
+    }
 
-      h1 {
-        font-size: 36px;
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -157,47 +154,59 @@
     </div>
 
     <ul>
-      <li><a href="/index.html">HOME</a></li>
-      <li><a href="/collection.html">COLLECTION</a></li>
-      <li><a href="/about.html">ABOUT</a></li>
-      <li><a href="/contact.html">CONTACT</a></li>
-      <li><a href="/drop-zero.html">DROP ZERO</a></li>
+      <li><a href="index.html" style="color:white;text-decoration:none;">HOME</a></li>
+      <li><a href="collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
+      <li><a href="about.html" style="color:white;text-decoration:none;">ABOUT</a></li>
+      <li><a href="contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
+      <li><a href="drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
     </ul>
   </nav>
 
-  <!-- COLLECTION SECTION -->
-  <div class="collection-container">
+  <!-- CONTENT -->
+  <div class="container fade-up" style="animation-delay: .2s;">
 
-    <h1><span class="gold">Drop Zero —</span> The First Collection</h1>
+    <h1 class="fade-up" style="animation-delay: .4s;">THE COLLECTION</h1>
+    <p class="subtitle fade-up" style="animation-delay: .6s;">
+      Crafted for ambition. Designed for modern hustlers.
+    </p>
 
-    <div class="grid">
+    <!-- GRID -->
+    <div class="grid fade-up" style="animation-delay: .8s;">
 
-      <!-- PRODUCT 1 -->
       <div class="item">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=800&q=80');"></div>
-        <h3>Midnight Hoodie</h3>
-        <p>Premium heavyweight black hoodie</p>
+        <div class="placeholder"></div>
+        <h3>Signature Hoodie</h3>
+        <p>Drop Zero — Coming Soon</p>
       </div>
 
-      <!-- PRODUCT 2 -->
       <div class="item">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80');"></div>
-        <h3>Signature Tee</h3>
-        <p>Minimal design. Maximum presence.</p>
+        <div class="placeholder"></div>
+        <h3>Premium Oversized Tee</h3>
+        <p>Drop Zero — Coming Soon</p>
       </div>
 
-      <!-- PRODUCT 3 -->
       <div class="item">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1520975918319-5372f81d1a97?auto=format&fit=crop&w=800&q=80');"></div>
-        <h3>Urban Cargo Pants</h3>
-        <p>Comfort meets street luxury.</p>
+        <div class="placeholder"></div>
+        <h3>Everyday Sweatpants</h3>
+        <p>Drop Zero — Coming Soon</p>
       </div>
 
-      <!-- PRODUCT 4 -->
       <div class="item">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1593032465171-8a6e3a8821df?auto=format&fit=crop&w=800&q=80');"></div>
-        <h3>Stealth Cap</h3>
-        <p>For the silent achievers.</p>
+        <div class="placeholder"></div>
+        <h3>Heavyweight Long Sleeve</h3>
+        <p>Drop Zero — Coming Soon</p>
+      </div>
+
+      <div class="item">
+        <div class="placeholder"></div>
+        <h3>Minimalist Crewneck</h3>
+        <p>Drop Zero — Coming Soon</p>
+      </div>
+
+      <div class="item">
+        <div class="placeholder"></div>
+        <h3>Studio Shorts</h3>
+        <p>Drop Zero — Coming Soon</p>
       </div>
 
     </div>
