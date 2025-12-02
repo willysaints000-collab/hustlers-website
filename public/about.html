@@ -55,15 +55,32 @@
             margin: 0;
         }
 
+        /* GOLD HOVER ANIMATION */
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #f4d57c;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
             color: #f4d57c;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* MOBILE MENU */
@@ -77,7 +94,6 @@
             nav ul {
                 display: none;
             }
-
             .mobile-menu-icon {
                 display: block;
             }
@@ -165,20 +181,19 @@
         <h1>About <span class="gold">H&CO.</span></h1>
 
         <p>
-            Hustlers & Company was founded with one mission — to craft streetwear inspired by
-            ambition, discipline, vision, and the hunger to build a better life. We believe
-            that your outfit is an extension of your mindset.
+            Hustlers & Company was built for one purpose — to inspire ambition, discipline,
+            and the mindset required to build the life you deserve.
         </p>
 
         <p>
-            Built in Dubai, H&CO. represents modern hustlers — creators, risk-takers,
-            dreamers, leaders, and those who refuse to settle for average.
+            Designed in Dubai, H&CO. represents leaders, creators, and modern hustlers who
+            refuse to settle for average. We craft premium pieces that reflect identity,
+            purpose, and inner drive.
         </p>
 
         <p>
-            Our brand is built on luxury quality, storytelling, and design that reflects
-            ambition. Every piece is crafted for individuals who choose growth, greatness,
-            and self-belief.
+            We believe that your outfit should match your ambition. Your style is a message —
+            make it powerful.
         </p>
     </div>
 
@@ -190,7 +205,8 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById("mobileMenu");
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            menu.style.display =
+                menu.style.display === "flex" ? "none" : "flex";
         }
     </script>
 </body>
