@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Hustlers & Co.</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       background: #000;
       color: #fff;
     }
 
+    /* Navigation */
     nav {
       width: 100%;
       padding: 22px 60px;
@@ -32,92 +34,143 @@
     nav .brand {
       font-weight: 900;
       font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    nav .tagline {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: -4px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       gap: 35px;
+      margin: 0;
     }
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
+    nav ul li {
+      font-weight: 500;
+      font-size: 15px;
       opacity: 0.85;
+      transition: 0.2s;
     }
 
-    .container {
+    nav ul li:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Main content */
+    .about-container {
       width: 85%;
       margin: auto;
       padding-top: 150px;
-      text-align: center;
+      padding-bottom: 80px;
+      max-width: 1000px;
+      line-height: 1.8;
     }
 
-    h1 {
+    .about-title {
       font-size: 48px;
       font-weight: 900;
       margin-bottom: 20px;
     }
 
-    .highlight {
+    .gold {
       color: #f4d57c;
     }
 
-    p {
+    .about-text {
       font-size: 18px;
-      line-height: 1.8;
-      max-width: 750px;
-      margin: auto;
       opacity: 0.9;
+    }
+
+    .highlight {
+      margin-top: 40px;
+      padding: 20px;
+      border-left: 3px solid #f4d57c;
+      font-size: 20px;
+      opacity: 0.95;
     }
 
     footer {
       text-align: center;
-      margin-top: 120px;
-      padding: 40px;
-      opacity: 0.6;
+      padding: 40px 0;
+      color: #777;
+      font-size: 14px;
+      margin-top: 40px;
     }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 36px; }
-      nav { padding: 20px; }
-      nav ul { gap: 18px; }
-      p { font-size: 16px; }
+    /* Mobile */
+    @media (max-width: 900px) {
+      nav {
+        padding: 18px 25px;
+      }
+
+      .about-title {
+        font-size: 36px;
+      }
+
+      .about-container {
+        width: 90%;
+      }
     }
   </style>
+
 </head>
 
 <body>
 
+  <!-- NAVIGATION -->
   <nav>
-    <div class="brand">HUSTLERS & CO.</div>
+    <div>
+      <div class="brand">HUSTLERS & CO.</div>
+      <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
+    </div>
+
     <ul>
       <li><a href="/index.html">HOME</a></li>
+      <li><a href="/collection.html">COLLECTION</a></li>
       <li><a href="/about.html">ABOUT</a></li>
-      <li><a href="#">COLLECTION</a></li>
-      <li><a href="#">CONTACT</a></li>
+      <li><a href="/contact.html">CONTACT</a></li>
+      <li><a href="/drop-zero.html">DROP ZERO</a></li>
     </ul>
   </nav>
 
-  <div class="container">
-    <h1>About <span class="highlight">Hustlers & Co.</span></h1>
+  <!-- ABOUT SECTION -->
+  <div class="about-container">
 
-    <p>
-      Hustlers & Co. is a luxury streetwear brand built for the modern hustler —
-      the dreamers, the doers, the visionaries who turn ambition into reality.
+    <h1 class="about-title">The <span class="gold">Story</span> Behind Hustlers & Co.</h1>
+
+    <p class="about-text">
+      Hustlers & Co. was born in Dubai — a city where dreams move fast, ambition has no limit,
+      and the hustle never sleeps. Our brand represents the doers, the builders, the ones rewriting
+      their story one step at a time.
     </p>
 
-    <p>
-      Born in Dubai, our brand represents the spirit of boldness and resilience.
-      Every piece we create is designed for individuals who work late,
-      rise early, and refuse to live an ordinary life.
+    <p class="about-text">
+      We craft luxury streetwear that reflects who you are becoming — bold, unstoppable,
+      and committed to greatness. Every piece is designed to remind you of the life you're building,
+      not the one you're trying to escape.
     </p>
 
-    <p>
-      Hustlers aren’t defined by where they started —  
-      but by how far they choose to go.
+    <div class="highlight">
+      “If you want to become unforgettable — you have to dress like you're already there.”
+    </div>
+
+    <p class="about-text" style="margin-top: 35px;">
+      Hustlers & Co. is more than clothing. It’s a mindset.  
+      A movement.  
+      A reminder that greatness is built daily.
     </p>
+
   </div>
 
   <footer>
@@ -125,4 +178,5 @@
   </footer>
 
 </body>
+
 </html>
