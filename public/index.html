@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hustlers & Co.</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+        }
+
+        /* HEADER */
+        nav {
+            width: 100%;
+            padding: 22px 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+        }
+
+        nav li {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.85;
+            transition: 0.3s;
+        }
+
+        nav li:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 180px;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .gold {
+            color: #f4d57c;
+        }
+
+        .subtitle {
+            margin-top: 18px;
+            font-size: 20px;
+            max-width: 650px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* TAGS */
+        .tags {
+            margin: 40px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-right: 12px;
+            padding: 9px 20px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            font-size: 13px;
+            letter-spacing: 0.6px;
+        }
+
+        /* BUTTON */
+        .btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 15px 32px;
+            background: #f4d57c;
+            border-radius: 30px;
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffe49f;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            margin-top: 100px;
+            max-width: 900px;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #ccc;
+        }
+
+        /* MISSION BOX */
+        .mission {
+            margin-top: 70px;
+            padding: 35px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.05);
+            max-width: 850px;
+        }
+
+        .mission h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* EMAIL SIGNUP */
+        .signup-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            max-width: 650px;
+        }
+
+        .signup-box h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        input[type="email"] {
+            width: 95%;
+            padding: 14px;
+            margin: 18px 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .btn-access {
+            padding: 15px 26px;
+            background: #f4d57c;
+            color: #000;
+            font-weight: 700;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        footer {
+            margin-top: 120px;
+            text-align: center;
+            padding: 40px 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 750px) {
+            nav { padding: 20px; }
+            nav ul { display: none; }
+            h1 { font-size: 42px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <nav>
+        <div class="logo">Hustlers & Co.</div>
+        <ul>
+            <li>Home</li>
+            <li>Drops</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <h1>
+            Dress like the <span class="gold">life you're</span><br>
+            building,<br>
+            not the one you're trying to escape.
+        </h1>
+
+        <p class="subtitle">
+            Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds — the ones
+            who work late, bet on themselves, and refuse to settle for average.
+        </p>
+
+        <div class="tags">
+            <span class="tag">LOOKBOOK • 2025 DROP ZERO</span>
+            <span class="tag">BORN IN DUBAI</span>
+            <span class="tag">BUILT FOR MODERN HUSTLERS</span>
+            <span class="tag">PREMIUM • LUXURIOUS • PROFESSIONAL</span>
+        </div>
+
+        <a class="btn" href="#">PREVIEW FIRST DROP</a>
+
+        <div class="about-section">
+            <p>
+                Hustlers & Co. was created with one purpose — to inspire discipline, ambition,
+                and the mindset of building the life you deserve. This brand represents the
+                modern hustler: leaders, creators, risk-takers, dreamers, and doers.
+            </p>
+        </div>
+
+        <div class="mission">
+            <h2>OUR MISSION</h2>
+            <p>
+                To redefine modern streetwear with luxury-quality materials, timeless designs,
+                and meaningful storytelling. Every piece is crafted for individuals who wake up
+                with intention, who choose growth, who choose greatness.
+            </p>
+        </div>
+
+        <!-- EMAIL SIGNUP -->
+        <div class="signup-box">
+            <h3>JOIN THE HUSTLE LIST</h3>
+            <p>No spam. Only curated drops & insider updates.</p>
+
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="Enter your best email" required>
+                <button type="submit" class="btn-access">GET EARLY ACCESS</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2025 Hustlers & Co. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
