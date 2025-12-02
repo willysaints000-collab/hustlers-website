@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hustlers & Co. — Crafted for the Modern Hustler</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -15,20 +14,22 @@
       font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
+      overflow-x: hidden;
     }
 
     /* NAVIGATION */
     nav {
       width: 100%;
       padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      z-index: 200;
     }
 
     nav .brand {
@@ -50,18 +51,62 @@
       margin: 0;
     }
 
-    nav ul li {
-      font-weight: 500;
-      font-size: 15px;
-      opacity: 0.85;
-      transition: 0.2s;
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    nav ul li:hover {
-      opacity: 1;
+    nav ul li a:hover {
+      color: #f4d57c;
+    }
+
+    /* HAMBURGER (MOBILE) */
+    .menu-btn {
+      display: none;
+      font-size: 28px;
       cursor: pointer;
+      color: white;
     }
 
+    /* MOBILE MENU DROPDOWN */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+      padding: 20px 30px;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      border-top: 1px solid #222;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #222;
+    }
+
+    .mobile-menu a:hover {
+      color: #f4d57c;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MAIN LAYOUT */
     .container {
       padding-top: 150px;
       width: 88%;
@@ -141,7 +186,6 @@
       margin-top: 120px;
       padding: 40px 0;
       color: #777;
-      font-size: 14px;
     }
 
     /* 🔥 FADE-UP ANIMATIONS */
@@ -158,22 +202,22 @@
       }
     }
 
-    @media (max-width: 750px) {
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 850px) {
+      nav ul {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
       .container {
         flex-direction: column;
       }
 
-      .left,
-      .right {
+      .left, .right {
         width: 100%;
-      }
-
-      nav {
-        padding: 20px;
-      }
-
-      nav ul {
-        display: none;
       }
 
       .hero-title {
@@ -192,19 +236,37 @@
       <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
     <ul>
-      <li><a href="index.html" style="color:white;text-decoration:none;">HOME</a></li>
-      <li><a href="collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
-      <li><a href="about.html" style="color:white;text-decoration:none;">ABOUT</a></li>
-      <li><a href="contact.html" style="color:white;text-decoration:none;">CONTACT</a></li>
-      <li><a href="drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="collection.html">COLLECTION</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="drop-zero.html">DROP ZERO</a></li>
     </ul>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">HOME</a>
+      <a href="collection.html">COLLECTION</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="drop-zero.html">DROP ZERO</a>
+    </div>
   </nav>
+
+  <!-- JS SCRIPT -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 
   <!-- MAIN CONTENT -->
   <div class="container">
 
-    <!-- LEFT SIDE -->
     <div class="left">
       <div class="tags fade-up" style="animation-delay: .1s;">
         <span>DUBAI · ONLINE · FOR MODERN HUSTLERS</span>
@@ -231,12 +293,11 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE BOX -->
     <div class="right fade-up" style="animation-delay: 1s;">
       <h4 style="margin-top: 0;">“Your outfit should match your ambition.”</h4>
       <p>
-        This space can later showcase your main product shot, lookbook highlight or campaign visual.
-        For now, it holds the essence of what you're building.
+        This space will later showcase your campaign visuals or product preview.
+        For now, it holds the essence of your brand’s story.
       </p>
     </div>
 
