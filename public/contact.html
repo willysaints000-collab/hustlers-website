@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Hustlers & Co.</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
 
   <style>
     body {
@@ -17,19 +19,24 @@
       overflow-x: hidden;
     }
 
-    /* NAVIGATION */
+    /* MOBILE MENU */
+    .mobile-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
     nav {
       width: 100%;
-      padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.75);
+      padding: 22px 40px;
+      background: rgba(0, 0, 0, 0.65);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: fixed;
       top: 0;
-      left: 0;
-      z-index: 200;
+      z-index: 100;
     }
 
     nav .brand {
@@ -47,141 +54,118 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 35px;
+      gap: 32px;
       margin: 0;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
       transition: 0.3s ease;
     }
 
-    nav ul li a:hover {
-      color: #f4d57c;
+    nav ul li {
+      font-weight: 500;
+      font-size: 15px;
+      opacity: 0.85;
+      transition: 0.3s ease;
     }
 
-    /* MOBILE MENU */
-    .menu-btn {
-      display: none;
-      font-size: 28px;
+    nav ul li:hover {
+      color: #f4d57c;
+      opacity: 1;
       cursor: pointer;
     }
 
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: #000;
-      width: 100%;
-      padding: 20px 30px;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      border-top: 1px solid #222;
-      animation: slideDown 0.4s ease forwards;
-    }
-
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 0;
-      font-size: 18px;
-      border-bottom: 1px solid #222;
-      transition: 0.3s ease;
-    }
-
-    .mobile-menu a:hover {
-      color: #f4d57c;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        padding: 25px 0;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
       }
     }
 
     /* CONTENT */
     .container {
-      padding-top: 160px;
-      width: 88%;
-      max-width: 700px;
+      width: 90%;
       margin: auto;
+      padding-top: 150px;
+      text-align: center;
+      max-width: 600px;
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 900;
     }
 
-    .subtitle {
-      font-size: 18px;
-      color: #ccc;
-      margin-top: 10px;
-      margin-bottom: 40px;
-      line-height: 1.6;
+    .gold {
+      color: #f4d57c;
     }
 
-    .form-box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 35px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .subtitle {
+      margin-top: 10px;
+      opacity: 0.8;
+    }
+
+    /* FORM */
+    form {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
     input, textarea {
       width: 100%;
       padding: 14px;
-      margin-top: 15px;
       border-radius: 8px;
       border: none;
       outline: none;
       background: #111;
-      color: #fff;
+      color: white;
       font-size: 15px;
+      font-family: 'Montserrat';
+    }
+
+    input:focus, textarea:focus {
+      border: 1px solid #f4d57c;
     }
 
     textarea {
-      height: 140px;
       resize: none;
+      height: 140px;
     }
 
     button {
-      padding: 15px 28px;
-      background: #111;
-      border: 1px solid #333;
-      color: white;
-      border-radius: 30px;
-      font-weight: 700;
+      padding: 14px;
+      background: #f4d57c;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
       cursor: pointer;
-      margin-top: 15px;
-      width: 100%;
-      font-size: 16px;
-      transition: 0.3s ease;
+      transition: 0.3s;
     }
 
     button:hover {
-      background: #f4d57c;
-      color: #000;
-      opacity: 0.9;
+      background: #ffe6a8;
     }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 100px;
-      color: #777;
-    }
-
-    /* FADE-UP ANIMATION */
+    /* ANIMATIONS */
     .fade-up {
       opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 1s ease-out forwards;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s forwards ease-out;
     }
 
     @keyframes fadeUp {
@@ -191,80 +175,106 @@
       }
     }
 
-    @media (max-width: 850px) {
-      nav ul {
-        display: none;
-      }
-      .menu-btn {
-        display: block;
-      }
-      h1 {
-        font-size: 38px;
-      }
+    /* FOOTER */
+    footer {
+      margin-top: 120px;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .tagline {
+      font-size: 12px;
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 25px;
+      margin-top: 10px;
+    }
+
+    .socials a {
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #f4d57c;
+    }
+
+    .copyright {
+      opacity: 0.6;
+      font-size: 13px;
+      margin-top: 10px;
     }
   </style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("show");
+    }
+  </script>
+
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <nav>
     <div>
       <div class="brand">HUSTLERS & CO.</div>
       <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <span class="mobile-toggle" onclick="toggleMenu()">☰</span>
 
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="collection.html">COLLECTION</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-      <li><a href="drop-zero.html">DROP ZERO</a></li>
+    <ul id="mobileMenu">
+      <li><a href="index.html" style="color:white;text-decoration:none;">HOME</a></li>
+      <li><a href="collection.html" style="color:white;text-decoration:none;">COLLECTION</a></li>
+      <li><a href="drop-zero.html" style="color:white;text-decoration:none;">DROP ZERO</a></li>
+      <li><a href="contact.html" style="color:#f4d57c;text-decoration:none;">CONTACT</a></li>
     </ul>
-
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="index.html">HOME</a>
-      <a href="collection.html">COLLECTION</a>
-      <a href="about.html">ABOUT</a>
-      <a href="contact.html">CONTACT</a>
-      <a href="drop-zero.html">DROP ZERO</a>
-    </div>
   </nav>
 
-  <!-- MOBILE MENU JS -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-  </script>
-
   <!-- CONTENT -->
-  <div class="container">
-
-    <h1 class="fade-up" style="animation-delay:.2s;">CONTACT US</h1>
-
+  <div class="container fade-up" style="animation-delay:.2s;">
+    <h1>Contact <span class="gold">Us</span></h1>
     <p class="subtitle fade-up" style="animation-delay:.4s;">
-      For inquiries, collaborations, or Drop Zero updates — send us a message.
+      Let’s connect — we’d love to hear from you.
     </p>
 
-    <div class="form-box fade-up" style="animation-delay:.6s;">
-      <form action="https://formspree.io/f/meoykqpp" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">SEND MESSAGE</button>
-      </form>
-    </div>
-
+    <form action="thank-you.html" method="POST" class="fade-up" style="animation-delay:.6s;">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    © 2025 Hustlers & Co. All Rights Reserved.
+    <div class="footer-content">
+      <p class="tagline">CRAFTED FOR THE MODERN HUSTLER.</p>
+
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+
+      <p class="copyright">© 2025 Hustlers & Co. All Rights Reserved.</p>
+    </div>
   </footer>
 
 </body>
-
 </html>
