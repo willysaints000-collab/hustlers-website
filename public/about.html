@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,29 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Hustlers & Co.</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #000;
       color: #fff;
+      overflow-x: hidden;
     }
 
-    /* Navigation */
+    /* NAVIGATION */
     nav {
       width: 100%;
       padding: 22px 60px;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(6px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      z-index: 200;
     }
 
     nav .brand {
@@ -50,80 +51,123 @@
       margin: 0;
     }
 
-    nav ul li {
-      font-weight: 500;
-      font-size: 15px;
-      opacity: 0.85;
-      transition: 0.2s;
-    }
-
-    nav ul li:hover {
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    nav a {
+    nav ul li a {
       color: white;
       text-decoration: none;
+      transition: 0.3s;
     }
 
-    /* Main content */
-    .about-container {
-      width: 85%;
-      margin: auto;
-      padding-top: 150px;
-      padding-bottom: 80px;
-      max-width: 1000px;
-      line-height: 1.8;
-    }
-
-    .about-title {
-      font-size: 48px;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    .gold {
+    nav ul li a:hover {
       color: #f4d57c;
     }
 
-    .about-text {
-      font-size: 18px;
-      opacity: 0.9;
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
     }
 
-    .highlight {
-      margin-top: 40px;
-      padding: 20px;
-      border-left: 3px solid #f4d57c;
-      font-size: 20px;
-      opacity: 0.95;
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+      padding: 20px 30px;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      border-top: 1px solid #222;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #222;
+    }
+
+    .mobile-menu a:hover {
+      color: #f4d57c;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CONTENT */
+    .container {
+      padding-top: 160px;
+      width: 88%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #ccc;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-top: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
+      margin-top: 100px;
       color: #777;
-      font-size: 14px;
-      margin-top: 40px;
     }
 
-    /* Mobile */
-    @media (max-width: 900px) {
-      nav {
-        padding: 18px 25px;
+    /* 🔥 FADE-UP ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 850px) {
+      nav ul {
+        display: none;
       }
 
-      .about-title {
-        font-size: 36px;
+      .menu-btn {
+        display: block;
       }
 
-      .about-container {
-        width: 90%;
+      h1 {
+        font-size: 40px;
       }
     }
   </style>
-
 </head>
 
 <body>
@@ -135,41 +179,58 @@
       <div class="tagline">CRAFTED FOR THE MODERN HUSTLER.</div>
     </div>
 
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
     <ul>
-      <li><a href="/index.html">HOME</a></li>
-      <li><a href="/collection.html">COLLECTION</a></li>
-      <li><a href="/about.html">ABOUT</a></li>
-      <li><a href="/contact.html">CONTACT</a></li>
-      <li><a href="/drop-zero.html">DROP ZERO</a></li>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="collection.html">COLLECTION</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="drop-zero.html">DROP ZERO</a></li>
     </ul>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">HOME</a>
+      <a href="collection.html">COLLECTION</a>
+      <a href="about.html">ABOUT</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="drop-zero.html">DROP ZERO</a>
+    </div>
   </nav>
 
-  <!-- ABOUT SECTION -->
-  <div class="about-container">
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 
-    <h1 class="about-title">The <span class="gold">Story</span> Behind Hustlers & Co.</h1>
+  <!-- MAIN CONTENT -->
+  <div class="container">
 
-    <p class="about-text">
-      Hustlers & Co. was born in Dubai — a city where dreams move fast, ambition has no limit,
-      and the hustle never sleeps. Our brand represents the doers, the builders, the ones rewriting
-      their story one step at a time.
+    <h1 class="fade-up" style="animation-delay:.2s;">ABOUT US</h1>
+
+    <p class="subtitle fade-up" style="animation-delay:.4s;">
+      Hustlers & Co. was founded with one mission — to create luxury streetwear for the modern hustler:
+      the builders, dreamers, and risk-takers who refuse to settle for an average life.
     </p>
 
-    <p class="about-text">
-      We craft luxury streetwear that reflects who you are becoming — bold, unstoppable,
-      and committed to greatness. Every piece is designed to remind you of the life you're building,
-      not the one you're trying to escape.
-    </p>
-
-    <div class="highlight">
-      “If you want to become unforgettable — you have to dress like you're already there.”
+    <div class="section fade-up" style="animation-delay:.6s;">
+      <h3>OUR STORY</h3>
+      <p>
+        Born in Dubai, Hustlers & Co. represents ambition and discipline. Our designs reflect a mindset —
+        the hunger to grow, the courage to take risks, and the belief that you are your only limit.
+      </p>
     </div>
 
-    <p class="about-text" style="margin-top: 35px;">
-      Hustlers & Co. is more than clothing. It’s a mindset.  
-      A movement.  
-      A reminder that greatness is built daily.
-    </p>
+    <div class="section fade-up" style="animation-delay:.8s;">
+      <h3>OUR MISSION</h3>
+      <p>
+        We focus on neutral, timeless silhouettes crafted from premium materials. Every piece is created
+        with intention — for individuals who build their life with purpose.
+      </p>
+    </div>
 
   </div>
 
@@ -180,3 +241,4 @@
 </body>
 
 </html>
+   
