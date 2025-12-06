@@ -1,219 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HUSTLERS & CO. — Luxury Menswear</title>
+    <title>About • HUSTLERS & CO.</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background-color: #FFFFF1;
             margin: 0;
+            padding: 0;
+            background-color: #F5F2EA;
             font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
         }
 
-        /* ============================= */
-        /* HERO SECTION — EDITORIAL LUXURY */
-        /* ============================= */
-
-        .hero {
-            position: relative;
-            height: 100vh;
+        /* NAV */
+        .navbar {
             width: 100%;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(85%);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: absolute;
-            bottom: 15%;
-            left: 8%;
-            z-index: 5;
-            color: #000;
-            max-width: 500px;
-            animation: fadeUp 1.5s ease-out;
-        }
-
-        .brand-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 60px;
-            margin: 0;
-        }
-
-        .brand-subtitle {
-            font-size: 20px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        .gold-line {
-            width: 80px;
-            height: 3px;
-            background-color: #D4C5A1;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            animation: goldFade 2s ease-out;
-        }
-
-        .shop-btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border: 1px solid #D4C5A1;
-            color: #000;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s ease;
-        }
-
-        .shop-btn:hover {
-            background-color: #D4C5A1;
-            color: #000;
-        }
-
-        /* ============================= */
-        /* ABOUT SECTION — EXCLUSIVE LUXURY */
-        /* ============================= */
-
-        .about-section {
-            padding: 120px 20px;
-            background-color: #FFFFF1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .about-container {
-            max-width: 850px;
+            padding: 26px 0;
             text-align: center;
-            animation: fadeUp 1.5s ease-out;
+            background-color: #F5F2EA;
+            font-family: 'Playfair Display', serif;
+            border-bottom: 1px solid #E6DCCF;
+        }
+        .brand {
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            margin: 0 18px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            color: #C2A878;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
         }
 
         .about-title {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: #000;
+            font-size: 70px;
+            font-weight: 600;
             margin-bottom: 20px;
         }
 
-        .about-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
+        .about-subtitle {
+            font-size: 20px;
+            color: #444;
+            max-width: 700px;
+            margin: 0 auto 50px;
             line-height: 1.7;
-            color: #2A2A2A;
-            max-width: 720px;
-            margin: 0 auto;
         }
 
-        /* ============================= */
-        /* COLLECTIONS SECTION — OLD MONEY */
-        /* ============================= */
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #C2A878;
+            margin: 40px auto;
+        }
 
-        .collections-section {
-            padding: 100px 20px;
-            background-color: #FFFFF1;
+        .about-text {
+            text-align: left;
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #4A4A4A;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 26px;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 100px;
             text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #E2D6C4;
+            background: #F1ECE3;
         }
-
-        .collections-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            margin-bottom: 50px;
-            color: #000;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .collection-card {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .collection-image {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            transition: 0.4s ease;
-        }
-
-        .collection-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(212, 197, 161, 0.25);
-            opacity: 0;
-            transition: 0.4s ease;
-        }
-
-        .collection-name {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: #FFFFFF;
-            z-index: 5;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
-        }
-
-        .collection-card:hover .collection-image {
-            transform: scale(1.05);
-            filter: brightness(75%);
-        }
-
-        .collection-card:hover .collection-overlay {
-            opacity: 1;
-        }
-
-        /* ANIMATIONS */
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes goldFade {
-            from {
-                opacity: 0;
-                width: 0;
-            }
-            to {
-                opacity: 1;
-                width: 80px;
-            }
+        .footer p {
+            margin: 6px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
     </style>
@@ -221,62 +104,57 @@
 
 <body>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <img src="your-hero-image.jpg" alt="Elegant male model" class="hero-image">
-
-        <div class="hero-content">
-            <h1 class="brand-title">HUSTLERS & CO.</h1>
-            <p class="brand-subtitle">Timeless Elegance. Crafted for the Refined Man.</p>
-            <div class="gold-line"></div>
-            <a href="#" class="shop-btn">Shop Collection</a>
+    <!-- NAV -->
+    <div class="navbar">
+        <div class="brand">HUSTLERS & CO.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="drop-zero.html">Drop Zero</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
-    </section>
+    </div>
 
     <!-- ABOUT SECTION -->
     <section class="about-section">
-        <div class="about-container">
-            <h2 class="about-title">The Essence of Exclusivity</h2>
-            <p class="about-text">
-                Hustlers & Co. is crafted for the modern gentleman who values refinement, subtle strength,
-                and timeless elegance. Our pieces embody a quiet luxury—designed not to impress loudly,
-                but to be remembered effortlessly. Each collection is created with precision and intention,
-                offering exclusivity for men who stand apart with confidence and class.
+        <h1 class="about-title">Our Story</h1>
+        <p class="about-subtitle">
+            Redefining modern luxury for the new generation. Crafted with intention, timelessness, and character.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="about-text">
+            <p>
+                Hustlers & Co. was built for the modern gentleman — the dreamer, the worker, the artist, and the relentless soul who never settles. 
+                Our brand stands for quiet luxury: minimal, refined, and effortlessly confident.
+            </p>
+
+            <p>
+                Every piece is designed with precision and purpose. We believe that clothing is more than fabric — it is a statement of identity, 
+                discipline, and ambition. From premium materials to clean silhouettes, every detail reflects the spirit of craftsmanship and modern elegance.
+            </p>
+
+            <p>
+                Hustlers & Co. is not fast fashion.  
+                It is a journey, a lifestyle, and a culture built on authenticity and purpose.  
+                A brand created for those who chase excellence, not attention.
+            </p>
+
+            <p>
+                As we continue to grow, our mission remains the same:  
+                to deliver timeless essentials that elevate everyday life and inspire confidence in every step.
             </p>
         </div>
     </section>
 
-    <!-- COLLECTIONS SECTION -->
-    <section class="collections-section">
-        <h2 class="collections-title">Explore the Collection</h2>
-
-        <div class="collections-grid">
-
-            <!-- SHIRTS -->
-            <div class="collection-card">
-                <img src="shirts.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Shirts</h3>
-            </div>
-
-            <!-- TROUSERS -->
-            <div class="collection-card">
-                <img src="trousers.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Trousers</h3>
-            </div>
-
-            <!-- OUTERWEAR -->
-            <div class="collection-card">
-                <img src="outerwear.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Outerwear</h3>
-            </div>
-
-        </div>
-    </section>
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>HUSTLERS & CO.</p>
+        <p>EST. 2025</p>
+        <p>© All Rights Reserved</p>
+    </div>
 
 </body>
-
 </html>
