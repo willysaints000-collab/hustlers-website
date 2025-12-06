@@ -1,182 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxury Collection — Hustlers & Co.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLECTION — Hustlers & Co.</title>
 
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background-color: #f7f5f0;
-            font-family: "Cormorant Garamond", serif;
+            font-family: "Georgia", serif;
+            background-color: #f7f7f7;
             color: #1a1a1a;
         }
 
-        /* Page Container */
-        .collection-container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 60px auto;
-        }
-
-        /* Title */
-        .main-title {
-            font-size: 64px;
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 25px 0;
+            background: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
             font-weight: 600;
-            text-align: center;
-            letter-spacing: 2px;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: fadeIn 1.5s forwards ease-in-out;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 20px;
             letter-spacing: 1px;
-            color: #8c7f6a;
-            margin-bottom: 50px;
-            opacity: 0;
-            animation: fadeIn 2.3s forwards ease-in-out;
+            border-bottom: 1px solid #eee;
         }
 
-        /* Grid Layout */
-        .grid {
+        nav a {
+            text-decoration: none;
+            color: #111;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #444;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 46px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Collection Grid */
+        .collection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto 80px;
         }
 
         /* Product Card */
-        .item {
-            background: #ffffff;
-            border-radius: 10px;
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeUp 1s forwards ease-out;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
-        .item:hover {
+        .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
         }
 
-        .item img {
+        .product-card img {
             width: 100%;
-            height: 380px;
-            object-fit: cover;
+            display: block;
         }
 
-        .item-info {
+        .product-info {
             padding: 22px;
             text-align: center;
         }
 
-        .item-title {
-            font-size: 26px;
+        .product-info h3 {
+            margin: 0;
+            font-size: 24px;
             font-weight: 600;
-            margin-bottom: 6px;
         }
 
-        .item-desc {
-            font-size: 15px;
-            color: #7a7a7a;
-            margin-bottom: 14px;
-        }
-
-        .item-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: #bda27e;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .product-info p {
+            margin: 8px 0 0;
+            font-size: 16px;
+            color: #555;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="collection-container">
-        <h1 class="main-title">Luxury Collection</h1>
-        <p class="subtitle">Old Money Essentials • Premium Cuts • Timeless Craft</p>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="collection.html">COLLECTION</a>
+        <a href="drop-zero.html">DROP ZERO</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
 
-        <div class="grid">
+    <!-- Page Title -->
+    <h1 class="page-title">Our Premium Collection</h1>
 
-            <!-- Product 1 -->
-            <div class="item">
-                <img src="images/hoodie.jpg" alt="Essential Hoodie">
-                <div class="item-info">
-                    <div class="item-title">Heritage Essential Hoodie</div>
-                    <div class="item-desc">A refined classic crafted for comfort and timeless elegance.</div>
-                    <div class="item-price">AED 299</div>
-                </div>
+    <!-- Collection Grid -->
+    <div class="collection-grid">
+
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <img src="images/hoodie.jpg" alt="Luxury Hoodie">
+            <div class="product-info">
+                <h3>Heritage Hoodie</h3>
+                <p>Premium cotton blend • Old Money Style</p>
             </div>
-
-            <!-- Product 2 -->
-            <div class="item">
-                <img src="images/jacket.jpg" alt="Jacket">
-                <div class="item-info">
-                    <div class="item-title">Old Money Suit Jacket</div>
-                    <div class="item-desc">Structured premium tailoring inspired by luxury heritage brands.</div>
-                    <div class="item-price">AED 499</div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="item">
-                <img src="images/shirt.jpg" alt="Shirt">
-                <div class="item-info">
-                    <div class="item-title">Oxford Classic Shirt</div>
-                    <div class="item-desc">A crisp, timeless essential for elevated daily wear.</div>
-                    <div class="item-price">AED 199</div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="item">
-                <img src="images/trousers.jpg" alt="Trousers">
-                <div class="item-info">
-                    <div class="item-title">Tailored Heritage Trousers</div>
-                    <div class="item-desc">Elegant fitted silhouette with premium finishing details.</div>
-                    <div class="item-price">AED 249</div>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="item">
-                <img src="images/overcoat.jpg" alt="Overcoat">
-                <div class="item-info">
-                    <div class="item-title">Camel Old-Money Overcoat</div>
-                    <div class="item-desc">The ultimate luxury piece — inspired by iconic gentlemen’s style.</div>
-                    <div class="item-price">AED 699</div>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="item">
-                <img src="images/tee.jpg" alt="Tee">
-                <div class="item-info">
-                    <div class="item-title">Prestige Classic Tee</div>
-                    <div class="item-desc">Soft-touch premium cotton with understated luxury.</div>
-                    <div class="item-price">AED 129</div>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <img src="images/jacket.jpg" alt="Luxury Jacket">
+            <div class="product-info">
+                <h3>Classic Suit Jacket</h3>
+                <p>Elegant tailoring • Timeless Fit</p>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <img src="images/tee.jpg" alt="Luxury Tee">
+            <div class="product-info">
+                <h3>Essential Tee</h3>
+                <p>Soft fabric • Minimal luxury</p>
+            </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+            <img src="images/trousers.jpg" alt="Luxury Trousers">
+            <div class="product-info">
+                <h3>Tailored Trousers</h3>
+                <p>Sharp silhouette • Clean drape</p>
+            </div>
+        </div>
+
     </div>
 
 </body>
