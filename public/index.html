@@ -4,251 +4,161 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>H&CO. — Hustlers and Company</title>
+    <title>HUSTLERS & CO. — Luxury Menswear</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* ============================= */
+        /* OLD MONEY LUXURY HOMEPAGE CSS */
+        /* ============================= */
+
         body {
+            background-color: #FFFFF1;
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #000;
-            color: #fff;
-        }
-
-        /* NAVIGATION */
-        nav {
-            width: 100%;
-            padding: 22px 60px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .brand {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .brand:hover {
-            color: #f4d57c;
-        }
-
-        .tagline {
-            font-size: 11px;
-            opacity: 0.7;
-            margin-top: -4px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            margin: 0;
-        }
-
-        /* GOLD MENU HOVER ANIMATION */
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        nav ul li a::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: #f4d57c;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #f4d57c;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* MOBILE MENU */
-        .mobile-menu-icon {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background: #000;
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .mobile-menu a {
-            padding: 10px 0;
-        }
-
-        @media(max-width: 800px) {
-            nav ul {
-                display: none;
-            }
-
-            .mobile-menu-icon {
-                display: block;
-            }
+            font-family: 'Inter', sans-serif;
         }
 
         /* HERO SECTION */
-        .container {
-            padding-top: 160px;
-            width: 88%;
-            max-width: 1200px;
-            margin: auto;
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
         }
 
-        h1 {
-            font-size: 60px;
-            font-weight: 900;
-            line-height: 1.15;
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(85%);
         }
 
-        .gold {
-            color: #f4d57c;
+        /* Dark Overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 1;
         }
 
-        .subtitle {
-            margin-top: 22px;
-            font-size: 20px;
-            max-width: 550px;
-            opacity: 0.9;
-        }
-
-        .buttons {
-            margin-top: 35px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn-yellow {
-            background: #f4d57c;
-            padding: 15px 32px;
-            border-radius: 50px;
+        /* Text Container */
+        .hero-content {
+            position: absolute;
+            bottom: 15%;
+            left: 8%;
+            z-index: 5;
             color: #000;
-            font-weight: 700;
+            max-width: 500px;
+            animation: fadeUp 1.5s ease-out;
+        }
+
+        /* Brand Title */
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            margin: 0;
+            color: #000;
+        }
+
+        /* Subtitle */
+        .brand-subtitle {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Gold Line */
+        .gold-line {
+            width: 80px;
+            height: 3px;
+            background-color: #D4C5A1;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            animation: goldFade 2s ease-out;
+        }
+
+        /* Shop Button */
+        .shop-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 1px solid #D4C5A1;
+            color: #000;
             text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s ease;
         }
 
-        .btn-yellow:hover {
-            background: #ffeaa7;
+        .shop-btn:hover {
+            background-color: #D4C5A1;
+            color: #000;
         }
 
-        .btn-dark {
-            border: 1px solid #555;
-            padding: 15px 32px;
-            border-radius: 50px;
-            color: #fff;
-            text-decoration: none;
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .btn-dark:hover {
-            border-color: #f4d57c;
-            color: #f4d57c;
+        @keyframes goldFade {
+            from {
+                opacity: 0;
+                width: 0;
+            }
+
+            to {
+                opacity: 1;
+                width: 80px;
+            }
         }
 
-        .tags {
-            margin-top: 35px;
-            display: flex;
-            gap: 20px;
-            opacity: 0.8;
-        }
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .brand-title {
+                font-size: 38px;
+            }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            margin-top: 120px;
-            color: #777;
-            font-size: 14px;
+            .brand-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-content {
+                bottom: 10%;
+                left: 5%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div>
-            <div class="brand">H&CO.</div>
-            <div class="tagline">HUSTLERS AND COMPANY</div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <!-- Replace this image with your real image file -->
+        <img src="your-hero-image.jpg" alt="Elegant male model" class="hero-image">
+
+        <div class="hero-content">
+            <h1 class="brand-title">HUSTLERS & CO.</h1>
+            <p class="brand-subtitle">Timeless Elegance. Crafted for the Refined Man.</p>
+            <div class="gold-line"></div>
+
+            <a href="#" class="shop-btn">Shop Collection</a>
         </div>
-
-        <ul class="desktop-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="drop-zero.html">DROP ZERO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-
-        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
-
-        <ul class="mobile-menu" id="mobileMenu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="drop-zero.html">DROP ZERO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-
-    <!-- HERO -->
-    <div class="container">
-        <div class="tags">
-            <span>DUBAI • FOR MODERN HUSTLERS • 2025</span>
-        </div>
-
-        <h1>
-            Dress like the <span class="gold">life you're</span> building,<br>
-            not the one you're trying to escape.
-        </h1>
-
-        <p class="subtitle">
-            Hustlers & Co. is a luxury streetwear brand crafted for ambitious minds — the ones who refuse to settle for average.
-        </p>
-
-        <div class="buttons">
-            <a href="contact.html" class="btn-yellow">JOIN THE HUSTLE LIST</a>
-            <a href="collection.html" class="btn-dark">PREVIEW COLLECTION</a>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        © 2025 H&CO. — Hustlers and Company. All Rights Reserved.
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("mobileMenu");
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-        }
-    </script>
+    </section>
 
 </body>
 
