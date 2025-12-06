@@ -3,164 +3,102 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact • HUSTLERS & CO.</title>
-
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Contact — Hustlers & Co.</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #F5F2EA;
-            font-family: 'Inter', sans-serif;
-            color: #1A1A1A;
+            background-color: #f7f5f0;
+            font-family: "Cormorant Garamond", serif;
+            color: #1a1a1a;
         }
 
-        /* NAV */
-        .navbar {
-            width: 100%;
-            padding: 26px 0;
-            text-align: center;
-            background-color: #F5F2EA;
-            font-family: 'Playfair Display', serif;
-            border-bottom: 1px solid #E6DCCF;
-        }
-        .brand {
-            font-size: 36px;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
-            font-weight: 500;
-        }
-        .nav-links a {
-            margin: 0 18px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 14px;
-        }
-        .nav-links a:hover {
-            color: #C2A878;
-        }
-
-        /* CONTACT SECTION */
-        .contact-section {
+        .contact-container {
             max-width: 900px;
             margin: 80px auto;
             padding: 20px;
             text-align: center;
         }
 
-        .contact-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 62px;
+        .title {
+            font-size: 58px;
             font-weight: 600;
             margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 1.4s forwards ease-in-out;
         }
 
-        .contact-subtitle {
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 50px;
-            line-height: 1.7;
-            color: #4A4A4A;
+        .subtitle {
+            font-size: 20px;
+            color: #8c7f6a;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 2s forwards ease-in-out;
         }
 
-        .contact-box {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 8px;
-            border: 1px solid #E2D6C4;
-            max-width: 700px;
-            margin: 0 auto;
+        .info-box {
+            background: #ffffff;
+            padding: 40px;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            opacity: 0;
+            animation: fadeUp 1.4s forwards ease;
         }
 
-        input, textarea {
-            width: 100%;
-            padding: 14px;
-            margin: 12px 0;
-            border-radius: 4px;
-            border: 1px solid #D8C9B5;
-            font-size: 15px;
-            font-family: 'Inter', sans-serif;
-            background: #faf8f4;
+        .info-row {
+            margin-bottom: 25px;
+            font-size: 22px;
         }
 
-        textarea {
-            height: 140px;
-            resize: none;
+        .info-row strong {
+            color: #bda27e;
         }
 
-        .send-btn {
-            margin-top: 20px;
-            width: 100%;
-            padding: 16px 0;
-            background: #C2A878;
-            color: #fff;
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            border-radius: 6px;
+        /* Animations */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        .send-btn:hover {
-            background: #a8926a;
-        }
-
-        /* FOOTER */
-        .footer {
-            margin-top: 80px;
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #E2D6C4;
-            background: #F1ECE3;
-        }
-        .footer p {
-            margin: 6px 0;
-            font-size: 14px;
-            letter-spacing: 1px;
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <div class="navbar">
-        <div class="brand">HUSTLERS & CO.</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="drop-zero.html">Drop Zero</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+    <div class="contact-container">
+
+        <h1 class="title">Contact Us</h1>
+        <p class="subtitle">We’re here to help you — anytime.</p>
+
+        <div class="info-box">
+
+            <div class="info-row">
+                <strong>Email:</strong> support@hustlersandco.com
+            </div>
+
+            <div class="info-row">
+                <strong>Instagram:</strong> @hustlers.co
+            </div>
+
+            <div class="info-row">
+                <strong>Phone / WhatsApp:</strong> +971 52 000 0000
+            </div>
+
+            <div class="info-row">
+                <strong>Customer Support Hours:</strong>  
+                Daily — 10:00 AM to 10:00 PM
+            </div>
+
         </div>
-    </div>
 
-    <!-- CONTACT -->
-    <section class="contact-section">
-        <h1 class="contact-title">Get in Touch</h1>
-        <p class="contact-subtitle">
-            Whether you're a customer, collaborator, supplier, or a future member of the Hustlers & Co. family,  
-            we'd love to hear from you. Fill in the form below and we'll get back to you.
-        </p>
-
-        <div class="contact-box">
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <textarea placeholder="Message"></textarea>
-            <button class="send-btn">Send Message</button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <p>HUSTLERS & CO.</p>
-        <p>EST. 2025</p>
-        <p>© All Rights Reserved</p>
     </div>
 
 </body>
 </html>
+
