@@ -28,12 +28,12 @@
         }
 
         /* ======================= */
-        /* NAVIGATION (Ralph Lauren Style) */
+        /* NAVIGATION (LUXURY UPGRADE) */
         /* ======================= */
 
         .navbar {
             width: 100%;
-            padding: 22px 0;
+            padding: 26px 0;
             text-align: center;
             background-color: #F5F2EA;
             font-family: 'Playfair Display', serif;
@@ -41,21 +41,39 @@
         }
 
         .brand {
-            font-size: 34px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+            font-weight: 500;
         }
 
         .nav-links {
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
         .nav-links a {
-            margin: 0 14px;
-            padding: 4px 8px;
+            margin: 0 18px;
+            padding-bottom: 4px;
+            position: relative;
             transition: 0.3s ease;
+        }
+
+        /* GOLD SLIDE HOVER EFFECT */
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 1px;
+            background-color: #C2A878;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
