@@ -3,157 +3,88 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About • HUSTLERS & CO.</title>
-
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>About — Hustlers & Co.</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #F5F2EA;
-            font-family: 'Inter', sans-serif;
-            color: #1A1A1A;
+            background-color: #f7f5f0;
+            font-family: "Cormorant Garamond", serif;
+            color: #1a1a1a;
         }
 
-        /* NAV */
-        .navbar {
-            width: 100%;
-            padding: 26px 0;
-            text-align: center;
-            background-color: #F5F2EA;
-            font-family: 'Playfair Display', serif;
-            border-bottom: 1px solid #E6DCCF;
-        }
-        .brand {
-            font-size: 36px;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
-            font-weight: 500;
-        }
-        .nav-links a {
-            margin: 0 18px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 14px;
-        }
-        .nav-links a:hover {
-            color: #C2A878;
-        }
-
-        /* ABOUT SECTION */
-        .about-section {
-            max-width: 900px;
-            margin: 100px auto;
+        .about-container {
+            max-width: 1200px;
+            margin: 60px auto;
             padding: 20px;
-            text-align: center;
         }
 
-        .about-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 70px;
+        .title {
+            font-size: 60px;
             font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .about-subtitle {
-            font-size: 20px;
-            color: #444;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.7;
-        }
-
-        .divider {
-            width: 80px;
-            height: 2px;
-            background-color: #C2A878;
-            margin: 40px auto;
-        }
-
-        .about-text {
-            text-align: left;
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 18px;
-            color: #4A4A4A;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 26px;
-        }
-
-        /* FOOTER */
-        .footer {
-            margin-top: 100px;
             text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #E2D6C4;
-            background: #F1ECE3;
-        }
-        .footer p {
-            margin: 6px 0;
-            font-size: 14px;
             letter-spacing: 1px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards ease-in-out;
         }
 
+        .subtitle {
+            text-align: center;
+            color: #8c7f6a;
+            font-size: 20px;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeIn 2.2s forwards ease-in-out;
+        }
+
+        .section {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 1.4s forwards ease;
+        }
+
+        .section strong {
+            color: #bda27e;
+            font-weight: 600;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <div class="navbar">
-        <div class="brand">HUSTLERS & CO.</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="drop-zero.html">Drop Zero</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+    <div class="about-container">
+        <h1 class="title">Our Story</h1>
+        <p class="subtitle">Crafted with Purpose • Built with Heritage</p>
+
+        <div class="section">
+            <strong>Hustlers & Co.</strong> was born from a vision of redefining modern streetwear with the sophistication of timeless luxury. 
+            Each piece represents discipline, ambition, and the courage to build your own path. 
+            Our brand stands for the new generation of creators, dreamers, and hustlers — those who push boundaries and never settle.
         </div>
-    </div>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section">
-        <h1 class="about-title">Our Story</h1>
-        <p class="about-subtitle">
-            Redefining modern luxury for the new generation. Crafted with intention, timelessness, and character.
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="about-text">
-            <p>
-                Hustlers & Co. was built for the modern gentleman — the dreamer, the worker, the artist, and the relentless soul who never settles. 
-                Our brand stands for quiet luxury: minimal, refined, and effortlessly confident.
-            </p>
-
-            <p>
-                Every piece is designed with precision and purpose. We believe that clothing is more than fabric — it is a statement of identity, 
-                discipline, and ambition. From premium materials to clean silhouettes, every detail reflects the spirit of craftsmanship and modern elegance.
-            </p>
-
-            <p>
-                Hustlers & Co. is not fast fashion.  
-                It is a journey, a lifestyle, and a culture built on authenticity and purpose.  
-                A brand created for those who chase excellence, not attention.
-            </p>
-
-            <p>
-                As we continue to grow, our mission remains the same:  
-                to deliver timeless essentials that elevate everyday life and inspire confidence in every step.
-            </p>
+        <div class="section">
+            We blend <strong>premium craftsmanship</strong> with a refined old-money aesthetic to create elevated essentials that feel luxurious yet effortless.  
+            Every detail is intentionally designed — the fabrics, the colors, the fit — ensuring each piece carries the identity of the Hustlers lifestyle.
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        <p>HUSTLERS & CO.</p>
-        <p>EST. 2025</p>
-        <p>© All Rights Reserved</p>
+        <div class="section">
+            Our commitment is simple:  
+            <strong>Timeless design. Premium quality. Pieces that speak without trying.</strong>
+        </div>
     </div>
 
 </body>
