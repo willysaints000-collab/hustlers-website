@@ -2,218 +2,164 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUSTLERS & CO. — Luxury Menswear</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* ======================= */
+        /* GLOBAL STYLES */
+        /* ======================= */
+
         body {
-            background-color: #FFFFF1;
             margin: 0;
+            padding: 0;
+            background-color: #F5F2EA;
             font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
         }
 
-        /* ============================= */
-        /* HERO SECTION — EDITORIAL LUXURY */
-        /* ============================= */
-
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(85%);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: absolute;
-            bottom: 15%;
-            left: 8%;
-            z-index: 5;
-            color: #000;
-            max-width: 500px;
-            animation: fadeUp 1.5s ease-out;
-        }
-
-        .brand-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 60px;
-            margin: 0;
-        }
-
-        .brand-subtitle {
-            font-size: 20px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        .gold-line {
-            width: 80px;
-            height: 3px;
-            background-color: #D4C5A1;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            animation: goldFade 2s ease-out;
-        }
-
-        .shop-btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border: 1px solid #D4C5A1;
-            color: #000;
+        a {
             text-decoration: none;
-            font-size: 16px;
+            color: inherit;
+        }
+
+        /* ======================= */
+        /* NAVIGATION (Ralph Lauren Style) */
+        /* ======================= */
+
+        .navbar {
+            width: 100%;
+            padding: 22px 0;
+            text-align: center;
+            background-color: #F5F2EA;
+            font-family: 'Playfair Display', serif;
+            border-bottom: 1px solid #E6DCCF;
+        }
+
+        .brand {
+            font-size: 34px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .nav-links {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .nav-links a {
+            margin: 0 14px;
+            padding: 4px 8px;
             transition: 0.3s ease;
         }
 
-        .shop-btn:hover {
-            background-color: #D4C5A1;
-            color: #000;
+        .nav-links a:hover {
+            color: #C2A878;
         }
 
-        /* ============================= */
-        /* ABOUT SECTION — EXCLUSIVE LUXURY */
-        /* ============================= */
+        /* ======================= */
+        /* HERO SECTION */
+        /* ======================= */
 
-        .about-section {
-            padding: 120px 20px;
-            background-color: #FFFFF1;
+        .hero {
+            height: 88vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-        }
-
-        .about-container {
-            max-width: 850px;
+            align-items: center;
             text-align: center;
-            animation: fadeUp 1.5s ease-out;
+            padding: 0 20px;
+            background-color: #F5F2EA;
         }
 
-        .about-title {
+        .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: #000;
-            margin-bottom: 20px;
+            font-size: 60px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
-        .about-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #2A2A2A;
-            max-width: 720px;
-            margin: 0 auto;
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 25px;
         }
 
-        /* ============================= */
-        /* COLLECTIONS SECTION — OLD MONEY */
-        /* ============================= */
+        .hero-btn {
+            padding: 12px 30px;
+            border: 1px solid #C2A878;
+            color: #1A1A1A;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: #C2A878;
+            color: #fff;
+        }
+
+        /* ======================= */
+        /* COLLECTIONS */
+        /* ======================= */
 
         .collections-section {
-            padding: 100px 20px;
-            background-color: #FFFFF1;
+            padding: 80px 30px;
             text-align: center;
         }
 
         .collections-title {
             font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            margin-bottom: 50px;
-            color: #000;
+            font-size: 38px;
+            margin-bottom: 40px;
         }
 
         .collections-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            gap: 28px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .collection-card {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
+        .collection-box {
+            background-color: #E8E1D4;
+            padding: 80px 20px;
+            border: 1px solid #D8C3A5;
+            transition: 0.3s ease;
         }
 
-        .collection-image {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            transition: 0.4s ease;
+        .collection-box:hover {
+            background-color: #DCCEB8;
         }
 
-        .collection-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(212, 197, 161, 0.25);
-            opacity: 0;
-            transition: 0.4s ease;
-        }
-
-        .collection-name {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
+        .collection-title {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: #FFFFFF;
-            z-index: 5;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+            font-size: 24px;
+            letter-spacing: 1px;
         }
 
-        .collection-card:hover .collection-image {
-            transform: scale(1.05);
-            filter: brightness(75%);
+        /* ======================= */
+        /* FOOTER */
+        /* ======================= */
+
+        .footer {
+            background-color: #F1ECE3;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 1px solid #E0D5C8;
         }
 
-        .collection-card:hover .collection-overlay {
-            opacity: 1;
-        }
-
-        /* ANIMATIONS */
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes goldFade {
-            from {
-                opacity: 0;
-                width: 0;
-            }
-            to {
-                opacity: 1;
-                width: 80px;
-            }
+        .footer p {
+            margin: 6px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
     </style>
@@ -221,62 +167,52 @@
 
 <body>
 
+    <!-- NAVIGATION -->
+    <div class="navbar">
+        <div class="brand">HUSTLERS & CO.</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Jackets</a>
+            <a href="#">Shirts</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-overlay"></div>
-        <img src="your-hero-image.jpg" alt="Elegant male model" class="hero-image">
-
-        <div class="hero-content">
-            <h1 class="brand-title">HUSTLERS & CO.</h1>
-            <p class="brand-subtitle">Timeless Elegance. Crafted for the Refined Man.</p>
-            <div class="gold-line"></div>
-            <a href="#" class="shop-btn">Shop Collection</a>
-        </div>
+        <h1 class="hero-title">HUSTLERS & CO.</h1>
+        <p class="hero-subtitle">Crafted for the Modern Gentleman.</p>
+        <a href="#" class="hero-btn">Shop Now</a>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section">
-        <div class="about-container">
-            <h2 class="about-title">The Essence of Exclusivity</h2>
-            <p class="about-text">
-                Hustlers & Co. is crafted for the modern gentleman who values refinement, subtle strength,
-                and timeless elegance. Our pieces embody a quiet luxury—designed not to impress loudly,
-                but to be remembered effortlessly. Each collection is created with precision and intention,
-                offering exclusivity for men who stand apart with confidence and class.
-            </p>
-        </div>
-    </section>
-
-    <!-- COLLECTIONS SECTION -->
+    <!-- COLLECTIONS -->
     <section class="collections-section">
-        <h2 class="collections-title">Explore the Collection</h2>
+        <h2 class="collections-title">Discover the Collection</h2>
 
         <div class="collections-grid">
-
-            <!-- SHIRTS -->
-            <div class="collection-card">
-                <img src="shirts.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Shirts</h3>
+            <div class="collection-box">
+                <p class="collection-title">Jackets</p>
             </div>
-
-            <!-- TROUSERS -->
-            <div class="collection-card">
-                <img src="trousers.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Trousers</h3>
+            <div class="collection-box">
+                <p class="collection-title">Shirts</p>
             </div>
-
-            <!-- OUTERWEAR -->
-            <div class="collection-card">
-                <img src="outerwear.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Outerwear</h3>
+            <div class="collection-box">
+                <p class="collection-title">Trousers</p>
             </div>
-
+            <div class="collection-box">
+                <p class="collection-title">Outerwear</p>
+            </div>
         </div>
     </section>
 
-</body>
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>HUSTLERS & CO.</p>
+        <p>EST. 2025</p>
+        <p>© All Rights Reserved</p>
+    </div>
 
+</body>
 </html>
