@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HUSTLERS & CO. — Luxury Menswear</title>
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- ANIMATION CSS -->
     <style>
-        /* ======================= */
-        /* GLOBAL STYLES */
-        /* ======================= */
+    .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .fade-img {
+        opacity: 0;
+        transition: opacity 1.5s ease;
+    }
+    .fade-img.show {
+        opacity: 1;
+    }
+    </style>
+
+    <!-- MAIN STYLES -->
+    <style>
         body {
             margin: 0;
             padding: 0;
@@ -19,261 +38,212 @@
             font-family: 'Inter', sans-serif;
             color: #1A1A1A;
         }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
 
-        /* ======================= */
         /* NAVIGATION */
-        /* ======================= */
         .navbar {
             width: 100%;
-            padding: 26px 0;
+            padding: 28px 0;
             text-align: center;
             background-color: #F5F2EA;
             font-family: 'Playfair Display', serif;
             border-bottom: 1px solid #E6DCCF;
         }
         .brand {
-            font-size: 36px;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
+            font-size: 38px;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
             font-weight: 500;
         }
-        .nav-links {
-            font-size: 14px;
+        .nav-links a {
+            margin: 0 20px;
             text-transform: uppercase;
             letter-spacing: 4px;
+            font-size: 14px;
         }
-        .nav-links a {
-            margin: 0 18px;
-            padding-bottom: 4px;
-            position: relative;
-            transition: 0.3s ease;
-        }
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0%;
-            height: 1px;
-            background-color: #C2A878;
-            transition: 0.3s ease;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+
         .nav-links a:hover {
             color: #C2A878;
         }
 
-        /* ======================= */
         /* HERO SECTION */
-        /* ======================= */
         .hero {
-            height: 92vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            max-width: 1300px;
+            margin: 80px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: linear-gradient(to bottom, #F5F2EA 80%, #EFE8D9);
         }
+
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            margin-bottom: 14px;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-        .hero-subtitle {
-            font-size: 22px;
-            margin-bottom: 32px;
-            letter-spacing: 1px;
-            opacity: 0.85;
-        }
-        .hero-btn {
-            padding: 14px 36px;
-            border: 1px solid #C2A878;
-            color: #1A1A1A;
-            font-size: 14px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            transition: 0.3s ease;
-        }
-        .hero-btn:hover {
-            background-color: #C2A878;
-            color: #fff;
-        }
-
-        /* ======================= */
-        /* DISCOVER COLLECTIONS */
-        /* ======================= */
-        .collections-section {
-            padding: 80px 30px;
-            text-align: center;
-        }
-        .collections-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            margin-bottom: 40px;
-        }
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .collection-box {
-            background-color: #E8E1D4;
-            padding: 80px 20px;
-            border: 1px solid #D8C3A5;
-            transition: 0.3s ease;
-        }
-        .collection-box:hover {
-            background-color: #DCCEB8;
-        }
-        .collection-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            letter-spacing: 1px;
-        }
-
-        /* ======================= */
-        /* LUXURY COLLECTION (PHASE 3) */
-        /* ======================= */
-        .luxury-section {
-            padding: 120px 20px;
-            background: #ffffff;
-        }
-        .luxury-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .luxury-title {
-            font-size: 64px;
-            font-family: "Playfair Display", serif;
-            font-weight: 600;
-            color: #111;
+            font-size: 62px;
+            line-height: 1.1;
             margin-bottom: 20px;
         }
-        .luxury-subtitle {
+
+        .hero-sub {
             font-size: 18px;
-            color: #444;
-            max-width: 700px;
-            margin: 0 auto 60px;
-            line-height: 1.8;
+            color: #4A4A4A;
+            line-height: 1.7;
         }
-        .luxury-grid {
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            text-align: center;
+            margin: 120px 0 10px;
+        }
+        .section-sub {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            color: #4A4A4A;
+            line-height: 1.7;
+        }
+
+        /* COLLECTION PREVIEW */
+        .collection-preview {
+            max-width: 1200px;
+            margin: 0 auto 120px;
+            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
         }
-        .luxury-item img {
+
+        .preview-card {
+            background: #fff;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #E2D6C4;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .preview-card img {
             width: 100%;
             border-radius: 6px;
+            margin-bottom: 16px;
         }
-        .item-name {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: 500;
-        }
-        .item-price {
-            font-size: 17px;
-            color: #777;
+
+        .preview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         /* FOOTER */
         .footer {
-            background-color: #F1ECE3;
-            padding: 40px 0;
             text-align: center;
-            margin-top: 80px;
-            border-top: 1px solid #E0D5C8;
+            padding: 40px 0;
+            background: #F1ECE3;
+            border-top: 1px solid #D9CCBA;
+            margin-top: 120px;
         }
+
         .footer p {
             margin: 6px 0;
+            letter-spacing: 2px;
             font-size: 14px;
-            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .collection-preview {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <div class="navbar">
+    <!-- NAV -->
+    <div class="navbar fade-up">
         <div class="brand">HUSTLERS & CO.</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="collection.html">Shop</a>
+            <a href="collection.html">Collection</a>
             <a href="drop-zero.html">Drop Zero</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
-        <h1 class="hero-title">HUSTLERS & CO.</h1>
-        <p class="hero-subtitle">Crafted for the Modern Gentleman.</p>
-        <a href="drop-zero.html" class="hero-btn">Shop Now</a>
-    </section>
-
-    <!-- DISCOVER COLLECTIONS -->
-    <section class="collections-section">
-        <h2 class="collections-title">Discover the Collection</h2>
-
-        <div class="collections-grid">
-            <a href="drop-zero.html" class="collection-box"><p class="collection-title">Jackets</p></a>
-            <a href="collection.html" class="collection-box"><p class="collection-title">Shirts</p></a>
-            <a href="collection.html" class="collection-box"><p class="collection-title">Trousers</p></a>
-            <a href="collection.html" class="collection-box"><p class="collection-title">Outerwear</p></a>
-        </div>
-    </section>
-
-    <!-- LUXURY COLLECTION (PHASE 3) -->
-    <section id="luxury-collection" class="luxury-section">
-        <div class="luxury-container">
-            <h2 class="luxury-title">The Luxury Collection</h2>
-            <p class="luxury-subtitle">
-                Elevated essentials crafted with precision, minimal design, and premium fabrics —
-                defining the essence of Hustlers & Co. modern luxury.
+        <div class="fade-up">
+            <h1 class="hero-title">Elevated Menswear<br>For the Modern Gentleman</h1>
+            <p class="hero-sub">
+                Designed with precision and crafted with intention — timeless silhouettes, refined textures,
+                and premium essentials built for everyday sophistication.
             </p>
+        </div>
 
-            <div class="luxury-grid">
-                <div class="luxury-item">
-                    <img src="https://via.placeholder.com/600x800" alt="">
-                    <h3 class="item-name">Signature Wool Coat</h3>
-                    <p class="item-price">AED 699</p>
-                </div>
-
-                <div class="luxury-item">
-                    <img src="https://via.placeholder.com/600x800" alt="">
-                    <h3 class="item-name">Premium Midnight Hoodie</h3>
-                    <p class="item-price">AED 349</p>
-                </div>
-
-                <div class="luxury-item">
-                    <img src="https://via.placeholder.com/600x800" alt="">
-                    <h3 class="item-name">Urban Tailored Jacket</h3>
-                    <p class="item-price">AED 499</p>
-                </div>
-            </div>
+        <div class="hero-img">
+            <img class="fade-img" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600">
         </div>
     </section>
+
+    <!-- COLLECTION TITLE -->
+    <h2 class="section-title fade-up">The Collection</h2>
+    <p class="section-sub fade-up">A curated selection of elevated wardrobe essentials.</p>
+
+    <!-- PREVIEW GRID -->
+    <div class="collection-preview">
+        <a href="heritage-hoodie.html" class="preview-card fade-up">
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3e78?q=80&w=800">
+            <h3>Heritage Cotton Hoodie</h3>
+        </a>
+
+        <a href="regal-jacket.html" class="preview-card fade-up">
+            <img src="https://images.unsplash.com/photo-1559697242-5c7c434a19bf?q=80&w=800">
+            <h3>Regal Tailored Jacket</h3>
+        </a>
+
+        <a href="oxford-shirt.html" class="preview-card fade-up">
+            <img src="https://images.unsplash.com/photo-1503342250614-ca440786f4f3?q=80&w=800">
+            <h3>Oxford Signature Shirt</h3>
+        </a>
+    </div>
 
     <!-- FOOTER -->
-    <div class="footer">
+    <div class="footer fade-up">
         <p>HUSTLERS & CO.</p>
         <p>EST. 2025</p>
         <p>© All Rights Reserved</p>
     </div>
+
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const revealElements = document.querySelectorAll('.fade-up, .fade-img');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add("show");
+                }
+            });
+        };
+
+        revealOnScroll();
+        window.addEventListener("scroll", revealOnScroll);
+    });
+    </script>
 
 </body>
 </html>
