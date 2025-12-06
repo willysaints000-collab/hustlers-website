@@ -1,61 +1,282 @@
-/* ============================= */
-/* ABOUT SECTION — EXCLUSIVE LUXURY */
-/* ============================= */
+<!DOCTYPE html>
+<html lang="en">
 
-.about-section {
-    padding: 120px 20px;
-    background-color: #FFFFF1;
-    display: flex;
-    justify-content: center;
-}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HUSTLERS & CO. — Luxury Menswear</title>
 
-.about-container {
-    max-width: 850px;
-    text-align: center;
-    animation: fadeUp 1.5s ease-out;
-}
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-.about-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    color: #000;
-    margin-bottom: 20px;
-}
+    <style>
+        body {
+            background-color: #FFFFF1;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-.about-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #2A2A2A;
-    max-width: 720px;
-    margin: 0 auto;
-}
-<!-- COLLECTIONS SECTION -->
-<section class="collections-section">
-    <h2 class="collections-title">Explore the Collection</h2>
+        /* ============================= */
+        /* HERO SECTION — EDITORIAL LUXURY */
+        /* ============================= */
 
-    <div class="collections-grid">
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
 
-        <!-- SHIRTS -->
-        <div class="collection-card">
-            <img src="shirts.jpg" alt="Luxury Shirts" class="collection-image">
-            <div class="collection-overlay"></div>
-            <h3 class="collection-name">Shirts</h3>
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(85%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 15%;
+            left: 8%;
+            z-index: 5;
+            color: #000;
+            max-width: 500px;
+            animation: fadeUp 1.5s ease-out;
+        }
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            margin: 0;
+        }
+
+        .brand-subtitle {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 3px;
+            background-color: #D4C5A1;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            animation: goldFade 2s ease-out;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 1px solid #D4C5A1;
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .shop-btn:hover {
+            background-color: #D4C5A1;
+            color: #000;
+        }
+
+        /* ============================= */
+        /* ABOUT SECTION — EXCLUSIVE LUXURY */
+        /* ============================= */
+
+        .about-section {
+            padding: 120px 20px;
+            background-color: #FFFFF1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-container {
+            max-width: 850px;
+            text-align: center;
+            animation: fadeUp 1.5s ease-out;
+        }
+
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #2A2A2A;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* ============================= */
+        /* COLLECTIONS SECTION — OLD MONEY */
+        /* ============================= */
+
+        .collections-section {
+            padding: 100px 20px;
+            background-color: #FFFFF1;
+            text-align: center;
+        }
+
+        .collections-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #000;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .collection-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(212, 197, 161, 0.25);
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .collection-name {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #FFFFFF;
+            z-index: 5;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .collection-card:hover .collection-image {
+            transform: scale(1.05);
+            filter: brightness(75%);
+        }
+
+        .collection-card:hover .collection-overlay {
+            opacity: 1;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes goldFade {
+            from {
+                opacity: 0;
+                width: 0;
+            }
+            to {
+                opacity: 1;
+                width: 80px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <img src="your-hero-image.jpg" alt="Elegant male model" class="hero-image">
+
+        <div class="hero-content">
+            <h1 class="brand-title">HUSTLERS & CO.</h1>
+            <p class="brand-subtitle">Timeless Elegance. Crafted for the Refined Man.</p>
+            <div class="gold-line"></div>
+            <a href="#" class="shop-btn">Shop Collection</a>
         </div>
+    </section>
 
-        <!-- TROUSERS -->
-        <div class="collection-card">
-            <img src="trousers.jpg" alt="Luxury Trousers" class="collection-image">
-            <div class="collection-overlay"></div>
-            <h3 class="collection-name">Trousers</h3>
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="about-title">The Essence of Exclusivity</h2>
+            <p class="about-text">
+                Hustlers & Co. is crafted for the modern gentleman who values refinement, subtle strength,
+                and timeless elegance. Our pieces embody a quiet luxury—designed not to impress loudly,
+                but to be remembered effortlessly. Each collection is created with precision and intention,
+                offering exclusivity for men who stand apart with confidence and class.
+            </p>
         </div>
+    </section>
 
-        <!-- OUTERWEAR -->
-        <div class="collection-card">
-            <img src="outerwear.jpg" alt="Luxury Outerwear" class="collection-image">
-            <div class="collection-overlay"></div>
-            <h3 class="collection-name">Outerwear</h3>
+    <!-- COLLECTIONS SECTION -->
+    <section class="collections-section">
+        <h2 class="collections-title">Explore the Collection</h2>
+
+        <div class="collections-grid">
+
+            <!-- SHIRTS -->
+            <div class="collection-card">
+                <img src="shirts.jpg" class="collection-image">
+                <div class="collection-overlay"></div>
+                <h3 class="collection-name">Shirts</h3>
+            </div>
+
+            <!-- TROUSERS -->
+            <div class="collection-card">
+                <img src="trousers.jpg" class="collection-image">
+                <div class="collection-overlay"></div>
+                <h3 class="collection-name">Trousers</h3>
+            </div>
+
+            <!-- OUTERWEAR -->
+            <div class="collection-card">
+                <img src="outerwear.jpg" class="collection-image">
+                <div class="collection-overlay"></div>
+                <h3 class="collection-name">Outerwear</h3>
+            </div>
+
         </div>
+    </section>
 
-    </div>
-</section>
+</body>
+
+</html>
