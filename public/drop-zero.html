@@ -1,195 +1,173 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HUSTLERS & CO. — Drop Zero</title>
-
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Drop Zero — Hustlers & Co.</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #F5F2EA;
-            font-family: 'Inter', sans-serif;
-            color: #1A1A1A;
+            background-color: #f7f5f0;
+            font-family: "Cormorant Garamond", serif;
+            color: #1a1a1a;
         }
 
-        /* NAVBAR */
-        .navbar {
+        /* Hero Section */
+        .hero {
             width: 100%;
-            padding: 26px 0;
+            height: 70vh;
+            background: url("images/dropzero-banner.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background-color: #F5F2EA;
-            font-family: 'Playfair Display', serif;
-            border-bottom: 1px solid #E6DCCF;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 1.8s forwards ease-in-out;
         }
-        .brand {
-            font-size: 36px;
+
+        .hero-title {
+            font-size: 68px;
+            font-weight: 600;
+            color: white;
             letter-spacing: 3px;
-            margin-bottom: 14px;
-            font-weight: 500;
-        }
-        .nav-links a {
-            margin: 0 18px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            position: relative;
+            text-shadow: 0 4px 14px rgba(0,0,0,0.4);
         }
 
-        /* PRODUCT PAGE LAYOUT */
-        .product-section {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 0 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+        /* Content Section */
+        .drop-container {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 20px;
         }
 
-        /* PRODUCT IMAGE */
-        .product-image img {
-            width: 100%;
-            border-radius: 6px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        .section-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 1.4s forwards ease;
         }
 
-        /* PRODUCT CONTENT */
-        .product-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 54px;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .product-price {
+        .description {
             font-size: 22px;
-            color: #C2A878;
-            margin-bottom: 30px;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            color: #4a4a4a;
+            opacity: 0;
+            animation: fadeUp 1.6s forwards ease;
         }
 
-        .divider {
-            height: 1px;
-            width: 80%;
-            background-color: #D6C7AE;
-            margin: 25px 0;
+        /* Product Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            opacity: 0;
+            animation: fadeUp 1.8s forwards ease;
         }
 
-        .section-label {
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #827764;
-            margin-bottom: 10px;
-        }
-
-        /* SIZE SELECTOR */
-        .sizes label {
-            display: inline-block;
-            margin: 6px 12px 12px 0;
-            padding: 10px 16px;
-            border: 1px solid #C8B79E;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .sizes label:hover {
-            background-color: #E6DCCF;
-        }
-
-        /* ADD TO CART BUTTON */
-        .add-btn {
-            margin-top: 40px;
-            padding: 16px 42px;
-            border: 1px solid #C2A878;
-            background: transparent;
-            font-size: 14px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            cursor: pointer;
+        .item {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.06);
             transition: 0.3s ease;
         }
-        .add-btn:hover {
-            background-color: #C2A878;
-            color: white;
+
+        .item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        /* DESCRIPTION */
-        .description {
-            line-height: 1.7;
-            color: #4A4A4A;
-            margin-top: 20px;
-            max-width: 80%;
+        .item img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .product-section {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .divider, .description {
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .info {
+            text-align: center;
+            padding: 22px;
+        }
+
+        .item-name {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .item-price {
+            font-size: 20px;
+            color: #bda27e;
+            font-weight: 700;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <div class="navbar">
-        <div class="brand">HUSTLERS & CO.</div>
-        <div class="nav-links">
-            <a href="/index.html">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Drop Zero</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
+    <!-- HERO BANNER -->
+    <div class="hero">
+        <h1 class="hero-title">DROP ZERO</h1>
     </div>
 
-    <!-- PRODUCT SECTION -->
-    <section class="product-section">
+    <!-- CONTENT -->
+    <div class="drop-container">
 
-        <!-- PRODUCT IMAGE -->
-        <div class="product-image">
-            <img src="https://via.placeholder.com/900x1100" alt="Drop Zero Item">
-        </div>
+        <h2 class="section-title">The Beginning of a New Era</h2>
 
-        <!-- PRODUCT DETAILS -->
-        <div class="product-info">
-            <h1 class="product-title">DROP ZERO — Essential Luxury Hoodie</h1>
-            <p class="product-price">AED 349</p>
+        <p class="description">
+            Drop Zero marks the official launch of <strong>Hustlers & Co.</strong> —  
+            a curated selection of timeless essentials crafted for the new generation of creators and visionaries.  
+            Inspired by old-money luxury, tailored with modern streetwear edge, each piece is designed to elevate your everyday lifestyle.
+        </p>
 
-            <div class="divider"></div>
+        <!-- PRODUCT SHOWCASE -->
+        <div class="grid">
 
-            <p class="section-label">Select Size</p>
-            <div class="sizes">
-                <label>S</label>
-                <label>M</label>
-                <label>L</label>
-                <label>XL</label>
+            <div class="item">
+                <img src="images/drop-hoodie.jpg" alt="Premium Hoodie">
+                <div class="info">
+                    <div class="item-name">Heritage Hoodie</div>
+                    <div class="item-price">AED 299</div>
+                </div>
             </div>
 
-            <button class="add-btn">Add to Cart</button>
+            <div class="item">
+                <img src="images/drop-jacket.jpg" alt="Luxury Jacket">
+                <div class="info">
+                    <div class="item-name">Signature Suit Jacket</div>
+                    <div class="item-price">AED 499</div>
+                </div>
+            </div>
 
-            <div class="divider"></div>
-
-            <p class="section-label">Description</p>
-            <p class="description">
-                The Drop Zero Essential Hoodie is crafted with premium heavyweight cotton 
-                blended with ultra-soft inner fleece. Designed with structured shoulders, 
-                a tailored fit, and minimal branding — this piece represents the foundation 
-                of modern menswear luxury.
-            </p>
+            <div class="item">
+                <img src="images/drop-tee.jpg" alt="Classic Tee">
+                <div class="info">
+                    <div class="item-name">Prestige Tee</div>
+                    <div class="item-price">AED 129</div>
+                </div>
+            </div>
 
         </div>
 
-    </section>
+    </div>
 
 </body>
 </html>
