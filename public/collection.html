@@ -1,282 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HUSTLERS & CO. — Luxury Menswear</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection • HUSTLERS & CO.</title>
 
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background-color: #FFFFF1;
             margin: 0;
+            padding: 0;
+            background-color: #F5F2EA;
             font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
         }
 
-        /* ============================= */
-        /* HERO SECTION — EDITORIAL LUXURY */
-        /* ============================= */
-
-        .hero {
-            position: relative;
-            height: 100vh;
+        /* NAV */
+        .navbar {
             width: 100%;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(85%);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: absolute;
-            bottom: 15%;
-            left: 8%;
-            z-index: 5;
-            color: #000;
-            max-width: 500px;
-            animation: fadeUp 1.5s ease-out;
-        }
-
-        .brand-title {
+            padding: 26px 0;
+            text-align: center;
+            background-color: #F5F2EA;
             font-family: 'Playfair Display', serif;
-            font-size: 60px;
-            margin: 0;
+            border-bottom: 1px solid #E6DCCF;
+        }
+        .brand {
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            margin: 0 18px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            color: #C2A878;
         }
 
-        .brand-subtitle {
-            font-size: 20px;
-            margin-top: 10px;
-            margin-bottom: 20px;
+        /* COLLECTION HERO */
+        .collection-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+        .collection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 62px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .collection-subtitle {
+            font-size: 18px;
+            color: #4A4A4A;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
-        .gold-line {
-            width: 80px;
-            height: 3px;
-            background-color: #D4C5A1;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            animation: goldFade 2s ease-out;
+        /* PRODUCTS GRID */
+        .products-grid {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
-
-        .shop-btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border: 1px solid #D4C5A1;
-            color: #000;
-            text-decoration: none;
-            font-size: 16px;
+        .product-card {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #E2D6C4;
+            text-align: center;
             transition: 0.3s ease;
         }
-
-        .shop-btn:hover {
-            background-color: #D4C5A1;
-            color: #000;
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
-
-        /* ============================= */
-        /* ABOUT SECTION — EXCLUSIVE LUXURY */
-        /* ============================= */
-
-        .about-section {
-            padding: 120px 20px;
-            background-color: #FFFFF1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .about-container {
-            max-width: 850px;
-            text-align: center;
-            animation: fadeUp 1.5s ease-out;
-        }
-
-        .about-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: #000;
-            margin-bottom: 20px;
-        }
-
-        .about-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #2A2A2A;
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        /* ============================= */
-        /* COLLECTIONS SECTION — OLD MONEY */
-        /* ============================= */
-
-        .collections-section {
-            padding: 100px 20px;
-            background-color: #FFFFF1;
-            text-align: center;
-        }
-
-        .collections-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            margin-bottom: 50px;
-            color: #000;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .collection-card {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .collection-image {
+        .product-card img {
             width: 100%;
-            height: 380px;
-            object-fit: cover;
-            transition: 0.4s ease;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .product-name {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .product-price {
+            color: #6E6257;
+            margin-bottom: 10px;
+        }
+        .product-card a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        .collection-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(212, 197, 161, 0.25);
-            opacity: 0;
-            transition: 0.4s ease;
+        /* FOOTER */
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #E2D6C4;
+            background: #F1ECE3;
+        }
+        .footer p {
+            margin: 6px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
-        .collection-name {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: #FFFFFF;
-            z-index: 5;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
-        }
-
-        .collection-card:hover .collection-image {
-            transform: scale(1.05);
-            filter: brightness(75%);
-        }
-
-        .collection-card:hover .collection-overlay {
-            opacity: 1;
-        }
-
-        /* ANIMATIONS */
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
-
-        @keyframes goldFade {
-            from {
-                opacity: 0;
-                width: 0;
-            }
-            to {
-                opacity: 1;
-                width: 80px;
-            }
-        }
-
     </style>
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <img src="your-hero-image.jpg" alt="Elegant male model" class="hero-image">
-
-        <div class="hero-content">
-            <h1 class="brand-title">HUSTLERS & CO.</h1>
-            <p class="brand-subtitle">Timeless Elegance. Crafted for the Refined Man.</p>
-            <div class="gold-line"></div>
-            <a href="#" class="shop-btn">Shop Collection</a>
+    <!-- NAV -->
+    <div class="navbar">
+        <div class="brand">HUSTLERS & CO.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="drop-zero.html">Drop Zero</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
+    </div>
+
+    <!-- COLLECTION HERO -->
+    <section class="collection-hero">
+        <h1 class="collection-title">The Collection</h1>
+        <p class="collection-subtitle">
+            A curated selection of elevated essentials — crafted with precision, character, 
+            and refined modern luxury.
+        </p>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section">
-        <div class="about-container">
-            <h2 class="about-title">The Essence of Exclusivity</h2>
-            <p class="about-text">
-                Hustlers & Co. is crafted for the modern gentleman who values refinement, subtle strength,
-                and timeless elegance. Our pieces embody a quiet luxury—designed not to impress loudly,
-                but to be remembered effortlessly. Each collection is created with precision and intention,
-                offering exclusivity for men who stand apart with confidence and class.
-            </p>
-        </div>
-    </section>
+    <!-- PRODUCTS GRID -->
+    <div class="products-grid">
 
-    <!-- COLLECTIONS SECTION -->
-    <section class="collections-section">
-        <h2 class="collections-title">Explore the Collection</h2>
+        <a href="drop-zero.html" class="product-card">
+            <img src="https://via.placeholder.com/600x800" alt="Product">
+            <h3 class="product-name">Essential Hoodie</h3>
+            <p class="product-price">AED 349</p>
+        </a>
 
-        <div class="collections-grid">
+        <a href="drop-zero.html" class="product-card">
+            <img src="https://via.placeholder.com/600x800" alt="Product">
+            <h3 class="product-name">Structured Jacket</h3>
+            <p class="product-price">AED 499</p>
+        </a>
 
-            <!-- SHIRTS -->
-            <div class="collection-card">
-                <img src="shirts.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Shirts</h3>
-            </div>
+        <a href="drop-zero.html" class="product-card">
+            <img src="https://via.placeholder.com/600x800" alt="Product">
+            <h3 class="product-name">Premium Shirt</h3>
+            <p class="product-price">AED 259</p>
+        </a>
 
-            <!-- TROUSERS -->
-            <div class="collection-card">
-                <img src="trousers.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Trousers</h3>
-            </div>
+        <a href="drop-zero.html" class="product-card">
+            <img src="https://via.placeholder.com/600x800" alt="Product">
+            <h3 class="product-name">Tailored Pants</h3>
+            <p class="product-price">AED 329</p>
+        </a>
 
-            <!-- OUTERWEAR -->
-            <div class="collection-card">
-                <img src="outerwear.jpg" class="collection-image">
-                <div class="collection-overlay"></div>
-                <h3 class="collection-name">Outerwear</h3>
-            </div>
+        <a href="drop-zero.html" class="product-card">
+            <img src="https://via.placeholder.com/600x800" alt="Product">
+            <h3 class="product-name">Urban Overcoat</h3>
+            <p class="product-price">AED 699</p>
+        </a>
 
-        </div>
-    </section>
+        <a href="drop-zero.html" class="product-card">
+            <img src="https://via.placeholder.com/600x800" alt="Product">
+            <h3 class="product-name">Classic Tee</h3>
+            <p class="product-price">AED 129</p>
+        </a>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>HUSTLERS & CO.</p>
+        <p>EST. 2025</p>
+        <p>© All Rights Reserved</p>
+    </div>
 
 </body>
-
 </html>
