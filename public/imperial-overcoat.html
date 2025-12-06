@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imperial Wool Overcoat • HUSTLERS & CO.</title>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F5F2EA;
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            width: 100%;
+            padding: 26px 0;
+            text-align: center;
+            background-color: #F5F2EA;
+            font-family: 'Playfair Display', serif;
+            border-bottom: 1px solid #E6DCCF;
+        }
+        .brand {
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            margin: 0 18px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            color: #C2A878;
+        }
+
+        /* PRODUCT LAYOUT */
+        .product-section {
+            max-width: 1300px;
+            margin: 80px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            color: #C2A878;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            height: 1px;
+            width: 80%;
+            background-color: #D6C7AE;
+            margin: 25px 0;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #827764;
+            margin-bottom: 10px;
+        }
+
+        .sizes label {
+            display: inline-block;
+            margin: 6px 12px 12px 0;
+            padding: 10px 16px;
+            border: 1px solid #C8B79E;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .sizes label:hover {
+            background-color: #E6DCCF;
+        }
+
+        .add-btn {
+            margin-top: 40px;
+            padding: 16px 42px;
+            border: 1px solid #C2A878;
+            background: transparent;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .add-btn:hover {
+            background-color: #C2A878;
+            color: white;
+        }
+
+        .description {
+            line-height: 1.7;
+            color: #4A4A4A;
+            margin-top: 20px;
+            max-width: 80%;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .product-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .divider, .description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <div class="navbar">
+        <div class="brand">HUSTLERS & CO.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="drop-zero.html">Drop Zero</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- PRODUCT SECTION -->
+    <section class="product-section">
+
+        <!-- IMAGE -->
+        <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1576871337632-f8a7f6f1f88f?q=80&w=1600"
+                 alt="Imperial Wool Overcoat">
+        </div>
+
+        <!-- DETAILS -->
+        <div class="product-info">
+            <h1 class="product-title">Imperial Wool Overcoat</h1>
+            <p class="product-price">AED 699</p>
+
+            <div class="divider"></div>
+
+            <p class="section-label">Select Size</p>
+            <div class="sizes">
+                <label>S</label>
+                <label>M</label>
+                <label>L</label>
+                <label>XL</label>
+            </div>
+
+            <button class="add-btn">Add to Cart</button>
+
+            <div class="divider"></div>
+
+            <p class="section-label">Description</p>
+            <p class="description">
+                The Imperial Wool Overcoat defines timeless sophistication. Crafted from a premium wool blend, 
+                this overcoat offers warmth, structure, and an unmistakable sense of refinement. 
+                Perfect for winter layering, business attire, or elevated streetwear styling.
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
