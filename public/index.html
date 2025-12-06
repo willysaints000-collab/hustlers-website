@@ -106,7 +106,7 @@
         }
         .hero-btn:hover {
             background-color: #C2A878;
-            color: white;
+            color: #fff;
         }
 
         /* ======================= */
@@ -144,7 +144,7 @@
         }
 
         /* ======================= */
-        /* PHASE 3 — LUXURY COLLECTION */
+        /* LUXURY COLLECTION (PHASE 3) */
         /* ======================= */
         .luxury-section {
             padding: 120px 20px;
@@ -159,7 +159,6 @@
             font-size: 64px;
             font-family: "Playfair Display", serif;
             font-weight: 600;
-            letter-spacing: 1px;
             color: #111;
             margin-bottom: 20px;
         }
@@ -183,36 +182,13 @@
             margin-top: 20px;
             font-size: 20px;
             font-weight: 500;
-            color: #111;
         }
         .item-price {
             font-size: 17px;
             color: #777;
-            margin-top: 5px;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeUp 1.3s ease forwards;
-        }
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @media (max-width: 900px) {
-            .luxury-grid {
-                grid-template-columns: 1fr;
-            }
-            .luxury-title {
-                font-size: 42px;
-            }
         }
 
-        /* ======================= */
         /* FOOTER */
-        /* ======================= */
         .footer {
             background-color: #F1ECE3;
             padding: 40px 0;
@@ -234,12 +210,11 @@
     <div class="navbar">
         <div class="brand">HUSTLERS & CO.</div>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Jackets</a>
-            <a href="#">Shirts</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Shop</a>
+            <a href="drop-zero.html">Drop Zero</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
 
@@ -247,7 +222,7 @@
     <section class="hero">
         <h1 class="hero-title">HUSTLERS & CO.</h1>
         <p class="hero-subtitle">Crafted for the Modern Gentleman.</p>
-        <a href="#" class="hero-btn">Shop Now</a>
+        <a href="drop-zero.html" class="hero-btn">Shop Now</a>
     </section>
 
     <!-- DISCOVER COLLECTIONS -->
@@ -255,14 +230,14 @@
         <h2 class="collections-title">Discover the Collection</h2>
 
         <div class="collections-grid">
-            <div class="collection-box"><p class="collection-title">Jackets</p></div>
-            <div class="collection-box"><p class="collection-title">Shirts</p></div>
-            <div class="collection-box"><p class="collection-title">Trousers</p></div>
-            <div class="collection-box"><p class="collection-title">Outerwear</p></div>
+            <a href="drop-zero.html" class="collection-box"><p class="collection-title">Jackets</p></a>
+            <a href="collection.html" class="collection-box"><p class="collection-title">Shirts</p></a>
+            <a href="collection.html" class="collection-box"><p class="collection-title">Trousers</p></a>
+            <a href="collection.html" class="collection-box"><p class="collection-title">Outerwear</p></a>
         </div>
     </section>
 
-    <!-- PHASE 3 — LUXURY COLLECTION -->
+    <!-- LUXURY COLLECTION (PHASE 3) -->
     <section id="luxury-collection" class="luxury-section">
         <div class="luxury-container">
             <h2 class="luxury-title">The Luxury Collection</h2>
@@ -272,25 +247,23 @@
             </p>
 
             <div class="luxury-grid">
-
-                <div class="luxury-item fade-in">
-                    <img src="https://via.placeholder.com/600x800" alt="Luxury Item 1">
+                <div class="luxury-item">
+                    <img src="https://via.placeholder.com/600x800" alt="">
                     <h3 class="item-name">Signature Wool Coat</h3>
                     <p class="item-price">AED 699</p>
                 </div>
 
-                <div class="luxury-item fade-in">
-                    <img src="https://via.placeholder.com/600x800" alt="Luxury Item 2">
+                <div class="luxury-item">
+                    <img src="https://via.placeholder.com/600x800" alt="">
                     <h3 class="item-name">Premium Midnight Hoodie</h3>
                     <p class="item-price">AED 349</p>
                 </div>
 
-                <div class="luxury-item fade-in">
-                    <img src="https://via.placeholder.com/600x800" alt="Luxury Item 3">
+                <div class="luxury-item">
+                    <img src="https://via.placeholder.com/600x800" alt="">
                     <h3 class="item-name">Urban Tailored Jacket</h3>
                     <p class="item-price">AED 499</p>
                 </div>
-
             </div>
         </div>
     </section>
