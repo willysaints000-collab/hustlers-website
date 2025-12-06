@@ -1,261 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — H&CO. | Hustlers and Company</title>
+    <title>Contact • HUSTLERS & CO.</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
-        rel="stylesheet" />
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            font-family: "Montserrat", sans-serif;
-            background: #000;
-            color: #fff;
+            padding: 0;
+            background-color: #F5F2EA;
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
         }
 
-        /* NAVIGATION */
-        nav {
+        /* NAV */
+        .navbar {
             width: 100%;
-            padding: 22px 60px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
+            padding: 26px 0;
+            text-align: center;
+            background-color: #F5F2EA;
+            font-family: 'Playfair Display', serif;
+            border-bottom: 1px solid #E6DCCF;
         }
-
         .brand {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .brand:hover {
-            color: #f4d57c;
-        }
-
-        .tagline {
-            font-size: 11px;
-            opacity: 0.7;
-            margin-top: -4px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
-
-        /* GOLD HOVER ANIMATION */
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
             font-weight: 500;
-            position: relative;
-            transition: 0.3s;
+        }
+        .nav-links a {
+            margin: 0 18px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            color: #C2A878;
         }
 
-        nav ul li a::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: #f4d57c;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #f4d57c;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* MOBILE MENU */
-        .mobile-menu-icon {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 800px) {
-            nav ul {
-                display: none;
-            }
-            .mobile-menu-icon {
-                display: block;
-            }
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background: #000;
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .mobile-menu a {
-            padding: 10px 0;
-        }
-
-        /* PAGE CONTENT */
-        .container {
-            padding-top: 160px;
-            width: 88%;
+        /* CONTACT SECTION */
+        .contact-section {
             max-width: 900px;
-            margin: auto;
-            text-align: left;
+            margin: 80px auto;
+            padding: 20px;
+            text-align: center;
         }
 
-        h1 {
-            font-size: 52px;
-            font-weight: 900;
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 62px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        .gold {
-            color: #f4d57c;
-        }
-
-        p {
+        .contact-subtitle {
             font-size: 18px;
-            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 50px;
             line-height: 1.7;
-            margin-top: 16px;
+            color: #4A4A4A;
         }
 
         .contact-box {
-            margin-top: 50px;
-            padding: 35px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid #E2D6C4;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        label {
-            font-size: 14px;
-            opacity: 0.85;
-        }
-
-        input,
-        textarea {
+        input, textarea {
             width: 100%;
             padding: 14px;
-            border-radius: 8px;
-            border: none;
-            margin-top: 8px;
-            margin-bottom: 18px;
-            outline: none;
+            margin: 12px 0;
+            border-radius: 4px;
+            border: 1px solid #D8C9B5;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            background: #faf8f4;
         }
 
         textarea {
-            height: 130px;
+            height: 140px;
+            resize: none;
         }
 
-        .btn-yellow {
-            background: #f4d57c;
-            padding: 15px 26px;
-            border-radius: 50px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
+        .send-btn {
+            margin-top: 20px;
             width: 100%;
-            font-size: 16px;
+            padding: 16px 0;
+            background: #C2A878;
+            color: #fff;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            border-radius: 6px;
         }
 
-        .btn-yellow:hover {
-            background: #ffeaa7;
+        .send-btn:hover {
+            background: #a8926a;
         }
 
         /* FOOTER */
-        footer {
+        .footer {
+            margin-top: 80px;
             text-align: center;
-            padding: 60px 0;
-            margin-top: 100px;
-            color: #777;
+            padding: 40px 0;
+            border-top: 1px solid #E2D6C4;
+            background: #F1ECE3;
+        }
+        .footer p {
+            margin: 6px 0;
             font-size: 14px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div>
-            <div class="brand">H&CO.</div>
-            <div class="tagline">HUSTLERS AND COMPANY</div>
-        </div>
-
-        <ul class="desktop-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="drop-zero.html">DROP ZERO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-
-        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
-
-        <ul class="mobile-menu" id="mobileMenu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="drop-zero.html">DROP ZERO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <h1>Get in <span class="gold">Touch</span></h1>
-        <p>
-            Whether you're a customer, collaborator, supplier, or a future member of the Hustlers community,  
-            we’d love to hear from you.
-        </p>
-
-        <div class="contact-box">
-            <form action="#" method="POST">
-                <label>Your Name</label>
-                <input type="text" required>
-
-                <label>Your Email</label>
-                <input type="email" required>
-
-                <label>Message</label>
-                <textarea required></textarea>
-
-                <button class="btn-yellow" type="submit">SEND MESSAGE</button>
-            </form>
+    <!-- NAV -->
+    <div class="navbar">
+        <div class="brand">HUSTLERS & CO.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="drop-zero.html">Drop Zero</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2025 H&CO. — Hustlers and Company. All Rights Reserved.
-    </footer>
+    <!-- CONTACT -->
+    <section class="contact-section">
+        <h1 class="contact-title">Get in Touch</h1>
+        <p class="contact-subtitle">
+            Whether you're a customer, collaborator, supplier, or a future member of the Hustlers & Co. family,  
+            we'd love to hear from you. Fill in the form below and we'll get back to you.
+        </p>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("mobileMenu");
-            menu.style.display =
-                menu.style.display === "flex" ? "none" : "flex";
-        }
-    </script>
+        <div class="contact-box">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <textarea placeholder="Message"></textarea>
+            <button class="send-btn">Send Message</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>HUSTLERS & CO.</p>
+        <p>EST. 2025</p>
+        <p>© All Rights Reserved</p>
+    </div>
 
 </body>
-
 </html>
