@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUSTLERS & CO. — Luxury Menswear</title>
 
     <style>
+        /* GLOBAL */
         body {
             margin: 0;
-            padding: 0;
             font-family: "Georgia", serif;
-            background-color: #f7f5f0;
+            background-color: #f7f7f7;
+            color: #1a1a1a;
         }
 
+        /* NAVIGATION */
         nav {
-            width: 100%;
-            padding: 20px 0;
-            text-align: center;
-            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 25px 0;
+            background: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
         nav a {
-            margin: 0 18px;
             text-decoration: none;
             color: #111;
-            font-size: 15px;
-            letter-spacing: 1px;
-            font-weight: 600;
+            transition: 0.3s;
         }
 
-        /* HERO BANNER */
+        nav a:hover {
+            color: #444;
+        }
+
+        /* HERO IMAGE */
         .hero-banner {
             background-image: url('images/home-banner.webp');
             background-size: cover;
-           background-position: center 72%;
+            background-position: center 72%;
             width: 92%;
             height: 720px;
             border-radius: 20px;
@@ -46,40 +55,42 @@
 
         /* HERO TEXT */
         .hero-text {
-       .luxury-title {
-    font-family: "Georgia", serif;
-    font-size: 52px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    color: #1a1a1a;
-    margin-top: 30px;
-}
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+            animation: fadeSlideUp 1.4s ease-out forwards;
+            opacity: 0;
+        }
 
-.luxury-sub {
-    font-family: "Georgia", serif;
-    font-size: 20px;
-    line-height: 1.8;
-    color: #444;
-    max-width: 720px;
-    margin: 20px auto 40px;
-}/* Smooth luxury fade-in animation */
-.hero-text {
-    animation: fadeSlideUp 1.6s ease-out forwards;
-    opacity: 0;
-}
+        .luxury-title {
+            font-family: "Georgia", serif;
+            font-size: 52px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
 
-@keyframes fadeSlideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .luxury-sub {
+            font-family: "Georgia", serif;
+            font-size: 20px;
+            color: #444;
+            line-height: 1.8;
+            max-width: 720px;
+            margin: 20px auto 40px;
+        }
 
+        /* ANIMATION */
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -95,15 +106,15 @@
         <a href="contact.html">CONTACT</a>
     </nav>
 
-    <!-- HERO IMAGE BANNER -->
+    <!-- HERO IMAGE -->
     <div class="hero-banner"></div>
 
     <!-- HERO TEXT -->
     <div class="hero-text">
-        <h1>Elevated Menswear<br>For the Modern Gentleman</h1>
-        <p>
-            Designed with precision and crafted with intention — timeless silhouettes, 
-            refined textures, and premium essentials built for everyday sophistication.
+        <h1 class="luxury-title">Elevated Menswear<br>For the Modern Gentleman</h1>
+        <p class="luxury-sub">
+            Designed with precision and crafted with intention — timeless silhouettes, refined textures, 
+            and premium essentials built for everyday sophistication.
         </p>
     </div>
 
