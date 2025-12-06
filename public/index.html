@@ -1,249 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HUSTLERS & CO. — Luxury Menswear</title>
 
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- ANIMATION CSS -->
-    <style>
-    .fade-up {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-    .fade-up.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .fade-img {
-        opacity: 0;
-        transition: opacity 1.5s ease;
-    }
-    .fade-img.show {
-        opacity: 1;
-    }
-    </style>
-
-    <!-- MAIN STYLES -->
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #F5F2EA;
-            font-family: 'Inter', sans-serif;
-            color: #1A1A1A;
+            background-color: #f7f5f0;
+            font-family: "Cormorant Garamond", serif;
+            color: #1a1a1a;
         }
 
         /* NAVIGATION */
-        .navbar {
+        nav {
             width: 100%;
-            padding: 28px 0;
+            padding: 25px 0;
+            background: transparent;
             text-align: center;
-            background-color: #F5F2EA;
-            font-family: 'Playfair Display', serif;
-            border-bottom: 1px solid #E6DCCF;
-        }
-        .brand {
-            font-size: 38px;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-        .nav-links a {
-            margin: 0 20px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: #C2A878;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 0 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 62px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-sub {
             font-size: 18px;
-            color: #4A4A4A;
-            line-height: 1.7;
+            letter-spacing: 2px;
         }
 
-        .hero-img img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-        }
-
-        /* SECTION TITLE */
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            text-align: center;
-            margin: 120px 0 10px;
-        }
-        .section-sub {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px;
-            color: #4A4A4A;
-            line-height: 1.7;
-        }
-
-        /* COLLECTION PREVIEW */
-        .collection-preview {
-            max-width: 1200px;
-            margin: 0 auto 120px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .preview-card {
-            background: #fff;
-            padding: 18px;
-            border-radius: 8px;
-            border: 1px solid #E2D6C4;
-            text-align: center;
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #1a1a1a;
             transition: 0.3s ease;
         }
 
-        .preview-card img {
+        nav a:hover {
+            color: #bda27e;
+        }
+
+        /* MAIN WRAPPER */
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 20px;
+        }
+
+        .text-area {
+            width: 50%;
+        }
+
+        .text-area h1 {
+            font-size: 64px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .text-area p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        .image-area {
+            width: 45%;
+        }
+
+        .image-area img {
             width: 100%;
-            border-radius: 6px;
-            margin-bottom: 16px;
-        }
-
-        .preview-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            background: #F1ECE3;
-            border-top: 1px solid #D9CCBA;
-            margin-top: 120px;
-        }
-
-        .footer p {
-            margin: 6px 0;
-            letter-spacing: 2px;
-            font-size: 14px;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .collection-preview {
-                grid-template-columns: 1fr;
-            }
+            border-radius: 12px;
+            object-fit: cover;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <div class="navbar fade-up">
-        <div class="brand">HUSTLERS & CO.</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="drop-zero.html">Drop Zero</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
+    <!-- NAVIGATION (FIXED LINKS) -->
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="collection.html">COLLECTION</a>
+        <a href="drop-zero.html">DROP ZERO</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="fade-up">
-            <h1 class="hero-title">Elevated Menswear<br>For the Modern Gentleman</h1>
-            <p class="hero-sub">
-                Designed with precision and crafted with intention — timeless silhouettes, refined textures,
-                and premium essentials built for everyday sophistication.
+    <!-- HERO SECTION -->
+    <div class="wrapper">
+        <div class="text-area">
+            <h1>Elevated Menswear<br>For the Modern Gentleman</h1>
+            <p>
+                Designed with precision and crafted with intention — timeless silhouettes,
+                refined textures, and premium essentials built for everyday sophistication.
             </p>
         </div>
 
-        <div class="hero-img">
-            <img class="fade-img" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600">
+        <div class="image-area">
+            <img src="images/home-banner.jpg" alt="Luxury Menswear">
         </div>
-    </section>
-
-    <!-- COLLECTION TITLE -->
-    <h2 class="section-title fade-up">The Collection</h2>
-    <p class="section-sub fade-up">A curated selection of elevated wardrobe essentials.</p>
-
-    <!-- PREVIEW GRID -->
-    <div class="collection-preview">
-        <a href="heritage-hoodie.html" class="preview-card fade-up">
-            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3e78?q=80&w=800">
-            <h3>Heritage Cotton Hoodie</h3>
-        </a>
-
-        <a href="regal-jacket.html" class="preview-card fade-up">
-            <img src="https://images.unsplash.com/photo-1559697242-5c7c434a19bf?q=80&w=800">
-            <h3>Regal Tailored Jacket</h3>
-        </a>
-
-        <a href="oxford-shirt.html" class="preview-card fade-up">
-            <img src="https://images.unsplash.com/photo-1503342250614-ca440786f4f3?q=80&w=800">
-            <h3>Oxford Signature Shirt</h3>
-        </a>
     </div>
-
-    <!-- FOOTER -->
-    <div class="footer fade-up">
-        <p>HUSTLERS & CO.</p>
-        <p>EST. 2025</p>
-        <p>© All Rights Reserved</p>
-    </div>
-
-    <!-- SCROLL ANIMATION SCRIPT -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const revealElements = document.querySelectorAll('.fade-up, .fade-img');
-
-        const revealOnScroll = () => {
-            revealElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    el.classList.add("show");
-                }
-            });
-        };
-
-        revealOnScroll();
-        window.addEventListener("scroll", revealOnScroll);
-    });
-    </script>
 
 </body>
+
 </html>
+
