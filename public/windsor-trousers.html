@@ -8,6 +8,27 @@
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- ANIMATION CSS -->
+    <style>
+    .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .fade-img {
+        opacity: 0;
+        transition: opacity 1.5s ease;
+    }
+    .fade-img.show {
+        opacity: 1;
+    }
+    </style>
+
     <style>
         body {
             margin: 0;
@@ -56,7 +77,6 @@
             width: 100%;
             border-radius: 6px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            object-fit: cover;
         }
 
         .product-title {
@@ -139,7 +159,7 @@
 <body>
 
     <!-- NAV -->
-    <div class="navbar">
+    <div class="navbar fade-up">
         <div class="brand">HUSTLERS & CO.</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -155,12 +175,13 @@
 
         <!-- IMAGE -->
         <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a20?q=80&w=1600"
-                 alt="Windsor Tailored Trousers">
+            <img class="fade-img"
+                src="https://images.unsplash.com/photo-1617137968427-85924c800a20?q=80&w=1600"
+                alt="Windsor Tailored Trousers">
         </div>
 
         <!-- DETAILS -->
-        <div class="product-info">
+        <div class="product-info fade-up">
             <h1 class="product-title">Windsor Tailored Trousers</h1>
             <p class="product-price">AED 329</p>
 
@@ -184,10 +205,29 @@
                 with elegant drape and structure. Crafted from a premium fabric blend, these trousers are ideal 
                 for formal settings, business attire, or refined everyday wear.
             </p>
-
         </div>
 
     </section>
 
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const revealElements = document.querySelectorAll('.fade-up, .fade-img');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add("show");
+                }
+            });
+        };
+
+        revealOnScroll();
+        window.addEventListener("scroll", revealOnScroll);
+    });
+    </script>
+
 </body>
 </html>
+
