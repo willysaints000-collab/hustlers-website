@@ -1,214 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ============================= */
+/* ABOUT SECTION — EXCLUSIVE LUXURY */
+/* ============================= */
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — H&CO. | Hustlers and Company</title>
+.about-section {
+    padding: 120px 20px;
+    background-color: #FFFFF1;
+    display: flex;
+    justify-content: center;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
-        rel="stylesheet" />
+.about-container {
+    max-width: 850px;
+    text-align: center;
+    animation: fadeUp 1.5s ease-out;
+}
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Montserrat", sans-serif;
-            background: #000;
-            color: #fff;
-        }
+.about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #000;
+    margin-bottom: 20px;
+}
 
-        /* NAVIGATION */
-        nav {
-            width: 100%;
-            padding: 22px 60px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .brand {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .brand:hover {
-            color: #f4d57c;
-        }
-
-        .tagline {
-            font-size: 11px;
-            opacity: 0.7;
-            margin-top: -4px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            margin: 0;
-        }
-
-        /* GOLD HOVER ANIMATION */
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        nav ul li a::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: #f4d57c;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #f4d57c;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* MOBILE MENU */
-        .mobile-menu-icon {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 800px) {
-            nav ul {
-                display: none;
-            }
-            .mobile-menu-icon {
-                display: block;
-            }
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background: #000;
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .mobile-menu a {
-            padding: 10px 0;
-        }
-
-        /* CONTENT */
-        .container {
-            padding-top: 160px;
-            width: 88%;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        h1 {
-            font-size: 50px;
-            font-weight: 900;
-        }
-
-        .gold {
-            color: #f4d57c;
-        }
-
-        p {
-            margin-top: 25px;
-            font-size: 18px;
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            margin-top: 100px;
-            color: #777;
-            font-size: 14px;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- NAVIGATION -->
-    <nav>
-        <div>
-            <div class="brand">H&CO.</div>
-            <div class="tagline">HUSTLERS AND COMPANY</div>
-        </div>
-
-        <ul class="desktop-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="drop-zero.html">DROP ZERO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-
-        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
-
-        <ul class="mobile-menu" id="mobileMenu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="collection.html">COLLECTION</a></li>
-            <li><a href="drop-zero.html">DROP ZERO</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-
-    <!-- CONTENT -->
-    <div class="container">
-        <h1>About <span class="gold">H&CO.</span></h1>
-
-        <p>
-            Hustlers & Company was built for one purpose — to inspire ambition, discipline,
-            and the mindset required to build the life you deserve.
-        </p>
-
-        <p>
-            Designed in Dubai, H&CO. represents leaders, creators, and modern hustlers who
-            refuse to settle for average. We craft premium pieces that reflect identity,
-            purpose, and inner drive.
-        </p>
-
-        <p>
-            We believe that your outfit should match your ambition. Your style is a message —
-            make it powerful.
-        </p>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        © 2025 H&CO. — Hustlers and Company. All Rights Reserved.
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("mobileMenu");
-            menu.style.display =
-                menu.style.display === "flex" ? "none" : "flex";
-        }
-    </script>
-</body>
-
-</html>
+.about-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #2A2A2A;
+    max-width: 720px;
+    margin: 0 auto;
+}
