@@ -63,7 +63,23 @@
     color: #444;
     max-width: 720px;
     margin: 20px auto 40px;
+}/* Smooth luxury fade-in animation */
+.hero-text {
+    animation: fadeSlideUp 1.6s ease-out forwards;
+    opacity: 0;
 }
+
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
         }
     </style>
 </head>
