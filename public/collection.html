@@ -10,16 +10,12 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Inter', sans-serif;
             background: #fff;
             color: #111;
         }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* HEADER */
         header {
@@ -35,30 +31,17 @@
             border-bottom: 1px solid rgba(212,175,55,0.2);
             z-index: 1000;
         }
-
-        .logo {
-            font-size: 22px;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
+        .logo { font-size: 22px; letter-spacing: 2px; font-weight: 600; }
+        nav { display: flex; gap: 25px; }
         nav a {
             text-decoration: none;
             color: #111;
             font-size: 15px;
             transition: 0.3s;
         }
+        nav a:hover { color: #d4af37; }
 
-        nav a:hover {
-            color: #d4af37;
-        }
-
-        /* HERO BANNER */
+        /* BANNER */
         .banner {
             height: 55vh;
             background: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?auto=format&fit=crop&w=1600&q=80')
@@ -68,30 +51,19 @@
             justify-content: center;
             align-items: center;
         }
-
         .banner::before {
             content: "";
             position: absolute;
             inset: 0;
             background: rgba(0,0,0,0.45);
         }
-
         .banner-content {
             position: relative;
             text-align: center;
             color: #fff;
         }
-
-        .banner h1 {
-            font-size: 58px;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .banner p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
+        .banner h1 { font-size: 58px; letter-spacing: 2px; margin-bottom: 10px; }
+        .banner p { font-size: 18px; opacity: 0.9; }
 
         /* COLLECTION GRID */
         .section-title {
@@ -99,7 +71,6 @@
             margin-top: 60px;
             font-size: 34px;
         }
-
         .product-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -107,34 +78,22 @@
             padding: 0 60px 80px;
             margin-top: 40px;
         }
-
         @media (max-width: 1000px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 600px) {
             .product-grid {
                 grid-template-columns: 1fr;
                 padding: 0 25px 80px;
             }
         }
-
         .product-card img {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 12px;
         }
-
-        .product-card h3 {
-            font-size: 19px;
-        }
-
-        .product-card p {
-            font-size: 14px;
-            color: #555;
-        }
+        .product-card h3 { font-size: 19px; }
+        .product-card p { font-size: 14px; color: #555; }
 
         /* FOOTER */
         .footer {
@@ -144,12 +103,10 @@
             padding: 40px 20px;
             margin-top: 40px;
         }
-
         .footer-small {
             font-size: 13px;
             opacity: 0.6;
         }
-
     </style>
 </head>
 
@@ -158,12 +115,11 @@
     <!-- HEADER -->
     <header>
         <div class="logo">HUSTLERS & CO.</div>
-
         <nav>
             <a href="index.html">Home</a>
             <a href="collection.html">Collection</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
