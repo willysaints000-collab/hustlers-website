@@ -9,12 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* GLOBAL SETTINGS */
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #111;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
@@ -22,7 +24,7 @@
         }
 
         /* HEADER */
-        .header {
+        header {
             position: fixed;
             top: 0;
             width: 100%;
@@ -30,29 +32,76 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.3);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(212,175,55,0.2); /* gold tint */
+            border-bottom: 1px solid rgba(212,175,55,0.2);
             z-index: 1000;
         }
 
         .logo {
-            font-family: 'Playfair Display';
             font-size: 22px;
             letter-spacing: 2px;
             font-weight: 600;
+            font-family: 'Playfair Display';
         }
 
-        .nav a {
-            margin-left: 25px;
+        /* DESKTOP NAV */
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
             text-decoration: none;
             color: #111;
             font-size: 15px;
             transition: 0.3s;
         }
 
-        .nav a:hover {
+        nav a:hover {
             color: #d4af37;
+        }
+
+        /* HAMBURGER ICON (MOBILE) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #111;
+            transition: 0.3s;
+        }
+
+        /* MOBILE MENU PANEL (RIGHT SIDE) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+            padding: 80px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            transition: 0.4s ease;
+            z-index: 1500;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #111;
+        }
+
+        .mobile-menu.open {
+            right: 0;
         }
 
         /* HERO SECTION */
@@ -60,13 +109,23 @@
             height: 100vh;
             background: url('https://images.unsplash.com/photo-1520975698519-59b1d6af6a33?auto=format&fit=crop&w=1500&q=80')
                        center/cover no-repeat;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             padding-top: 80px;
         }
 
+        /* DARK OVERLAY */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+
         .hero-content {
+            position: relative;
             text-align: center;
             color: white;
             max-width: 700px;
@@ -74,14 +133,15 @@
 
         .hero-title {
             font-size: 62px;
-            letter-spacing: 1px;
             margin-bottom: 10px;
+            animation: fade 1.3s ease forwards;
         }
 
         .hero-subtitle {
             font-size: 18px;
-            margin-bottom: 30px;
             opacity: 0.9;
+            margin-bottom: 30px;
+            animation: fade 1.8s ease forwards;
         }
 
         .hero-btn {
@@ -93,6 +153,7 @@
             border-radius: 4px;
             text-decoration: none;
             transition: 0.3s;
+            animation: fade 2.2s ease forwards;
         }
 
         .hero-btn:hover {
@@ -118,7 +179,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 35px;
-            padding: 0 70px 90px;
+            padding: 0 60px 90px;
         }
 
         .product-card img {
@@ -138,16 +199,10 @@
 
         /* ABOUT SECTION */
         .about {
-            padding: 20px 80px 80px;
-            text-align: center;
+            padding: 20px 50px 80px;
             max-width: 900px;
             margin: auto;
-        }
-
-        .about-text {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #444;
+            text-align: center;
         }
 
         /* FOOTER */
@@ -155,8 +210,7 @@
             background: #111;
             color: #eee;
             text-align: center;
-            padding: 40px 0;
-            margin-top: 40px;
+            padding: 50px 20px;
         }
 
         .footer-small {
@@ -164,56 +218,73 @@
             opacity: 0.7;
         }
 
-        /* ANIMATIONS */
-        .fade-in {
-            opacity: 0;
-            animation: fade 1.4s ease forwards;
-        }
-
-        .fade-in-delay {
-            opacity: 0;
-            animation: fade 1.8s ease forwards;
-        }
-
-        .fade-in-btn {
-            opacity: 0;
-            animation: fade 2.2s ease forwards;
-        }
-
+        /* FADE ANIMATION */
         @keyframes fade {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-    </style>
 
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 900px) {
+            nav { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 40px; }
+            .hero-subtitle { font-size: 15px; }
+            .hero-btn { padding: 14px 35px; font-size: 15px; }
+            .product-grid { padding: 0 25px 70px; }
+            .about { padding: 20px 25px 70px; }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HEADER / NAVBAR -->
-    <header class="header">
+    <!-- HEADER -->
+    <header>
         <div class="logo">HUSTLERS & CO.</div>
-        <nav class="nav">
+
+        <nav>
             <a href="#home">Home</a>
             <a href="#collection">Collection</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
+
+        <!-- HAMBURGER MENU BUTTON -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title fade-in">Elevated Menswear</h1>
-            <p class="hero-subtitle fade-in-delay">For the Modern Gentleman — Timeless Style, Old-Money Elegance</p>
+    <!-- MOBILE MENU PANEL -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#collection" onclick="toggleMenu()">Collection</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
 
-            <a href="#collection" class="hero-btn fade-in-btn">
-                Explore Collection →
-            </a>
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("open");
+        }
+    </script>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Elevated Menswear</h1>
+            <p class="hero-subtitle">For the Modern Gentleman — Timeless Style, Old-Money Elegance</p>
+            <a href="#collection" class="hero-btn">Explore Collection →</a>
         </div>
     </section>
 
-    <!-- COLLECTION PREVIEW -->
+    <!-- COLLECTION -->
     <section id="collection">
         <h2 class="section-title">The Signature Collection</h2>
         <p class="section-subtitle">Crafted Essentials • Premium Textures • Refined Cuts</p>
@@ -227,8 +298,8 @@
             </div>
 
             <div class="product-card">
-                <img src="your-image-2.jpg" alt="Classic Hoodie">
-                <h3>Oxford Gentleman Hoodie</hh3>
+                <img src="your-image-2.jpg" alt="Hoodie">
+                <h3>Oxford Gentleman Hoodie</h3>
                 <p class="product-desc">Structured comfort with luxury detailing.</p>
             </div>
 
@@ -241,22 +312,19 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="about">
+    <!-- ABOUT -->
+    <section class="about" id="about">
         <h2 class="section-title">Our Philosophy</h2>
-        <p class="about-text">
-            Inspired by heritage menswear and modern refinement, Hustlers & Co. crafts 
-            essentials designed for the gentleman who values timeless style.
-            Every piece reflects premium quality, understated luxury, and effortless confidence.
+        <p>
+            Inspired by heritage menswear and modern refinement, Hustlers & Co. crafts essentials 
+            for the gentleman who values timeless style and effortless elegance.
         </p>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer" id="contact">
-        <div class="footer-content">
-            <p>© 2025 Hustlers & Co. All rights reserved.</p>
-            <p class="footer-small">Luxury Menswear • Timeless Essentials</p>
-        </div>
+        <p>© 2025 Hustlers & Co. All rights reserved.</p>
+        <p class="footer-small">Luxury Menswear • Timeless Essentials</p>
     </footer>
 
 </body>
