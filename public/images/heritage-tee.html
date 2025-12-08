@@ -19,7 +19,7 @@
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* FULL LUXURY HEADER */
+        /* LUXURY HEADER */
         header {
             position: fixed;
             top: 0;
@@ -42,7 +42,8 @@
 
         nav {
             display: flex;
-            gap: 25px;
+            gap: 30px;
+            align-items: center;
         }
 
         nav a {
@@ -54,12 +55,21 @@
 
         nav a:hover { color: #d4af37; }
 
-        /* HERO IMAGE */
+        .cart-link {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        #cart-count {
+            font-weight: 700;
+        }
+
+        /* HERO */
         .hero {
             height: 60vh;
             background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=80')
                         center/cover no-repeat;
-            margin-top: 80px; /* FIXED: spacing under header */
+            margin-top: 80px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -159,13 +169,17 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="logo">HUSTLERS & CO.</div>
     <nav>
         <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+        <a href="cart.html" class="cart-link">🛒 <span id="cart-count">0</span></a>
     </nav>
 </header>
 
@@ -210,12 +224,35 @@
             <li>Iron on low heat</li>
         </ul>
 
-        <a href="#" class="btn">Add to Cart</a>
+        <!-- ADD TO CART BUTTON -->
+        <a href="#" class="btn"
+           onclick="addToCart('Heritage Crew Tee', 199, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80')">
+           Add to Cart
+        </a>
+
         <br>
         <a href="collection.html" class="back-link">← Back to Collection</a>
     </div>
 
 </div>
+
+<!-- CART SCRIPT -->
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price, image) {
+    cart.push({ name, price, image });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(name + " added to your cart!");
+}
+
+function updateCartCount() {
+    document.getElementById("cart-count").innerText = cart.length;
+}
+
+updateCartCount();
+</script>
 
 </body>
 </html>
