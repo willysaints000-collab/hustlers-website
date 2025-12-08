@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Wool Sweater — Hustlers & Co.</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #f4efe7; /* Luxury beige */
+        }
+
+        header {
+            background: #fff;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #222;
+            font-size: 17px;
+            padding-bottom: 4px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #111;
+        }
+
+        .page-container {
+            display: flex;
+            padding: 80px 60px;
+            gap: 60px;
+        }
+
+        .product-image img {
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 35px rgba(0,0,0,0.15);
+            animation: fadeUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-details {
+            max-width: 500px;
+        }
+
+        .product-title {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .product-desc {
+            line-height: 1.7;
+            font-size: 17px;
+            margin-bottom: 35px;
+            color: #333;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: black;
+            color: white;
+            font-size: 17px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo" style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">🛒</a>
+    </nav>
+</header>
+
+<div class="page-container">
+
+    <div class="product-image">
+        <img src="images/sovereign-sweater.webp" alt="Sovereign Wool Sweater">
+    </div>
+
+    <div class="product-details">
+
+        <div class="product-title">Sovereign Wool Sweater</div>
+        <div class="product-price">AED 299.00</div>
+
+        <div class="product-desc">
+            Crafted from a luxurious wool blend, the Sovereign Sweater delivers unparalleled warmth and elegance.  
+            Featuring refined ribbed cuffs and a timeless silhouette, it brings modern sophistication to cold-season style.
+        </div>
+
+        <button class="btn">Add to Cart</button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
