@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heritage Crew Tee — Hustlers & Co.</title>
+
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #111;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* FULL LUXURY HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.4);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #111;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #d4af37; }
+
+        /* HERO IMAGE */
+        .hero {
+            height: 60vh;
+            background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=80')
+                        center/cover no-repeat;
+            margin-top: 80px; /* FIXED: spacing under header */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+        }
+
+        .hero-content {
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 54px;
+            letter-spacing: 1px;
+        }
+
+        /* PRODUCT SECTION */
+        .product-container {
+            max-width: 1100px;
+            margin: 70px auto;
+            padding: 20px;
+            display: flex;
+            gap: 50px;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-info h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 22px;
+            margin: 10px 0 25px;
+            color: #333;
+        }
+
+        .description {
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .details-title {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        ul { margin-left: 20px; margin-bottom: 20px; }
+
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            padding: 12px 28px;
+            color: #111;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #b2912e; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            font-size: 15px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .back-link:hover { color: #000; }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .product-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">HUSTLERS & CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Heritage Crew Tee</h1>
+    </div>
+</section>
+
+<!-- PRODUCT INFO -->
+<div class="product-container">
+
+    <!-- Product Image -->
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" />
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+        <h2>Heritage Crew Tee</h2>
+        <p class="price">AED 199.00</p>
+
+        <p class="description">
+            A timeless essential crafted from premium combed cotton.
+            Designed for unmatched softness, durability, and an elevated everyday look.
+            Perfect for layering or wearing on its own.
+        </p>
+
+        <h3 class="details-title">Details</h3>
+        <ul>
+            <li>100% Combed Luxury Cotton</li>
+            <li>Tailored modern fit</li>
+            <li>Breathable & lightweight</li>
+            <li>Old-money inspired minimalist design</li>
+        </ul>
+
+        <h3 class="details-title">Care</h3>
+        <ul>
+            <li>Machine wash cold</li>
+            <li>Do not tumble dry</li>
+            <li>Iron on low heat</li>
+        </ul>
+
+        <a href="#" class="btn">Add to Cart</a>
+        <br>
+        <a href="collection.html" class="back-link">← Back to Collection</a>
+    </div>
+
+</div>
+
+</body>
+</html>
