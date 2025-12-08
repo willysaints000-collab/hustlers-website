@@ -55,9 +55,7 @@
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #d4af37;
-        }
+        nav a:hover { color: #d4af37; }
 
         /* HAMBURGER */
         .hamburger {
@@ -73,7 +71,7 @@
             background: #111;
         }
 
-        /* MOBILE MENU RIGHT SIDE */
+        /* MOBILE MENU */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -90,9 +88,7 @@
             z-index: 2000;
         }
 
-        .mobile-menu.open {
-            right: 0;
-        }
+        .mobile-menu.open { right: 0; }
 
         .mobile-menu a {
             text-decoration: none;
@@ -100,7 +96,7 @@
             color: #111;
         }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             height: 100vh;
             background: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?auto=format&fit=crop&w=1500&q=80')
@@ -112,7 +108,6 @@
             padding-top: 80px;
         }
 
-        /* DARK OVERLAY */
         .hero::before {
             content: "";
             position: absolute;
@@ -152,11 +147,9 @@
             animation: fade 2.2s ease forwards;
         }
 
-        .hero-btn:hover {
-            background: #b2912e;
-        }
+        .hero-btn:hover { background: #b2912e; }
 
-        /* SECTION TITLES */
+        /* COLLECTION */
         .section-title {
             text-align: center;
             margin-top: 80px;
@@ -170,10 +163,9 @@
             color: #555;
         }
 
-        /* PRODUCT GRID */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 35px;
             padding: 0 60px 90px;
         }
@@ -275,23 +267,31 @@
         <p class="section-subtitle">Crafted Essentials • Premium Textures • Refined Cuts</p>
 
         <div class="product-grid">
+
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" />
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" />
                 <h3>Heritage Crew Tee</h3>
                 <p class="product-desc">Minimal, timeless, premium cotton blend.</p>
             </div>
 
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1520975698519-59b1d6af6a33?auto=format&fit=crop&w=800&q=80" />
-                <h3>Oxford Gentleman Hoodie</h3>
-                <p class="product-desc">Structured comfort with luxury detailing.</p>
+                <img src="https://images.unsplash.com/photo-1598032895391-2f80fbc963d2?auto=format&fit=crop&w=800&q=80" />
+                <h3>Oxford Knit Polo</h3>
+                <p class="product-desc">Elegant knit polo crafted for refined comfort.</p>
             </div>
 
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" />
-                <h3>Metropolitan Overcoat</h3>
-                <p class="product-desc">Elegant silhouette inspired by old-money tailoring.</p>
+                <h3>Sovereign Wool Sweater</h3>
+                <p class="product-desc">Luxurious wool knit inspired by heritage tailoring.</p>
             </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3c89?auto=format&fit=crop&w=800&q=80" />
+                <h3>Regal Tailored Jacket</h3>
+                <p class="product-desc">A refined silhouette crafted for modern gentlemen.</p>
+            </div>
+
         </div>
     </section>
 
@@ -299,7 +299,7 @@
     <section class="about" id="about">
         <h2 class="section-title">Our Philosophy</h2>
         <p>
-            Inspired by heritage menswear and modern refinement, Hustlers & Co. crafts 
+            Inspired by heritage menswear and modern refinement, Hustlers & Co. crafts
             essentials designed for the gentleman who values timeless elegance.
         </p>
     </section>
