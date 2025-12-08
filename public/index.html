@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -19,9 +18,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* HEADER */
         header {
@@ -35,21 +32,16 @@
             background: rgba(255,255,255,0.3);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(212,175,55,0.2);
-            z-index: 1000;
+            z-index: 999;
         }
 
         .logo {
             font-size: 22px;
             letter-spacing: 2px;
             font-weight: 600;
-            font-family: 'Playfair Display';
         }
 
-        /* DESKTOP NAV */
-        nav {
-            display: flex;
-            gap: 25px;
-        }
+        nav { display: flex; gap: 25px; }
 
         nav a {
             text-decoration: none;
@@ -58,11 +50,9 @@
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #d4af37;
-        }
+        nav a:hover { color: #d4af37; }
 
-        /* HAMBURGER ICON (MOBILE) */
+        /* HAMBURGER */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -77,38 +67,36 @@
             transition: 0.3s;
         }
 
-        /* MOBILE MENU PANEL (RIGHT SIDE) */
+        /* MOBILE MENU RIGHT SLIDE */
         .mobile-menu {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 280px;
+            right: -300px;
+            width: 300px;
             height: 100vh;
-            background: #ffffff;
+            background: #fff;
             box-shadow: -4px 0 12px rgba(0,0,0,0.1);
             padding: 80px 30px;
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 25px;
             transition: 0.4s ease;
             z-index: 1500;
         }
 
-        .mobile-menu a {
-            text-decoration: none;
-            font-size: 18px;
-            color: #111;
-        }
+        .mobile-menu.open { right: 0; }
 
-        .mobile-menu.open {
-            right: 0;
+        .mobile-menu a {
+            font-size: 18px;
+            text-decoration: none;
+            color: #111;
         }
 
         /* HERO SECTION */
         .hero {
             height: 100vh;
-           background: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?auto=format&fit=crop&w=1500&q=80')
-           center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?auto=format&fit=crop&w=1500&q=80')
+                       center/cover no-repeat;
             position: relative;
             display: flex;
             justify-content: center;
@@ -116,7 +104,6 @@
             padding-top: 80px;
         }
 
-        /* DARK OVERLAY */
         .hero::before {
             content: "";
             position: absolute;
@@ -127,7 +114,7 @@
         .hero-content {
             position: relative;
             text-align: center;
-            color: white;
+            color: #fff;
             max-width: 700px;
         }
 
@@ -156,11 +143,9 @@
             animation: fade 2.2s ease forwards;
         }
 
-        .hero-btn:hover {
-            background: #b2912e;
-        }
+        .hero-btn:hover { background: #b2912e; }
 
-        /* SECTION TITLES */
+        /* COLLECTION SECTION */
         .section-title {
             text-align: center;
             margin-top: 80px;
@@ -171,10 +156,9 @@
             text-align: center;
             font-size: 16px;
             margin-bottom: 40px;
-            color: #444;
+            color: #555;
         }
 
-        /* PRODUCT GRID */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -188,19 +172,13 @@
             margin-bottom: 15px;
         }
 
-        .product-card h3 {
-            font-size: 20px;
-        }
+        .product-card h3 { font-size: 20px; }
+        .product-desc { font-size: 14px; color: #444; }
 
-        .product-desc {
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* ABOUT SECTION */
+        /* ABOUT */
         .about {
-            padding: 20px 50px 80px;
             max-width: 900px;
+            padding: 20px 50px 80px;
             margin: auto;
             text-align: center;
         }
@@ -213,18 +191,15 @@
             padding: 50px 20px;
         }
 
-        .footer-small {
-            font-size: 13px;
-            opacity: 0.7;
-        }
+        .footer-small { opacity: 0.7; }
 
-        /* FADE ANIMATION */
+        /* ANIMATION */
         @keyframes fade {
             from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* MOBILE RESPONSIVE */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             nav { display: none; }
             .hamburger { display: flex; }
@@ -233,10 +208,11 @@
         @media (max-width: 600px) {
             .hero-title { font-size: 40px; }
             .hero-subtitle { font-size: 15px; }
-            .hero-btn { padding: 14px 35px; font-size: 15px; }
+            .hero-btn { padding: 14px 32px; font-size: 15px; }
             .product-grid { padding: 0 25px 70px; }
             .about { padding: 20px 25px 70px; }
         }
+
     </style>
 </head>
 
@@ -253,15 +229,12 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <!-- HAMBURGER MENU BUTTON -->
         <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </header>
 
-    <!-- MOBILE MENU PANEL -->
+    <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home" onclick="toggleMenu()">Home</a>
         <a href="#collection" onclick="toggleMenu()">Collection</a>
@@ -275,7 +248,7 @@
         }
     </script>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="hero-title">Elevated Menswear</h1>
@@ -291,39 +264,16 @@
 
         <div class="product-grid">
             <div class="product-card">
-                <img src="your-image-1.jpg" alt="Heritage Tee">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" />
                 <h3>Heritage Crew Tee</h3>
                 <p class="product-desc">Minimal, timeless, premium cotton blend.</p>
             </div>
 
             <div class="product-card">
-                <img src="your-image-2.jpg" alt="Hoodie">
+                <img src="https://images.unsplash.com/photo-1520975698519-59b1d6af6a33?auto=format&fit=crop&w=800&q=80" />
                 <h3>Oxford Gentleman Hoodie</h3>
                 <p class="product-desc">Structured comfort with luxury detailing.</p>
             </div>
 
             <div class="product-card">
-                <img src="your-image-3.jpg" alt="Overcoat">
-                <h3>Metropolitan Overcoat</h3>
-                <p class="product-desc">Elegant silhouette inspired by old-money tailoring.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <h2 class="section-title">Our Philosophy</h2>
-        <p>
-            Inspired by heritage menswear and modern refinement, Hustlers & Co. crafts essentials 
-            for the gentleman who values timeless style and effortless elegance.
-        </p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer" id="contact">
-        <p>© 2025 Hustlers & Co. All rights reserved.</p>
-        <p class="footer-small">Luxury Menswear • Timeless Essentials</p>
-    </footer>
-
-</body>
-</html>
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=c
