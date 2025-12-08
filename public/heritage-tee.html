@@ -17,11 +17,9 @@
             color: #111;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* HEADER */
+        /* FULL LUXURY HEADER */
         header {
             position: fixed;
             top: 0;
@@ -38,26 +36,30 @@
 
         .logo {
             font-size: 22px;
-            font-weight: 600;
             letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
             color: #111;
-            margin-left: 25px;
             font-size: 15px;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #d4af37;
-        }
+        nav a:hover { color: #d4af37; }
 
         /* HERO IMAGE */
         .hero {
             height: 60vh;
             background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=80')
                         center/cover no-repeat;
+            margin-top: 80px; /* FIXED: spacing under header */
             position: relative;
             display: flex;
             justify-content: center;
@@ -119,10 +121,7 @@
             margin-bottom: 8px;
         }
 
-        ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
+        ul { margin-left: 20px; margin-bottom: 20px; }
 
         .btn {
             display: inline-block;
@@ -136,9 +135,7 @@
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #b2912e;
-        }
+        .btn:hover { background: #b2912e; }
 
         .back-link {
             display: inline-block;
@@ -148,9 +145,7 @@
             text-decoration: none;
         }
 
-        .back-link:hover {
-            color: #000;
-        }
+        .back-link:hover { color: #000; }
 
         /* MOBILE */
         @media (max-width: 900px) {
@@ -169,6 +164,8 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
