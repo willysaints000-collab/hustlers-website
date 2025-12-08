@@ -1,153 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLLECTION — Hustlers & Co.</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hustlers & Co. — The Collection</title>
+
+    <!-- LUXURY FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            margin: 0;
-            font-family: "Georgia", serif;
-            background-color: #f7f7f7;
-            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #111;
         }
 
-        /* Navigation */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.4);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
         nav {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 25px 0;
-            background: #fff;
-            font-family: Arial, sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #eee;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
             color: #111;
+            font-size: 15px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #444;
+            color: #d4af37;
         }
 
-        /* Page Title */
-        .page-title {
+        /* HERO BANNER */
+        .banner {
+            height: 55vh;
+            background: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd49?auto=format&fit=crop&w=1600&q=80')
+                        center/cover no-repeat;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+
+        .banner-content {
+            position: relative;
             text-align: center;
-            margin-top: 50px;
-            font-size: 46px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            color: #fff;
         }
 
-        /* Collection Grid */
-        .collection-grid {
+        .banner h1 {
+            font-size: 58px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* COLLECTION GRID */
+        .section-title {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 34px;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 50px auto 80px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+            padding: 0 60px 80px;
+            margin-top: 40px;
         }
 
-        /* Product Card */
-        .product-card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        @media (max-width: 1000px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 0 25px 80px;
+            }
         }
 
         .product-card img {
             width: 100%;
-            display: block;
+            border-radius: 8px;
+            margin-bottom: 12px;
         }
 
-        .product-info {
-            padding: 22px;
-            text-align: center;
+        .product-card h3 {
+            font-size: 19px;
         }
 
-        .product-info h3 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .product-info p {
-            margin: 8px 0 0;
-            font-size: 16px;
+        .product-card p {
+            font-size: 14px;
             color: #555;
         }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            background: #111;
+            color: #eee;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-small {
+            font-size: 13px;
+            opacity: 0.6;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="collection.html">COLLECTION</a>
-        <a href="drop-zero.html">DROP ZERO</a>
-        <a href="about.html">ABOUT</a>
-        <a href="contact.html">CONTACT</a>
-    </nav>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">HUSTLERS & CO.</div>
 
-    <!-- Page Title -->
-    <h1 class="page-title">Our Premium Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <!-- Collection Grid -->
-    <div class="collection-grid">
+    <!-- HERO BANNER -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>THE COLLECTION</h1>
+            <p>Refined Essentials for the Modern Gentleman</p>
+        </div>
+    </section>
 
-        <!-- Product Card 1 -->
+    <!-- COLLECTION GRID -->
+    <h2 class="section-title">Featured Menswear</h2>
+
+    <div class="product-grid">
+
+        <!-- ITEM 1 -->
         <div class="product-card">
-            <img src="images/hoodie.jpg" alt="Luxury Hoodie">
-            <div class="product-info">
-                <h3>Heritage Hoodie</h3>
-                <p>Premium cotton blend • Old Money Style</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" />
+            <h3>Heritage Crew Tee</h3>
+            <p>Minimal, timeless, premium cotton blend.</p>
         </div>
 
-        <!-- Product Card 2 -->
+        <!-- ITEM 2 -->
         <div class="product-card">
-            <img src="images/jacket.jpg" alt="Luxury Jacket">
-            <div class="product-info">
-                <h3>Classic Suit Jacket</h3>
-                <p>Elegant tailoring • Timeless Fit</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1598032895391-2f80fbc963d2?auto=format&fit=crop&w=800&q=80" />
+            <h3>Oxford Knit Polo</h3>
+            <p>Elegant knit polo crafted for refined comfort.</p>
         </div>
 
-        <!-- Product Card 3 -->
+        <!-- ITEM 3 -->
         <div class="product-card">
-            <img src="images/tee.jpg" alt="Luxury Tee">
-            <div class="product-info">
-                <h3>Essential Tee</h3>
-                <p>Soft fabric • Minimal luxury</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" />
+            <h3>Sovereign Wool Sweater</h3>
+            <p>Luxurious wool knit inspired by heritage tailoring.</p>
         </div>
 
-        <!-- Product Card 4 -->
+        <!-- ITEM 4 -->
         <div class="product-card">
-            <img src="images/trousers.jpg" alt="Luxury Trousers">
-            <div class="product-info">
-                <h3>Tailored Trousers</h3>
-                <p>Sharp silhouette • Clean drape</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3c89?auto=format&fit=crop&w=800&q=80" />
+            <h3>Regal Tailored Jacket</h3>
+            <p>A refined silhouette crafted for modern gentlemen.</p>
         </div>
 
     </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Hustlers & Co. All rights reserved.</p>
+        <p class="footer-small">Luxury Menswear • Timeless Essentials</p>
+    </footer>
 
 </body>
 </html>
