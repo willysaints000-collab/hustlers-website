@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop — Hustlers & Co.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #ffffff;
+        color: #111;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* HEADER */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 18px 50px;
+        background: rgba(255,255,255,0.45);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(212,175,55,0.2);
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+
+    nav {
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #111;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #d4af37;
+    }
+
+    .cart-link { font-size: 16px; font-weight: 600; }
+
+    /* HERO */
+    .hero {
+        height: 45vh;
+        background: url('https://images.unsplash.com/photo-1525171254930-643fc658b64e?auto=format&fit=crop&w=1600&q=80')
+        center/cover no-repeat;
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.35);
+    }
+
+    .hero h1 {
+        position: relative;
+        color: white;
+        font-size: 54px;
+        letter-spacing: 1px;
+    }
+
+    /* GRID */
+    .grid {
+        max-width: 1250px;
+        margin: 60px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 40px;
+    }
+
+    .item {
+        text-decoration: none;
+        color: #111;
+        display: block;
+    }
+
+    .item img {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .item:hover img {
+        opacity: 0.85;
+        transform: scale(1.02);
+    }
+
+    .item h3 {
+        margin-top: 12px;
+        font-size: 19px;
+    }
+
+    .item p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        background: #111;
+        color: white;
+        margin-top: 50px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">HUSTLERS & CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-link">🛒 <span id="cart-count">0</span></a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Shop All</h1>
+</section>
+
+<section class="grid">
+
+    <!-- REAL PRODUCTS -->
+    <a class="item" href="heritage-tee.html">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80">
+        <h3>Heritage Crew Tee</h3>
+        <p>AED 199.00</p>
+    </a>
+
+    <a class="item" href="oxford-polo.html">
+        <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=900&q=80">
+        <h3>Oxford Knit Polo</h3>
+        <p>AED 249.00</p>
+    </a>
+
+    <a class="item" href="sovereign-sweater.html">
+        <img src="https://images.unsplash.com/photo-1523380671-9014df534f73?auto=format&fit=crop&w=900&q=80">
+        <h3>Sovereign Wool Sweater</h3>
+        <p>AED 299.00</p>
+    </a>
+
+    <a class="item" href="regal-jacket.html">
+        <img src="https://images.unsplash.com/photo-1520975922071-aaf207960e42?auto=format&fit=crop&w=900&q=80">
+        <h3>Regal Tailored Jacket</h3>
+        <p>AED 499.00</p>
+    </a>
+
+    <!-- PLACEHOLDER LUXURY ITEMS (future products) -->
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80">
+        <h3>Classic Linen Shirt</h3>
+        <p>AED 229.00</p>
+    </a>
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1589310243389-34a54c1a2ad6?auto=format&fit=crop&w=900&q=80">
+        <h3>Signature Chino Pants</h3>
+        <p>AED 279.00</p>
+    </a>
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=900&q=80">
+        <h3>Cashmere Blend Scarf</h3>
+        <p>AED 199.00</p>
+    </a>
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1594631252845-6e1df3d11059?auto=format&fit=crop&w=900&q=80">
+        <h3>Urban Minimal Hoodie</h3>
+        <p>AED 249.00</p>
+    </a>
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1620799139834-6b8a63a7ed4f?auto=format&fit=crop&w=900&q=80">
+        <h3>Luxury Jogger Pants</h3>
+        <p>AED 229.00</p>
+    </a>
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1601924582975-7aa7f1bb87f1?auto=format&fit=crop&w=900&q=80">
+        <h3>Premium Cotton Hoodie</h3>
+        <p>AED 229.00</p>
+    </a>
+
+    <a class="item" href="#">
+        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f92?auto=format&fit=crop&w=900&q=80">
+        <h3>Fitted Long Sleeve Tee</h3>
+        <p>AED 179.00</p>
+    </a>
+
+</section>
+
+<footer>
+    © 2025 Hustlers & Co. All rights reserved.
+</footer>
+
+<script>
+document.getElementById("cart-count").innerText =
+    (JSON.parse(localStorage.getItem("cart")) || []).length;
+</script>
+
+</body>
+</html>
