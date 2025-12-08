@@ -165,9 +165,21 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 35px;
             padding: 0 60px 90px;
+        }
+
+        @media (max-width: 1000px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .product-card img {
@@ -203,7 +215,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE HEADER */
         @media (max-width: 900px) {
             nav { display: none; }
             .hamburger { display: flex; }
@@ -213,7 +225,6 @@
             .hero-title { font-size: 40px; }
             .hero-subtitle { font-size: 15px; }
             .hero-btn { padding: 14px 32px; font-size: 15px; }
-            .product-grid { padding: 0 25px 70px; }
             .about { padding: 20px 25px 70px; }
         }
 
@@ -268,24 +279,28 @@
 
         <div class="product-grid">
 
+            <!-- ITEM 1 -->
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" />
                 <h3>Heritage Crew Tee</h3>
                 <p class="product-desc">Minimal, timeless, premium cotton blend.</p>
             </div>
 
+            <!-- ITEM 2 -->
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1598032895391-2f80fbc963d2?auto=format&fit=crop&w=800&q=80" />
                 <h3>Oxford Knit Polo</h3>
                 <p class="product-desc">Elegant knit polo crafted for refined comfort.</p>
             </div>
 
+            <!-- ITEM 3 -->
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" />
                 <h3>Sovereign Wool Sweater</h3>
                 <p class="product-desc">Luxurious wool knit inspired by heritage tailoring.</p>
             </div>
 
+            <!-- ITEM 4 -->
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3c89?auto=format&fit=crop&w=800&q=80" />
                 <h3>Regal Tailored Jacket</h3>
