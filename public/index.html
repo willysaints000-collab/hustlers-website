@@ -171,15 +171,11 @@
         }
 
         @media (max-width: 1000px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 600px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
+            .product-grid { grid-template-columns: 1fr; }
         }
 
         .product-card img {
@@ -215,17 +211,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVE HEADER */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             nav { display: none; }
             .hamburger { display: flex; }
-        }
-
-        @media (max-width: 600px) {
-            .hero-title { font-size: 40px; }
-            .hero-subtitle { font-size: 15px; }
-            .hero-btn { padding: 14px 32px; font-size: 15px; }
-            .about { padding: 20px 25px 70px; }
         }
 
     </style>
@@ -286,7 +275,7 @@
                 <p class="product-desc">Minimal, timeless, premium cotton blend.</p>
             </div>
 
-            <!-- ITEM 2 -->
+            <!-- ITEM 2 (FIXED POLO IMAGE) -->
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1598032895391-2f80fbc963d2?auto=format&fit=crop&w=800&q=80" />
                 <h3>Oxford Knit Polo</h3>
