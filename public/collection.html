@@ -6,11 +6,43 @@
     <title>The Signature Collection — Hustlers & Co.</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-        body { font-family: 'Helvetica Neue', sans-serif; margin: 0; padding: 0; color: #111; }
-        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        nav a { margin-left: 25px; text-decoration: none; color: #000; font-size: 16px; }
-        .hero-title { text-align: center; margin-top: 40px; font-size: 48px; font-weight: 700; }
-        .hero-sub { text-align: center; margin-top: 10px; font-size: 18px; color: #555; }
+        body { 
+            font-family: 'Helvetica Neue', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #111; 
+            background: #ffffff;
+        }
+
+        header { 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid #eee;
+        }
+
+        nav a { 
+            margin-left: 25px; 
+            text-decoration: none; 
+            color: #000; 
+            font-size: 16px; 
+        }
+
+        .hero-title { 
+            text-align: center; 
+            margin-top: 40px; 
+            font-size: 48px; 
+            font-weight: 700; 
+            letter-spacing: 1px;
+        }
+
+        .hero-sub { 
+            text-align: center; 
+            margin-top: 10px; 
+            font-size: 18px; 
+            color: #555; 
+        }
 
         .grid {
             display: grid;
@@ -19,13 +51,27 @@
             padding: 60px 50px;
         }
 
+        .item {
+            text-align: left;
+        }
+
         .item img {
             width: 100%;
+            height: 360px;
+            object-fit: cover;
             border-radius: 6px;
         }
 
-        h3 { font-size: 20px; margin-top: 10px; }
-        p { color: #444; font-size: 15px; }
+        h3 { 
+            font-size: 20px; 
+            margin-top: 12px; 
+        }
+
+        p { 
+            color: #444; 
+            font-size: 15px; 
+            line-height: 1.5;
+        }
     </style>
 </head>
 
@@ -48,31 +94,50 @@
 
 <section class="grid">
 
+    <!-- Heritage Tee -->
     <div class="item">
         <img src="images/heritage-tee.webp" alt="Heritage Crew Tee">
         <h3>Heritage Crew Tee</h3>
         <p>Minimal, timeless, premium cotton blend.</p>
     </div>
 
+    <!-- Oxford Polo -->
     <div class="item">
         <img src="images/oxford-polo.webp" alt="Oxford Knit Polo">
         <h3>Oxford Knit Polo</h3>
         <p>Refined comfort with luxury detailing.</p>
     </div>
 
+    <!-- Sovereign Sweater -->
     <div class="item">
         <img src="images/sovereign-sweater.webp" alt="Sovereign Wool Sweater">
         <h3>Sovereign Wool Sweater</h3>
-        <p>Warm, elegant, old-money knitwear.</p>
+        <p>Warm, elegant, and crafted for sophisticated layering.</p>
     </div>
 
+    <!-- Regal Tailored Jacket -->
     <div class="item">
         <img src="images/regal-jacket.webp" alt="Regal Tailored Jacket">
         <h3>Regal Tailored Jacket</h3>
-        <p>Elegant silhouette inspired by modern tailoring.</p>
+        <p>Sharp structure and clean lines for refined outerwear.</p>
+    </div>
+
+    <!-- Windsor Trouser -->
+    <div class="item">
+        <img src="images/windsor-trouser.webp" alt="Windsor Tailored Trouser">
+        <h3>Windsor Tailored Trouser</h3>
+        <p>Tapered silhouette, premium fabrication — everyday luxury.</p>
+    </div>
+
+    <!-- Harrington Jacket -->
+    <div class="item">
+        <img src="images/harrington.webp" alt="Harrington Jacket">
+        <h3>Harrington Jacket</h3>
+        <p>Modern minimalist outerwear with old-money character.</p>
     </div>
 
 </section>
 
 </body>
 </html>
+
