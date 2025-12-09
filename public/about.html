@@ -8,85 +8,113 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background-color: #f7f5f0;
-            font-family: "Cormorant Garamond", serif;
-            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #111;
         }
 
-        .about-container {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 20px;
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
         }
 
-        .title {
-            font-size: 60px;
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover { opacity: 0.6; }
+
+        .hero {
+            height: 55vh;
+            background: url('https://images.unsplash.com/photo-1598032899844-5b94a1b38e14?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            color: white;
+            font-size: 48px;
             font-weight: 600;
-            text-align: center;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 1.5s forwards ease-in-out;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #8c7f6a;
-            font-size: 20px;
-            margin-bottom: 50px;
-            opacity: 0;
-            animation: fadeIn 2.2s forwards ease-in-out;
         }
 
         .section {
-            font-size: 22px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeUp 1.4s forwards ease;
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+            line-height: 1.7;
+            font-size: 18px;
         }
 
-        .section strong {
-            color: #bda27e;
-            font-weight: 600;
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
         }
 
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .section p {
+            margin-bottom: 25px;
+            color: #444;
         }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 100px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="about-container">
-        <h1 class="title">Our Story</h1>
-        <p class="subtitle">Crafted with Purpose • Built with Heritage</p>
+<header>
+    <div style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">🛒</a>
+    </nav>
+</header>
 
-        <div class="section">
-            <strong>Hustlers & Co.</strong> was born from a vision of redefining modern streetwear with the sophistication of timeless luxury. 
-            Each piece represents discipline, ambition, and the courage to build your own path. 
-            Our brand stands for the new generation of creators, dreamers, and hustlers — those who push boundaries and never settle.
-        </div>
+<div class="hero">Our Story</div>
 
-        <div class="section">
-            We blend <strong>premium craftsmanship</strong> with a refined old-money aesthetic to create elevated essentials that feel luxurious yet effortless.  
-            Every detail is intentionally designed — the fabrics, the colors, the fit — ensuring each piece carries the identity of the Hustlers lifestyle.
-        </div>
+<section class="section">
+    <h2>Crafted for the Modern Gentleman</h2>
 
-        <div class="section">
-            Our commitment is simple:  
-            <strong>Timeless design. Premium quality. Pieces that speak without trying.</strong>
-        </div>
-    </div>
+    <p>Hustlers & Co. was built on a simple belief — that luxury should feel effortless. 
+    Every piece we create blends timeless tailoring with modern refinement, designed to elevate everyday moments.</p>
+
+    <p>Inspired by old-money sophistication and the crisp minimalism of contemporary menswear, 
+    our collections focus on premium fabrics, precise cuts, and understated elegance.</p>
+
+    <p>We believe that confidence starts with the way you dress. Whether it’s the perfect tee, 
+    the ideal polo, or a tailored essential, each piece is crafted to make you look sharp without trying too hard.</p>
+
+    <h2>Our Philosophy</h2>
+
+    <p>Quality over quantity. Details over noise. Style over trends.</p>
+
+    <p>Every product we release goes through thoughtful development — from fabric selection,
+    to fit testing, to finishing. This ensures every item feels as good as it looks.</p>
+
+    <p>Welcome to a new era of menswear. Clean. Confident. Elevated.</p>
+</section>
+
+<footer>
+    © 2025 Hustlers & Co. — All Rights Reserved.
+</footer>
 
 </body>
 </html>
-
