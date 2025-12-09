@@ -16,11 +16,10 @@
         color: #111;
     }
 
-    h1, h2, h3 {
+    h1, h3 {
         font-family: 'Playfair Display', serif;
     }
 
-    /* HEADER */
     header {
         position: fixed;
         top: 0;
@@ -35,35 +34,15 @@
         z-index: 1000;
     }
 
-    .logo {
-        font-size: 22px;
-        letter-spacing: 2px;
-        font-weight: 600;
-    }
-
-    nav {
-        display: flex;
-        gap: 30px;
-    }
-
     nav a {
+        margin-left: 25px;
         text-decoration: none;
-        color: #111;
-        font-size: 15px;
-        transition: 0.3s;
+        color: black;
     }
 
-    nav a:hover {
-        color: #d4af37;
-    }
-
-    .cart-link { font-size: 16px; font-weight: 600; }
-
-    /* HERO */
     .hero {
-        height: 45vh;
-        background: url('https://images.unsplash.com/photo-1525171254930-643fc658b64e?auto=format&fit=crop&w=1600&q=80')
-        center/cover no-repeat;
+        height: 35vh;
+        background: url('images/home-banner.webp') center/cover no-repeat;
         margin-top: 80px;
         display: flex;
         justify-content: center;
@@ -81,11 +60,10 @@
     .hero h1 {
         position: relative;
         color: white;
-        font-size: 54px;
-        letter-spacing: 1px;
+        font-size: 50px;
+        font-weight: 700;
     }
 
-    /* GRID */
     .grid {
         max-width: 1250px;
         margin: 60px auto;
@@ -95,41 +73,11 @@
         gap: 40px;
     }
 
-    .item {
-        text-decoration: none;
-        color: #111;
-        display: block;
-    }
-
     .item img {
         width: 100%;
         height: 360px;
         object-fit: cover;
         border-radius: 10px;
-        transition: 0.3s;
-    }
-
-    .item:hover img {
-        opacity: 0.85;
-        transform: scale(1.02);
-    }
-
-    .item h3 {
-        margin-top: 12px;
-        font-size: 19px;
-    }
-
-    .item p {
-        color: #666;
-        font-size: 14px;
-    }
-
-    footer {
-        text-align: center;
-        padding: 40px;
-        background: #111;
-        color: white;
-        margin-top: 50px;
     }
 </style>
 </head>
@@ -137,14 +85,14 @@
 <body>
 
 <header>
-    <div class="logo">HUSTLERS & CO.</div>
+    <div class="logo" style="font-size:22px; font-weight:600;">HUSTLERS & CO.</div>
     <nav>
         <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
         <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html" class="cart-link">🛒 <span id="cart-count">0</span></a>
+        <a href="cart.html">🛒</a>
     </nav>
 </header>
 
@@ -154,47 +102,38 @@
 
 <section class="grid">
 
-    <!-- REAL PRODUCTS -->
     <a class="item" href="heritage-tee.html">
-        <img src="images/heritage-tee.webp" alt="Heritage Crew Tee">
+        <img src="images/heritage-tee.webp" alt="Heritage Tee">
         <h3>Heritage Crew Tee</h3>
         <p>AED 199.00</p>
     </a>
 
     <a class="item" href="oxford-polo.html">
-        <img src="images/oxford-polo.webp" alt="Oxford Knit Polo">
+        <img src="images/oxford-polo.webp" alt="Oxford Polo">
         <h3>Oxford Knit Polo</h3>
         <p>AED 249.00</p>
     </a>
 
     <a class="item" href="sovereign-sweater.html">
-        <img src="images/sovereign-sweater.webp" alt="Sovereign Wool Sweater">
+        <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
         <h3>Sovereign Wool Sweater</h3>
         <p>AED 299.00</p>
     </a>
 
     <a class="item" href="windsor-trouser.html">
-        <img src="images/windsor-trouser.webp" alt="Windsor Tailored Trouser">
+        <img src="images/windsor-trouser.webp" alt="Windsor Trouser">
         <h3>Windsor Tailored Trouser</h3>
-        <p>AED 249.00</p>
+        <p>AED 279.00</p>
     </a>
-   
+
     <a class="item" href="harrington-jacket.html">
         <img src="images/harrington.webp" alt="Harrington Jacket">
         <h3>Harrington Jacket</h3>
-        <p>AED 349.00</p>
+        <p>AED 399.00</p>
     </a>
 
 </section>
 
-<footer>
-    © 2025 Hustlers & Co. All rights reserved.
-</footer>
-
-<script>
-document.getElementById("cart-count").innerText =
-    (JSON.parse(localStorage.getItem("cart")) || []).length;
-</script>
-
 </body>
 </html>
+
