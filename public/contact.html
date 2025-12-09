@@ -8,96 +8,126 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background-color: #f7f5f0;
-            font-family: "Cormorant Garamond", serif;
-            color: #1a1a1a;
-        }
-
-        .contact-container {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .title {
-            font-size: 58px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: fadeIn 1.4s forwards ease-in-out;
-        }
-
-        .subtitle {
-            font-size: 20px;
-            color: #8c7f6a;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 2s forwards ease-in-out;
-        }
-
-        .info-box {
+            font-family: "Inter", sans-serif;
             background: #ffffff;
-            padding: 40px;
+        }
+
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #111;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover { opacity: 0.6; }
+
+        .hero {
+            height: 45vh;
+            background: url('https://images.unsplash.com/photo-1602810318383-e386cc2a3b9c?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 44px;
+            color: white;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 70px auto;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 600;
+            display: block;
+            margin-top: 25px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        button {
             margin-top: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-            opacity: 0;
-            animation: fadeUp 1.4s forwards ease;
+            padding: 14px 26px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
         }
 
-        .info-row {
-            margin-bottom: 25px;
-            font-size: 22px;
-        }
+        button:hover { opacity: 0.85; }
 
-        .info-row strong {
-            color: #bda27e;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        footer {
+            margin-top: 100px;
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 40px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="contact-container">
+<header>
+    <div style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">🛒</a>
+    </nav>
+</header>
 
-        <h1 class="title">Contact Us</h1>
-        <p class="subtitle">We’re here to help you — anytime.</p>
+<div class="hero">Contact Us</div>
 
-        <div class="info-box">
+<div class="container">
+    <form>
+        <label>Your Name</label>
+        <input type="text" placeholder="Enter your full name" required>
 
-            <div class="info-row">
-                <strong>Email:</strong> support@hustlersandco.com
-            </div>
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email" required>
 
-            <div class="info-row">
-                <strong>Instagram:</strong> @hustlers.co
-            </div>
+        <label>Your Message</label>
+        <textarea placeholder="How can we assist you?" required></textarea>
 
-            <div class="info-row">
-                <strong>Phone / WhatsApp:</strong> +971 52 000 0000
-            </div>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
 
-            <div class="info-row">
-                <strong>Customer Support Hours:</strong>  
-                Daily — 10:00 AM to 10:00 PM
-            </div>
-
-        </div>
-
-    </div>
+<footer>
+    © 2025 Hustlers & Co. — All Rights Reserved.
+</footer>
 
 </body>
 </html>
