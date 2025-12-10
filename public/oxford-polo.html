@@ -1,141 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oxford Knit Polo — Hustlers & Co.</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #f4efe7; /* Luxury beige */
-        }
-
-        header {
-            background: #fff;
-            padding: 25px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        nav a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: #222;
-            font-size: 17px;
-            padding-bottom: 4px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            border-bottom: 2px solid #111;
-        }
-
-        .page-container {
-            display: flex;
-            padding: 80px 60px;
-            gap: 60px;
-        }
-
-        .product-image img {
-            width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 5px 35px rgba(0,0,0,0.15);
-            animation: fadeUp 1s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-details {
-            max-width: 500px;
-        }
-
-        .product-title {
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .product-price {
-            font-size: 24px;
-            color: #444;
-            margin-bottom: 25px;
-        }
-
-        .product-desc {
-            line-height: 1.7;
-            font-size: 17px;
-            margin-bottom: 35px;
-            color: #333;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            background: black;
-            color: white;
-            font-size: 17px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #333;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oxford Polo — Hustlers & Co.</title>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
 
-<header>
-    <div class="logo" style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒</a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="../index.html" class="logo">H&CO.</a>
+        <nav class="nav">
+            <a href="../collection.html">Collection</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../cart.html" class="cart-link">Cart</a>
+        </nav>
+    </header>
 
-<div class="page-container">
+    <section class="product-page">
 
-    <div class="product-image">
-        <img src="images/oxford-polo.webp" alt="Oxford Knit Polo">
-    </div>
-
-    <div class="product-details">
-
-        <div class="product-title">Oxford Knit Polo</div>
-        <div class="product-price">AED 249.00</div>
-
-        <div class="product-desc">
-            A refined knit polo crafted for elevated everyday wear.  
-            Featuring a minimalist silhouette, tailored collar, and soft breathable fabric,  
-            it transitions seamlessly from smart casual to luxury comfort.
+        <!-- LEFT SIDE: PRODUCT IMAGE -->
+        <div class="product-image-container">
+            <img src="../images/oxford-polo.jpg" alt="Oxford Polo" class="product-image" />
         </div>
 
-        <button class="btn">Add to Cart</button>
+        <!-- RIGHT SIDE: PRODUCT DETAILS -->
+        <div class="product-details">
 
-    </div>
+            <h1 class="product-title">Oxford Polo</h1>
 
-</div>
+            <p class="product-description">
+                Crafted from premium cotton pique, the Oxford Polo delivers an elevated take on a timeless essential. 
+                Tailored for a refined silhouette with exceptional comfort, it embodies understated luxury suitable 
+                for both casual and smart attire.
+            </p>
+
+            <p class="product-price">AED 189</p>
+
+            <div class="product-size">
+                <label>Select Size:</label>
+                <select id="size-selector">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart-btn"
+                onclick="addToCart('Oxford Polo', 189, '../images/oxford-polo.jpg')">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="../cart.js"></script>
 
 </body>
 </html>
