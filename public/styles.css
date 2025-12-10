@@ -1,0 +1,104 @@
+body {
+    font-family: "Georgia", serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #111;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.header a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 20px;
+    color: #111;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* Checkout Layout */
+.checkout-page {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.checkout-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Left Form */
+.checkout-form {
+    width: 55%;
+}
+
+.checkout-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.checkout-form input,
+.checkout-form select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Right Summary */
+.order-summary {
+    width: 40%;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.checkout-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.checkout-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.place-order-btn {
+    width: 100%;
+    padding: 14px;
+    background: black;
+    color: white;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.place-order-btn:hover {
+    background: #333;
+}
