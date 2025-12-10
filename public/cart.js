@@ -10,6 +10,12 @@ function saveCart(cart) {
 
 // Add item to cart
 function addToCart(name, price, image, size) {
+    // Prevent adding without selecting size
+    if (!size || size === "" || size === "Select Size") {
+        alert("Please select your size first.");
+        return;
+    }
+
     const cart = getCart();
 
     cart.push({
