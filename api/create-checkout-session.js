@@ -25,8 +25,8 @@ export default async function handler(req, res) {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `${req.headers.origin}/thank-you.html`,
-      cancel_url: `${req.headers.origin}/checkout.html`,
+      success_url: `https://hustlers-website.vercel.app/thank-you.html`,
+      cancel_url: `https://hustlers-website.vercel.app/checkout.html`,
     });
 
     res.status(200).json({ id: session.id });
