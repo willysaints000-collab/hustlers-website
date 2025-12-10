@@ -1,110 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You — Hustlers & Co.</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #f7f7f7;
-            font-family: "Inter", sans-serif;
-        }
-
-        .thankyou-container {
-            max-width: 700px;
-            margin: 120px auto;
-            text-align: center;
-            background: #ffffff;
-            padding: 60px 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s ease forwards;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .gold-icon {
-            font-size: 80px;
-            color: #d4af37;
-            margin-bottom: 20px;
-            animation: shine 2.5s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
-        }
-
-        .thankyou-title {
-            font-size: 38px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .thankyou-text {
-            font-size: 18px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
-
-        .gold-line {
-            width: 80px;
-            height: 3px;
-            background: #d4af37;
-            margin: 20px auto 40px;
-            border-radius: 3px;
-        }
-
-        .btn-shop {
-            display: inline-block;
-            padding: 14px 32px;
-            background: #000;
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-            border-radius: 6px;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .btn-shop:hover {
-            background: #222;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-    <div class="thankyou-container">
+    <header class="header">
+        <a href="index.html" class="logo">H&CO.</a>
+    </header>
 
-        <div class="gold-icon">✔</div>
+    <section class="thankyou-section">
 
-        <div class="thankyou-title">Thank You for Your Order</div>
+        <h1>Thank You for Your Order!</h1>
+        <p>Your payment has been successfully processed.</p>
 
-        <div class="gold-line"></div>
+        <h2>Order Summary</h2>
 
-        <p class="thankyou-text">
-            Your order has been successfully placed.<br>
-            We appreciate your trust in <strong>Hustlers & Co.</strong><br>
-            A confirmation email has been sent to you.
-        </p>
+        <div id="order-items"></div>
 
-        <a href="shop.html" class="btn-shop">Continue Shopping</a>
-    </div>
+        <p class="summary-text">Total Paid: <span id="order-total">AED 0</span></p>
+
+        <a href="index.html" class="back-home-btn">Return Home</a>
+
+    </section>
+
+    <script>
+        // Load items from localStorage (Stripe success)
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const container = document.getElementById("order-items");
+        const totalEl = document.getElementById("order-total");
+
+        let total = 0;
+
+        cart.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("order-item");
+            div.innerHTML = `
+                <p>${item.name} (${item.size}) — AED ${item.price}</p>
+            `;
+            container.appendChild(div);
+            total += item.price;
+        });
+
+        totalEl.textContent = `AED ${total}`;
+
+        // Clear cart after showing summary
+        localStorage.removeItem("cart");
+    </script>
 
 </body>
 </html>
+
