@@ -46,12 +46,6 @@
                 <label>City</label>
                 <input type="text" placeholder="Dubai, Abu Dhabi, Sharjah..." id="city">
 
-                <label>Payment Method</label>
-                <select id="paymentMethod">
-                    <option value="card">Credit / Debit Card</option>
-                    <option value="cod">Cash on Delivery</option>
-                </select>
-
             </div>
 
             <!-- RIGHT SIDE: ORDER SUMMARY -->
@@ -63,7 +57,14 @@
 
                 <p class="summary-text">Subtotal: <span id="checkout-subtotal">AED 0</span></p>
 
-                <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+                <!-- PAYMENT BUTTONS -->
+                <button id="card-payment-btn" class="place-order-btn" style="background:black;color:white;">
+                    Pay with Card (Stripe)
+                </button>
+
+                <button class="place-order-btn" onclick="placeOrder()">
+                    Cash on Delivery
+                </button>
 
             </div>
 
@@ -73,6 +74,7 @@
 
     <script src="cart.js"></script>
 
+    <!-- SCRIPT: LOAD ITEMS + STRIPE PAYMENT -->
     <script>
         function loadCheckoutItems() {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -80,12 +82,12 @@
             const subtotalElement = document.getElementById("checkout-subtotal");
 
             container.innerHTML = "";
-
             let subtotal = 0;
 
             cart.forEach(item => {
                 const div = document.createElement("div");
                 div.classList.add("checkout-item");
+
                 div.innerHTML = `
                     <img src="${item.image}" class="checkout-img">
                     <div>
@@ -94,6 +96,7 @@
                         <p class="checkout-item-price">AED ${item.price}</p>
                     </div>
                 `;
+
                 container.appendChild(div);
                 subtotal += item.price;
             });
@@ -101,14 +104,45 @@
             subtotalElement.textContent = `AED ${subtotal}`;
         }
 
+        // CASH ON DELIVERY
         function placeOrder() {
-            alert("Thank you! Your order has been placed successfully.");
+            alert("Thank you! Your order has been placed.");
             localStorage.removeItem("cart");
             window.location.href = "index.html";
         }
 
         loadCheckoutItems();
+
+        // STRIPE PAYMENT
+        document.getElementById("card-payment-btn").addEventListener("click", async () => {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            try {
+                const response = await fetch("/api/create-checkout-session", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ items: cart }),
+                });
+
+                const data = await response.json();
+
+                if (data.id) {
+                    window.location.href = data.url; // Stripe Checkout URL
+                } else {
+                    alert("Payment error: " + data.error);
+                }
+
+            } catch (error) {
+                alert("Something went wrong: " + error.message);
+            }
+        });
     </script>
 
 </body>
 </html>
+
