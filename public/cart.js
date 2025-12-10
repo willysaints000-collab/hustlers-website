@@ -84,4 +84,3 @@ async function proceedToCheckout() {
 }
 
 displayCart();
-
