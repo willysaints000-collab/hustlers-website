@@ -1,54 +1,81 @@
 // Load cart from localStorage
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
 
-// Update Cart UI
-function renderCart() {
+// Save cart
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Add item to cart
+function addToCart(name, price, image, size) {
+    const cart = getCart();
+
+    cart.push({
+        name,
+        price: Number(price),
+        image,
+        size
+    });
+
+    saveCart(cart);
+    alert("Added to cart!");
+}
+
+// Display cart items on cart.html
+function displayCart() {
+    const cart = getCart();
     const cartContainer = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
+    const subtotalElement = document.getElementById("cart-subtotal");
+
+    if (!cartContainer) return; // Avoid errors on pages without cart
 
     cartContainer.innerHTML = "";
-    let total = 0;
+    let subtotal = 0;
 
     cart.forEach((item, index) => {
-        total += item.price * item.quantity;
+        const div = document.createElement("div");
+        div.className = "cart-item";
 
-        cartContainer.innerHTML += `
-            <div class="cart-item">
-                <h4>${item.name}</h4>
-                <p>AED ${item.price}</p>
-                <p>Qty: ${item.quantity}</p>
-                <button onclick="removeItem(${index})">Remove</button>
+        div.innerHTML = `
+            <img src="${item.image}" class="cart-img">
+
+            <div class="cart-details">
+                <p class="cart-name">${item.name}</p>
+                <p class="cart-size">Size: ${item.size}</p>
+                <p class="cart-price">AED ${item.price}</p>
             </div>
+
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
         `;
+
+        cartContainer.appendChild(div);
+        subtotal += item.price;
     });
 
-    cartTotal.innerText = total;
+    subtotalElement.textContent = `AED ${subtotal}`;
 }
 
+// Remove a cart item
 function removeItem(index) {
+    const cart = getCart();
     cart.splice(index, 1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
+    saveCart(cart);
+    displayCart();
 }
 
-renderCart();
+// Stripe payment button (cart.html)
+async function proceedToCheckout() {
+    const cart = getCart();
 
-// -----------------------------
-// STRIPE CHECKOUT
-// -----------------------------
-document.getElementById("checkout-btn").addEventListener("click", async () => {
-    const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: cart }),
-    });
-
-    const session = await response.json();
-
-    if (session.id) {
-        window.location.href = `https://checkout.stripe.com/pay/${session.id}`;
-    } else {
-        alert("Error creating payment session");
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
     }
-});
+
+    window.location.href = "checkout.html";
+}
+
+displayCart();
 
