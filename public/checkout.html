@@ -1,188 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout — Hustlers & Co.</title>
-
-    <style>
-        body {
-            background: #f7f7f7;
-            font-family: "Inter", sans-serif;
-            margin: 0;
-        }
-
-        .checkout-container {
-            max-width: 1100px;
-            margin: 100px auto;
-            padding: 20px;
-            display: flex;
-            gap: 50px;
-        }
-
-        /* LEFT SIDE — FORM */
-        .checkout-form {
-            flex: 2;
-            background: #fff;
-            padding: 30px;
-            border-radius: 6px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
-        }
-
-        .section-title {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        label {
-            font-size: 15px;
-            font-weight: 500;
-            display: block;
-            margin: 15px 0 6px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            font-size: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .input-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* RIGHT SIDE — ORDER SUMMARY */
-        .order-summary {
-            flex: 1;
-            background: #fff;
-            padding: 30px;
-            border-radius: 6px;
-            height: fit-content;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
-        }
-
-        .summary-box {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #000;
-        }
-
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-            font-size: 17px;
-        }
-
-        .checkout-btn {
-            margin-top: 30px;
-            width: 100%;
-            padding: 16px;
-            background: #000;
-            color: #fff;
-            border: none;
-            font-size: 18px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .checkout-btn:hover {
-            background: #222;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .checkout-container {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-    <div class="checkout-container">
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo">H&CO.</a>
+        <nav class="nav">
+            <a href="collection.html">Collection</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
 
-        <!-- LEFT SIDE -->
-        <div class="checkout-form">
-            <div class="section-title">Billing Details</div>
+    <section class="checkout-page">
 
-            <label>Full Name</label>
-            <input type="text" placeholder="John Smith" />
+        <h1 class="checkout-title">Checkout</h1>
 
-            <label>Email Address</label>
-            <input type="email" placeholder="john@example.com" />
+        <div class="checkout-container">
 
-            <label>Phone Number</label>
-            <input type="text" placeholder="+971 50 123 4567" />
+            <!-- LEFT SIDE: FORM -->
+            <div class="checkout-form">
 
-            <label>Country</label>
-            <input type="text" placeholder="United Arab Emirates" />
+                <h2>Billing Details</h2>
 
-            <div class="input-row">
-                <div style="flex: 1;">
-                    <label>City</label>
-                    <input type="text" placeholder="Dubai" />
-                </div>
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" id="fullName">
 
-                <div style="flex: 1;">
-                    <label>Postal Code</label>
-                    <input type="text" placeholder="00000" />
-                </div>
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" id="email">
+
+                <label>Phone Number</label>
+                <input type="tel" placeholder="05X XXX XXXX" id="phone">
+
+                <label>Address</label>
+                <input type="text" placeholder="Street, Building, Apartment" id="address">
+
+                <label>City</label>
+                <input type="text" placeholder="Dubai, Abu Dhabi, Sharjah..." id="city">
+
+                <label>Payment Method</label>
+                <select id="paymentMethod">
+                    <option value="card">Credit / Debit Card</option>
+                    <option value="cod">Cash on Delivery</option>
+                </select>
+
             </div>
 
-            <label>Full Address</label>
-            <input type="text" placeholder="Street, Building, Apartment" />
+            <!-- RIGHT SIDE: ORDER SUMMARY -->
+            <div class="order-summary">
 
-            <div class="section-title" style="margin-top: 40px;">Payment</div>
-            <p style="color:#666; font-size:15px; margin-bottom:20px;">
-                Payment integration coming soon. This page is ready for Stripe / Shopify checkout.
-            </p>
+                <h2>Order Summary</h2>
 
-            <button class="checkout-btn">Place Order</button>
+                <div id="checkout-items"></div>
+
+                <p class="summary-text">Subtotal: <span id="checkout-subtotal">AED 0</span></p>
+
+                <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+
+            </div>
+
         </div>
 
-        <!-- RIGHT SIDE -->
-        <div class="order-summary">
-            <div class="section-title">Order Summary</div>
+    </section>
 
-            <div class="summary-item">
-                <span>Essential Polo</span>
-                <span>$120</span>
-            </div>
+    <script src="cart.js"></script>
 
-            <div class="summary-item">
-                <span>Luxury Tee</span>
-                <span>$90</span>
-            </div>
+    <script>
+        function loadCheckoutItems() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const container = document.getElementById("checkout-items");
+            const subtotalElement = document.getElementById("checkout-subtotal");
 
-            <div class="summary-box">
-                <div class="summary-item">
-                    <strong>Subtotal</strong>
-                    <strong>$210</strong>
-                </div>
+            container.innerHTML = "";
 
-                <div class="summary-item">
-                    <span>Shipping</span>
-                    <span>FREE</span>
-                </div>
+            let subtotal = 0;
 
-                <div class="summary-item" style="font-size:20px; margin-top:10px;">
-                    <strong>Total</strong>
-                    <strong>$210</strong>
-                </div>
-            </div>
-        </div>
+            cart.forEach(item => {
+                const div = document.createElement("div");
+                div.classList.add("checkout-item");
+                div.innerHTML = `
+                    <img src="${item.image}" class="checkout-img">
+                    <div>
+                        <p class="checkout-item-name">${item.name}</p>
+                        <p class="checkout-item-size">Size: ${item.size}</p>
+                        <p class="checkout-item-price">AED ${item.price}</p>
+                    </div>
+                `;
+                container.appendChild(div);
+                subtotal += item.price;
+            });
 
-    </div>
+            subtotalElement.textContent = `AED ${subtotal}`;
+        }
+
+        function placeOrder() {
+            alert("Thank you! Your order has been placed successfully.");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+        }
+
+        loadCheckoutItems();
+    </script>
 
 </body>
 </html>
