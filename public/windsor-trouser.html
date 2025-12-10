@@ -1,129 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windsor Tailored Trouser — Hustlers & Co.</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Helvetica Neue', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: white;
-            border-bottom: 1px solid #e6e6e6;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: black;
-            font-weight: 500;
-        }
-
-        .product-container {
-            display: flex;
-            padding: 40px;
-            gap: 50px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .product-container img {
-            width: 480px;
-            border-radius: 6px;
-        }
-
-        .product-details h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 24px;
-            margin: 10px 0;
-            font-weight: bold;
-        }
-
-        .description {
-            margin: 20px 0;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .btn {
-            background: black;
-            color: white;
-            padding: 14px 24px;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            text-align: center;
-            background: #111;
-            color: white;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trouser — Hustlers & Co.</title>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header>
-        <div class="logo" style="font-size: 24px; font-weight: 700;">HUSTLERS & CO.</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">🛒</a>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="../index.html" class="logo">H&CO.</a>
+        <nav class="nav">
+            <a href="../collection.html">Collection</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../cart.html" class="cart-link">Cart</a>
         </nav>
     </header>
 
-    <!-- PRODUCT SECTION -->
-    <section class="product-container">
+    <section class="product-page">
 
-        <img src="images/windsor-trouser.webp" alt="Windsor Tailored Trouser">
+        <!-- LEFT SIDE: PRODUCT IMAGE -->
+        <div class="product-image-container">
+            <img src="../images/trouser.jpg" alt="Trouser" class="product-image" />
+        </div>
 
+        <!-- RIGHT SIDE: PRODUCT DETAILS -->
         <div class="product-details">
-            <h1>Windsor Tailored Trouser</h1>
-            <p class="price">AED 249.00</p>
 
-            <p class="description">
-                Crafted for the modern gentleman, the Windsor Trouser blends refined elegance 
-                with contemporary tailoring. Featuring a clean front, tapered silhouette, and 
-                premium fabrication — this is your everyday luxury essential.
+            <h1 class="product-title">Tailored Trouser</h1>
+
+            <p class="product-description">
+                A perfectly balanced tailored trouser designed for refined versatility. Crafted from a premium 
+                stretch-blend fabric, it offers a sharp silhouette while ensuring all-day comfort. Ideal for elevated 
+                streetwear, business casual looks, or polished evening styling.
             </p>
 
-            <p><strong>Fabrication:</strong> Premium stretch wool-blend</p>
-            <p><strong>Fit:</strong> Tailored Tapered</p>
-            <p><strong>Color:</strong> Onyx Black</p>
+            <p class="product-price">AED 219</p>
 
-            <a class="btn" href="cart.html">Add to Cart</a>
+            <div class="product-size">
+                <label>Select Size:</label>
+                <select id="size-selector">
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart-btn"
+                onclick="addToCart('Tailored Trouser', 219, '../images/trouser.jpg')">
+                Add to Cart
+            </button>
+
         </div>
 
     </section>
 
-    <footer>
-        © 2025 Hustlers & Co. — All Rights Reserved
-    </footer>
+    <script src="../cart.js"></script>
 
 </body>
-
 </html>
