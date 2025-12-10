@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,92 +9,82 @@
         body {
             margin: 0;
             font-family: "Inter", sans-serif;
-            background: #f4efe7; /* Luxury beige */
+            background: #ffffff;
         }
 
         header {
-            background: #fff;
-            padding: 25px 60px;
+            padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            z-index: 999;
+            border-bottom: 1px solid #eee;
         }
 
         nav a {
-            margin-left: 30px;
+            margin-left: 25px;
             text-decoration: none;
-            color: #222;
-            font-size: 17px;
-            padding-bottom: 4px;
-            transition: 0.3s;
+            color: #000;
+            font-size: 16px;
+            font-weight: 500;
         }
 
-        nav a:hover {
-            border-bottom: 2px solid #111;
-        }
-
-        .page-container {
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 20px;
             display: flex;
-            padding: 80px 60px;
             gap: 60px;
         }
 
-        .product-image img {
-            width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 5px 35px rgba(0,0,0,0.15);
-            animation: fadeUp 1s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
+        .product-img {
+            flex: 1;
         }
 
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .product-img img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         .product-details {
-            max-width: 500px;
+            flex: 1;
+            padding-top: 20px;
         }
 
-        .product-title {
+        .product-details h1 {
             font-size: 34px;
-            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .product-price {
-            font-size: 24px;
-            color: #444;
+        .price {
+            font-size: 22px;
+            font-weight: 600;
             margin-bottom: 25px;
-        }
-
-        .product-desc {
-            line-height: 1.7;
-            font-size: 17px;
-            margin-bottom: 35px;
             color: #333;
         }
 
-        .btn {
-            padding: 15px 40px;
+        button {
             background: black;
             color: white;
-            font-size: 17px;
-            border-radius: 6px;
+            padding: 14px 32px;
             border: none;
+            border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
-            transition: 0.3s;
+            margin-top: 25px;
         }
 
-        .btn:hover {
-            background: #333;
+        button:hover {
+            opacity: 0.85;
+        }
+
+        footer {
+            margin-top: 80px;
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 40px;
         }
     </style>
 </head>
@@ -103,39 +92,55 @@
 <body>
 
 <header>
-    <div class="logo" style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <div style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
     <nav>
         <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
         <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒</a>
+        <a href="cart.html">🛒 <span id="cart-count">0</span></a>
     </nav>
 </header>
 
-<div class="page-container">
 
-    <div class="product-image">
+<!-- PRODUCT SECTION -->
+<div class="container">
+
+    <!-- IMAGE -->
+    <div class="product-img">
         <img src="images/heritage-tee.webp" alt="Heritage Crew Tee">
     </div>
 
+    <!-- DETAILS -->
     <div class="product-details">
+        <h1>Heritage Crew Tee</h1>
+        <div class="price">AED 199.00</div>
 
-        <div class="product-title">Heritage Crew Tee</div>
-        <div class="product-price">AED 199.00</div>
+        <p>
+            A refined essential crafted from a premium cotton blend.  
+            Minimal, structured, and made for everyday luxury.
+        </p>
 
-        <div class="product-desc">
-            A timeless essential crafted from a premium cotton-blend fabric for unmatched comfort.  
-            Designed with a refined silhouette and clean neckline, this tee is the perfect foundation  
-            for everyday luxury styling.
-        </div>
-
-        <button class="btn">Add to Cart</button>
-
+        <!-- ADD TO CART BUTTON -->
+        <button onclick="addToCart({
+            id: 'heritage-tee',
+            name: 'Heritage Crew Tee',
+            price: 199,
+            image: 'images/heritage-tee.webp'
+        })">
+            Add to Cart
+        </button>
     </div>
 
 </div>
+
+<footer>
+    © 2025 Hustlers & Co. — All Rights Reserved.
+</footer>
+
+<!-- CART SCRIPT -->
+<script src="cart.js"></script>
 
 </body>
 </html>
