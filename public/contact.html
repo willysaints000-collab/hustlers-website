@@ -8,121 +8,199 @@
     <style>
         body {
             margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #ffffff;
+            font-family: "Georgia", serif;
+            background: #f9f7f2;
+            color: #1a1a1a;
         }
 
         header {
-            padding: 20px 50px;
+            width: 100%;
+            padding: 22px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
         }
 
         nav a {
             margin-left: 25px;
             text-decoration: none;
-            color: #111;
-            font-size: 16px;
+            color: black;
+            font-size: 17px;
             font-weight: 500;
         }
 
-        nav a:hover { opacity: 0.6; }
-
-        .hero {
-            height: 45vh;
-            background: url('https://images.unsplash.com/photo-1602810318383-e386cc2a3b9c?auto=format&fit=crop&w=1600&q=80')
-                center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 44px;
-            color: white;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+        /* TITLE */
+        .page-title {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 48px;
             font-weight: 600;
+            letter-spacing: 3px;
         }
 
-        .container {
-            max-width: 650px;
+        /* CONTACT WRAPPER */
+        .contact-container {
+            max-width: 1100px;
             margin: 70px auto;
             padding: 20px;
+            display: flex;
+            gap: 60px;
         }
 
-        label {
-            font-size: 16px;
-            font-weight: 600;
+        /* FORM */
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 14px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
             display: block;
-            margin-top: 25px;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
 
-        input, textarea {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
             padding: 14px;
-            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 8px;
             border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
+            font-family: inherit;
+            font-size: 16px;
         }
 
-        textarea {
-            height: 150px;
-            resize: none;
-        }
-
-        button {
-            margin-top: 30px;
-            padding: 14px 26px;
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
             background: black;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
+            font-size: 18px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
         }
 
-        button:hover { opacity: 0.85; }
+        .contact-form button:hover {
+            opacity: 0.85;
+        }
+
+        /* RIGHT SIDE INFO */
+        .contact-info {
+            flex: 1;
+            padding-top: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.08);
+        }
+
+        .info-box strong {
+            display: block;
+            font-size: 18px;
+        }
 
         footer {
-            margin-top: 100px;
+            margin-top: 120px;
             background: #000;
             color: white;
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-    <div style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <a href="index.html" class="logo">H&CO.</a>
     <nav>
-        <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
         <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒</a>
+        <a href="cart.html">Cart</a>
     </nav>
 </header>
 
-<div class="hero">Contact Us</div>
+<h1 class="page-title">CONTACT US</h1>
 
-<div class="container">
-    <form>
-        <label>Your Name</label>
-        <input type="text" placeholder="Enter your full name" required>
+<div class="contact-container">
 
-        <label>Email Address</label>
-        <input type="email" placeholder="Enter your email" required>
+    <!-- CONTACT FORM -->
+    <div class="contact-form">
+        <h2>Send us a message</h2>
 
-        <label>Your Message</label>
-        <textarea placeholder="How can we assist you?" required></textarea>
+        <form action="https://formspree.io/f/yourFormIDHere" method="POST">
+            <label>Your Name</label>
+            <input type="text" name="name" required />
 
-        <button type="submit">Send Message</button>
-    </form>
+            <label>Email Address</label>
+            <input type="email" name="email" required />
+
+            <label>Message</label>
+            <textarea name="message" rows="6" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- BRAND INFO -->
+    <div class="contact-info">
+        <h3>We’re here to help.</h3>
+
+        <p>
+            Whether you have questions about your order, need assistance,  
+            or simply want to learn more about Hustlers & Co.,  
+            our team is ready to support you.
+        </p>
+
+        <div class="info-box">
+            <strong>Email:</strong>
+            support@hustlersco.com  
+            <br><br>
+            <strong>Instagram:</strong>
+            @hustlersandco  
+            <br><br>
+            <strong>Response Time:</strong>
+            Within 24 hours
+        </div>
+    </div>
+
 </div>
 
 <footer>
