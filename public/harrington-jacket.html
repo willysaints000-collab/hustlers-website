@@ -24,7 +24,9 @@
 
         <!-- LEFT SIDE: IMAGE -->
         <div class="product-image-container">
-            <img src="../images/harrington-jacket.jpg" alt="Harrington Jacket" class="product-image" />
+            <img src="../images/harrington.webp"
+                 alt="Harrington Jacket"
+                 class="product-image" />
         </div>
 
         <!-- RIGHT SIDE: DETAILS -->
@@ -33,13 +35,14 @@
             <h1 class="product-title">Harrington Jacket</h1>
 
             <p class="product-description">
-                A timeless outerwear classic reimagined with modern luxury. The Harrington Jacket features a 
-                lightweight structured shell, premium lining, and signature cuff details, delivering an elevated yet 
-                effortless silhouette suited for any season.
+                A timeless outerwear classic reimagined with modern luxury. Crafted with a structured shell,
+                soft premium lining, and signature cuff details — the Harrington Jacket brings effortless refinement 
+                to any season and any wardrobe.
             </p>
 
             <p class="product-price">AED 349</p>
 
+            <!-- SIZE SELECTOR -->
             <div class="product-size">
                 <label>Select Size:</label>
                 <select id="size-selector">
@@ -50,8 +53,14 @@
                 </select>
             </div>
 
+            <!-- ADD TO CART -->
             <button class="add-to-cart-btn"
-                onclick="addToCart('Harrington Jacket', 349, '../images/harrington-jacket.jpg')">
+                onclick="addToCart(
+                    'Harrington Jacket',
+                    349,
+                    '../images/harrington.webp',
+                    document.getElementById('size-selector').value
+                )">
                 Add to Cart
             </button>
 
