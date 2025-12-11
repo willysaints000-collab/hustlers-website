@@ -8,109 +8,210 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #111;
+            font-family: "Georgia", serif;
+            background: #f9f7f2;
+            color: #1a1a1a;
         }
 
         header {
-            padding: 20px 50px;
+            width: 100%;
+            padding: 22px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
         }
 
         nav a {
             margin-left: 25px;
             text-decoration: none;
-            color: #000;
-            font-size: 16px;
+            color: black;
+            font-size: 17px;
             font-weight: 500;
         }
 
-        nav a:hover { opacity: 0.6; }
-
+        /* ABOUT HERO */
         .hero {
+            width: 100%;
             height: 55vh;
-            background: url('https://images.unsplash.com/photo-1598032899844-5b94a1b38e14?auto=format&fit=crop&w=1600&q=80')
-                center/cover no-repeat;
+            background: url("images/about-banner.webp") center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-            color: white;
-            font-size: 48px;
-            font-weight: 600;
-        }
-
-        .section {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 0 20px;
-            line-height: 1.7;
-            font-size: 18px;
-        }
-
-        .section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-weight: 700;
             text-align: center;
         }
 
-        .section p {
-            margin-bottom: 25px;
-            color: #444;
+        .hero-text {
+            font-size: 58px;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            letter-spacing: 3px;
+        }
+
+        /* CONTENT */
+        .content-section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 20px;
+            line-height: 1.7;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .content-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .content-section p {
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        /* BRAND STATEMENT */
+        .statement {
+            background: #ffffff;
+            padding: 40px;
+            border-left: 6px solid #b79a67;
+            margin: 60px auto;
+            max-width: 900px;
+            font-size: 22px;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.8;
+            box-shadow: 0 0 14px rgba(0,0,0,0.06);
+        }
+
+        /* VALUES SECTION */
+        .values {
+            max-width: 1100px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .values h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .value-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.08);
+        }
+
+        .value-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .value-box p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
         }
 
         footer {
+            margin-top: 120px;
             background: #000;
             color: white;
             text-align: center;
-            padding: 40px;
-            margin-top: 100px;
+            padding: 40px 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-    <div style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <a href="index.html" class="logo">H&CO.</a>
     <nav>
-        <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
         <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒</a>
+        <a href="cart.html">Cart</a>
     </nav>
 </header>
 
-<div class="hero">Our Story</div>
+<!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-text">OUR STORY</div>
+</div>
 
-<section class="section">
-    <h2>Crafted for the Modern Gentleman</h2>
+<!-- MAIN CONTENT -->
+<div class="content-section">
 
-    <p>Hustlers & Co. was built on a simple belief — that luxury should feel effortless. 
-    Every piece we create blends timeless tailoring with modern refinement, designed to elevate everyday moments.</p>
+    <h2>The Spirit of Hustlers & Co.</h2>
 
-    <p>Inspired by old-money sophistication and the crisp minimalism of contemporary menswear, 
-    our collections focus on premium fabrics, precise cuts, and understated elegance.</p>
+    <p>
+        Hustlers & Co. was born from a vision to blend old-money refinement with the ambition of the modern creator.
+        A brand crafted for those who chase excellence quietly, move with purpose, and shape their own path.
+    </p>
 
-    <p>We believe that confidence starts with the way you dress. Whether it’s the perfect tee, 
-    the ideal polo, or a tailored essential, each piece is crafted to make you look sharp without trying too hard.</p>
+    <p>
+        Every piece is designed with intention — minimal, structured, and timeless.  
+        We believe luxury isn’t loud. It’s the quiet confidence of quality, detail, and elegance.
+    </p>
 
-    <h2>Our Philosophy</h2>
+</div>
 
-    <p>Quality over quantity. Details over noise. Style over trends.</p>
+<!-- BRAND STATEMENT -->
+<div class="statement">
+    “For the dreamers, the builders, the disciplined,  
+    the ones who rise early and stay late —  
+    this brand is for you.”  
+</div>
 
-    <p>Every product we release goes through thoughtful development — from fabric selection,
-    to fit testing, to finishing. This ensures every item feels as good as it looks.</p>
+<!-- VALUES SECTION -->
+<div class="values">
+    <h2>Our Principles</h2>
 
-    <p>Welcome to a new era of menswear. Clean. Confident. Elevated.</p>
-</section>
+    <div class="value-grid">
+        <div class="value-box">
+            <h3>Timeless Design</h3>
+            <p>Styles crafted to outlast seasons, trends, and noise.</p>
+        </div>
+
+        <div class="value-box">
+            <h3>Premium Quality</h3>
+            <p>Fabric, stitching, and structure chosen with precision.</p>
+        </div>
+
+        <div class="value-box">
+            <h3>Refined Minimalism</h3>
+            <p>Quiet luxury — where simplicity meets sophistication.</p>
+        </div>
+
+        <div class="value-box">
+            <h3>The Hustler’s Mindset</h3>
+            <p>Discipline. Ambition. Purpose.  
+            The identity behind every collection.</p>
+        </div>
+    </div>
+</div>
 
 <footer>
     © 2025 Hustlers & Co. — All Rights Reserved.
