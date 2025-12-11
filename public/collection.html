@@ -49,26 +49,25 @@
             letter-spacing: 2px;
         }
 
-        /* PAGE TITLE */
-        .title-section {
+        /* SECTION HEADER */
+        .collection-header {
             text-align: center;
-            padding: 70px 20px 50px;
+            padding: 70px 20px 40px;
         }
 
-        .title-section h1 {
+        .collection-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 52px;
             font-weight: 600;
             margin-bottom: 10px;
-            letter-spacing: 1px;
         }
 
-        .title-section p {
+        .collection-header p {
             font-size: 17px;
-            opacity: 0.7;
+            opacity: 0.75;
         }
 
-        /* COLLECTION GRID */
+        /* GRID */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -91,32 +90,30 @@
             object-fit: cover;
         }
 
-        .item-info {
-            padding: 18px 22px 25px;
+        .info {
+            padding: 20px 22px 28px;
         }
 
-        .item-info h3 {
+        .info h3 {
             font-family: 'Playfair Display', serif;
             font-size: 22px;
-            margin: 0 0 8px;
-            font-weight: 600;
+            margin-bottom: 6px;
         }
 
-        .item-info p {
+        .info p {
             margin: 0;
-            font-size: 15px;
             opacity: 0.7;
+            font-size: 15px;
         }
 
         .item:hover {
             transform: translateY(-6px);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(25px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -124,12 +121,10 @@
             }
         }
 
-        /* MOBILE */
         @media (max-width: 900px) {
             .grid {
                 grid-template-columns: 1fr 1fr;
                 padding: 30px;
-                gap: 30px;
             }
 
             .item img {
@@ -147,7 +142,7 @@
                 height: 300px;
             }
 
-            .title-section h1 {
+            .collection-header h1 {
                 font-size: 40px;
             }
         }
@@ -165,69 +160,61 @@
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
         </nav>
     </header>
 
-    <!-- TITLE -->
-    <section class="title-section">
-        <h1>Luxury Collection</h1>
-        <p>Timeless essentials crafted for the modern gentleman.</p>
+    <!-- COLLECTION TITLE -->
+    <section class="collection-header">
+        <h1>Our Signature Collection</h1>
+        <p>A refined selection made for the modern gentleman.</p>
     </section>
 
-    <!-- GRID -->
+    <!-- PRODUCT GRID -->
     <section class="grid">
 
-        <!-- Tee -->
-        <a href="tee.html" class="item">
+        <!-- Heritage Tee -->
+        <a href="heritage-tee.html" class="item">
             <img src="images/heritage-tee.webp" alt="Heritage Tee">
-            <div class="item-info">
+            <div class="info">
                 <h3>Heritage Tee</h3>
                 <p>Signature Cotton Classic</p>
             </div>
         </a>
 
-        <!-- Polo -->
-        <a href="polo.html" class="item">
+        <!-- Oxford Polo -->
+        <a href="oxford-polo.html" class="item">
             <img src="images/oxford-polo.webp" alt="Oxford Polo">
-            <div class="item-info">
+            <div class="info">
                 <h3>Oxford Polo</h3>
                 <p>Premium Textured Pique</p>
             </div>
         </a>
 
-        <!-- Sweater -->
-        <a href="sweater.html" class="item">
+        <!-- Sovereign Sweater -->
+        <a href="sovereign-sweater.html" class="item">
             <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-            <div class="item-info">
+            <div class="info">
                 <h3>Sovereign Sweater</h3>
                 <p>Luxury Knitwear Essential</p>
             </div>
         </a>
 
-        <!-- Trouser -->
-        <a href="trouser.html" class="item">
-            <img src="images/tailored-trouser.webp" alt="Tailored Trouser">
-            <div class="item-info">
-                <h3>Tailored Trouser</h3>
+        <!-- Windsor Trouser -->
+        <a href="windsor-trouser.html" class="item">
+            <img src="images/windsor-trouser.webp" alt="Windsor Trouser">
+            <div class="info">
+                <h3>Windsor Trouser</h3>
                 <p>Refined Everyday Wear</p>
             </div>
         </a>
 
-        <!-- Jacket -->
-        <a href="jacket.html" class="item">
-            <img src="images/signature-jacket.webp" alt="Signature Jacket">
-            <div class="item-info">
-                <h3>Signature Jacket</h3>
+        <!-- Harrington Jacket -->
+        <a href="harrington-jacket.html" class="item">
+            <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
+            <div class="info">
+                <h3>Harrington Jacket</h3>
                 <p>Heritage Outerwear Classic</p>
-            </div>
-        </a>
-
-        <!-- Overcoat -->
-        <a href="overcoat.html" class="item">
-            <img src="images/heritage-overcoat.webp" alt="Heritage Overcoat">
-            <div class="item-info">
-                <h3>Heritage Overcoat</h3>
-                <p>Timeless Layering Piece</p>
             </div>
         </a>
 
