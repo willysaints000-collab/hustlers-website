@@ -1,183 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop — Hustlers & Co.</title>
+    <title>H&CO. — Shop</title>
+
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            font-family: "Georgia", serif;
-            background: #f9f7f2;
-            color: #1a1a1a;
+            background: #f8f6f3;
+            font-family: 'Inter', sans-serif;
+            color: #111;
         }
 
+        /* NAVBAR */
         header {
             width: 100%;
-            padding: 22px 50px;
+            padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #ffffff;
-            border-bottom: 1px solid #ddd;
+            background: #000;
+        }
+
+        header a {
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            margin-left: 35px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+
+        header a:hover {
+            opacity: 0.7;
         }
 
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-            color: black;
-        }
-
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: black;
-            font-size: 17px;
-            font-weight: 500;
-        }
-
-        .shop-title {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 48px;
             font-weight: 600;
-            letter-spacing: 3px;
+            color: white;
+            letter-spacing: 2px;
         }
 
-        /* GRID */
-        .product-grid {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 20px;
+        /* TITLE */
+        .shop-header {
+            text-align: center;
+            padding: 70px 20px 50px;
+        }
+
+        .shop-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .shop-header p {
+            font-size: 17px;
+            opacity: 0.7;
+        }
+
+        /* PRODUCT GRID */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 45px;
+            padding: 40px 80px 80px;
         }
 
-        .product-card {
-            background: #fff;
-            border-radius: 12px;
+        .product {
+            background: white;
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 0 12px rgba(0,0,0,0.08);
             transition: 0.3s ease;
+            animation: fadeIn 1.2s ease forwards;
+            opacity: 0;
             text-decoration: none;
             color: inherit;
         }
 
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-
-        .product-card img {
+        .product img {
             width: 100%;
-            height: 360px;
+            height: 420px;
             object-fit: cover;
         }
 
         .info {
-            padding: 18px;
-            text-align: center;
+            padding: 18px 22px 25px;
         }
 
-        .name {
+        .info h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 22px;
+            margin: 0 0 8px;
             font-weight: 600;
-            margin-bottom: 6px;
         }
 
-        .price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #b79a67;
+        .info p {
+            margin: 0;
+            font-size: 15px;
+            opacity: 0.7;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                padding: 30px;
+                gap: 30px;
+            }
+
+            .product img {
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .product img {
+                height: 300px;
+            }
+
+            .shop-header h1 {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <a href="index.html" class="logo">H&CO.</a>
-    <nav>
-        <a href="collection.html">Collection</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart</a>
-    </nav>
-</header>
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">H&CO.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<h1 class="shop-title">SHOP ALL</h1>
+    <!-- TITLE -->
+    <section class="shop-header">
+        <h1>Shop All</h1>
+        <p>Discover the full Hustlers & Co. luxury lineup.</p>
+    </section>
 
-<!-- PRODUCT GRID -->
-<div class="product-grid">
+    <!-- PRODUCT GRID -->
+    <section class="grid">
 
-    <!-- Prestige Tee -->
-    <a href="prestige-tee.html" class="product-card">
-        <img src="images/tee.webp" alt="Prestige Tee">
-        <div class="info">
-            <div class="name">Prestige Tee</div>
-            <div class="price">AED 129</div>
-        </div>
-    </a>
+        <!-- Tee -->
+        <a href="tee.html" class="product">
+            <img src="images/heritage-tee.webp" alt="Heritage Tee">
+            <div class="info">
+                <h3>Heritage Tee</h3>
+                <p>Signature Cotton Classic</p>
+            </div>
+        </a>
 
-    <!-- Signature Jacket -->
-    <a href="signature-jacket.html" class="product-card">
-        <img src="images/jacket.webp" alt="Signature Jacket">
-        <div class="info">
-            <div class="name">Signature Jacket</div>
-            <div class="price">AED 499</div>
-        </div>
-    </a>
+        <!-- Polo -->
+        <a href="polo.html" class="product">
+            <img src="images/oxford-polo.webp" alt="Oxford Polo">
+            <div class="info">
+                <h3>Oxford Polo</h3>
+                <p>Premium Textured Pique</p>
+            </div>
+        </a>
 
-    <!-- Tailored Trouser -->
-    <a href="windsor-trouser.html" class="product-card">
-        <img src="images/windsor-trouser.webp" alt="Tailored Trouser">
-        <div class="info">
-            <div class="name">Tailored Trouser</div>
-            <div class="price">AED 219</div>
-        </div>
-    </a>
+        <!-- Sweater -->
+        <a href="sweater.html" class="product">
+            <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
+            <div class="info">
+                <h3>Sovereign Sweater</h3>
+                <p>Luxury Knitwear Essential</p>
+            </div>
+        </a>
 
-    <!-- Heritage Hoodie -->
-    <a href="heritage-hoodie.html" class="product-card">
-        <img src="images/drop-hoodie.jpg" alt="Heritage Hoodie">
-        <div class="info">
-            <div class="name">Heritage Hoodie</div>
-            <div class="price">AED 299</div>
-        </div>
-    </a>
+        <!-- Trouser -->
+        <a href="trouser.html" class="product">
+            <img src="images/tailored-trouser.webp" alt="Tailored Trouser">
+            <div class="info">
+                <h3>Tailored Trouser</h3>
+                <p>Refined Everyday Wear</p>
+            </div>
+        </a>
 
-    <!-- Oxford Polo -->
-    <a href="oxford-polo.html" class="product-card">
-        <img src="images/oxford-polo.webp" alt="Oxford Polo">
-        <div class="info">
-            <div class="name">Oxford Polo</div>
-            <div class="price">AED 189</div>
-        </div>
-    </a>
+        <!-- Jacket -->
+        <a href="jacket.html" class="product">
+            <img src="images/signature-jacket.webp" alt="Signature Jacket">
+            <div class="info">
+                <h3>Signature Jacket</h3>
+                <p>Heritage Outerwear Classic</p>
+            </div>
+        </a>
 
-    <!-- Sovereign Sweater -->
-    <a href="sovereign-sweater.html" class="product-card">
-        <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-        <div class="info">
-            <div class="name">Sovereign Sweater</div>
-            <div class="price">AED 229</div>
-        </div>
-    </a>
+        <!-- Overcoat -->
+        <a href="overcoat.html" class="product">
+            <img src="images/heritage-overcoat.webp" alt="Heritage Overcoat">
+            <div class="info">
+                <h3>Heritage Overcoat</h3>
+                <p>Timeless Layering Piece</p>
+            </div>
+        </a>
 
-    <!-- Harrington Jacket -->
-    <a href="harrington-jacket.html" class="product-card">
-        <img src="images/harrington.webp" alt="Harrington Jacket">
-        <div class="info">
-            <div class="name">Harrington Jacket</div>
-            <div class="price">AED 349</div>
-        </div>
-    </a>
-
-</div>
+    </section>
 
 </body>
 </html>
+
