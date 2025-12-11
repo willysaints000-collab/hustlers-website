@@ -3,87 +3,176 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Signature Collection — Hustlers & Co.</title>
-
+    <title>Collection — Hustlers & Co.</title>
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; background: #ffffff; color: #111; }
-        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-        nav a { margin-left: 25px; text-decoration: none; color: #000; font-size: 16px; font-weight: 500; }
-        nav a:hover { opacity: 0.6; }
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background: #f9f7f2;
+            color: #1a1a1a;
+        }
 
-        .hero-title { text-align: center; margin-top: 40px; font-size: 48px; font-weight: 700; }
-        .hero-sub { text-align: center; margin-top: 10px; font-size: 18px; color: #666; }
+        header {
+            width: 100%;
+            padding: 22px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
 
-        .grid {
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 28px;
+            text-decoration: none;
+            color: #000;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        .collection-grid {
+            max-width: 1200px;
+            margin: 60px auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            padding: 60px 50px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 45px;
+            padding: 20px;
+        }
+
+        .item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.08);
+            transition: 0.35s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
 
         .item img {
             width: 100%;
-            border-radius: 8px;
-            height: 380px;
+            height: 360px;
             object-fit: cover;
         }
 
-        h3 { font-size: 20px; margin-top: 10px; }
-        p { color: #444; font-size: 15px; margin-top: 5px; }
+        .item-info {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .item-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #b79a67;
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo" style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
+    <a href="index.html" class="logo">H&CO.</a>
     <nav>
-        <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒</a>
+        <a href="cart.html">Cart</a>
     </nav>
 </header>
 
-<h1 class="hero-title">The Signature Collection</h1>
-<p class="hero-sub">Crafted Essentials • Premium Textures • Refined Cuts</p>
+<h1 class="title">THE COLLECTION</h1>
 
-<section class="grid">
+<div class="collection-grid">
 
-    <div class="item">
-        <img src="images/heritage-tee.webp" alt="Heritage Tee">
-        <h3>Heritage Crew Tee</h3>
-        <p>Minimal, timeless, premium cotton blend.</p>
-    </div>
+    <!-- Prestige Tee -->
+    <a href="prestige-tee.html" class="item">
+        <img src="images/tee.webp" alt="Prestige Tee" />
+        <div class="item-info">
+            <div class="item-name">Prestige Tee</div>
+            <div class="item-price">AED 129</div>
+        </div>
+    </a>
 
-    <div class="item">
-        <img src="images/oxford-polo.webp" alt="Oxford Polo">
-        <h3>Oxford Knit Polo</h3>
-        <p>Refined comfort with luxury detailing.</p>
-    </div>
+    <!-- Signature Jacket -->
+    <a href="signature-jacket.html" class="item">
+        <img src="images/jacket.webp" alt="Signature Jacket" />
+        <div class="item-info">
+            <div class="item-name">Signature Jacket</div>
+            <div class="item-price">AED 499</div>
+        </div>
+    </a>
 
-    <div class="item">
-        <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-        <h3>Sovereign Wool Sweater</h3>
-        <p>Warm, elegant, old-money knitwear.</p>
-    </div>
+    <!-- Tailored Trouser -->
+    <a href="windsor-trouser.html" class="item">
+        <img src="images/windsor-trouser.webp" alt="Tailored Trouser" />
+        <div class="item-info">
+            <div class="item-name">Tailored Trouser</div>
+            <div class="item-price">AED 219</div>
+        </div>
+    </a>
 
-    <div class="item">
-        <img src="images/windsor-trouser.webp" alt="Windsor Trouser">
-        <h3>Windsor Tailored Trouser</h3>
-        <p>Sharp crease, elevated everyday essential.</p>
-    </div>
+    <!-- Heritage Hoodie -->
+    <a href="heritage-hoodie.html" class="item">
+        <img src="images/drop-hoodie.jpg" alt="Heritage Hoodie" />
+        <div class="item-info">
+            <div class="item-name">Heritage Hoodie</div>
+            <div class="item-price">AED 299</div>
+        </div>
+    </a>
 
-    <div class="item">
-        <img src="images/harrington.webp" alt="Harrington Jacket">
-        <h3>Harrington Jacket</h3>
-        <p>Clean, timeless outerwear with modern structure.</p>
-    </div>
+    <!-- Oxford Polo -->
+    <a href="oxford-polo.html" class="item">
+        <img src="images/oxford-polo.webp" alt="Oxford Polo" />
+        <div class="item-info">
+            <div class="item-name">Oxford Polo</div>
+            <div class="item-price">AED 189</div>
+        </div>
+    </a>
 
-</section>
+    <!-- Sovereign Sweater -->
+    <a href="sovereign-sweater.html" class="item">
+        <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater" />
+        <div class="item-info">
+            <div class="item-name">Sovereign Sweater</div>
+            <div class="item-price">AED 229</div>
+        </div>
+    </a>
+
+    <!-- Harrington Jacket -->
+    <a href="harrington-jacket.html" class="item">
+        <img src="images/harrington.webp" alt="Harrington Jacket" />
+        <div class="item-info">
+            <div class="item-name">Harrington Jacket</div>
+            <div class="item-price">AED 349</div>
+        </div>
+    </a>
+
+</div>
 
 </body>
 </html>
-
