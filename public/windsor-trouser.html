@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trouser — Hustlers & Co.</title>
+    <title>Tailored Trouser — Hustlers & Co.</title>
     <link rel="stylesheet" href="../styles.css" />
 </head>
 
@@ -16,30 +16,33 @@
             <a href="../collection.html">Collection</a>
             <a href="../about.html">About</a>
             <a href="../contact.html">Contact</a>
-            <a href="../cart.html" class="cart-link">Cart</a>
+            <a href="../cart.html">Cart</a>
         </nav>
     </header>
 
     <section class="product-page">
 
-        <!-- LEFT SIDE: PRODUCT IMAGE -->
+        <!-- LEFT: PRODUCT IMAGE -->
         <div class="product-image-container">
-            <img src="../images/trouser.jpg" alt="Trouser" class="product-image" />
+            <img src="../images/windsor-trouser.webp"
+                 alt="Tailored Trouser"
+                 class="product-image" />
         </div>
 
-        <!-- RIGHT SIDE: PRODUCT DETAILS -->
+        <!-- RIGHT: PRODUCT DETAILS -->
         <div class="product-details">
 
             <h1 class="product-title">Tailored Trouser</h1>
 
             <p class="product-description">
-                A perfectly balanced tailored trouser designed for refined versatility. Crafted from a premium 
-                stretch-blend fabric, it offers a sharp silhouette while ensuring all-day comfort. Ideal for elevated 
-                streetwear, business casual looks, or polished evening styling.
+                A perfectly balanced tailored trouser designed for refined versatility. Crafted from a premium
+                stretch-blend fabric, it offers a sharp silhouette while ensuring all-day comfort.
+                Ideal for elevated streetwear, business casual looks, or polished evening styling.
             </p>
 
             <p class="product-price">AED 219</p>
 
+            <!-- SIZE SELECTOR -->
             <div class="product-size">
                 <label>Select Size:</label>
                 <select id="size-selector">
@@ -51,8 +54,14 @@
                 </select>
             </div>
 
+            <!-- ADD TO CART -->
             <button class="add-to-cart-btn"
-                onclick="addToCart('Tailored Trouser', 219, '../images/trouser.jpg')">
+                onclick="addToCart(
+                    'Tailored Trouser',
+                    219,
+                    '../images/windsor-trouser.webp',
+                    document.getElementById('size-selector').value
+                )">
                 Add to Cart
             </button>
 
