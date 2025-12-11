@@ -1,15 +1,16 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drop Zero — Hustlers & Co.</title>
 
+    <link rel="stylesheet" href="../styles.css" />
+
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background-color: #f7f5f0;
+            background-color: #f8f5ef;
             font-family: "Cormorant Garamond", serif;
             color: #1a1a1a;
         }
@@ -18,14 +19,13 @@
         .hero {
             width: 100%;
             height: 70vh;
-            background: url("images/dropzero-banner.jpg") center/cover no-repeat;
+            background: url("../images/dropzero-banner.webp") center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 20px;
-            opacity: 0;
             animation: fadeIn 1.8s forwards ease-in-out;
+            opacity: 0;
         }
 
         .hero-title {
@@ -33,23 +33,23 @@
             font-weight: 600;
             color: white;
             letter-spacing: 3px;
-            text-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            text-shadow: 0 4px 14px rgba(0,0,0,0.5);
         }
 
-        /* Content Section */
+        /* Content */
         .drop-container {
             max-width: 1200px;
-            margin: 70px auto;
+            margin: 80px auto;
             padding: 20px;
         }
 
         .section-title {
             font-size: 48px;
             font-weight: 600;
-            margin-bottom: 25px;
             text-align: center;
-            opacity: 0;
+            margin-bottom: 25px;
             animation: fadeUp 1.4s forwards ease;
+            opacity: 0;
         }
 
         .description {
@@ -59,53 +59,54 @@
             max-width: 900px;
             margin: 0 auto 60px;
             color: #4a4a4a;
-            opacity: 0;
             animation: fadeUp 1.6s forwards ease;
+            opacity: 0;
         }
 
-        /* Product Grid */
+        /* Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-            opacity: 0;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
             animation: fadeUp 1.8s forwards ease;
+            opacity: 0;
         }
 
         .item {
             background: #ffffff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(0,0,0,0.06);
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
             transition: 0.3s ease;
+            cursor: pointer;
         }
 
         .item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
         }
 
         .item img {
             width: 100%;
-            height: 360px;
+            height: 380px;
             object-fit: cover;
         }
 
         .info {
-            text-align: center;
             padding: 22px;
+            text-align: center;
         }
 
         .item-name {
             font-size: 26px;
             font-weight: 600;
-            margin-bottom: 6px;
         }
 
         .item-price {
             font-size: 20px;
             color: #bda27e;
             font-weight: 700;
+            margin-top: 6px;
         }
 
         @keyframes fadeUp {
@@ -122,7 +123,18 @@
 
 <body>
 
-    <!-- HERO BANNER -->
+    <!-- GLOBAL HEADER -->
+    <header class="header">
+        <a href="../index.html" class="logo">H&CO.</a>
+        <nav class="nav">
+            <a href="../collection.html">Collection</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
     <div class="hero">
         <h1 class="hero-title">DROP ZERO</h1>
     </div>
@@ -133,32 +145,35 @@
         <h2 class="section-title">The Beginning of a New Era</h2>
 
         <p class="description">
-            Drop Zero marks the official launch of <strong>Hustlers & Co.</strong> —  
-            a curated selection of timeless essentials crafted for the new generation of creators and visionaries.  
-            Inspired by old-money luxury, tailored with modern streetwear edge, each piece is designed to elevate your everyday lifestyle.
+            Drop Zero marks the official launch of <strong>Hustlers & Co.</strong> —
+            a curated selection of timeless essentials crafted for the new generation of creators and visionaries.
+            Inspired by old-money luxury, fused with modern edge, each piece elevates everyday lifestyle.
         </p>
 
         <!-- PRODUCT SHOWCASE -->
         <div class="grid">
 
-            <div class="item">
-                <img src="images/drop-hoodie.jpg" alt="Premium Hoodie">
+            <!-- HOODIE -->
+            <div class="item" onclick="window.location.href='heritage-hoodie.html'">
+                <img src="../images/drop-hoodie.webp" alt="Heritage Hoodie" />
                 <div class="info">
                     <div class="item-name">Heritage Hoodie</div>
                     <div class="item-price">AED 299</div>
                 </div>
             </div>
 
-            <div class="item">
-                <img src="images/drop-jacket.jpg" alt="Luxury Jacket">
+            <!-- SUIT JACKET -->
+            <div class="item" onclick="window.location.href='signature-jacket.html'">
+                <img src="../images/drop-jacket.webp" alt="Signature Suit Jacket" />
                 <div class="info">
                     <div class="item-name">Signature Suit Jacket</div>
                     <div class="item-price">AED 499</div>
                 </div>
             </div>
 
-            <div class="item">
-                <img src="images/drop-tee.jpg" alt="Classic Tee">
+            <!-- PRESTIGE TEE -->
+            <div class="item" onclick="window.location.href='prestige-tee.html'">
+                <img src="../images/drop-tee.webp" alt="Prestige Tee" />
                 <div class="info">
                     <div class="item-name">Prestige Tee</div>
                     <div class="item-price">AED 129</div>
@@ -166,8 +181,8 @@
             </div>
 
         </div>
-
     </div>
 
 </body>
 </html>
+
