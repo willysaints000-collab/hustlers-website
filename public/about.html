@@ -1,221 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Hustlers & Co.</title>
+    <title>H&CO. — About</title>
+
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            font-family: "Georgia", serif;
-            background: #f9f7f2;
-            color: #1a1a1a;
+            background: #f8f6f3;
+            font-family: 'Inter', sans-serif;
+            color: #111;
         }
 
+        /* NAVBAR */
         header {
             width: 100%;
-            padding: 22px 50px;
+            padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #ffffff;
-            border-bottom: 1px solid #ddd;
+            background: #000;
+        }
+
+        header a {
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            margin-left: 35px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+
+        header a:hover {
+            opacity: 0.7;
         }
 
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 28px;
-            font-weight: bold;
-            color: #000;
-            text-decoration: none;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 2px;
         }
 
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: black;
-            font-size: 17px;
-            font-weight: 500;
-        }
-
-        /* ABOUT HERO */
+        /* HERO */
         .hero {
             width: 100%;
-            height: 55vh;
-            background: url("images/about-banner.webp") center/cover no-repeat;
+            height: 60vh;
+            background: url('images/about-hero.webp') center/cover no-repeat;
+            position: relative;
             display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
+            align-items: center;
         }
 
-        .hero-text {
-            font-size: 58px;
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(20, 20, 20, 0.35);
+        }
+
+        .hero h1 {
+            position: relative;
+            font-family: "Playfair Display", serif;
+            font-size: 62px;
             font-weight: 600;
-            color: #ffffff;
-            text-shadow: 0 4px 16px rgba(0,0,0,0.4);
-            letter-spacing: 3px;
+            color: white;
+            letter-spacing: 1px;
+            animation: fadeUp 1.2s ease forwards;
+            opacity: 0;
         }
 
         /* CONTENT */
-        .content-section {
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 20px;
-            line-height: 1.7;
-            font-size: 20px;
-            color: #333;
+        .about-section {
+            padding: 70px 15%;
+            text-align: center;
         }
 
-        .content-section h2 {
-            font-size: 36px;
+        .about-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin-bottom: 25px;
             font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-align: center;
         }
 
-        .content-section p {
-            margin-bottom: 22px;
-            text-align: center;
-        }
-
-        /* BRAND STATEMENT */
-        .statement {
-            background: #ffffff;
-            padding: 40px;
-            border-left: 6px solid #b79a67;
-            margin: 60px auto;
-            max-width: 900px;
-            font-size: 22px;
-            font-style: italic;
-            text-align: center;
-            line-height: 1.8;
-            box-shadow: 0 0 14px rgba(0,0,0,0.06);
+        .about-section p {
+            font-size: 17px;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin-bottom: 30px;
         }
 
         /* VALUES SECTION */
         .values {
-            max-width: 1100px;
-            margin: 100px auto;
-            text-align: center;
+            padding: 60px 15%;
+            background: white;
         }
 
-        .values h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .value-grid {
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            padding: 0 20px;
+            margin-top: 40px;
         }
 
         .value-box {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.08);
+            text-align: center;
+            padding: 30px 20px;
+            background: #f1eee9;
+            border-radius: 6px;
+            transition: 0.3s ease;
+        }
+
+        .value-box:hover {
+            transform: translateY(-6px);
         }
 
         .value-box h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .value-box p {
-            font-size: 18px;
-            color: #555;
+            font-size: 15px;
+            opacity: 0.75;
             line-height: 1.6;
         }
 
-        footer {
-            margin-top: 120px;
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 16px;
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <a href="index.html" class="logo">H&CO.</a>
-    <nav>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart</a>
-    </nav>
-</header>
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">H&CO.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<!-- HERO SECTION -->
-<div class="hero">
-    <div class="hero-text">OUR STORY</div>
-</div>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Our Story</h1>
+    </section>
 
-<!-- MAIN CONTENT -->
-<div class="content-section">
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <h2>Crafting Luxury With Purpose</h2>
+        <p>
+            Hustlers & Co. was created with a simple belief: luxury should feel effortless.
+            Every piece we design blends premium craftsmanship, timeless aesthetics, and the spirit of the modern hustler — someone who moves with quiet confidence, ambition, and purpose.
+        </p>
+        <p>
+            Our collections are inspired by classic menswear silhouettes, elevated with refined fabrics and meticulous attention to detail. We are committed to creating pieces that last — in quality, in style, and in the stories they become part of.
+        </p>
+    </section>
 
-    <h2>The Spirit of Hustlers & Co.</h2>
+    <!-- VALUES SECTION -->
+    <section class="values">
+        <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:40px; font-weight:600;">Our Values</h2>
 
-    <p>
-        Hustlers & Co. was born from a vision to blend old-money refinement with the ambition of the modern creator.
-        A brand crafted for those who chase excellence quietly, move with purpose, and shape their own path.
-    </p>
+        <div class="values-grid">
 
-    <p>
-        Every piece is designed with intention — minimal, structured, and timeless.  
-        We believe luxury isn’t loud. It’s the quiet confidence of quality, detail, and elegance.
-    </p>
+            <div class="value-box">
+                <h3>Timeless Design</h3>
+                <p>We create pieces that never go out of style — refined, classic, and enduring.</p>
+            </div>
 
-</div>
+            <div class="value-box">
+                <h3>Premium Quality</h3>
+                <p>Every material is carefully selected to ensure comfort, durability, and true luxury.</p>
+            </div>
 
-<!-- BRAND STATEMENT -->
-<div class="statement">
-    “For the dreamers, the builders, the disciplined,  
-    the ones who rise early and stay late —  
-    this brand is for you.”  
-</div>
+            <div class="value-box">
+                <h3>Modern Ambition</h3>
+                <p>H&CO. embodies the mindset of those who strive to elevate their everyday life.</p>
+            </div>
 
-<!-- VALUES SECTION -->
-<div class="values">
-    <h2>Our Principles</h2>
-
-    <div class="value-grid">
-        <div class="value-box">
-            <h3>Timeless Design</h3>
-            <p>Styles crafted to outlast seasons, trends, and noise.</p>
         </div>
-
-        <div class="value-box">
-            <h3>Premium Quality</h3>
-            <p>Fabric, stitching, and structure chosen with precision.</p>
-        </div>
-
-        <div class="value-box">
-            <h3>Refined Minimalism</h3>
-            <p>Quiet luxury — where simplicity meets sophistication.</p>
-        </div>
-
-        <div class="value-box">
-            <h3>The Hustler’s Mindset</h3>
-            <p>Discipline. Ambition. Purpose.  
-            The identity behind every collection.</p>
-        </div>
-    </div>
-</div>
-
-<footer>
-    © 2025 Hustlers & Co. — All Rights Reserved.
-</footer>
+    </section>
 
 </body>
 </html>
+
