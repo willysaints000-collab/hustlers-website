@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sovereign Sweater — Hustlers & Co.</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../styles.css" />
 </head>
 
@@ -22,24 +24,27 @@
 
     <section class="product-page">
 
-        <!-- LEFT SIDE: PRODUCT IMAGE -->
+        <!-- LEFT: PRODUCT IMAGE -->
         <div class="product-image-container">
-            <img src="../images/sovereign-sweater.jpg" alt="Sovereign Sweater" class="product-image" />
+            <img src="images/sovereign-sweater.jpg" 
+                 alt="Sovereign Sweater" 
+                 class="product-image" />
         </div>
 
-        <!-- RIGHT SIDE: PRODUCT DETAILS -->
+        <!-- RIGHT: PRODUCT DETAILS -->
         <div class="product-details">
 
             <h1 class="product-title">Sovereign Sweater</h1>
 
             <p class="product-description">
-                The Sovereign Sweater is crafted from a luxurious cotton-blend knit, offering exceptional softness, 
-                warmth, and durability. Designed with a refined minimal silhouette, it elevates everyday comfort into 
+                The Sovereign Sweater is crafted from a luxurious cotton-blend knit, offering exceptional softness,
+                warmth, and durability. Designed with a refined minimal silhouette, it elevates everyday comfort into
                 modern sophistication—perfect for cool evenings or layered styling.
             </p>
 
             <p class="product-price">AED 229</p>
 
+            <!-- SIZE SELECTOR -->
             <div class="product-size">
                 <label>Select Size:</label>
                 <select id="size-selector">
@@ -50,8 +55,14 @@
                 </select>
             </div>
 
+            <!-- ADD TO CART BUTTON -->
             <button class="add-to-cart-btn"
-                onclick="addToCart('Sovereign Sweater', 229, '../images/sovereign-sweater.jpg')">
+                onclick="addToCart(
+                    'Sovereign Sweater',
+                    229,
+                    'images/sovereign-sweater.jpg',
+                    document.getElementById('size-selector').value
+                )">
                 Add to Cart
             </button>
 
@@ -63,3 +74,4 @@
 
 </body>
 </html>
+
