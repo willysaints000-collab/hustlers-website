@@ -1,146 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heritage Crew Tee — Hustlers & Co.</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: #ffffff;
-        }
-
-        header {
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #000;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 20px;
-            display: flex;
-            gap: 60px;
-        }
-
-        .product-img {
-            flex: 1;
-        }
-
-        .product-img img {
-            width: 100%;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .product-details {
-            flex: 1;
-            padding-top: 20px;
-        }
-
-        .product-details h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        button {
-            background: black;
-            color: white;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 25px;
-        }
-
-        button:hover {
-            opacity: 0.85;
-        }
-
-        footer {
-            margin-top: 80px;
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
 
-<header>
-    <div style="font-size:24px; font-weight:600;">HUSTLERS & CO.</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">🛒 <span id="cart-count">0</span></a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="../index.html" class="logo">H&CO.</a>
+        <nav class="nav">
+            <a href="../collection.html">Collection</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../cart.html" class="cart-link">Cart</a>
+        </nav>
+    </header>
 
+    <section class="product-page">
 
-<!-- PRODUCT SECTION -->
-<div class="container">
+        <!-- LEFT SIDE: PRODUCT IMAGE -->
+        <div class="product-image-container">
+            <img src="../images/heritage-tee.webp"
+                 alt="Heritage Crew Tee"
+                 class="product-image" />
+        </div>
 
-    <!-- IMAGE -->
-    <div class="product-img">
-        <img src="images/heritage-tee.webp" alt="Heritage Crew Tee">
-    </div>
+        <!-- RIGHT: PRODUCT DETAILS -->
+        <div class="product-details">
 
-    <!-- DETAILS -->
-    <div class="product-details">
-        <h1>Heritage Crew Tee</h1>
-        <div class="price">AED 199.00</div>
+            <h1 class="product-title">Heritage Crew Tee</h1>
 
-        <p>
-            A refined essential crafted from a premium cotton blend.  
-            Minimal, structured, and made for everyday luxury.
-        </p>
+            <p class="product-description">
+                A refined essential crafted from a premium cotton blend.
+                Minimal, structured, and designed for everyday luxury.
+            </p>
 
-        <!-- ADD TO CART BUTTON -->
-        <button onclick="addToCart({
-            id: 'heritage-tee',
-            name: 'Heritage Crew Tee',
-            price: 199,
-            image: 'images/heritage-tee.webp'
-        })">
-            Add to Cart
-        </button>
-    </div>
+            <p class="product-price">AED 199</p>
 
-</div>
+            <!-- SIZE SELECTOR -->
+            <div class="product-size">
+                <label>Select Size:</label>
+                <select id="size-selector">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
 
-<footer>
-    © 2025 Hustlers & Co. — All Rights Reserved.
-</footer>
+            <!-- ADD TO CART -->
+            <button class="add-to-cart-btn"
+                onclick="addToCart(
+                    'Heritage Crew Tee',
+                    199,
+                    '../images/heritage-tee.webp',
+                    document.getElementById('size-selector').value
+                )">
+                Add to Cart
+            </button>
 
-<!-- CART SCRIPT -->
-<script src="cart.js"></script>
+        </div>
+
+    </section>
+
+    <script src="../cart.js"></script>
 
 </body>
 </html>
+
