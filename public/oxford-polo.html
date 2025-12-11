@@ -16,30 +16,33 @@
             <a href="../collection.html">Collection</a>
             <a href="../about.html">About</a>
             <a href="../contact.html">Contact</a>
-            <a href="../cart.html" class="cart-link">Cart</a>
+            <a href="../cart.html">Cart</a>
         </nav>
     </header>
 
     <section class="product-page">
 
-        <!-- LEFT SIDE: PRODUCT IMAGE -->
+        <!-- LEFT: PRODUCT IMAGE -->
         <div class="product-image-container">
-            <img src="../images/oxford-polo.jpg" alt="Oxford Polo" class="product-image" />
+            <img src="../images/oxford-polo.webp"
+                 alt="Oxford Polo"
+                 class="product-image" />
         </div>
 
-        <!-- RIGHT SIDE: PRODUCT DETAILS -->
+        <!-- RIGHT: PRODUCT DETAILS -->
         <div class="product-details">
 
             <h1 class="product-title">Oxford Polo</h1>
 
             <p class="product-description">
-                Crafted from premium cotton pique, the Oxford Polo delivers an elevated take on a timeless essential. 
-                Tailored for a refined silhouette with exceptional comfort, it embodies understated luxury suitable 
+                Crafted from premium cotton pique, the Oxford Polo delivers an elevated take on a timeless essential.
+                Tailored for a refined silhouette with exceptional comfort, it embodies understated luxury suitable
                 for both casual and smart attire.
             </p>
 
             <p class="product-price">AED 189</p>
 
+            <!-- SIZE SELECTOR -->
             <div class="product-size">
                 <label>Select Size:</label>
                 <select id="size-selector">
@@ -50,8 +53,14 @@
                 </select>
             </div>
 
+            <!-- ADD TO CART BUTTON -->
             <button class="add-to-cart-btn"
-                onclick="addToCart('Oxford Polo', 189, '../images/oxford-polo.jpg')">
+                onclick="addToCart(
+                    'Oxford Polo',
+                    189,
+                    '../images/oxford-polo.webp',
+                    document.getElementById('size-selector').value
+                )">
                 Add to Cart
             </button>
 
@@ -63,3 +72,4 @@
 
 </body>
 </html>
+
