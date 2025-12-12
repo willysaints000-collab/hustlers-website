@@ -9,21 +9,27 @@ function saveCart(cart) {
 }
 
 // Add item to cart
-function addToCart(name, price, image, size) {
-    // Prevent adding without selecting size
-    if (!size || size === "" || size === "Select Size") {
+function addToCart(item) {
+    // item = { id, name, price, image, size, quantity }
+    
+    if (!item.size || item.size === "" || item.size === "Select Size") {
         alert("Please select your size first.");
         return;
     }
 
     const cart = getCart();
 
-    cart.push({
-        name,
-        price: Number(price),
-        image,
-        size
-    });
+    // If same item with same size exists, increase quantity
+    const existing = cart.find(
+        c => c.name === item.name && c.size === item.size
+    );
+
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        item.quantity = 1; // default quantity
+        cart.push(item);
+    }
 
     saveCart(cart);
     alert("Added to cart!");
@@ -35,12 +41,14 @@ function displayCart() {
     const cartContainer = document.getElementById("cart-items");
     const subtotalElement = document.getElementById("cart-subtotal");
 
-    if (!cartContainer) return; // Avoid errors on pages without cart
+    if (!cartContainer) return; // avoids errors on other pages
 
     cartContainer.innerHTML = "";
     let subtotal = 0;
 
     cart.forEach((item, index) => {
+        const lineTotal = item.price * item.quantity;
+
         const div = document.createElement("div");
         div.className = "cart-item";
 
@@ -50,17 +58,21 @@ function displayCart() {
             <div class="cart-details">
                 <p class="cart-name">${item.name}</p>
                 <p class="cart-size">Size: ${item.size}</p>
-                <p class="cart-price">AED ${item.price}</p>
+                <p class="cart-price">
+                    AED ${item.price} × ${item.quantity} = 
+                    <strong>AED ${lineTotal.toFixed(2)}</strong>
+                </p>
             </div>
 
             <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
         `;
 
         cartContainer.appendChild(div);
-        subtotal += item.price;
+
+        subtotal += lineTotal;
     });
 
-    subtotalElement.textContent = `AED ${subtotal}`;
+    subtotalElement.textContent = `AED ${subtotal.toFixed(2)}`;
 }
 
 // Remove a cart item
@@ -71,7 +83,7 @@ function removeItem(index) {
     displayCart();
 }
 
-// Stripe payment button (cart.html)
+// Stripe payment button
 async function proceedToCheckout() {
     const cart = getCart();
 
