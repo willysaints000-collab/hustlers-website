@@ -1,23 +1,19 @@
-// ----------------------------
-// Load cart from storage
-// ----------------------------
+// =======================
+// CART STORAGE FUNCTIONS
+// =======================
 function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-// ----------------------------
-// Save cart
-// ----------------------------
 function saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// ----------------------------
-// Add item to cart
-// ----------------------------
+// =======================
+// ADD TO CART
+// =======================
 function addToCart(item) {
-    // item = { id, name, price, image, size }
-
+    // Validate size
     if (!item.size || item.size === "" || item.size === "Select Size") {
         alert("Please select your size first.");
         return;
@@ -25,86 +21,84 @@ function addToCart(item) {
 
     const cart = getCart();
 
-    // Check if same item + same size exists → increase quantity
+    // Does same product + same size already exist?
     const existing = cart.find(
-        c => c.name === item.name && c.size === item.size
+        (c) => c.name === item.name && c.size === item.size
     );
 
     if (existing) {
-        existing.quantity += 1;
+        existing.quantity += 1; // increase quantity
     } else {
-        item.quantity = 1;
+        item.quantity = 1; // initialize
         cart.push(item);
     }
 
     saveCart(cart);
+    updateCartCount();
     alert("Added to cart!");
 }
 
-// ----------------------------
-// Display cart items on cart.html
-// ----------------------------
-function displayCart() {
+// =======================
+// UPDATE CART COUNT (Navbar)
+// =======================
+function updateCartCount() {
     const cart = getCart();
-    const container = document.getElementById("cart-items");
-    const subtotalArea = document.getElementById("cart-subtotal");
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    if (!container) return;
+    const countElements = document.querySelectorAll(".cart-count");
+    countElements.forEach(el => (el.textContent = count));
+}
 
-    container.innerHTML = "";
-    let subtotal = 0;
+// Run this on all pages
+updateCartCount();
+
+// =======================
+// CART PAGE RENDER
+// =======================
+function renderCart() {
+    const cart = getCart();
+    const cartContainer = document.getElementById("cart-items");
+    const totalEl = document.getElementById("cart-total");
+
+    if (!cartContainer) return;
+
+    cartContainer.innerHTML = "";
+    let total = 0;
 
     cart.forEach((item, index) => {
         const lineTotal = item.price * item.quantity;
-        subtotal += lineTotal;
+        total += lineTotal;
 
-        const div = document.createElement("div");
-        div.className = "cart-item";
+        const row = document.createElement("div");
+        row.className = "cart-row";
 
-        div.innerHTML = `
+        row.innerHTML = `
             <img src="${item.image}" class="cart-img">
 
-            <div class="cart-details">
-                <p class="cart-name">${item.name}</p>
-                <p class="cart-size">Size: ${item.size}</p>
-                <p class="cart-price">
-                    AED ${item.price} × ${item.quantity} = 
-                    <strong>AED ${lineTotal.toFixed(2)}</strong>
-                </p>
-            </div>
+            <div class="cart-info">
+                <h3>${item.name}</h3>
+                <p>Size: ${item.size}</p>
+                AED ${item.price} × ${item.quantity} = 
+                <strong>AED ${lineTotal.toFixed(2)}</strong>
 
-            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                <br/><br/>
+                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+            </div>
         `;
 
-        container.appendChild(div);
+        cartContainer.appendChild(row);
     });
 
-    subtotalArea.textContent = `AED ${subtotal.toFixed(2)}`;
+    totalEl.textContent = "AED " + total.toFixed(2);
 }
 
-// ----------------------------
-// Remove item
-// ----------------------------
+// =======================
+// REMOVE ITEM
+// =======================
 function removeItem(index) {
     const cart = getCart();
     cart.splice(index, 1);
     saveCart(cart);
-    displayCart();
+    renderCart();
+    updateCartCount();
 }
-
-// ----------------------------
-// Proceed to Checkout
-// ----------------------------
-function proceedToCheckout() {
-    const cart = getCart();
-
-    if (cart.length === 0) {
-        alert("Your cart is empty.");
-        return;
-    }
-
-    window.location.href = "checkout.html";
-}
-
-// ----------------------------
-displayCart();
