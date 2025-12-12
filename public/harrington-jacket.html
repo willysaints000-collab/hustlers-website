@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harrington Jacket — H&CO.</title>
 
-    <!-- Luxury Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
@@ -19,11 +18,12 @@
 
         /* NAVBAR */
         header {
+            width: 100%;
             padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: black;
+            background: #000;
         }
 
         header a {
@@ -54,7 +54,7 @@
             border-radius: 6px;
         }
 
-        h1 {
+        .product-details h1 {
             font-family: "Playfair Display", serif;
             font-size: 46px;
             margin-bottom: 10px;
@@ -73,6 +73,7 @@
             line-height: 1.6;
         }
 
+        /* SIZE SELECT */
         .size-label {
             font-size: 14px;
             font-weight: 600;
@@ -89,6 +90,7 @@
             margin-bottom: 25px;
         }
 
+        /* BUTTON */
         .add-btn {
             background: black;
             color: white;
@@ -120,8 +122,8 @@
     <!-- PRODUCT BODY -->
     <section class="product-container">
 
-        <!-- IMAGE (FIXED: correct filename) -->
-        <img src="images/harrington.webp" class="product-img" />
+        <!-- IMAGE -->
+        <img src="images/harrington-jacket.webp" class="product-img" />
 
         <!-- DETAILS -->
         <div class="product-details">
@@ -142,12 +144,12 @@
                 <option value="XL">XL</option>
             </select>
 
-            <!-- ADD TO CART -->
+            <!-- ADD TO CART BUTTON (WORKING FIXED VERSION) -->
             <button class="add-btn" onclick="addToCart({
                 id: 4,
                 name: 'Harrington Jacket',
                 price: 349,
-                image: 'images/harrington.webp',
+                image: 'images/harrington-jacket.webp',
                 size: document.getElementById('product-size').value
             })">
                 Add to Cart
@@ -160,3 +162,4 @@
 
 </body>
 </html>
+
