@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sovereign Sweater — H&CO.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Sweater — H&CO.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-body { margin:0; background:#f8f6f3; font-family:Inter; }
-header { padding:25px 50px; display:flex; justify-content:space-between; background:black; }
-header a { color:white; margin-left:35px; text-decoration:none; }
-.logo { font-family:Playfair Display; font-size:28px; color:white; }
-.product-container { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; padding:80px; }
-.product-img { width:100%; border-radius:6px; }
-h1 { font-family:Playfair Display; font-size:46px; margin-bottom:5px; }
-.price { font-size:22px; font-weight:600; margin-bottom:20px; }
-.description { opacity:.8; margin-bottom:30px; }
-.size-select { padding:12px; width:100%; border:1px solid #ccc; margin-bottom:25px; border-radius:4px; }
-.add-btn { padding:14px 28px; background:black; color:white; border:none; cursor:pointer; }
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { margin: 0; background: #f8f6f3; font-family: Inter, sans-serif; }
+        header { padding: 25px 50px; background: #000; display: flex; justify-content: space-between; align-items: center; }
+        header a { color: white; margin-left: 35px; text-decoration: none; }
+        .logo { font-family: Playfair Display; color: white; font-size: 28px; }
+        .product-container { display: grid; grid-template-columns: 1.2fr 1fr; padding: 80px; gap: 60px; }
+        .product-img { width: 100%; border-radius: 6px; }
+        h1 { font-family: Playfair Display; font-size: 46px; }
+        .price { margin-bottom: 25px; font-weight: 600; }
+        .size-select { width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #ccc; margin-bottom: 25px; }
+        .add-btn { padding: 14px 28px; background: black; color: white; border-radius: 4px; cursor: pointer; }
+    </style>
 </head>
+
 <body>
 
 <header>
@@ -30,7 +31,7 @@ h1 { font-family:Playfair Display; font-size:46px; margin-bottom:5px; }
         <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
     </nav>
 </header>
 
@@ -41,10 +42,10 @@ h1 { font-family:Playfair Display; font-size:46px; margin-bottom:5px; }
     <div>
         <h1>Sovereign Sweater</h1>
         <p class="price">AED 349</p>
-        <p class="description">A luxury knitwear essential crafted for understated elegance and everyday sophistication.</p>
+        <p>Luxury knitwear crafted for elevated comfort.</p>
 
         <label>Select Size:</label>
-        <select id="product-size" class="size-select">
+        <select id="size" class="size-select">
             <option value="">Select Size</option>
             <option>Small</option>
             <option>Medium</option>
@@ -52,33 +53,18 @@ h1 { font-family:Playfair Display; font-size:46px; margin-bottom:5px; }
             <option>XL</option>
         </select>
 
-        <button class="add-btn" onclick="addProduct()">Add to Cart</button>
+        <button class="add-btn" onclick="addToCart({
+            id: 'sweater1',
+            name: 'Sovereign Sweater',
+            price: 349,
+            size: document.getElementById('size').value,
+            image: 'images/sovereign-sweater.webp'
+        })">Add to Cart</button>
     </div>
 
 </section>
 
-<script>
-function getCart() { return JSON.parse(localStorage.getItem("cart")) || []; }
-function saveCart(cart) { localStorage.setItem("cart", JSON.stringify(cart)); }
-
-function addProduct() {
-    const size = document.getElementById("product-size").value;
-    if (!size) { alert("Please select your size first."); return; }
-
-    const item = {
-        name: "Sovereign Sweater",
-        price: 349,
-        image: "images/sovereign-sweater.webp",
-        size: size,
-        quantity: 1
-    };
-
-    const cart = getCart();
-    cart.push(item);
-    saveCart(cart);
-    alert("Added to cart!");
-}
-</script>
-
+<script src="cart.js"></script>
 </body>
 </html>
+
