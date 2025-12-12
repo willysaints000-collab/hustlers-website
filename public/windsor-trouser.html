@@ -1,75 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tailored Trouser — Hustlers & Co.</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windsor Trouser — H&CO.</title>
+
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: #f8f6f3;
+            font-family: 'Inter', sans-serif;
+            color: #111;
+        }
+
+        /* NAVBAR */
+        header {
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        /* PRODUCT LAYOUT */
+        .product-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            padding: 80px 80px;
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .product-details h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            font-size: 17px;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .add-btn {
+            padding: 14px 28px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .add-btn:hover {
+            background: #333;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+
+            .product-details h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <a href="../index.html" class="logo">H&CO.</a>
-        <nav class="nav">
-            <a href="../collection.html">Collection</a>
-            <a href="../about.html">About</a>
-            <a href="../contact.html">Contact</a>
-            <a href="../cart.html">Cart</a>
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">H&CO.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
         </nav>
     </header>
 
-    <section class="product-page">
+    <!-- PRODUCT CONTENT -->
+    <section class="product-container">
+        <img src="images/windsor-trouser.webp" class="product-img" alt="Windsor Trouser">
 
-        <!-- LEFT: PRODUCT IMAGE -->
-        <div class="product-image-container">
-            <img src="../images/windsor-trouser.webp"
-                 alt="Tailored Trouser"
-                 class="product-image" />
-        </div>
-
-        <!-- RIGHT: PRODUCT DETAILS -->
         <div class="product-details">
+            <h1>Windsor Trouser</h1>
+            <p class="price">AED 219</p>
 
-            <h1 class="product-title">Tailored Trouser</h1>
-
-            <p class="product-description">
-                A perfectly balanced tailored trouser designed for refined versatility. Crafted from a premium
-                stretch-blend fabric, it offers a sharp silhouette while ensuring all-day comfort.
-                Ideal for elevated streetwear, business casual looks, or polished evening styling.
+            <p class="description">
+                A refined essential for everyday sophistication, offering structured comfort with a tailored silhouette.
             </p>
 
-            <p class="product-price">AED 219</p>
-
-            <!-- SIZE SELECTOR -->
-            <div class="product-size">
-                <label>Select Size:</label>
-                <select id="size-selector">
-                    <option value="28">28</option>
-                    <option value="30">30</option>
-                    <option value="32">32</option>
-                    <option value="34">34</option>
-                    <option value="36">36</option>
-                </select>
-            </div>
-
-            <!-- ADD TO CART -->
-            <button class="add-to-cart-btn"
-                onclick="addToCart(
-                    'Tailored Trouser',
-                    219,
-                    '../images/windsor-trouser.webp',
-                    document.getElementById('size-selector').value
-                )">
-                Add to Cart
-            </button>
-
+            <button class="add-btn" onclick="addToCart({
+                id: 4,
+                name: 'Windsor Trouser',
+                price: 219,
+                image: 'images/windsor-trouser.webp'
+            })">Add to Cart</button>
         </div>
-
     </section>
 
-    <script src="../cart.js"></script>
-
+    <script src="cart.js"></script>
 </body>
+
 </html>
