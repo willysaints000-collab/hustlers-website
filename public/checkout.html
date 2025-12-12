@@ -33,11 +33,6 @@
             font-size: 15px;
             margin-left: 35px;
             letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
-
-        header a:hover {
-            opacity: 0.7;
         }
 
         .logo {
@@ -84,7 +79,6 @@
             margin-bottom: 18px;
             border-radius: 4px;
             font-size: 15px;
-            font-family: 'Inter', sans-serif;
         }
 
         /* ORDER SUMMARY */
@@ -118,7 +112,7 @@
             justify-content: space-between;
         }
 
-        /* PAYMENT BUTTON */
+        /* BUTTON */
         .pay-btn {
             width: 100%;
             padding: 15px;
@@ -128,20 +122,8 @@
             border-radius: 4px;
             margin-top: 25px;
             font-size: 15px;
-            letter-spacing: 1px;
             cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .pay-btn:hover {
-            background: #333;
-        }
-
-        /* MOBILE */
-        @media(max-width: 900px) {
-            .checkout-container {
-                grid-template-columns: 1fr;
-            }
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -161,10 +143,10 @@
         </nav>
     </header>
 
-    <!-- CHECKOUT -->
+    <!-- CHECKOUT BODY -->
     <section class="checkout-container">
 
-        <!-- BILLING FORM -->
+        <!-- CUSTOMER FORM -->
         <div class="checkout-box">
             <h2>Billing Details</h2>
 
@@ -188,49 +170,49 @@
                 <input type="text" required>
 
                 <button type="button" class="pay-btn" onclick="payNow()">
-    Proceed to Payment
-</button>
+                    Proceed to Payment
+                </button>
             </form>
         </div>
 
-        <!-- ORDER SUMMARY -->
+        <!-- SUMMARY -->
         <div class="summary-box">
             <h2>Order Summary</h2>
 
-            <div id="summary-items">
-                <!-- Items load here -->
-            </div>
+            <div id="summary-items"></div>
 
             <div class="summary-total">
                 <span>Total:</span>
                 <span id="summary-total">AED 0.00</span>
             </div>
         </div>
-
     </section>
 
     <script src="cart.js"></script>
 
+    <!-- FIXED CHECKOUT SUMMARY SCRIPT -->
     <script>
-        // Load order summary
         function loadSummary() {
+            const cart = getCart();
             const itemsContainer = document.getElementById("summary-items");
             const totalEl = document.getElementById("summary-total");
 
             itemsContainer.innerHTML = "";
-
             let total = 0;
 
             cart.forEach(item => {
-                total += item.price * item.quantity;
+                const lineTotal = item.price * item.quantity;
 
                 const row = document.createElement("div");
                 row.classList.add("summary-item");
+
                 row.innerHTML = `
-                    <span>${item.name} × ${item.quantity}</span>
-                    <span>AED ${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>${item.name} (${item.size}) × ${item.quantity}</span>
+                    <span>AED ${lineTotal.toFixed(2)}</span>
                 `;
+
                 itemsContainer.appendChild(row);
+                total += lineTotal;
             });
 
             totalEl.textContent = "AED " + total.toFixed(2);
@@ -238,30 +220,11 @@
 
         loadSummary();
 
-        function beginPayment() {
-            alert("Stripe payment integration coming next, my friend ❤️🔥");
+        function payNow() {
+            const total = document.getElementById("summary-total").textContent;
+            alert("Stripe payment coming next, my friend ❤️🔥\n\nTotal: " + total);
         }
-    </script><script>
-async function payNow() {
-    const totalText = document.getElementById("summary-total").textContent;
-    const amount = parseFloat(totalText.replace("AED", "").trim());
+    </script>
 
-    const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ amount })
-    });
-
-    const data = await response.json();
-
-    if (data.url) {
-        window.location.href = data.url;
-    } else {
-        alert("Payment error. Please try again.");
-    }
-}
-</script>
-    
 </body>
 </html>
-
