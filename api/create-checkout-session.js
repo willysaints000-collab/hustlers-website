@@ -29,12 +29,14 @@ export default async function handler(req, res) {
       quantity: item.quantity || item.qty || 1,
     }));
 
-    const session = await stripe.checkout.sessions.create({
-      mode: "payment",
-      payment_method_types: ["card"],
-      line_items,
-      success_url: "https://hustlers-website.vercel.app/success.html",
-      cancel_url: "https://hustlers-website.vercel.app/cancel.html",
+const session = await stripe.checkout.sessions.create({
+  payment_method_types: ["card"],
+  line_items,
+  mode: "payment",
+  success_url: `${req.headers.origin}/success.html`,
+  cancel_url: `${req.headers.origin}/cancel.html`,
+});
+
     });
 
     // ✅ SUCCESS
