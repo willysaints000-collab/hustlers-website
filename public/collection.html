@@ -3,21 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <title>H&CO. — Collection</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 50px;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
       background: #f8f6f3;
+      color: #111;
+    }
+
+    header {
+      padding: 25px 50px;
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .collection-wrapper {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 40px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #000;
+      border-bottom: 1px solid #000;
+      font-size: 13px;
+      letter-spacing: 1px;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>COLLECTION PAGE</h1>
-  <p>If you see this, collection is fixed.</p>
+<header>
+  <div class="logo">H&CO.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
 
-  <a href="index.html">Back to Home</a>
+<section class="collection-wrapper">
+  <h1>The Collection</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="images/heritage-tee.webp" alt="Heritage Tee">
+      <h3>Heritage Tee</h3>
+      <p>A timeless essential for modern gentlemen.</p>
+      <a href="heritage-tee.html">View Product</a>
+    </div>
+
+    <div class="card">
+      <img src="images/oxford-polo.webp" alt="Oxford Polo">
+      <h3>Oxford Polo</h3>
+      <p>Refined comfort with understated elegance.</p>
+      <a href="oxford-polo.html">View Product</a>
+    </div>
+
+    <div class="card">
+      <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
+      <h3>Sovereign Sweater</h3>
+      <p>Crafted warmth for elevated evenings.</p>
+      <a href="sovereign-sweater.html">View Product</a>
+    </div>
+
+    <div class="card">
+      <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
+      <h3>Harrington Jacket</h3>
+      <p>A modern icon of tailored outerwear.</p>
+      <a href="harrington-jacket.html">View Product</a>
+    </div>
+
+  </div>
+</section>
 
 </body>
 </html>
-
