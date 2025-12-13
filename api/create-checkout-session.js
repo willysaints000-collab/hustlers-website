@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       cancel_url: `${req.headers.origin}/cancel.html`,
     });
 
-    // ✅ RETURN SESSION URL
+    // ✅ SEND URL BACK
     return res.status(200).json({ url: session.url });
 
   } catch (error) {
