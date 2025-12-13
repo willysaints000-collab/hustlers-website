@@ -159,6 +159,7 @@
 </section>
 
 <script>
+  <script>
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const summary = document.getElementById("summary");
     const totalEl = document.getElementById("total");
@@ -187,27 +188,30 @@
             return;
         }
 
-        const formattedCart = cart.map(item => ({
-            name: item.name,
-            price: item.price,
-            qty: item.quantity || item.qty || 1,
-            size: item.size || ""
-        }));
+        try {
+            const res = await fetch("/api/create-checkout-session", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ cart })
+            });
 
-        const res = await fetch("/api/create-checkout-session", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ cart: formattedCart })
-        });
+            const data = await res.json();
 
-        const data = await res.json();
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert("Stripe error. No session URL returned.");
+            }
 
-        if (data.url) {
-            window.location.href = data.url;
-        } else {
-            alert("Stripe error. Please try again.");
+        } catch (err) {
+            console.error(err);
+            alert("Payment failed. Check console.");
         }
     }
+</script>
+}
 </script>
 
 </body>
