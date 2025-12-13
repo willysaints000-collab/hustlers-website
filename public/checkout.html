@@ -167,8 +167,8 @@
     summary.innerHTML = "";
 
     cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
+    const quantity = item.quantity || item.qty || 1;
+    const itemTotal = item.price * quantity;
 
         summary.innerHTML += `
             <div class="summary-item">
