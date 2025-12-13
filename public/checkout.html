@@ -167,12 +167,13 @@
     summary.innerHTML = "";
 
     cart.forEach(item => {
-    const quantity = item.quantity || item.qty || 1;
-    const itemTotal = item.price * quantity;
+        const quantity = item.quantity || item.qty || 1;
+        const itemTotal = item.price * quantity;
+        total += itemTotal;
 
         summary.innerHTML += `
             <div class="summary-item">
-                <span>${item.name}${item.size ? ` (${item.size})` : ""} × ${item.qty}</span>
+                <span>${item.name}${item.size ? ` (${item.size})` : ""} × ${quantity}</span>
                 <span>AED ${itemTotal.toFixed(2)}</span>
             </div>
         `;
@@ -186,10 +187,17 @@
             return;
         }
 
+        const formattedCart = cart.map(item => ({
+            name: item.name,
+            price: item.price,
+            qty: item.quantity || item.qty || 1,
+            size: item.size || ""
+        }));
+
         const res = await fetch("/api/create-checkout-session", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ cart })
+            body: JSON.stringify({ cart: formattedCart })
         });
 
         const data = await res.json();
