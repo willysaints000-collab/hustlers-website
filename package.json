@@ -1,0 +1,7 @@
+{
+  "name": "hustlers-website",
+  "private": true,
+  "dependencies": {
+    "stripe": "^14.21.0"
+  }
+}
