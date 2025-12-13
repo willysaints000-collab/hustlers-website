@@ -1,5 +1,5 @@
 export const config = {
-  runtime: "nodejs"
+  runtime: "nodejs",
 };
 
 import Stripe from "stripe";
@@ -29,25 +29,21 @@ export default async function handler(req, res) {
       quantity: item.quantity || item.qty || 1,
     }));
 
-const session = await stripe.checkout.sessions.create({
-  payment_method_types: ["card"],
-  line_items,
-  mode: "payment",
-  success_url: `${req.headers.origin}/success.html`,
-  cancel_url: `${req.headers.origin}/cancel.html`,
-});
-
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items,
+      mode: "payment",
+      success_url: `${req.headers.origin}/success.html`,
+      cancel_url: `${req.headers.origin}/cancel.html`,
     });
 
-    // ✅ SUCCESS
+    // ✅ RETURN SESSION URL
     return res.status(200).json({ url: session.url });
 
   } catch (error) {
     console.error("Stripe error:", error);
-
-    // ✅ CORRECT ERROR RESPONSE
     return res.status(500).json({
-      error: error.message || "Stripe session creation failed"
+      error: error.message || "Stripe session creation failed",
     });
   }
 }
