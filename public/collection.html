@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>H&CO. — Collection</title>
+    <title>H&CO. — Checkout</title>
 
-    <!-- Luxury Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
@@ -17,208 +15,195 @@
             color: #111;
         }
 
-        /* NAVBAR */
         header {
-            width: 100%;
             padding: 25px 50px;
+            background: #000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #000;
         }
 
         header a {
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
             color: white;
-            font-size: 15px;
-            margin-left: 35px;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
             letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
-
-        header a:hover {
-            opacity: 0.7;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
-            font-weight: 600;
             color: white;
             letter-spacing: 2px;
         }
 
-        /* SECTION HEADER */
-        .collection-header {
-            text-align: center;
-            padding: 70px 20px 40px;
-        }
-
-        .collection-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .collection-header p {
-            font-size: 17px;
-            opacity: 0.75;
-        }
-
-        /* GRID */
-        .grid {
+        .checkout-container {
+            width: 85%;
+            margin: 60px auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 45px;
-            padding: 40px 80px 80px;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
         }
 
-        .item {
+        .box {
             background: white;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: 0.3s ease;
-            animation: fadeIn 1.2s ease forwards;
-            opacity: 0;
+            padding: 35px;
+            border-radius: 6px;
         }
 
-        .item img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-        }
-
-        .info {
-            padding: 20px 22px 28px;
-        }
-
-        .info h3 {
+        h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+            display: block;
             margin-bottom: 6px;
         }
 
-        .info p {
-            margin: 0;
-            opacity: 0.7;
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d6d2cc;
+            border-radius: 4px;
+            margin-bottom: 18px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
             font-size: 15px;
         }
 
-        .item:hover {
-            transform: translateY(-6px);
+        .summary-total {
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-                padding: 30px;
-            }
-
-            .item img {
-                height: 320px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .grid {
-                grid-template-columns: 1fr;
-                padding: 25px;
-            }
-
-            .item img {
-                height: 300px;
-            }
-
-            .collection-header h1 {
-                font-size: 40px;
-            }
+        .pay-btn {
+            width: 100%;
+            padding: 16px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 25px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">H&CO.</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">H&CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
 
-    <!-- COLLECTION TITLE -->
-    <section class="collection-header">
-        <h1>Our Signature Collection</h1>
-        <p>A refined selection made for the modern gentleman.</p>
-    </section>
+<section class="checkout-container">
 
-    <!-- PRODUCT GRID -->
-    <section class="grid">
+    <div class="box">
+        <h2>Billing Details</h2>
 
-        <!-- Heritage Tee -->
-        <a href="heritage-tee.html" class="item">
-            <img src="images/heritage-tee.webp" alt="Heritage Tee">
-            <div class="info">
-                <h3>Heritage Tee</h3>
-                <p>Signature Cotton Classic</p>
+        <label>Full Name</label>
+        <input type="text" required>
+
+        <label>Email Address</label>
+        <input type="email" required>
+
+        <label>Phone Number</label>
+        <input type="text" required>
+
+        <label>Shipping Address</label>
+        <input type="text" required>
+
+        <label>City</label>
+        <input type="text" required>
+
+        <label>Country</label>
+        <input type="text" required>
+
+        <button class="pay-btn" onclick="payNow()">Proceed to Payment</button>
+    </div>
+
+    <div class="box">
+        <h2>Order Summary</h2>
+        <div id="summary"></div>
+
+        <div class="summary-total">
+            <span>Total:</span>
+            <span>AED <span id="total">0.00</span></span>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const summary = document.getElementById("summary");
+    const totalEl = document.getElementById("total");
+
+    let total = 0;
+    summary.innerHTML = "";
+
+    cart.forEach(item => {
+        const quantity = item.quantity || item.qty || 1;
+        const itemTotal = item.price * quantity;
+        total += itemTotal;
+
+        summary.innerHTML += `
+            <div class="summary-item">
+                <span>${item.name}${item.size ? ` (${item.size})` : ""} × ${quantity}</span>
+                <span>AED ${itemTotal.toFixed(2)}</span>
             </div>
-        </a>
+        `;
+    });
 
-        <!-- Oxford Polo -->
-        <a href="oxford-polo.html" class="item">
-            <img src="images/oxford-polo.webp" alt="Oxford Polo">
-            <div class="info">
-                <h3>Oxford Polo</h3>
-                <p>Premium Textured Pique</p>
-            </div>
-        </a>
+    totalEl.textContent = total.toFixed(2);
 
-        <!-- Sovereign Sweater -->
-        <a href="sovereign-sweater.html" class="item">
-            <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-            <div class="info">
-                <h3>Sovereign Sweater</h3>
-                <p>Luxury Knitwear Essential</p>
-            </div>
-        </a>
+    async function payNow() {
+        if (!cart.length) {
+            alert("Your cart is empty");
+            return;
+        }
 
-        <!-- Windsor Trouser -->
-        <a href="windsor-trouser.html" class="item">
-            <img src="images/windsor-trouser.webp" alt="Windsor Trouser">
-            <div class="info">
-                <h3>Windsor Trouser</h3>
-                <p>Refined Everyday Wear</p>
-            </div>
-        </a>
+        try {
+            const res = await fetch("/api/create-checkout-session", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ cart })
+            });
 
-        <!-- Harrington Jacket -->
-        <a href="harrington-jacket.html" class="item">
-            <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
-            <div class="info">
-                <h3>Harrington Jacket</h3>
-                <p>Heritage Outerwear Classic</p>
-            </div>
-        </a>
+            const data = await res.json();
 
-    </section>
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert("Stripe error. No session URL returned.");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Payment failed. Check console.");
+        }
+    }
+</script>
 
 </body>
 </html>
