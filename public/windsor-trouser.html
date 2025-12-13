@@ -54,13 +54,17 @@
             <option>36</option>
         </select>
 
-        <button class="add-btn" onclick="addToCart({
-            id:'trouser1',
-            name:'Windsor Trouser',
-            price:219,
-            size:document.getElementById('size').value,
-            image:'images/windsor-trouser.webp'
-        })">Add to Cart</button>
+        <button class="add-btn" onclick="
+  addToCart(
+    'Windsor Trouser',
+    219,
+    'images/windsor-trouser.webp',
+    document.getElementById('size').value
+  )
+">
+  Add to Cart
+</button>
+
     </div>
 
 </section>
