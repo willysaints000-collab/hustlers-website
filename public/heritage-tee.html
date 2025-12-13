@@ -57,13 +57,16 @@
             <option>XL</option>
         </select>
 
-        <button class="add-btn" onclick="addToCart({
-            id: 'tee1',
-            name: 'Heritage Tee',
-            price: 199,
-            size: document.getElementById('size').value,
-            image: 'images/heritage-tee.webp'
-        })">Add to Cart</button>
+        <button class="add-btn" onclick="
+  addToCart(
+    'Heritage Tee',
+    199,
+    'images/heritage-tee.webp'
+  )
+">
+Add to Cart
+</button>
+
     </div>
 
 </section>
