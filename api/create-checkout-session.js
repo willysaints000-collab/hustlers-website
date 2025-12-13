@@ -1,8 +1,8 @@
+import Stripe from "stripe";
+
 export const config = {
   runtime: "nodejs",
 };
-
-import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -24,26 +24,23 @@ export default async function handler(req, res) {
         product_data: {
           name: item.name,
         },
-        unit_amount: Math.round(item.price * 100),
+        unit_amount: Math.round(Number(item.price) * 100),
       },
-      quantity: item.quantity || item.qty || 1,
+      quantity: Number(item.quantity || item.qty || 1),
     }));
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      line_items,
       mode: "payment",
-      success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+      line_items,
+      success_url: "https://hustlers-website.vercel.app/success.html",
+      cancel_url: "https://hustlers-website.vercel.app/cancel.html",
     });
 
-    // ✅ SEND URL BACK
     return res.status(200).json({ url: session.url });
 
   } catch (error) {
     console.error("Stripe error:", error);
-    return res.status(500).json({
-      error: error.message || "Stripe session creation failed",
-    });
+    return res.status(500).json({ error: error.message });
   }
 }
