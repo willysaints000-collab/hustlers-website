@@ -29,8 +29,8 @@ module.exports = async function handler(req, res) {
             payment_method_types: ["card"],
             mode: "payment",
             line_items,
-            success_url: `${req.headers.origin}/success.html`,
-            cancel_url: `${req.headers.origin}/cancel.html`,
+            success_url: "https://hustlers-website.vercel.app/success.html",
+            cancel_url: "https://hustlers-website.vercel.app/cancel.html",
         });
 
         res.status(200).json({ url: session.url });
