@@ -52,13 +52,17 @@
             <option>XL</option>
         </select>
 
-        <button class="add-btn" onclick="addToCart({
-            id: 'polo1',
-            name: 'Oxford Polo',
-            price: 219,
-            size: document.getElementById('size').value,
-            image: 'images/oxford-polo.webp'
-        })">Add to Cart</button>
+       <button class="add-btn" onclick="
+  addToCart(
+    'Oxford Polo',
+    219,
+    'images/oxford-polo.webp',
+    document.getElementById('size').value
+  )
+">
+Add to Cart
+</button>
+
     </div>
 
 </section>
