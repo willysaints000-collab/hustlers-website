@@ -159,8 +159,9 @@
 </section>
 
 <script>
-  <script>
+    // 🔑 MUST MATCH cart.js
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     const summary = document.getElementById("summary");
     const totalEl = document.getElementById("total");
 
@@ -191,9 +192,7 @@
         try {
             const res = await fetch("/api/create-checkout-session", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ cart })
             });
 
@@ -202,7 +201,7 @@
             if (data.url) {
                 window.location.href = data.url;
             } else {
-                alert("Stripe error. No session URL returned.");
+                alert("Stripe error: no session URL");
             }
 
         } catch (err) {
@@ -211,8 +210,7 @@
         }
     }
 </script>
-}
-</script>
 
 </body>
 </html>
+
