@@ -200,13 +200,21 @@
         body: JSON.stringify({ cart })
       });
 
-      const data = await res.json();
+ if (!res.ok) {
+  const errorText = await res.text();
+  console.error("API Error:", errorText);
+  alert("Checkout failed. See console.");
+  return;
+}
 
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert(data.error || "Stripe error: no session URL");
-      }
+const data = await res.json();
+console.log("Stripe session response:", data);
+
+if (data.url) {
+  window.location.href = data.url;
+} else {
+  alert("Stripe session created but no URL returned.");
+}
 
     } catch (err) {
       console.error(err);
