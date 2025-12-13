@@ -1,104 +1,103 @@
-// =======================
-// CART STORAGE FUNCTIONS
-// =======================
+/* =========================
+   CART CORE
+========================= */
+
 function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
+  return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
 function saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// =======================
-// ADD TO CART
-// =======================
-function addToCart(item) {
-    // Validate size
-    if (!item.size || item.size === "" || item.size === "Select Size") {
-        alert("Please select your size first.");
-        return;
-    }
+/* =========================
+   ADD TO CART
+========================= */
 
-    const cart = getCart();
+function addToCart(name, price, image) {
+  const cart = getCart();
 
-    // Does same product + same size already exist?
-    const existing = cart.find(
-        (c) => c.name === item.name && c.size === item.size
-    );
+  const existing = cart.find(item => item.name === name);
 
-    if (existing) {
-        existing.quantity += 1; // increase quantity
-    } else {
-        item.quantity = 1; // initialize
-        cart.push(item);
-    }
-
-    saveCart(cart);
-    updateCartCount();
-    alert("Added to cart!");
-}
-
-// =======================
-// UPDATE CART COUNT (Navbar)
-// =======================
-function updateCartCount() {
-    const cart = getCart();
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-    const countElements = document.querySelectorAll(".cart-count");
-    countElements.forEach(el => (el.textContent = count));
-}
-
-// Run this on all pages
-updateCartCount();
-
-// =======================
-// CART PAGE RENDER
-// =======================
-function renderCart() {
-    const cart = getCart();
-    const cartContainer = document.getElementById("cart-items");
-    const totalEl = document.getElementById("cart-total");
-
-    if (!cartContainer) return;
-
-    cartContainer.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        const lineTotal = item.price * item.quantity;
-        total += lineTotal;
-
-        const row = document.createElement("div");
-        row.className = "cart-row";
-
-        row.innerHTML = `
-            <img src="${item.image}" class="cart-img">
-
-            <div class="cart-info">
-                <h3>${item.name}</h3>
-                <p>Size: ${item.size}</p>
-                AED ${item.price} × ${item.quantity} = 
-                <strong>AED ${lineTotal.toFixed(2)}</strong>
-
-                <br/><br/>
-                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-            </div>
-        `;
-
-        cartContainer.appendChild(row);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      name,
+      price: Number(price),
+      image,
+      qty: 1
     });
+  }
 
-    totalEl.textContent = "AED " + total.toFixed(2);
+  saveCart(cart);
+  updateCartCount();
+  alert("Added to cart");
 }
 
-// =======================
-// REMOVE ITEM
-// =======================
+/* =========================
+   CART COUNT (HEADER)
+========================= */
+
+function updateCartCount() {
+  const cart = getCart();
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  const counter = document.querySelector(".cart-count");
+  if (counter) counter.textContent = count;
+}
+
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+/* =========================
+   CART PAGE RENDER
+========================= */
+
+function renderCart() {
+  const cart = getCart();
+  const container = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+
+  if (!container || !totalEl) return;
+
+  container.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.qty;
+    total += itemTotal;
+
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div>
+          <h4>${item.name}</h4>
+          <p>AED ${item.price}</p>
+          <input type="number" min="1" value="${item.qty}" onchange="updateQty(${index}, this.value)">
+          <button onclick="removeItem(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+
+  totalEl.textContent = total.toFixed(2);
+}
+
+function updateQty(index, qty) {
+  const cart = getCart();
+  cart[index].qty = Number(qty);
+  saveCart(cart);
+  renderCart();
+  updateCartCount();
+}
+
 function removeItem(index) {
-    const cart = getCart();
-    cart.splice(index, 1);
-    saveCart(cart);
-    renderCart();
-    updateCartCount();
+  const cart = getCart();
+  cart.splice(index, 1);
+  saveCart(cart);
+  renderCart();
+  updateCartCount();
 }
+
+document.addEventListener("DOMContentLoaded", renderCart);
