@@ -53,13 +53,17 @@
             <option>XL</option>
         </select>
 
-        <button class="add-btn" onclick="addToCart({
-            id:'jacket1',
-            name:'Harrington Jacket',
-            price:349,
-            size:document.getElementById('size').value,
-            image:'images/harrington-jacket.webp'
-        })">Add to Cart</button>
+      <button class="add-btn" onclick="
+  addToCart(
+    'Harrington Jacket',
+    349,
+    'images/harrington-jacket.webp',
+    document.getElementById('size').value
+  )
+">
+Add to Cart
+</button>
+
     </div>
 
 </section>
