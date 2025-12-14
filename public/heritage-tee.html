@@ -1,120 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heritage Tee — H&CO.</title>
+  <meta charset="UTF-8" />
+  <title>Heritage Tee — H&CO.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body { margin: 0; background: #f8f6f3; font-family: Inter, sans-serif; }
-        header { padding: 25px 50px; background: #000; display: flex; justify-content: space-between; align-items: center; }
-        header a { color: #fff; margin-left: 35px; text-decoration: none; font-size: 15px; }
-        .logo { font-family: 'Playfair Display'; font-size: 28px; color: white; }
-        .product-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; padding: 80px; }
-        .product-img { width: 100%; border-radius: 6px; }
-        h1 { font-family: Playfair Display; font-size: 46px; }
-        .price { font-size: 22px; font-weight: 600; margin-bottom: 25px; }
-        .description { opacity: .85; margin-bottom: 25px; }
-        .details { font-size: 14px; opacity: .8; margin-bottom: 25px; line-height: 1.7; }
-        .size-select { width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #ccc; margin-bottom: 25px; }
-        .add-btn { background: #000; color: #fff; padding: 14px 28px; border: none; border-radius: 4px; cursor: pointer; }
-        .add-btn:hover { background: #333; }
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles.css">
 
-        @media (max-width: 900px) {
-            .product-container {
-                grid-template-columns: 1fr;
-                padding: 50px 25px;
-            }
-        }
-    </style>
+  <!-- Cart Script -->
+  <script src="cart.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">H&CO.</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-    </nav>
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+  </nav>
 </header>
 
-<section class="product-container">
+<!-- PRODUCT SECTION -->
+<section class="product-page">
 
-    <img src="images/heritage-tee.webp" class="product-img" alt="Heritage Tee">
+  <!-- IMAGE -->
+  <div class="product-image">
+    <img src="images/heritage-tee.webp" alt="Heritage Tee">
+  </div>
 
-    <div>
-        <h1>Heritage Tee</h1>
-        <p class="price">AED 220</p>
+  <!-- DETAILS -->
+  <div class="product-details">
 
-        <p class="description">
-            Crafted from premium cotton, the Heritage Tee is designed for everyday refinement. Featuring a clean silhouette and a structured yet comfortable fit, it delivers effortless style that transitions seamlessly from day to night. A timeless essential, elevated.
-        </p>
+    <h1 class="product-title">Heritage Tee</h1>
+    <p class="product-price">AED 180</p>
 
-        <div class="details">
-            <strong>Details</strong><br>
-            • Premium cotton construction<br>
-            • Regular tailored fit<br>
-            • Short sleeves<br>
-            • Crew neckline<br>
-            • Designed for everyday wear<br><br>
+    <p class="product-description">
+      Crafted from premium cotton, the Heritage Tee is designed for everyday refinement.
+      A clean silhouette with a structured yet comfortable fit — understated, timeless,
+      unmistakably H&CO.
+    </p>
 
-            <strong>Care</strong><br>
-            • Machine wash cold<br>
-            • Do not bleach<br>
-            • Lay flat or hang to dry<br><br>
+    <!-- DETAILS -->
+    <div class="product-meta">
+      <h3>Details</h3>
+      <ul>
+        <li>Premium cotton construction</li>
+        <li>Regular tailored fit</li>
+        <li>Short sleeves</li>
+        <li>Crew neckline</li>
+        <li>Designed for everyday wear</li>
+      </ul>
 
-            <strong>Fit Note</strong><br>
-            Fits true to size. Designed for a modern, refined look.
-        </div>
+      <h3>Care</h3>
+      <ul>
+        <li>Machine wash cold</li>
+        <li>Do not bleach</li>
+        <li>Lay flat or hang to dry</li>
+      </ul>
 
-        <!-- COLOR -->
-        <label>Select Color:</label>
-        <select id="color" class="size-select">
-            <option value="">Select Color</option>
-            <option>White</option>
-            <option>Off-White</option>
-            <option>Black</option>
-        </select>
+      <h3>Fit Note</h3>
+      <p>Fits true to size. Designed for a modern, refined look.</p>
+    </div>
 
-        <!-- SIZE -->
-        <label>Select Size:</label>
-        <select id="size" class="size-select">
-            <option value="">Select Size</option>
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-            <option>XL</option>
-        </select>
+    <!-- OPTIONS -->
+    <div class="product-options">
 
-        <!-- ADD TO CART -->
-        <button class="add-btn" onclick="
-            if (!document.getElementById('color').value || !document.getElementById('size').value) {
-                alert('Please select color and size');
-                return;
-            }
-            addToCart(
-                'Heritage Tee',
-                220,
-                'images/heritage-tee.webp',
-                document.getElementById('size').value,
-                document.getElementById('color').value
-            );
-        ">
-            Add to Cart
-        </button>
+      <label for="size">Select Size</label>
+      <select id="size">
+        <option value="">Select Size</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <button class="add-to-cart-btn"
+        onclick="addToCart(
+          'Heritage Tee',
+          180,
+          'images/heritage-tee.webp',
+          document.getElementById('size').value
+        )">
+        Add to Cart
+      </button>
 
     </div>
 
+  </div>
+
 </section>
 
-<script src="cart.js"></script>
 </body>
 </html>
-
