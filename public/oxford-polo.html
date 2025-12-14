@@ -1,192 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oxford Polo — H&CO.</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #f8f6f3;
-    color: #111;
-}
-
-/* HEADER */
-header {
-    padding: 25px 60px;
-    background: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 35px;
-    font-weight: 300;
-}
-.logo {
-    font-family: 'Playfair Display';
-    font-size: 28px;
-    letter-spacing: 2px;
-}
-
-/* PRODUCT */
-.product-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 70px;
-    padding: 70px 80px 90px; /* 🔧 reduced top padding */
-    align-items: start;
-}
-
-/* IMAGE */
-.product-image {
-    display: flex;
-    align-items: flex-start;
-}
-.product-image img {
-    width: 100%;
-    border-radius: 6px;
-    margin-top: -45px; /* 🔧 stronger lift for optical balance */
-}
-
-/* INFO */
-.product-info h1 {
-    font-family: 'Playfair Display';
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-.price {
-    font-size: 20px;
-    margin-bottom: 25px;
-}
-.desc {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 35px;
-}
-
-/* OPTIONS */
-.option-group {
-    margin-bottom: 30px;
-}
-.option-group label {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-.options {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.options button {
-    padding: 10px 16px;
-    border: 1px solid #ccc;
-    background: transparent;
-    cursor: pointer;
-    font-size: 13px;
-}
-.options button.active {
-    border-color: #000;
-    font-weight: 500;
-}
-
-/* ADD TO CART */
-.add-to-cart {
-    width: 100%;
-    padding: 16px;
-    background: #000;
-    color: #fff;
-    border: none;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-    .product-container {
-        grid-template-columns: 1fr;
-        padding: 50px 25px;
-    }
-    .product-image img {
-        margin-top: 0;
-    }
+body { margin:0; font-family:'Inter',sans-serif; background:#f8f6f3; color:#111; }
+header { padding:25px 60px; background:#000; display:flex; justify-content:space-between; align-items:center; }
+header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; }
+.logo { font-family:'Playfair Display'; font-size:28px; letter-spacing:2px; }
+.product-container { display:grid; grid-template-columns:1.2fr 1fr; gap:70px; padding:70px 80px 90px; align-items:start; }
+.product-image { display:flex; align-items:flex-start; }
+.product-image img { width:100%; border-radius:6px; margin-top:0; }
+.product-info h1 { font-family:'Playfair Display'; font-size:38px; margin-bottom:10px; }
+.price { font-size:20px; margin-bottom:25px; }
+.desc { font-size:15px; line-height:1.8; color:#444; margin-bottom:35px; }
+.option-group { margin-bottom:30px; }
+.option-group label { display:block; font-size:13px; margin-bottom:10px; letter-spacing:1px; }
+.options { display:flex; flex-wrap:wrap; gap:10px; }
+.options button { padding:10px 16px; border:1px solid #ccc; background:transparent; cursor:pointer; font-size:13px; }
+.options button.active { border-color:#000; font-weight:500; }
+.add-to-cart { width:100%; padding:16px; background:#000; color:#fff; border:none; font-size:14px; letter-spacing:1px; cursor:pointer; margin-top:10px; }
+@media (max-width:900px) {
+    .product-container { grid-template-columns:1fr; padding:50px 25px; }
+    .product-image img { margin-top:0; }
 }
 </style>
 </head>
 
 <body>
-
 <header>
-    <a href="index.html" class="logo">H&CO.</a>
-    <nav>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart</a>
-    </nav>
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+  </nav>
 </header>
 
 <section class="product-container">
-
-    <div class="product-image">
-        <img src="images/oxford-polo.webp" alt="Oxford Polo">
+  <div class="product-image">
+    <img src="images/oxford-polo.webp" alt="Oxford Polo">
+  </div>
+  <div class="product-info">
+    <h1>Oxford Polo</h1>
+    <div class="price">AED 260</div>
+    <p class="desc">
+      A refined essential crafted from premium cotton piqué, the Oxford Polo balances
+      structure with ease. Designed for warm days and polished evenings —
+      effortless, timeless, and quietly confident.
+    </p>
+    <div class="option-group">
+      <label>COLOR</label>
+      <div class="options" id="colorOptions">
+        <button class="active">White</button>
+        <button>Black</button>
+        <button>Grey</button>
+        <button>Beige</button>
+        <button>Off-White</button>
+      </div>
     </div>
-
-    <div class="product-info">
-        <h1>Oxford Polo</h1>
-        <div class="price">AED 260</div>
-
-        <p class="desc">
-            A refined essential crafted from premium cotton piqué, the Oxford Polo
-            balances structure with ease. Designed for warm days and polished
-            evenings — effortless, timeless, and quietly confident.
-        </p>
-
-        <div class="option-group">
-            <label>COLOR</label>
-            <div class="options" id="colorOptions">
-                <button class="active">White</button>
-                <button>Black</button>
-                <button>Grey</button>
-                <button>Beige</button>
-                <button>Off-White</button>
-            </div>
-        </div>
-
-        <div class="option-group">
-            <label>SIZE</label>
-            <div class="options" id="sizeOptions">
-                <button class="active">S</button>
-                <button>M</button>
-                <button>L</button>
-                <button>XL</button>
-            </div>
-        </div>
-
-        <button class="add-to-cart">ADD TO CART</button>
+    <div class="option-group">
+      <label>SIZE</label>
+      <div class="options" id="sizeOptions">
+        <button class="active">S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
     </div>
-
+    <button class="add-to-cart" onclick="addItem()">ADD TO CART</button>
+  </div>
 </section>
 
+<script src="cart.js"></script>
 <script>
+function addItem() {
+  const sizeBtn = document.querySelector('#sizeOptions .active');
+  const size = sizeBtn ? sizeBtn.textContent.trim() : '';
+  const colorBtn = document.querySelector('#colorOptions .active');
+  const color = colorBtn ? colorBtn.textContent.trim() : '';
+  addToCart(
+    `Oxford Polo${color ? ' (' + color + ')' : ''}`,
+    260,
+    'images/oxford-polo.webp',
+    size
+  );
+}
 function activateOption(groupId) {
-    const buttons = document.querySelectorAll(`#${groupId} button`);
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        });
+  const buttons = document.querySelectorAll(`#${groupId} button`);
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     });
+  });
 }
 activateOption('colorOptions');
 activateOption('sizeOptions');
@@ -194,3 +103,4 @@ activateOption('sizeOptions');
 
 </body>
 </html>
+
