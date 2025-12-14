@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Oxford Polo — H&CO.</title>
 
-<!-- Luxury Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -41,11 +40,11 @@ header a {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 70px;
-    padding: 90px 80px;
-    align-items: start; /* ✅ key fix */
+    padding: 70px 80px 90px; /* 🔧 reduced top padding */
+    align-items: start;
 }
 
-/* IMAGE FIX */
+/* IMAGE */
 .product-image {
     display: flex;
     align-items: flex-start;
@@ -53,7 +52,7 @@ header a {
 .product-image img {
     width: 100%;
     border-radius: 6px;
-    margin-top: -25px; /* ✅ visual balance tweak */
+    margin-top: -45px; /* 🔧 stronger lift for optical balance */
 }
 
 /* INFO */
@@ -120,7 +119,7 @@ header a {
         padding: 50px 25px;
     }
     .product-image img {
-        margin-top: 0; /* reset for mobile */
+        margin-top: 0;
     }
 }
 </style>
@@ -139,15 +138,13 @@ header a {
 
 <section class="product-container">
 
-    <!-- IMAGE -->
     <div class="product-image">
         <img src="images/oxford-polo.webp" alt="Oxford Polo">
     </div>
 
-    <!-- INFO -->
     <div class="product-info">
         <h1>Oxford Polo</h1>
-        <div class="price">AED 219</div>
+        <div class="price">AED 260</div>
 
         <p class="desc">
             A refined essential crafted from premium cotton piqué, the Oxford Polo
@@ -155,7 +152,6 @@ header a {
             evenings — effortless, timeless, and quietly confident.
         </p>
 
-        <!-- COLOR -->
         <div class="option-group">
             <label>COLOR</label>
             <div class="options" id="colorOptions">
@@ -167,7 +163,6 @@ header a {
             </div>
         </div>
 
-        <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
             <div class="options" id="sizeOptions">
