@@ -32,7 +32,46 @@ body {
     font-weight: 500;
 }
 
+/* ========================= */
+/* HERO SECTION (IMAGE ONLY) */
+/* ========================= */
+
+.hero {
+    position: relative;
+    background-image: url("images/home-hero.webp");
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+}
+
+/* Subtle luxury overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0)
+    );
+    z-index: 1;
+}
+
+/* Hero text stays above overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+}
+
+/* ================= */
 /* CHECKOUT PAGE */
+/* ================= */
+
 .checkout-page {
     max-width: 1100px;
     margin: 40px auto;
@@ -131,4 +170,29 @@ body {
 
 .place-order-btn:hover {
     background: #333;
+}
+
+/* ================= */
+/* MOBILE OPTIMIZATION */
+/* ================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        background-position: center right;
+        padding: 40px 25px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+
+    .checkout-container {
+        flex-direction: column;
+    }
+
+    .checkout-form,
+    .order-summary {
+        width: 100%;
+    }
 }
