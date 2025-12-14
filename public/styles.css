@@ -5,6 +5,12 @@ body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     background: #ffffff;
     color: #111;
+    overflow-x: hidden; /* ✅ mobile side-scroll fix */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* HEADER */
@@ -178,15 +184,60 @@ body {
 
 @media (max-width: 768px) {
 
+    /* HEADER */
+    .header {
+        padding: 16px 20px;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav a {
+        margin-left: 0;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    /* HERO */
     .hero {
         background-position: center right;
         padding: 40px 25px;
+        min-height: 75vh;
     }
 
     .hero-content {
         max-width: 90%;
     }
 
+    /* SHOP GRID (1 ITEM PER ROW ON MOBILE) */
+    .products-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .product-card img,
+    .product-image {
+        max-height: 420px;
+        object-fit: cover;
+    }
+
+    /* CART */
+    .cart-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .cart-img {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    /* CHECKOUT */
     .checkout-container {
         flex-direction: column;
     }
@@ -195,4 +246,21 @@ body {
     .order-summary {
         width: 100%;
     }
+
+    /* iOS SAFARI ZOOM FIX */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    /* BUTTONS */
+    button,
+    .btn,
+    .place-order-btn {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
 }
+
