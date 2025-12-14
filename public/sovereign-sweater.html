@@ -12,12 +12,55 @@
         header { padding: 25px 50px; background: #000; display: flex; justify-content: space-between; align-items: center; }
         header a { color: white; margin-left: 35px; text-decoration: none; }
         .logo { font-family: Playfair Display; color: white; font-size: 28px; }
-        .product-container { display: grid; grid-template-columns: 1.2fr 1fr; padding: 80px; gap: 60px; }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            padding: 80px;
+            gap: 60px;
+        }
+
         .product-img { width: 100%; border-radius: 6px; }
+
         h1 { font-family: Playfair Display; font-size: 46px; }
-        .price { margin-bottom: 25px; font-weight: 600; }
-        .size-select { width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #ccc; margin-bottom: 25px; }
-        .add-btn { padding: 14px 28px; background: black; color: white; border-radius: 4px; cursor: pointer; }
+
+        .price {
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-size: 22px;
+        }
+
+        .description {
+            opacity: 0.85;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .size-select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 25px;
+        }
+
+        .add-btn {
+            padding: 14px 28px;
+            background: black;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .add-btn:hover { background: #333; }
+
+        @media (max-width: 900px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 50px 25px;
+            }
+        }
     </style>
 </head>
 
@@ -37,13 +80,28 @@
 
 <section class="product-container">
 
-    <img src="images/sovereign-sweater.webp" class="product-img">
+    <img src="images/sovereign-sweater.webp" class="product-img" alt="Sovereign Sweater">
 
     <div>
         <h1>Sovereign Sweater</h1>
         <p class="price">AED 349</p>
-        <p>Luxury knitwear crafted for elevated comfort.</p>
 
+        <p class="description">
+            Luxury knitwear crafted for elevated comfort. Designed with a clean silhouette and refined structure,
+            the Sovereign Sweater delivers timeless style for everyday sophistication.
+        </p>
+
+        <!-- COLOR -->
+        <label>Select Color:</label>
+        <select id="color" class="size-select">
+            <option value="">Select Color</option>
+            <option>Black</option>
+            <option>Off-White</option>
+            <option>Grey</option>
+            <option>Light Blue</option>
+        </select>
+
+        <!-- SIZE -->
         <label>Select Size:</label>
         <select id="size" class="size-select">
             <option value="">Select Size</option>
@@ -54,16 +112,20 @@
         </select>
 
         <button class="add-btn" onclick="
-  addToCart(
-    'Sovereign Sweater',
-    349,
-    'images/sovereign-sweater.webp',
-    document.getElementById('size').value
-  )
-">
-Add to Cart
-</button>
-
+            if (!document.getElementById('color').value || !document.getElementById('size').value) {
+                alert('Please select color and size');
+                return;
+            }
+            addToCart(
+                'Sovereign Sweater',
+                349,
+                'images/sovereign-sweater.webp',
+                document.getElementById('size').value,
+                document.getElementById('color').value
+            )
+        ">
+            Add to Cart
+        </button>
     </div>
 
 </section>
@@ -71,4 +133,3 @@ Add to Cart
 <script src="cart.js"></script>
 </body>
 </html>
-
