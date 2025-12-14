@@ -42,11 +42,21 @@ header a {
     grid-template-columns: 1.2fr 1fr;
     gap: 70px;
     padding: 90px 80px;
+    align-items: start; /* ✅ key fix */
+}
+
+/* IMAGE FIX */
+.product-image {
+    display: flex;
+    align-items: flex-start;
 }
 .product-image img {
     width: 100%;
     border-radius: 6px;
+    margin-top: -25px; /* ✅ visual balance tweak */
 }
+
+/* INFO */
 .product-info h1 {
     font-family: 'Playfair Display';
     font-size: 38px;
@@ -76,6 +86,7 @@ header a {
 .options {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 .options button {
     padding: 10px 16px;
@@ -99,6 +110,7 @@ header a {
     font-size: 14px;
     letter-spacing: 1px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 /* MOBILE */
@@ -106,6 +118,9 @@ header a {
     .product-container {
         grid-template-columns: 1fr;
         padding: 50px 25px;
+    }
+    .product-image img {
+        margin-top: 0; /* reset for mobile */
     }
 }
 </style>
@@ -184,4 +199,3 @@ activateOption('sizeOptions');
 
 </body>
 </html>
-
