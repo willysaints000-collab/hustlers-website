@@ -1,138 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oxford Polo — H&CO.</title>
+  <meta charset="UTF-8" />
+  <title>Oxford Polo — H&CO.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body { margin: 0; background: #f8f6f3; font-family: Inter, sans-serif; }
-        header { padding: 25px 50px; background: #000; display: flex; justify-content: space-between; align-items: center; }
-        header a { color: #fff; margin-left: 35px; text-decoration: none; font-size: 15px; }
-        .logo { font-family: 'Playfair Display'; font-size: 28px; color: white; }
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles.css">
 
-        .product-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            padding: 80px;
-        }
-
-        .product-img { width: 100%; border-radius: 6px; }
-
-        h1 { font-family: 'Playfair Display'; font-size: 46px; }
-
-        .price {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-
-        .description {
-            opacity: 0.85;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .details {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .size-select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            margin-bottom: 25px;
-        }
-
-        .add-btn {
-            background: #000;
-            color: #fff;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        .add-btn:hover { background: #333; }
-    </style>
+  <!-- Cart Script -->
+  <script src="cart.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">H&CO.</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-    </nav>
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+  </nav>
 </header>
 
-<section class="product-container">
+<!-- PRODUCT SECTION -->
+<section class="product-page">
 
-    <img src="images/oxford-polo.webp" class="product-img" alt="Oxford Polo">
+  <!-- IMAGE -->
+  <div class="product-image">
+    <img src="images/oxford-polo.webp" alt="Oxford Polo">
+  </div>
 
-    <div>
-        <h1>Oxford Polo</h1>
-        <p class="price">AED 299</p>
+  <!-- DETAILS -->
+  <div class="product-details">
 
-        <p class="description">
-            The Oxford Polo is crafted for understated elegance. Made from premium textured pique,
-            it delivers a refined silhouette with breathable comfort. Designed to elevate everyday dressing,
-            it is a modern essential with timeless appeal.
-        </p>
+    <h1 class="product-title">Oxford Polo</h1>
+    <p class="product-price">AED 260</p>
 
-        <div class="details">
-            <strong>Details</strong><br>
-            • Premium pique cotton fabric<br>
-            • Tailored regular fit<br>
-            • Short sleeves<br>
-            • Classic polo collar<br>
-            • Designed for elevated casual wear<br><br>
+    <p class="product-description">
+      The Oxford Polo blends refined structure with everyday ease.
+      Crafted from premium cotton piqué, it delivers a polished silhouette
+      suitable for both casual and elevated settings — a modern essential,
+      quietly confident.
+    </p>
 
-            <strong>Care</strong><br>
-            • Machine wash cold<br>
-            • Do not bleach<br>
-            • Lay flat or hang to dry<br><br>
+    <!-- DETAILS -->
+    <div class="product-meta">
+      <h3>Details</h3>
+      <ul>
+        <li>Premium cotton piqué fabric</li>
+        <li>Tailored regular fit</li>
+        <li>Classic polo collar</li>
+        <li>Buttoned placket</li>
+        <li>Designed for refined everyday wear</li>
+      </ul>
 
-            <strong>Fit Note</strong><br>
-            Fits true to size. Designed for a clean, refined profile.
-        </div>
+      <h3>Care</h3>
+      <ul>
+        <li>Machine wash cold</li>
+        <li>Do not bleach</li>
+        <li>Lay flat or hang to dry</li>
+      </ul>
 
-        <label>Select Size:</label>
-        <select id="size" class="size-select">
-            <option value="">Select Size</option>
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-            <option>XL</option>
-        </select>
-
-        <button class="add-btn" onclick="
-            addToCart(
-                'Oxford Polo',
-                299,
-                'images/oxford-polo.webp'
-            )
-        ">
-            Add to Cart
-        </button>
+      <h3>Fit Note</h3>
+      <p>Fits true to size. Structured yet comfortable.</p>
     </div>
+
+    <!-- OPTIONS -->
+    <div class="product-options">
+
+      <label for="size">Select Size</label>
+      <select id="size">
+        <option value="">Select Size</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <button class="add-to-cart-btn"
+        onclick="addToCart(
+          'Oxford Polo',
+          260,
+          'images/oxford-polo.webp',
+          document.getElementById('size').value
+        )">
+        Add to Cart
+      </button>
+
+    </div>
+
+  </div>
 
 </section>
 
-<script src="cart.js"></script>
 </body>
 </html>
