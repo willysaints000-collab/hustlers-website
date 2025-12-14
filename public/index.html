@@ -62,7 +62,6 @@
             position: relative;
         }
 
-        /* Dark overlay */
         .hero::before {
             content: "";
             position: absolute;
@@ -112,28 +111,57 @@
         }
 
         /* FOOTER */
-        footer {
+        .site-footer {
             background: #ffffff;
-            padding: 30px 20px;
-            text-align: center;
             border-top: 1px solid #eee;
+            padding: 50px 40px 25px;
         }
 
-        footer p {
-            margin-bottom: 10px;
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin: 0 0 8px;
+        }
+
+        .footer-brand p {
             font-size: 14px;
-            color: #666;
+            color: #555;
+            max-width: 320px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
-            margin: 0 12px;
-            font-size: 14px;
-            color: #555;
             text-decoration: none;
+            color: #111;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: #000;
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            margin-top: 35px;
         }
 
         /* Fade Animation */
@@ -181,6 +209,15 @@
                 font-size: 14px;
                 padding: 12px 26px;
             }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -211,16 +248,25 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        <p>© H&CO.</p>
-        <div class="footer-links">
-            <a href="shipping.html">Shipping</a>
-            <a href="returns.html">Returns</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>H&CO.</h3>
+                <p>Luxury essentials crafted for the modern gentleman.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="shipping.html">Shipping & Returns</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 H&CO. All rights reserved.
         </div>
     </footer>
 
 </body>
 </html>
-
