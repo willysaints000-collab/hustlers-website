@@ -1,232 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>H&CO. — Shop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — H&CO.</title>
 
-    <!-- Luxury Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            background: #f8f6f3;
-            font-family: 'Inter', sans-serif;
-            color: #111;
-        }
+<style>
+body{
+margin:0;
+background:#f8f6f3;
+font-family:Inter,sans-serif;
+color:#111;
+}
+header{
+padding:25px 60px;
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+header a{color:white;text-decoration:none;margin-left:35px;}
+.logo{font-family:Playfair Display;font-size:28px;}
 
-        /* NAVBAR */
-        header {
-            width: 100%;
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #000;
-        }
+.container{padding:80px 60px;}
+h1{
+font-family:Playfair Display;
+font-size:42px;
+margin-bottom:50px;
+}
 
-        header a {
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
-            color: white;
-            font-size: 15px;
-            margin-left: 35px;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:50px;
+}
 
-        header a:hover {
-            opacity: 0.7;
-        }
+.card{text-align:center;}
+.card img{
+width:100%;
+transition:transform .4s ease;
+}
+.card:hover img{transform:scale(1.04);}
+.card h3{
+font-family:Playfair Display;
+font-size:20px;
+margin:18px 0 5px;
+}
+.card p{
+font-size:14px;
+opacity:.7;
+}
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-            letter-spacing: 2px;
-        }
-
-        /* TITLE */
-        .shop-header {
-            text-align: center;
-            padding: 70px 20px 50px;
-        }
-
-        .shop-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .shop-header p {
-            font-size: 17px;
-            opacity: 0.7;
-        }
-
-        /* PRODUCT GRID */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 45px;
-            padding: 40px 80px 80px;
-        }
-
-        .product {
-            background: white;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: 0.3s ease;
-            animation: fadeIn 1.2s ease forwards;
-            opacity: 0;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .product img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-        }
-
-        .info {
-            padding: 18px 22px 25px;
-        }
-
-        .info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin: 0 0 8px;
-            font-weight: 600;
-        }
-
-        .info p {
-            margin: 0;
-            font-size: 15px;
-            opacity: 0.7;
-        }
-
-        .product:hover {
-            transform: translateY(-6px);
-        }
-
-        /* ANIMATION */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* MOBILE */
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-                padding: 30px;
-                gap: 30px;
-            }
-
-            .product img {
-                height: 320px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .grid {
-                grid-template-columns: 1fr;
-                padding: 25px;
-            }
-
-            .product img {
-                height: 300px;
-            }
-
-            .shop-header h1 {
-                font-size: 40px;
-            }
-        }
-    </style>
+footer{
+padding:40px;
+text-align:center;
+font-size:13px;
+opacity:.6;
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">H&CO.</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-        </nav>
-    </header>
+<header>
+<div class="logo">H&CO.</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="collection.html">Collection</a>
+<a href="shop.html">Shop</a>
+<a href="cart.html">Cart</a>
+</nav>
+</header>
 
-    <!-- TITLE -->
-    <section class="shop-header">
-        <h1>Shop All</h1>
-        <p>Discover the full Hustlers & Co. luxury lineup.</p>
-    </section>
+<div class="container">
+<h1>Shop</h1>
 
-    <!-- PRODUCT GRID -->
-    <section class="grid">
+<div class="grid">
+<a class="card" href="heritage-tee.html">
+<img src="images/heritage-tee.webp">
+<h3>Heritage Tee</h3>
+<p>AED 180</p>
+</a>
 
-        <!-- Heritage Tee -->
-        <a href="heritage-tee.html" class="product">
-            <img src="images/heritage-tee.webp" alt="Heritage Tee">
-            <div class="info">
-                <h3>Heritage Tee</h3>
-                <p>Signature Cotton Classic</p>
-            </div>
-        </a>
+<a class="card" href="oxford-polo.html">
+<img src="images/oxford-polo.webp">
+<h3>Oxford Polo</h3>
+<p>AED 260</p>
+</a>
 
-        <!-- Oxford Polo -->
-        <a href="oxford-polo.html" class="product">
-            <img src="images/oxford-polo.webp" alt="Oxford Polo">
-            <div class="info">
-                <h3>Oxford Polo</h3>
-                <p>Premium Textured Pique</p>
-            </div>
-        </a>
+<a class="card" href="sovereign-sweater.html">
+<img src="images/sovereign-sweater.webp">
+<h3>Sovereign Sweater</h3>
+<p>AED 420</p>
+</a>
 
-        <!-- Sovereign Sweater -->
-        <a href="sovereign-sweater.html" class="product">
-            <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-            <div class="info">
-                <h3>Sovereign Sweater</h3>
-                <p>Luxury Knitwear Essential</p>
-            </div>
-        </a>
+<a class="card" href="harrington-jacket.html">
+<img src="images/harrington-jacket.webp">
+<h3>Harrington Jacket</h3>
+<p>AED 680</p>
+</a>
 
-        <!-- Windsor Trouser -->
-        <a href="windsor-trouser.html" class="product">
-            <img src="images/windsor-trouser.webp" alt="Windsor Trouser">
-            <div class="info">
-                <h3>Windsor Trouser</h3>
-                <p>Refined Everyday Wear</p>
-            </div>
-        </a>
+<a class="card" href="tailored-trouser.html">
+<img src="images/tailored-trouser.webp">
+<h3>Tailored Trouser</h3>
+<p>AED 380</p>
+</a>
+</div>
+</div>
 
-        <!-- Harrington Jacket -->
-        <a href="harrington-jacket.html" class="product">
-            <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
-            <div class="info">
-                <h3>Harrington Jacket</h3>
-                <p>Heritage Outerwear Classic</p>
-            </div>
-        </a>
-
-    </section>
+<footer>
+© H&CO. Hustlers & Company
+</footer>
 
 </body>
 </html>
-
