@@ -1,102 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sovereign Sweater — H&CO.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovereign Sweater — H&CO.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Base styling reused from other pages */
+body { margin:0; font-family:'Inter',sans-serif; background:#f8f6f3; color:#111; }
+header { padding:25px 60px; background:#000; display:flex; justify-content:space-between; align-items:center; }
+header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; }
+.logo { font-family:'Playfair Display'; font-size:28px; letter-spacing:2px; }
 
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="styles.css">
+.product-container { display:grid; grid-template-columns:1.2fr 1fr; gap:70px; padding:70px 80px 90px; align-items:start; }
+.product-image { display:flex; align-items:flex-start; }
+.product-image img { width:100%; border-radius:6px; margin-top:0; }
 
-  <!-- Cart Script -->
-  <script src="cart.js" defer></script>
+.product-info h1 { font-family:'Playfair Display'; font-size:38px; margin-bottom:10px; }
+.price { font-size:20px; margin-bottom:25px; }
+.desc { font-size:15px; line-height:1.8; color:#444; margin-bottom:35px; }
+
+.option-group { margin-bottom:30px; }
+.option-group label { display:block; font-size:13px; margin-bottom:10px; letter-spacing:1px; }
+.options { display:flex; flex-wrap:wrap; gap:10px; }
+.options button { padding:10px 16px; border:1px solid #ccc; background:transparent; cursor:pointer; font-size:13px; }
+.options button.active { border-color:#000; font-weight:500; }
+
+.add-to-cart { width:100%; padding:16px; background:#000; color:#fff; border:none; font-size:14px; letter-spacing:1px; cursor:pointer; margin-top:10px; }
+
+@media (max-width:900px) {
+    .product-container { grid-template-columns:1fr; padding:50px 25px; }
+    .product-image img { margin-top:0; }
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <a href="index.html" class="logo">H&CO.</a>
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="collection.html">Collection</a>
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-  </nav>
+<header>
+    <a href="index.html" class="logo">H&CO.</a>
+    <nav>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+    </nav>
 </header>
 
-<!-- PRODUCT SECTION -->
-<section class="product-page">
-
-  <!-- IMAGE -->
-  <div class="product-image">
-    <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-  </div>
-
-  <!-- DETAILS -->
-  <div class="product-details">
-
-    <h1 class="product-title">Sovereign Sweater</h1>
-    <p class="product-price">AED 420</p>
-
-    <p class="product-description">
-      The Sovereign Sweater is crafted for understated authority.
-      Made from a premium knit blend, it offers refined warmth with a clean,
-      structured silhouette — timeless, confident, and effortlessly elevated.
-    </p>
-
-    <!-- DETAILS -->
-    <div class="product-meta">
-      <h3>Details</h3>
-      <ul>
-        <li>Premium knit construction</li>
-        <li>Structured yet comfortable fit</li>
-        <li>Soft-touch finish</li>
-        <li>Classic crew neckline</li>
-        <li>Designed for refined layering</li>
-      </ul>
-
-      <h3>Care</h3>
-      <ul>
-        <li>Hand wash cold or gentle cycle</li>
-        <li>Do not bleach</li>
-        <li>Lay flat to dry</li>
-      </ul>
-
-      <h3>Fit Note</h3>
-      <p>Fits true to size. Designed for a modern, refined silhouette.</p>
+<section class="product-container">
+    <div class="product-image">
+        <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
     </div>
-
-    <!-- OPTIONS -->
-    <div class="product-options">
-
-      <label for="size">Select Size</label>
-      <select id="size">
-        <option value="">Select Size</option>
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
-        <option value="XL">XL</option>
-      </select>
-
-      <button class="add-to-cart-btn"
-        onclick="addToCart(
-          'Sovereign Sweater',
-          420,
-          'images/sovereign-sweater.webp',
-          document.getElementById('size').value
-        )">
-        Add to Cart
-      </button>
-
+    <div class="product-info">
+        <h1>Sovereign Sweater</h1>
+        <div class="price">AED 420</div>
+        <p class="desc">
+            The Sovereign Sweater is crafted for understated authority. Made from a premium knit blend,
+            it offers refined warmth with a clean, structured silhouette — timeless, confident, and effortlessly elevated.
+        </p>
+        <div class="option-group">
+            <label>COLOR</label>
+            <div class="options" id="colorOptions">
+                <button class="active">Black</button>
+                <button>Grey</button>
+                <button>Beige</button>
+                <button>Off-White</button>
+            </div>
+        </div>
+        <div class="option-group">
+            <label>SIZE</label>
+            <div class="options" id="sizeOptions">
+                <button class="active">S</button>
+                <button>M</button>
+                <button>L</button>
+                <button>XL</button>
+            </div>
+        </div>
+        <button class="add-to-cart">ADD TO CART</button>
     </div>
-
-  </div>
-
 </section>
+
+<script>
+function activateOption(groupId) {
+    const buttons = document.querySelectorAll(`#${groupId} button`);
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+}
+activateOption('colorOptions');
+activateOption('sizeOptions');
+</script>
 
 </body>
 </html>
