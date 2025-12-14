@@ -1,144 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>H&CO. — Collection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collection — H&CO.</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f8f6f3;
-      color: #111;
-    }
+<style>
+body{
+margin:0;
+background:#f8f6f3;
+font-family:Inter,sans-serif;
+color:#111;
+}
+header{
+padding:25px 60px;
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+header a{color:white;text-decoration:none;margin-left:35px;}
+.logo{font-family:Playfair Display;font-size:28px;}
 
-    header {
-      padding: 25px 50px;
-      background: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.container{padding:100px 60px;}
+h1{
+font-family:Playfair Display;
+font-size:48px;
+margin-bottom:10px;
+}
+.subtitle{
+font-size:15px;
+opacity:.7;
+margin-bottom:70px;
+}
 
-    header a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:60px;
+}
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      color: white;
-      letter-spacing: 2px;
-    }
+.card{text-align:center;}
+.card img{
+width:100%;
+transition:transform .4s ease;
+}
+.card:hover img{transform:scale(1.04);}
+.card h3{
+font-family:Playfair Display;
+font-size:20px;
+margin-top:18px;
+}
 
-    .collection-wrapper {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 40px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 40px;
-    }
-
-    .card {
-      background: #fff;
-      padding: 20px;
-      text-align: center;
-      border-radius: 6px;
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      margin: 10px 0;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #555;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 15px;
-      text-decoration: none;
-      color: #000;
-      border-bottom: 1px solid #000;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-  </style>
+footer{
+padding:40px;
+text-align:center;
+font-size:13px;
+opacity:.6;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">H&CO.</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="collection.html">Collection</a>
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart</a>
-  </nav>
+<div class="logo">H&CO.</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="collection.html">Collection</a>
+<a href="shop.html">Shop</a>
+<a href="cart.html">Cart</a>
+</nav>
 </header>
 
-<section class="collection-wrapper">
-  <h1>The Collection</h1>
+<div class="container">
+<h1>The H&CO. Collection</h1>
+<div class="subtitle">Timeless essentials. Designed for presence.</div>
 
-  <div class="grid">
+<div class="grid">
+<a class="card" href="heritage-tee.html">
+<img src="images/heritage-tee.webp">
+<h3>Heritage Tee</h3>
+</a>
 
-    <div class="card">
-      <img src="images/heritage-tee.webp" alt="Heritage Tee">
-      <h3>Heritage Tee</h3>
-      <p>A timeless essential for modern gentlemen.</p>
-      <a href="heritage-tee.html">View Product</a>
-    </div>
+<a class="card" href="oxford-polo.html">
+<img src="images/oxford-polo.webp">
+<h3>Oxford Polo</h3>
+</a>
 
-    <div class="card">
-      <img src="images/oxford-polo.webp" alt="Oxford Polo">
-      <h3>Oxford Polo</h3>
-      <p>Refined comfort with understated elegance.</p>
-      <a href="oxford-polo.html">View Product</a>
-    </div>
+<a class="card" href="sovereign-sweater.html">
+<img src="images/sovereign-sweater.webp">
+<h3>Sovereign Sweater</h3>
+</a>
 
-    <div class="card">
-      <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-      <h3>Sovereign Sweater</h3>
-      <p>Crafted warmth for elevated evenings.</p>
-      <a href="sovereign-sweater.html">View Product</a>
-    </div>
+<a class="card" href="harrington-jacket.html">
+<img src="images/harrington-jacket.webp">
+<h3>Harrington Jacket</h3>
+</a>
 
-    <div class="card">
-      <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
-      <h3>Harrington Jacket</h3>
-      <p>A modern icon of tailored outerwear.</p>
-      <a href="harrington-jacket.html">View Product</a>
-    </div>
+<a class="card" href="tailored-trouser.html">
+<img src="images/tailored-trouser.webp">
+<h3>Tailored Trouser</h3>
+</a>
+</div>
+</div>
 
-  </div>
-</section>
+<footer>
+© H&CO. Hustlers & Company
+</footer>
 
 </body>
 </html>
+
