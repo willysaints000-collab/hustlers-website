@@ -64,6 +64,26 @@ function displayCart() {
   list.innerHTML = "";
   let total = 0;
 
+  /* ✅ EMPTY CART LUXURY MESSAGE */
+  if (cart.length === 0) {
+    list.innerHTML = `
+      <div style="
+        text-align:center;
+        padding:70px 20px;
+        color:#555;
+      ">
+        <p style="font-size:16px;margin-bottom:6px;">
+          <strong>Your cart is currently empty.</strong>
+        </p>
+        <p style="font-size:14px;opacity:.8;">
+          Explore the collection and find your essentials.
+        </p>
+      </div>
+    `;
+    totalEl.textContent = "AED 0.00";
+    return;
+  }
+
   cart.forEach((item, i) => {
     const qty = Math.max(1, num(item.qty));
     const price = num(item.price);
