@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Heritage Tee — H&CO.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heritage Tee — H&CO.</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Cart Script -->
-  <script src="cart.js" defer></script>
+<!-- Main Styles -->
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -21,14 +18,13 @@
 <header class="header">
   <a href="index.html" class="logo">H&CO.</a>
   <nav class="nav">
-    <a href="index.html">Home</a>
     <a href="collection.html">Collection</a>
     <a href="shop.html">Shop</a>
     <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
   </nav>
 </header>
 
-<!-- PRODUCT SECTION -->
+<!-- PRODUCT PAGE -->
 <section class="product-page">
 
   <!-- IMAGE -->
@@ -40,46 +36,34 @@
   <div class="product-details">
 
     <h1 class="product-title">Heritage Tee</h1>
-    <p class="product-price">AED 180</p>
+    <div class="product-price">AED 180</div>
 
     <p class="product-description">
-      Crafted from premium cotton, the Heritage Tee is designed for everyday refinement.
-      A clean silhouette with a structured yet comfortable fit — understated, timeless,
-      unmistakably H&CO.
+      Crafted from premium cotton, the Heritage Tee is designed for effortless refinement.
+      Featuring a clean silhouette and a structured yet comfortable fit, it transitions
+      seamlessly from day to night. A timeless essential, elevated.
     </p>
-
-    <!-- DETAILS -->
-    <div class="product-meta">
-      <h3>Details</h3>
-      <ul>
-        <li>Premium cotton construction</li>
-        <li>Regular tailored fit</li>
-        <li>Short sleeves</li>
-        <li>Crew neckline</li>
-        <li>Designed for everyday wear</li>
-      </ul>
-
-      <h3>Care</h3>
-      <ul>
-        <li>Machine wash cold</li>
-        <li>Do not bleach</li>
-        <li>Lay flat or hang to dry</li>
-      </ul>
-
-      <h3>Fit Note</h3>
-      <p>Fits true to size. Designed for a modern, refined look.</p>
-    </div>
 
     <!-- OPTIONS -->
     <div class="product-options">
 
-      <label for="size">Select Size</label>
-      <select id="size">
-        <option value="">Select Size</option>
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
-        <option value="XL">XL</option>
+      <!-- COLOR -->
+      <label for="color">Color</label>
+      <select id="color">
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+        <option value="Grey">Grey</option>
+        <option value="Beige">Beige</option>
+      </select>
+
+      <!-- SIZE -->
+      <label for="size">Size</label>
+      <select id="size" required>
+        <option value="">Select size</option>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">Extra Large</option>
       </select>
 
       <button class="add-to-cart-btn"
@@ -87,16 +71,37 @@
           'Heritage Tee',
           180,
           'images/heritage-tee.webp',
-          document.getElementById('size').value
+          document.getElementById('size').value + ' / ' + document.getElementById('color').value
         )">
         Add to Cart
       </button>
 
     </div>
 
+    <!-- META -->
+    <div class="product-meta">
+      <h3>Details</h3>
+      <ul>
+        <li>Premium cotton construction</li>
+        <li>Regular tailored fit</li>
+        <li>Crew neckline</li>
+        <li>Designed for everyday wear</li>
+      </ul>
+
+      <h3>Fit</h3>
+      <p>Fits true to size. Designed for a modern, refined look.</p>
+    </div>
+
   </div>
 
 </section>
 
+<!-- CART SCRIPT -->
+<script src="cart.js"></script>
+<script>
+  updateCartCount();
+</script>
+
 </body>
 </html>
+
