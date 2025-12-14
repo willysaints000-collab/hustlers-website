@@ -12,12 +12,55 @@
         header { padding:25px 50px; background:black; display:flex; justify-content:space-between; align-items:center; }
         header a { color:white; margin-left:35px; text-decoration:none; }
         .logo { color:white; font-family:'Playfair Display'; font-size:28px; }
-        .product-container { display:grid; grid-template-columns:1.2fr 1fr; padding:80px; gap:60px; }
+
+        .product-container {
+            display:grid;
+            grid-template-columns:1.2fr 1fr;
+            padding:80px;
+            gap:60px;
+        }
+
         .product-img { width:100%; border-radius:6px; }
+
         h1 { font-size:46px; font-family:'Playfair Display'; }
-        .price { font-size:22px; font-weight:600; }
-        .size-select { width:100%; padding:12px; border-radius:4px; margin-bottom:25px; }
-        .add-btn { background:black; color:white; padding:14px 28px; border:none; border-radius:4px; cursor:pointer; }
+
+        .price {
+            font-size:22px;
+            font-weight:600;
+            margin-bottom:25px;
+        }
+
+        .description {
+            opacity:0.85;
+            margin-bottom:25px;
+            line-height:1.7;
+        }
+
+        .size-select {
+            width:100%;
+            padding:12px;
+            border-radius:4px;
+            border:1px solid #ccc;
+            margin-bottom:25px;
+        }
+
+        .add-btn {
+            background:black;
+            color:white;
+            padding:14px 28px;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+        }
+
+        .add-btn:hover { background:#333; }
+
+        @media (max-width: 900px) {
+            .product-container {
+                grid-template-columns:1fr;
+                padding:50px 25px;
+            }
+        }
     </style>
 </head>
 
@@ -37,13 +80,26 @@
 
 <section class="product-container">
 
-    <img src="images/harrington-jacket.webp" class="product-img">
+    <img src="images/harrington-jacket.webp" class="product-img" alt="Harrington Jacket">
 
     <div>
         <h1>Harrington Jacket</h1>
-        <p class="price">AED 349</p>
-        <p>An iconic silhouette refined with modern tailoring.</p>
+        <p class="price">AED 650</p>
 
+        <p class="description">
+            An iconic outerwear silhouette refined for modern elegance. The Harrington Jacket features a clean,
+            structured design that delivers effortless sophistication across seasons.
+        </p>
+
+        <!-- COLOR -->
+        <label>Select Color:</label>
+        <select id="color" class="size-select">
+            <option value="">Select Color</option>
+            <option>Black</option>
+            <option>Off-White</option>
+        </select>
+
+        <!-- SIZE -->
         <label>Select Size:</label>
         <select id="size" class="size-select">
             <option value="">Select Size</option>
@@ -53,16 +109,21 @@
             <option>XL</option>
         </select>
 
-      <button class="add-btn" onclick="
-  addToCart(
-    'Harrington Jacket',
-    349,
-    'images/harrington-jacket.webp',
-    document.getElementById('size').value
-  )
-">
-Add to Cart
-</button>
+        <button class="add-btn" onclick="
+            if (!document.getElementById('color').value || !document.getElementById('size').value) {
+                alert('Please select color and size');
+                return;
+            }
+            addToCart(
+                'Harrington Jacket',
+                650,
+                'images/harrington-jacket.webp',
+                document.getElementById('size').value,
+                document.getElementById('color').value
+            )
+        ">
+            Add to Cart
+        </button>
 
     </div>
 
@@ -71,3 +132,4 @@ Add to Cart
 <script src="cart.js"></script>
 </body>
 </html>
+
