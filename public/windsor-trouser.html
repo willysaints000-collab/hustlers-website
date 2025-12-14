@@ -1,23 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windsor Trouser — H&CO.</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        body { margin:0; background:#f8f6f3; font-family:Inter,sans-serif; }
-        header { padding:25px 50px; background:black; display:flex; justify-content:space-between; align-items:center; }
-        header a { color:white; margin-left:35px; text-decoration:none; }
-        .logo { color:white; font-family:'Playfair Display'; font-size:28px; }
-        .product-container { display:grid; grid-template-columns:1.2fr 1fr; padding:80px; gap:60px; }
-        .product-img { width:100%; border-radius:6px; }
-        h1 { font-size:46px; font-family:'Playfair Display'; }
-        .price { font-size:22px; font-weight:600; }
-        .size-select { width:100%; padding:12px; border-radius:4px; margin-bottom:25px; }
-        .add-btn { background:black; color:white; padding:14px 28px; border:none; border-radius:4px; cursor:pointer; }
+        body { margin: 0; background: #f8f6f3; font-family: Inter, sans-serif; }
+        header { padding: 25px 50px; background: #000; display: flex; justify-content: space-between; align-items: center; }
+        header a { color: #fff; margin-left: 35px; text-decoration: none; font-size: 15px; }
+        .logo { font-family: 'Playfair Display'; font-size: 28px; color: white; }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            padding: 80px;
+        }
+
+        .product-img { width: 100%; border-radius: 6px; }
+
+        h1 { font-family: 'Playfair Display'; font-size: 46px; }
+
+        .price {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            opacity: 0.85;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .details {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .size-select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 25px;
+        }
+
+        .add-btn {
+            background: #000;
+            color: #fff;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .add-btn:hover { background: #333; }
     </style>
 </head>
 
@@ -37,12 +82,33 @@
 
 <section class="product-container">
 
-    <img src="images/windsor-trouser.webp" class="product-img">
+    <img src="images/windsor-trouser.webp" class="product-img" alt="Windsor Trouser">
 
     <div>
         <h1>Windsor Trouser</h1>
-        <p class="price">AED 219</p>
-        <p>Refined tailored trouser designed for modern elegance.</p>
+        <p class="price">AED 480</p>
+
+        <p class="description">
+            The Windsor Trouser is tailored for timeless sophistication. Crafted with precision and designed for versatility,
+            it offers a refined silhouette that transitions effortlessly from day to evening. A cornerstone piece for the modern gentleman’s wardrobe.
+        </p>
+
+        <div class="details">
+            <strong>Details</strong><br>
+            • Tailored, structured fit<br>
+            • Premium woven fabric<br>
+            • Flat-front design<br>
+            • Clean ankle finish<br>
+            • Designed for refined everyday wear<br><br>
+
+            <strong>Care</strong><br>
+            • Dry clean recommended<br>
+            • Do not bleach<br>
+            • Steam or press on low heat<br><br>
+
+            <strong>Fit Note</strong><br>
+            Fits true to size. Designed for a sharp, modern profile.
+        </div>
 
         <label>Select Size:</label>
         <select id="size" class="size-select">
@@ -55,16 +121,14 @@
         </select>
 
         <button class="add-btn" onclick="
-  addToCart(
-    'Windsor Trouser',
-    219,
-    'images/windsor-trouser.webp',
-    document.getElementById('size').value
-  )
-">
-  Add to Cart
-</button>
-
+            addToCart(
+                'Windsor Trouser',
+                480,
+                'images/windsor-trouser.webp'
+            )
+        ">
+            Add to Cart
+        </button>
     </div>
 
 </section>
@@ -72,3 +136,4 @@
 <script src="cart.js"></script>
 </body>
 </html>
+
