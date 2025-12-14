@@ -9,12 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            margin: 0;
-            background: #f8f6f3;
-            font-family: 'Inter', sans-serif;
-            color: #111;
-        }
+        body { margin: 0; background: #f8f6f3; font-family: Inter, sans-serif; color:#111; }
 
         header {
             padding: 25px 50px;
@@ -25,17 +20,16 @@
         }
 
         header a {
-            color: white;
+            color: #fff;
             margin-left: 35px;
             text-decoration: none;
             font-size: 15px;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display';
             font-size: 28px;
             color: white;
-            letter-spacing: 2px;
         }
 
         .product-container {
@@ -51,7 +45,7 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display';
             font-size: 46px;
             margin-bottom: 10px;
         }
@@ -65,27 +59,33 @@
         .description {
             opacity: 0.85;
             margin-bottom: 25px;
-            line-height: 1.6;
         }
 
-        .size-select {
+        .details {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        select {
             width: 100%;
             padding: 12px;
             border-radius: 4px;
             border: 1px solid #ccc;
-            margin-bottom: 25px;
-            font-size: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
 
         .add-btn {
-            padding: 14px 28px;
-            background: black;
-            color: white;
+            background: #000;
+            color: #fff;
+            padding: 14px 30px;
             border: none;
             border-radius: 4px;
-            font-size: 15px;
             cursor: pointer;
-            transition: 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
         .add-btn:hover {
@@ -117,19 +117,46 @@
 
 <section class="product-container">
 
-    <img src="images/oxford-polo.webp" alt="Oxford Polo" class="product-img">
+    <img src="images/oxford-polo.webp" class="product-img" alt="Oxford Polo">
 
     <div>
         <h1>Oxford Polo</h1>
         <p class="price">AED 299</p>
 
         <p class="description">
-            A refined polo crafted from premium textured pique cotton. Designed with a tailored silhouette,
-            it offers understated elegance and everyday comfort — an elevated essential for modern dressing.
+            The Oxford Polo is crafted from premium textured cotton, offering a refined balance between structure and comfort.
+            Designed with a tailored silhouette and timeless appeal, it elevates everyday dressing with effortless sophistication.
         </p>
 
-        <label for="size">Select Size:</label>
-        <select id="size" class="size-select" required>
+        <div class="details">
+            <strong>Details</strong><br>
+            • Premium cotton pique construction<br>
+            • Tailored modern fit<br>
+            • Short sleeves<br>
+            • Classic polo collar with button placket<br>
+            • Designed for elevated everyday wear<br><br>
+
+            <strong>Care</strong><br>
+            • Machine wash cold<br>
+            • Do not bleach<br>
+            • Lay flat or hang to dry<br><br>
+
+            <strong>Fit Note</strong><br>
+            Fits true to size. Designed for a clean, refined silhouette.
+        </div>
+
+        <label>Select Color:</label>
+        <select id="color">
+            <option value="">Select Color</option>
+            <option>White</option>
+            <option>Black</option>
+            <option>Beige</option>
+            <option>Grey</option>
+            <option>Light Blue</option>
+        </select>
+
+        <label>Select Size:</label>
+        <select id="size">
             <option value="">Select Size</option>
             <option>Small</option>
             <option>Medium</option>
@@ -138,20 +165,14 @@
         </select>
 
         <button class="add-btn" onclick="
-            if (!document.getElementById('size').value) {
-                alert('Please select a size');
-                return;
-            }
             addToCart(
                 'Oxford Polo',
                 299,
-                'images/oxford-polo.webp',
-                document.getElementById('size').value
-            );
+                'images/oxford-polo.webp'
+            )
         ">
             Add to Cart
         </button>
-
     </div>
 
 </section>
