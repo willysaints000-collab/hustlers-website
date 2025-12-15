@@ -1,272 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>H&CO. — Hustlers & Company</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H&CO. — Effortless Luxury Menswear</title>
+<meta name="description" content="Welcome to H&CO., the home of effortless luxury. Explore our collection of timeless, refined clothing and discover your new essentials.">
 
-    <!-- Luxury Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NEE8LB2QZR');
+</script>
+<!-- End Google tag -->
 
-    <style>
-        body {
-            margin: 0;
-            background: #f8f6f3;
-            font-family: 'Inter', sans-serif;
-            color: #111;
-        }
-
-        /* NAVBAR */
-        header {
-            width: 100%;
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            z-index: 10;
-        }
-
-        header a {
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
-            color: white;
-            font-size: 15px;
-            margin-left: 35px;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
-
-        header a:hover {
-            opacity: 0.7;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-            letter-spacing: 2px;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background: url('images/home-hero.webp') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 80px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(10, 10, 10, 0.35);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 5;
-            max-width: 550px;
-            color: white;
-            animation: fadeUp 1.2s ease forwards;
-            opacity: 0;
-        }
-
-        .hero-title {
-            font-family: "Playfair Display", serif;
-            font-size: 62px;
-            line-height: 1.05;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-size: 19px;
-            letter-spacing: 1px;
-            margin-bottom: 35px;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .shop-btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: black;
-            color: white;
-            border-radius: 3px;
-            text-decoration: none;
-            font-size: 15px;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
-
-        .shop-btn:hover {
-            background: #333;
-        }
-
-        /* FOOTER */
-        .site-footer {
-            background: #ffffff;
-            border-top: 1px solid #eee;
-            padding: 50px 40px 25px;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin: 0 0 8px;
-        }
-
-        .footer-brand p {
-            font-size: 14px;
-            color: #555;
-            max-width: 320px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            color: #111;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            opacity: 0.6;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            font-size: 13px;
-            color: #777;
-            margin-top: 35px;
-        }
-
-        /* Fade Animation */
-        @keyframes fadeUp {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            header {
-                padding: 20px 25px;
-            }
-
-            header a {
-                margin-left: 18px;
-                font-size: 13px;
-            }
-
-            .hero {
-                padding-left: 35px;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .hero-content {
-                max-width: 90%;
-            }
-
-            .hero-title {
-                font-size: 40px;
-            }
-
-            .hero-subtitle {
-                font-size: 16px;
-            }
-
-            .shop-btn {
-                font-size: 14px;
-                padding: 12px 26px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f8f6f3;
+    color: #111;
+}
+header {
+    background: #000;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 400;
+}
+header a:hover { opacity: 0.7; }
+.logo { font-family: 'Playfair Display', serif; font-size: 28px; letter-spacing: 2px; color: #fff; }
+.hero {
+    height: 70vh;
+    background: url('images/home-hero.webp') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+.btn {
+    padding: 14px 28px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.btn:hover { background: #ddd; }
+footer {
+    background: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+footer a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+}
+footer a:hover { color: #000; }
+@media (max-width: 900px) {
+    .hero-content h1 { font-size: 40px; }
+    .hero-content p { font-size: 16px; }
+}
+</style>
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">H&CO.</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">H&CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+    </nav>
+</header>
 
-    <!-- HERO -->
+<main>
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Elevate Your Everyday.</h1>
-            <p class="hero-subtitle">
-                Luxury essentials crafted for the modern gentleman. Understated, timeless, unmistakably H&CO.
-            </p>
-            <a href="collection.html" class="shop-btn">Explore Collection</a>
+            <h1>Effortless Luxury</h1>
+            <p>Premium craftsmanship. Timeless style. Refined essentials.</p>
+            <a href="collection.html" class="btn">Explore Collection</a>
         </div>
     </section>
+</main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>H&CO.</h3>
-                <p>Luxury essentials crafted for the modern gentleman.</p>
-            </div>
+<footer>
+    <p>© 2025 H&CO. All rights reserved.</p>
+    <a href="shipping.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms & Conditions</a>
+</footer>
 
-            <div class="footer-links">
-                <a href="shipping.html">Shipping & Returns</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            © 2025 H&CO. All rights reserved.
-        </div>
-    </footer>
-
+<script src="cart.js"></script>
 </body>
 </html>
+
