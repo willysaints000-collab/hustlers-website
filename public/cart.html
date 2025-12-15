@@ -1,185 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>H&CO. — Cart</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — H&CO.</title>
+<meta name="description" content="View and manage your cart at H&CO. See items you’ve added, adjust quantities, and proceed to checkout when you’re ready.">
 
-    <!-- Luxury Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NEE8LB2QZR');
+</script>
+<!-- End Google tag -->
 
-    <style>
-        body {
-            margin: 0;
-            background: #f8f6f3;
-            font-family: 'Inter', sans-serif;
-            color: #111;
-        }
-
-        header {
-            width: 100%;
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #000;
-        }
-
-        header a {
-            text-decoration: none;
-            color: white;
-            font-size: 15px;
-            margin-left: 35px;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
-
-        header a:hover { opacity: 0.7; }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-            letter-spacing: 2px;
-        }
-
-        .cart-count { font-weight: 600; }
-
-        .cart-header {
-            text-align: center;
-            padding: 70px 20px 40px;
-        }
-
-        .cart-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-        }
-
-        .cart-container {
-            width: 70%;
-            margin: auto;
-            margin-bottom: 80px;
-        }
-
-        .cart-row {
-            display: flex;
-            background: white;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .cart-img {
-            width: 140px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .cart-info h3 {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .cart-info p {
-            margin: 0 0 10px;
-            font-size: 15px;
-            opacity: 0.7;
-        }
-
-        .remove-btn {
-            border: none;
-            background: transparent;
-            color: #b00;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .total-box {
-            width: 70%;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 6px;
-            text-align: right;
-            margin-bottom: 80px;
-        }
-
-        .total-box h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-        }
-
-        .checkout-btn {
-            padding: 14px 28px;
-            background: black;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 15px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        @media(max-width: 850px) {
-            .cart-container, .total-box {
-                width: 90%;
-            }
-
-            .cart-row {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .cart-img {
-                width: 100%;
-                height: 240px;
-            }
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Inter',sans-serif; background:#f8f6f3; color:#111; }
+header { background:#000; padding:25px 60px; display:flex; justify-content:space-between; align-items:center; }
+header a { color:#fff; text-decoration:none; margin-left:30px; font-weight:400; }
+header a:hover { opacity:0.7; }
+.logo { font-family:'Playfair Display', serif; font-size:28px; color:#fff; }
+.main { padding:70px 10%; min-height:60vh; }
+h1 { font-family:'Playfair Display', serif; font-size:42px; margin-bottom:25px; }
+.empty-message { text-align:center; margin:60px 0; color:#555; }
+.cart-container { display:flex; flex-direction:column; gap:30px; }
+.cart-item { display:flex; justify-content:space-between; align-items:center; background:#fff; padding:20px; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
+.cart-item img { width:80px; border-radius:4px; }
+.cart-item-info { flex-grow:1; margin-left:20px; }
+.cart-item-info h3 { font-family:'Playfair Display', serif; font-size:20px; margin-bottom:8px; }
+.cart-item-info p { margin:0; font-size:14px; color:#666; }
+.remove-btn { background:transparent; border:none; color:#900; cursor:pointer; font-size:16px; }
+.total-box { margin-top:40px; background:#fff; padding:25px; border-radius:6px; text-align:right; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
+.total-box span { font-weight:600; }
+.checkout-btn { margin-top:20px; display:inline-block; padding:14px 28px; background:#000; color:#fff; text-decoration:none; font-size:15px; letter-spacing:1px; }
+.checkout-btn:hover { background:#333; }
+footer { background:#fff; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5; }
+footer a { margin:0 12px; text-decoration:none; color:#444; font-size:14px; }
+footer a:hover { color:#000; }
+</style>
 </head>
 
 <body>
+<header>
+    <a href="index.html" class="logo">H&CO.</a>
+    <nav>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+    </nav>
+</header>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">H&CO.</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-        </nav>
-    </header>
-
-    <!-- TITLE -->
-    <section class="cart-header">
-        <h1>Your Cart</h1>
-    </section>
-
-    <!-- CART ITEMS -->
-    <section class="cart-container" id="cart-items"></section>
-
-    <!-- TOTAL -->
-    <section class="total-box">
-        <h2>Total: <span id="cart-total">AED 0.00</span></h2>
+<main class="main">
+    <h1>Your Cart</h1>
+    <div id="cart-content">
+        <p class="empty-message">Your cart is currently empty. Explore the collection and find your essentials.</p>
+    </div>
+    <div class="total-box" id="cart-total" style="display:none;">
+        <div>Total: <span id="total-price">AED 0.00</span></div>
         <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
-    </section>
+    </div>
+</main>
 
-    <script src="cart.js"></script>
+<footer>
+    <p>© 2025 H&CO. All rights reserved.</p>
+    <a href="shipping.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms & Conditions</a>
+</footer>
 
-    <script>
-        displayCart();   // ✅ correct function name
-    </script>
-
+<script src="cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', displayCart);
+</script>
 </body>
 </html>
+
