@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +15,6 @@
             font-family: 'Inter', sans-serif;
             color: #111;
         }
-
         /* NAVBAR */
         header {
             width: 100%;
@@ -26,7 +24,6 @@
             align-items: center;
             background: #000;
         }
-
         header a {
             font-family: 'Inter', sans-serif;
             text-decoration: none;
@@ -36,11 +33,9 @@
             letter-spacing: 1px;
             transition: 0.3s ease;
         }
-
         header a:hover {
             opacity: 0.7;
         }
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -48,7 +43,6 @@
             color: white;
             letter-spacing: 2px;
         }
-
         /* HERO */
         .hero {
             width: 100%;
@@ -59,7 +53,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .hero::before {
             content: "";
             position: absolute;
@@ -69,7 +62,6 @@
             height: 100%;
             background: rgba(20, 20, 20, 0.35);
         }
-
         .hero h1 {
             position: relative;
             font-family: "Playfair Display", serif;
@@ -80,40 +72,34 @@
             animation: fadeUp 1.2s ease forwards;
             opacity: 0;
         }
-
         /* CONTENT */
         .about-section {
             padding: 70px 15%;
             text-align: center;
         }
-
         .about-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 40px;
             margin-bottom: 25px;
             font-weight: 600;
         }
-
         .about-section p {
             font-size: 17px;
             line-height: 1.7;
             opacity: 0.85;
             margin-bottom: 30px;
         }
-
         /* VALUES SECTION */
         .values {
             padding: 60px 15%;
             background: white;
         }
-
         .values-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             margin-top: 40px;
         }
-
         .value-box {
             text-align: center;
             padding: 30px 20px;
@@ -121,51 +107,32 @@
             border-radius: 6px;
             transition: 0.3s ease;
         }
-
         .value-box:hover {
             transform: translateY(-6px);
         }
-
         .value-box h3 {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
             margin-bottom: 12px;
             font-weight: 600;
         }
-
         .value-box p {
             font-size: 15px;
             opacity: 0.75;
             line-height: 1.6;
         }
-
         /* ANIMATIONS */
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         /* MOBILE */
         @media (max-width: 900px) {
-            .values-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .values-grid { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 40px; }
+            .values-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -181,6 +148,7 @@
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
         </nav>
     </header>
 
@@ -193,38 +161,37 @@
     <section class="about-section">
         <h2>Crafting Luxury With Purpose</h2>
         <p>
-            Hustlers & Co. was created with a simple belief: luxury should feel effortless.
-            Every piece we design blends premium craftsmanship, timeless aesthetics, and the spirit of the modern hustler — someone who moves with quiet confidence, ambition, and purpose.
+            Hustlers &amp; Co. was created with a simple belief: luxury should feel effortless.
+            Every piece we design blends premium craftsmanship, timeless aesthetics,
+            and the spirit of the modern hustler — someone who moves with quiet confidence,
+            ambition, and purpose.
         </p>
         <p>
-            Our collections are inspired by classic menswear silhouettes, elevated with refined fabrics and meticulous attention to detail. We are committed to creating pieces that last — in quality, in style, and in the stories they become part of.
+            Our collections are inspired by classic menswear silhouettes, elevated with refined fabrics and meticulous attention to detail.
+            We are committed to creating pieces that last — in quality, in style, and in the stories they become part of.
         </p>
     </section>
 
     <!-- VALUES SECTION -->
     <section class="values">
         <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:40px; font-weight:600;">Our Values</h2>
-
         <div class="values-grid">
-
             <div class="value-box">
                 <h3>Timeless Design</h3>
                 <p>We create pieces that never go out of style — refined, classic, and enduring.</p>
             </div>
-
             <div class="value-box">
                 <h3>Premium Quality</h3>
                 <p>Every material is carefully selected to ensure comfort, durability, and true luxury.</p>
             </div>
-
             <div class="value-box">
                 <h3>Modern Ambition</h3>
-                <p>H&CO. embodies the mindset of those who strive to elevate their everyday life.</p>
+                <p>H&amp;CO. embodies the mindset of those who strive to elevate their everyday life.</p>
             </div>
-
         </div>
     </section>
 
+    <!-- Load cart script to update cart count -->
+    <script src="cart.js"></script>
 </body>
 </html>
-
