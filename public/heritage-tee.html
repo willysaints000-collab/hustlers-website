@@ -4,9 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heritage Tee — H&CO.</title>
+<meta name="description" content="Discover the Heritage Tee by H&CO., crafted from premium cotton for a timeless, refined look.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NEE8LB2QZR');
+</script>
+<!-- End Google tag -->
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Base styling */
 body { margin:0; font-family:'Inter',sans-serif; background:#f8f6f3; color:#111; }
 header { padding:25px 60px; background:#000; display:flex; justify-content:space-between; align-items:center; }
 header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; }
@@ -37,6 +48,8 @@ header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; 
   <nav>
     <a href="collection.html">Collection</a>
     <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
   </nav>
 </header>
@@ -53,7 +66,6 @@ header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; 
       Featuring a clean silhouette and a structured yet comfortable fit, it transitions
       seamlessly from day to night — a timeless essential, elevated.
     </p>
-
     <div class="option-group">
       <label>COLOR</label>
       <div class="options" id="colorOptions">
@@ -64,7 +76,6 @@ header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; 
         <button>Off-White</button>
       </div>
     </div>
-
     <div class="option-group">
       <label>SIZE</label>
       <div class="options" id="sizeOptions">
@@ -74,7 +85,6 @@ header a { color:#fff; text-decoration:none; margin-left:35px; font-weight:300; 
         <button>XL</button>
       </div>
     </div>
-
     <button class="add-to-cart" onclick="addItem()">ADD TO CART</button>
   </div>
 </section>
@@ -108,4 +118,3 @@ activateOption('sizeOptions');
 
 </body>
 </html>
-
