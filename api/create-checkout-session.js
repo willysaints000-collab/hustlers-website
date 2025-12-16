@@ -1,9 +1,5 @@
 import Stripe from "stripe";
 
-export const config = {
-  runtime: "nodejs",
-};
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
@@ -24,26 +20,23 @@ export default async function handler(req, res) {
         product_data: {
           name: item.name,
         },
-        unit_amount: Math.round(Number(item.price) * 100),
+        unit_amount: item.price * 100,
       },
-      quantity: Number(item.quantity || item.qty || 1),
+      quantity: item.qty,
     }));
-
-    const origin = req.headers.origin;
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      success_url: `${origin}/success.html`,
-      cancel_url: `${origin}/cart.html`,
+      success_url: `${req.headers.origin}/success.html`,
+      cancel_url: `${req.headers.origin}/cancel.html`,
     });
 
-    return res.status(200).json({ url: session.url });
+    return res.status(200).json({ id: session.id });
 
   } catch (error) {
     console.error("Stripe error:", error);
     return res.status(500).json({ error: error.message });
   }
 }
-
