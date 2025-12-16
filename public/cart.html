@@ -78,6 +78,11 @@
       margin-top: 40px;
     }
 
+    .summary p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
     .checkout-btn {
       background: black;
       color: white;
@@ -85,6 +90,18 @@
       padding: 14px 32px;
       font-size: 14px;
       cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      border-top: 1px solid #ddd;
+      text-align: center;
+      padding: 30px;
+      font-size: 13px;
+      color: #666;
     }
   </style>
 </head>
@@ -122,9 +139,9 @@
 </footer>
 
 <script>
-/* CART */
+/* ---------------- CART LOGIC ---------------- */
 const CART_KEY = "hco_cart";
-const stripe = Stripe(pk_test_51…
+const stripe = Stripe("pk_test_51Scs9ZFzwWXv8OLZUJPQufIlOy6HI52MTYHzTp1wsGkF1pzqzGhAuodEs3U7S3MFd6z2slOwOt5OHlAfgpqfyfEo00V2g1zUiW");
 
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
@@ -154,6 +171,7 @@ function renderCart() {
 
   cart.forEach(item => {
     total += item.price * item.qty;
+
     itemsEl.innerHTML += `
       <div class="cart-item">
         <div>
@@ -171,9 +189,14 @@ function renderCart() {
 
 renderCart();
 
-/* STRIPE CHECKOUT */
+/* ---------------- STRIPE CHECKOUT ---------------- */
 document.getElementById("checkout-btn").addEventListener("click", async () => {
   const cart = getCart();
+
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
 
   const response = await fetch("/api/create-checkout-session", {
     method: "POST",
@@ -182,7 +205,12 @@ document.getElementById("checkout-btn").addEventListener("click", async () => {
   });
 
   const session = await response.json();
-  stripe.redirectToCheckout({ sessionId: session.id });
+
+  if (session.id) {
+    stripe.redirectToCheckout({ sessionId: session.id });
+  } else {
+    alert("Checkout failed. Please try again.");
+  }
 });
 </script>
 
