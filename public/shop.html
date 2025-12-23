@@ -1,188 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — H&CO.</title>
-<meta name="description" content="Shop H&CO.'s curated range of luxury essentials. Timeless tees and polos crafted with refinement and intention.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — H&CO.</title>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-NEE8LB2QZR');
-</script>
+  <!-- Luxury Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background:#f8f6f3;
-    color:#111;
-}
-
-header {
-    background:#000;
-    padding:25px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-header a {
-    color:#fff;
-    text-decoration:none;
-    margin-left:30px;
-    font-weight:400;
-}
-
-header a:hover { opacity:0.7; }
-
-.logo {
-    font-family:'Playfair Display', serif;
-    font-size:28px;
-    color:#fff;
-}
-
-.main {
-    padding:80px 10%;
-}
-
-.page-title {
-    font-family:'Playfair Display', serif;
-    font-size:42px;
-    margin-bottom:60px;
-}
-
-.grid {
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:80px 60px;
-}
-
-.card {
-    text-align:center;
-}
-
-.card img {
-    width:100%;
-    background:#fff;
-}
-
-.card h3 {
-    font-family:'Playfair Display', serif;
-    font-size:22px;
-    margin:24px 0 8px;
-}
-
-.card p {
-    font-size:15px;
-    letter-spacing:0.5px;
-    margin-bottom:14px;
-}
-
-.card a {
-    font-size:14px;
-    text-decoration:none;
-    color:#111;
-    border-bottom:1px solid #111;
-    padding-bottom:2px;
-}
-
-.card a:hover {
-    opacity:0.7;
-}
-
-footer {
-    background:#fff;
-    padding:40px 20px;
-    text-align:center;
-    border-top:1px solid #e5e5e5;
-    margin-top:120px;
-}
-
-footer a {
-    margin:0 12px;
-    text-decoration:none;
-    color:#444;
-    font-size:14px;
-}
-
-footer a:hover { color:#000; }
-
-@media (max-width:900px) {
-    .grid {
-        grid-template-columns:1fr;
-        gap:70px;
+  <style>
+    body {
+      margin: 0;
+      background: #f8f6f3;
+      color: #111;
+      font-family: 'Inter', sans-serif;
     }
-}
-</style>
+
+    header {
+      background: #000;
+      padding: 25px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .shop-container {
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 0 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 100px 80px;
+    }
+
+    .product-card {
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      max-width: 420px;
+      background: #000;
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-top: 25px;
+    }
+
+    .product-price {
+      font-size: 14px;
+      margin: 10px 0;
+      letter-spacing: 0.05em;
+    }
+
+    .view-link {
+      font-size: 13px;
+      text-decoration: underline;
+      color: #111;
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 12px;
+      color: #777;
+    }
+
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 80px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <a href="index.html" class="logo">H&CO.</a>
-    <nav>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-    </nav>
+  <div class="logo">H&CO.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
 </header>
 
-<main class="main">
-    <h1 class="page-title">Shop</h1>
+<section class="shop-container">
+  <div class="product-grid">
 
-    <div class="grid">
-
-        <!-- Heritage Tee White -->
-        <div class="card">
-            <img src="images/heritage-tee-white.webp" alt="Heritage Tee White">
-            <h3>Heritage Tee — White</h3>
-            <p>AED 249</p>
-            <a href="heritage-tee.html">View Product</a>
-        </div>
-
-        <!-- Heritage Tee Black -->
-        <div class="card">
-            <img src="images/heritage-tee-black.webp" alt="Heritage Tee Black">
-            <h3>Heritage Tee — Black</h3>
-            <p>AED 249</p>
-            <a href="heritage-tee.html">View Product</a>
-        </div>
-
-        <!-- Oxford Polo White -->
-        <div class="card">
-            <img src="images/oxford-polo-white.webp" alt="Oxford Polo White">
-            <h3>Oxford Polo — White</h3>
-            <p>AED 349</p>
-            <a href="oxford-polo.html">View Product</a>
-        </div>
-
-        <!-- Oxford Polo Black -->
-        <div class="card">
-            <img src="images/oxford-polo-black.webp" alt="Oxford Polo Black">
-            <h3>Oxford Polo — Black</h3>
-            <p>AED 349</p>
-            <a href="oxford-polo.html">View Product</a>
-        </div>
-
+    <!-- Heritage Tee White -->
+    <div class="product-card">
+      <img src="images/heritage-tee-white.webp" alt="Heritage Tee White">
+      <div class="product-title">Heritage Tee — White</div>
+      <div class="product-price">AED 249</div>
+      <a href="heritage-tee.html" class="view-link">View Product</a>
     </div>
-</main>
+
+    <!-- Heritage Tee Black -->
+    <div class="product-card">
+      <img src="images/heritage-tee-black.webp" alt="Heritage Tee Black">
+      <div class="product-title">Heritage Tee — Black</div>
+      <div class="product-price">AED 249</div>
+      <a href="heritage-tee.html" class="view-link">View Product</a>
+    </div>
+
+    <!-- Oxford Polo White -->
+    <div class="product-card">
+      <img src="images/oxford-polo-white.webp" alt="Oxford Polo White">
+      <div class="product-title">Oxford Polo — White</div>
+      <div class="product-price">AED 349</div>
+      <a href="oxford-polo.html" class="view-link">View Product</a>
+    </div>
+
+    <!-- Oxford Polo Black -->
+    <div class="product-card">
+      <img src="images/oxford-polo-black.webp" alt="Oxford Polo Black">
+      <div class="product-title">Oxford Polo — Black</div>
+      <div class="product-price">AED 349</div>
+      <a href="oxford-polo.html" class="view-link">View Product</a>
+    </div>
+
+  </div>
+</section>
 
 <footer>
-    <p>© 2025 H&CO. All rights reserved.</p>
-    <a href="shipping.html">Shipping & Returns</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms & Conditions</a>
+  © 2025 H&CO. All rights reserved.
 </footer>
 
-<script src="cart.js"></script>
 </body>
 </html>
