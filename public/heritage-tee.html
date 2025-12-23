@@ -1,136 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Heritage Tee — H&CO.</title>
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #f8f6f3;
+    margin: 0;
+    background: #faf7f2;
     color: #111;
+    font-family: 'Inter', sans-serif;
 }
 
 /* HEADER */
 header {
     background: #000;
-    color: #fff;
-    padding: 24px 60px;
+    padding: 22px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header .logo {
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.logo {
     font-family: 'Playfair Display', serif;
     font-size: 26px;
 }
 
-header nav a {
-    color: #fff;
-    margin-left: 32px;
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-}
-
-/* PRODUCT LAYOUT */
-.product-container {
-    max-width: 1400px;
-    margin: 80px auto;
-    padding: 0 60px;
+/* PAGE LAYOUT */
+.product-page {
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 0 40px;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 100px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 90px;
     align-items: center;
 }
 
 /* IMAGE */
-.product-image {
-    background: radial-gradient(circle at center, #1b1b1b 0%, #000 70%);
-    padding: 80px;
-    display: flex;
-    justify-content: center;
-}
-
 .product-image img {
     width: 100%;
     max-width: 520px;
-    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.55));
+    display: block;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
 }
 
 /* INFO */
 .product-info h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 44px;
+    font-size: 48px;
     margin-bottom: 10px;
 }
 
 .price {
     font-size: 18px;
     letter-spacing: 1px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .description {
-    font-size: 15px;
     line-height: 1.8;
-    color: #333;
-    max-width: 460px;
-    margin-bottom: 40px;
+    max-width: 420px;
+    margin-bottom: 45px;
 }
 
 /* OPTIONS */
-.option {
-    margin-bottom: 24px;
+.option-group {
+    margin-bottom: 28px;
 }
 
-.option label {
+.option-group label {
     display: block;
     font-size: 12px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 8px;
 }
 
 select {
     width: 280px;
-    padding: 12px;
+    padding: 12px 14px;
     font-size: 14px;
+    border: 1px solid #ccc;
+    background: #fff;
 }
 
 /* BUTTON */
 button {
     margin-top: 30px;
+    padding: 14px 40px;
     background: #000;
     color: #fff;
     border: none;
-    padding: 16px 50px;
     font-size: 14px;
     letter-spacing: 2px;
     cursor: pointer;
 }
 
-/* MOBILE */
+button:hover {
+    opacity: 0.85;
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .product-container {
+    .product-page {
         grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 0 30px;
+        gap: 50px;
     }
 
-    .product-image {
-        padding: 40px;
+    .product-image img {
+        max-width: 100%;
     }
 }
 </style>
@@ -139,22 +134,20 @@ button {
 <body>
 
 <header>
-    <div class="logo">H&CO.</div>
+    <a href="index.html" class="logo">H&CO.</a>
     <nav>
-        <a href="/collection.html">Collection</a>
-        <a href="/shop.html">Shop</a>
-        <a href="/cart.html">Cart</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
     </nav>
 </header>
 
-<main class="product-container">
+<main class="product-page">
 
-    <!-- IMAGE -->
     <div class="product-image">
-        <img src="/images/heritage-tee-black.webp" alt="Heritage Tee Black">
+        <img src="images/heritage-tee-black.webp" alt="Heritage Tee Black">
     </div>
 
-    <!-- INFO -->
     <div class="product-info">
         <h1>Heritage Tee</h1>
         <div class="price">AED 249</div>
@@ -165,7 +158,7 @@ button {
             structure, and understated refinement.
         </p>
 
-        <div class="option">
+        <div class="option-group">
             <label>COLOR</label>
             <select>
                 <option>Black</option>
@@ -173,7 +166,7 @@ button {
             </select>
         </div>
 
-        <div class="option">
+        <div class="option-group">
             <label>SIZE</label>
             <select>
                 <option>XS</option>
@@ -191,3 +184,4 @@ button {
 
 </body>
 </html>
+
