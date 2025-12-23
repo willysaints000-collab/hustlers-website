@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop — H&CO.</title>
-<meta name="description" content="Explore the H&CO. collection. Timeless essentials crafted with refinement and intention.">
+<meta name="description" content="Shop H&CO.'s curated range of luxury essentials. Timeless tees and polos crafted with refinement and intention.">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
@@ -14,7 +14,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-NEE8LB2QZR');
 </script>
-<!-- End Google tag -->
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -53,51 +52,49 @@ header a:hover { opacity:0.7; }
     padding:80px 10%;
 }
 
-h1 {
+.page-title {
     font-family:'Playfair Display', serif;
-    font-size:36px;
-    margin-bottom:50px;
+    font-size:42px;
+    margin-bottom:60px;
 }
 
 .grid {
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-    gap:60px;
+    gap:80px 60px;
 }
 
 .card {
-    background:#fff;
     text-align:center;
-    overflow:hidden;
 }
 
 .card img {
     width:100%;
-    display:block;
+    background:#fff;
 }
 
 .card h3 {
     font-family:'Playfair Display', serif;
-    font-size:20px;
-    margin:18px 0 6px;
+    font-size:22px;
+    margin:24px 0 8px;
 }
 
-.price {
+.card p {
     font-size:15px;
-    margin-bottom:12px;
+    letter-spacing:0.5px;
+    margin-bottom:14px;
 }
 
 .card a {
-    display:inline-block;
-    margin-bottom:24px;
-    text-decoration:none;
     font-size:14px;
+    text-decoration:none;
     color:#111;
-    border-bottom:1px solid transparent;
+    border-bottom:1px solid #111;
+    padding-bottom:2px;
 }
 
 .card a:hover {
-    border-bottom:1px solid #111;
+    opacity:0.7;
 }
 
 footer {
@@ -105,6 +102,7 @@ footer {
     padding:40px 20px;
     text-align:center;
     border-top:1px solid #e5e5e5;
+    margin-top:120px;
 }
 
 footer a {
@@ -116,18 +114,10 @@ footer a {
 
 footer a:hover { color:#000; }
 
-@media (max-width: 768px) {
+@media (max-width:900px) {
     .grid {
         grid-template-columns:1fr;
-        gap:40px;
-    }
-
-    header {
-        padding:20px 30px;
-    }
-
-    .main {
-        padding:60px 8%;
+        gap:70px;
     }
 }
 </style>
@@ -147,39 +137,39 @@ footer a:hover { color:#000; }
 </header>
 
 <main class="main">
-    <h1>Shop</h1>
+    <h1 class="page-title">Shop</h1>
 
     <div class="grid">
 
-        <!-- HERITAGE TEE — WHITE -->
+        <!-- Heritage Tee White -->
         <div class="card">
             <img src="images/heritage-tee-white.webp" alt="Heritage Tee White">
             <h3>Heritage Tee — White</h3>
-            <p class="price">AED 249</p>
+            <p>AED 249</p>
             <a href="heritage-tee.html">View Product</a>
         </div>
 
-        <!-- HERITAGE TEE — BLACK -->
+        <!-- Heritage Tee Black -->
         <div class="card">
             <img src="images/heritage-tee-black.webp" alt="Heritage Tee Black">
             <h3>Heritage Tee — Black</h3>
-            <p class="price">AED 249</p>
+            <p>AED 249</p>
             <a href="heritage-tee.html">View Product</a>
         </div>
 
-        <!-- OXFORD POLO — WHITE -->
+        <!-- Oxford Polo White -->
         <div class="card">
             <img src="images/oxford-polo-white.webp" alt="Oxford Polo White">
             <h3>Oxford Polo — White</h3>
-            <p class="price">AED 349</p>
+            <p>AED 349</p>
             <a href="oxford-polo.html">View Product</a>
         </div>
 
-        <!-- OXFORD POLO — BLACK -->
+        <!-- Oxford Polo Black -->
         <div class="card">
             <img src="images/oxford-polo-black.webp" alt="Oxford Polo Black">
             <h3>Oxford Polo — Black</h3>
-            <p class="price">AED 349</p>
+            <p>AED 349</p>
             <a href="oxford-polo.html">View Product</a>
         </div>
 
