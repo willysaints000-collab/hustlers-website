@@ -1,203 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oxford Polo — H&CO.</title>
-  <meta name="description" content="The Oxford Polo by H&CO. A refined piqué essential crafted for timeless, elevated wear. Available in White and Black.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oxford Polo — H&CO.</title>
 
-  <!-- Luxury Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      background: #f8f6f3;
-      color: #111;
-      font-family: 'Inter', sans-serif;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f8f6f3;
+  color: #111;
+}
 
-    header {
-      background: #000;
-      padding: 25px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background: #000;
+  padding: 22px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    header a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-    }
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 32px;
+  font-size: 14px;
+}
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-    }
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+}
 
-    .product-container {
-      max-width: 1200px;
-      margin: 100px auto;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 80px;
-      align-items: start;
-    }
+.product {
+  max-width: 1200px;
+  margin: 90px auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 90px;
+}
 
-    .product-image img {
-      width: 100%;
-      background: #000;
-    }
+.product-image {
+  background: #f8f6f3;
+  padding: 40px;
+}
 
-    .product-info h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+.product-image img {
+  width: 100%;
+  display: block;
+}
 
-    .price {
-      font-size: 16px;
-      letter-spacing: 0.05em;
-      margin-bottom: 30px;
-    }
+.product-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin-bottom: 12px;
+}
 
-    .description {
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 40px;
-      max-width: 460px;
-    }
+.price {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
 
-    .option-group {
-      margin-bottom: 30px;
-    }
+.description {
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
 
-    .option-label {
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
+.label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
 
-    select {
-      width: 220px;
-      padding: 10px;
-      font-size: 14px;
-      background: #fff;
-      border: 1px solid #111;
-      appearance: none;
-    }
+select {
+  width: 260px;
+  padding: 14px;
+  font-size: 14px;
+  margin-bottom: 26px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
 
-    button {
-      margin-top: 30px;
-      padding: 14px 36px;
-      background: #000;
-      color: #fff;
-      border: none;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      cursor: pointer;
-    }
+button {
+  padding: 16px 46px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
 
-    button:hover {
-      opacity: 0.85;
-    }
+button:hover {
+  opacity: 0.9;
+}
 
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 12px;
-      color: #777;
-      margin-top: 120px;
-    }
+@media (max-width: 900px) {
+  .product {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 0 30px;
+  }
 
-    @media (max-width: 900px) {
-      .product-container {
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
-    }
-  </style>
+  .product-info h1 {
+    font-size: 40px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">H&CO.</div>
+  <a href="index.html" class="logo">H&CO.</a>
   <nav>
-    <a href="index.html">Home</a>
     <a href="collection.html">Collection</a>
     <a href="shop.html">Shop</a>
     <a href="cart.html">Cart</a>
   </nav>
 </header>
 
-<section class="product-container">
+<main class="product">
 
-  <!-- IMAGE -->
   <div class="product-image">
-    <img id="productImage" src="images/oxford-polo-white.webp" alt="Oxford Polo White">
+    <img src="images/oxford-polo-black.webp" alt="Oxford Polo Black">
   </div>
 
-  <!-- INFO -->
   <div class="product-info">
     <h1>Oxford Polo</h1>
     <div class="price">AED 349</div>
 
     <p class="description">
       Crafted from premium cotton piqué, the Oxford Polo is designed
-      for elevated everyday wear. Structured yet comfortable, it delivers
-      a refined silhouette with understated character.
+      for elevated everyday wear. Structured yet comfortable, it
+      delivers a refined silhouette with understated character.
     </p>
 
-    <!-- COLOR -->
-    <div class="option-group">
-      <div class="option-label">Color</div>
-      <select id="colorSelect" onchange="changeColor()">
-        <option value="white">White</option>
-        <option value="black">Black</option>
-      </select>
-    </div>
+    <div class="label">COLOR</div>
+    <select>
+      <option>Black</option>
+      <option>White</option>
+    </select>
 
-    <!-- SIZE -->
-    <div class="option-group">
-      <div class="option-label">Size</div>
-      <select>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-      </select>
-    </div>
+    <div class="label">SIZE</div>
+    <select>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
 
     <button>Add to Cart</button>
   </div>
 
-</section>
-
-<footer>
-  © 2025 H&CO. All rights reserved.
-</footer>
-
-<script>
-  function changeColor() {
-    const color = document.getElementById("colorSelect").value;
-    const image = document.getElementById("productImage");
-
-    if (color === "white") {
-      image.src = "images/oxford-polo-white.webp";
-      image.alt = "Oxford Polo White";
-    } else {
-      image.src = "images/oxford-polo-black.webp";
-      image.alt = "Oxford Polo Black";
-    }
-  }
-</script>
+</main>
 
 </body>
 </html>
