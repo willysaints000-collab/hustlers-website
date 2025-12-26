@@ -1,153 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop — H&CO.</title>
+<meta charset="UTF-8">
+<title>Shop — H&CO.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Luxury Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      background: #f8f6f3;
-      color: #111;
-      font-family: 'Inter', sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    header {
-      background: #000;
-      padding: 25px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+body{
+    font-family:Inter,sans-serif;
+    background:#f8f6f3;
+    color:#111;
+}
 
-    header a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-    }
+a{text-decoration:none;color:inherit}
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-    }
+header{
+    padding:28px 60px;
+    background:#fff;
+    border-bottom:1px solid #e6e6e6;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-    .shop-container {
-      max-width: 1200px;
-      margin: 100px auto;
-      padding: 0 40px;
-    }
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:26px;
+    letter-spacing:2px;
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 100px 80px;
-    }
+nav a{
+    margin-left:30px;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
 
-    .product-card {
-      text-align: center;
-    }
+.shop-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr); /* ✅ 2x2 */
+    gap:50px;
+    padding:80px 60px;
+    max-width:1200px;
+    margin:0 auto;
+}
 
-    .product-card img {
-      width: 100%;
-      max-width: 420px;
-      background: #000;
-    }
+.product{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+}
 
-    .product-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-top: 25px;
-    }
+.product img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
 
-    .product-price {
-      font-size: 14px;
-      margin: 10px 0;
-      letter-spacing: 0.05em;
-    }
+.product-info{
+    padding:28px;
+    text-align:center;
+}
 
-    .view-link {
-      font-size: 13px;
-      text-decoration: underline;
-      color: #111;
-      letter-spacing: 0.08em;
-    }
+.product-info h3{
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    margin-bottom:10px;
+}
 
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 12px;
-      color: #777;
-    }
+.product-info span{
+    display:block;
+    margin:14px 0;
+    font-size:14px;
+    letter-spacing:1px;
+}
 
-    @media (max-width: 900px) {
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 80px;
-      }
-    }
-  </style>
+.product-info a{
+    font-size:13px;
+    text-decoration:underline;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+    .shop-grid{grid-template-columns:1fr;padding:40px 26px}
+    header{padding:22px 26px}
+    .product img{height:360px}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">H&CO.</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="collection.html">Collection</a>
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart</a>
-  </nav>
+<a href="index.html" class="logo">H&CO.</a>
+<nav>
+<a href="collection.html">Collection</a>
+<a href="shop.html">Shop</a>
+<a href="cart.html">Cart</a>
+</nav>
 </header>
 
-<section class="shop-container">
-  <div class="product-grid">
+<section class="shop-grid">
 
-    <!-- Heritage Tee White -->
-    <div class="product-card">
-      <img src="images/heritage-tee-white.webp" alt="Heritage Tee White">
-      <div class="product-title">Heritage Tee — White</div>
-      <div class="product-price">AED 249</div>
-      <a href="heritage-tee.html" class="view-link">View Product</a>
-    </div>
+<div class="product">
+<img src="images/heritage-tee-white-front.webp">
+<div class="product-info">
+<h3>Heritage Tee — White</h3>
+<span>AED 249</span>
+<a href="heritage-tee.html">View Product</a>
+</div>
+</div>
 
-    <!-- Heritage Tee Black -->
-    <div class="product-card">
-      <img src="images/heritage-tee-black.webp" alt="Heritage Tee Black">
-      <div class="product-title">Heritage Tee — Black</div>
-      <div class="product-price">AED 249</div>
-      <a href="heritage-tee.html" class="view-link">View Product</a>
-    </div>
+<div class="product">
+<img src="images/heritage-tee-black-front.webp">
+<div class="product-info">
+<h3>Heritage Tee — Black</h3>
+<span>AED 249</span>
+<a href="heritage-tee.html">View Product</a>
+</div>
+</div>
 
-    <!-- Oxford Polo White -->
-    <div class="product-card">
-      <img src="images/oxford-polo-white.webp" alt="Oxford Polo White">
-      <div class="product-title">Oxford Polo — White</div>
-      <div class="product-price">AED 349</div>
-      <a href="oxford-polo.html" class="view-link">View Product</a>
-    </div>
+<div class="product">
+<img src="images/oxford-polo-white-front.webp">
+<div class="product-info">
+<h3>Oxford Polo — White</h3>
+<span>AED 349</span>
+<a href="oxford-polo.html">View Product</a>
+</div>
+</div>
 
-    <!-- Oxford Polo Black -->
-    <div class="product-card">
-      <img src="images/oxford-polo-black.webp" alt="Oxford Polo Black">
-      <div class="product-title">Oxford Polo — Black</div>
-      <div class="product-price">AED 349</div>
-      <a href="oxford-polo.html" class="view-link">View Product</a>
-    </div>
+<div class="product">
+<img src="images/oxford-polo-black-front.webp">
+<div class="product-info">
+<h3>Oxford Polo — Black</h3>
+<span>AED 349</span>
+<a href="oxford-polo.html">View Product</a>
+</div>
+</div>
 
-  </div>
 </section>
-
-<footer>
-  © 2025 H&CO. All rights reserved.
-</footer>
 
 </body>
 </html>
