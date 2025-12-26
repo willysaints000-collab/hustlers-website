@@ -1,136 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Collection — H&CO.</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Collection — H&CO.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #f8f6f3;
-    color: #111;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-header {
-    background: #000;
-    color: #fff;
-    padding: 24px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f6f3;
+            color: #111;
+        }
 
-header a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 28px;
-    font-size: 14px;
-}
+        /* HEADER */
+        header {
+            background: #000;
+            color: #fff;
+            padding: 22px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.logo {
-    font-family: 'Playfair Display';
-    font-size: 26px;
-    letter-spacing: 1px;
-}
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 40px;
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+        }
 
-h1 {
-    font-family: 'Playfair Display';
-    font-size: 42px;
-    margin-bottom: 50px;
-}
+        /* PAGE TITLE */
+        .page-title {
+            max-width: 1300px;
+            margin: 80px auto 50px;
+            padding: 0 60px;
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px;
-}
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+        }
 
-.card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-}
+        /* GRID */
+        .collection-grid {
+            max-width: 1300px;
+            margin: 0 auto 120px;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+        }
 
-.card img {
-    width: 100%;
-    background: #000;
-}
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
-.card h3 {
-    font-family: 'Playfair Display';
-    font-size: 20px;
-    margin: 18px 0 10px;
-}
+        .product-card:hover {
+            transform: translateY(-6px);
+        }
 
-.card a {
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #6a2cff;
-    text-decoration: none;
-}
-</style>
+        .product-card img {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+
+        .product-info {
+            padding: 26px 20px 32px;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-info a {
+            font-size: 14px;
+            color: #5a2cff;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            .page-title,
+            .collection-grid {
+                padding: 0 30px;
+            }
+
+            .page-title h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">H&CO.</div>
-    <nav>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart</a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">H&CO.</div>
+        <nav>
+            <a href="collection.html">Collection</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
 
-<div class="container">
-    <h1>The Collection</h1>
+    <!-- TITLE -->
+    <section class="page-title">
+        <h1>The Collection</h1>
+    </section>
 
-    <div class="grid">
+    <!-- COLLECTION GRID -->
+    <section class="collection-grid">
 
         <!-- Heritage Tee -->
-        <div class="card">
-            <img src="images/heritage-tee-white.webp" alt="Heritage Tee">
-            <h3>Heritage Tee</h3>
-            <a href="heritage-tee.html">View Product</a>
+        <div class="product-card">
+            <img src="images/heritage-tee-white-front.webp" alt="Heritage Tee">
+            <div class="product-info">
+                <h3>Heritage Tee</h3>
+                <a href="heritage-tee.html">View Product</a>
+            </div>
         </div>
 
         <!-- Oxford Polo -->
-        <div class="card">
-            <img src="images/oxford-polo-white.webp" alt="Oxford Polo">
-            <h3>Oxford Polo</h3>
-            <a href="oxford-polo.html">View Product</a>
+        <div class="product-card">
+            <img src="images/oxford-polo-white-front.webp" alt="Oxford Polo">
+            <div class="product-info">
+                <h3>Oxford Polo</h3>
+                <a href="oxford-polo.html">View Product</a>
+            </div>
         </div>
 
         <!-- Sovereign Sweater -->
-        <div class="card">
+        <div class="product-card">
             <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-            <h3>Sovereign Sweater</h3>
-            <a href="sovereign-sweater.html">View Product</a>
+            <div class="product-info">
+                <h3>Sovereign Sweater</h3>
+                <a href="sovereign-sweater.html">View Product</a>
+            </div>
         </div>
 
         <!-- Harrington Jacket -->
-        <div class="card">
+        <div class="product-card">
             <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
-            <h3>Harrington Jacket</h3>
-            <a href="harrington-jacket.html">View Product</a>
+            <div class="product-info">
+                <h3>Harrington Jacket</h3>
+                <a href="harrington-jacket.html">View Product</a>
+            </div>
         </div>
 
-    </div>
-</div>
+    </section>
 
 </body>
 </html>
