@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>The Collection — H&CO.</title>
+    <meta charset="UTF-8">
+    <title>Collection — H&CO.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Luxury Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* RESET */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -21,99 +22,143 @@
             color: #111;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         /* HEADER */
         header {
-            background: #000;
-            color: #fff;
-            padding: 22px 60px;
+            padding: 28px 60px;
+            background: #fff;
+            border-bottom: 1px solid #e6e6e6;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 28px;
-            font-size: 14px;
-            letter-spacing: 0.05em;
-        }
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            margin-left: 32px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #333;
         }
 
         /* PAGE TITLE */
-        .page-title {
-            max-width: 1300px;
-            margin: 80px auto 50px;
-            padding: 0 60px;
+        .collection-header {
+            padding: 80px 60px 40px;
+            text-align: center;
         }
 
-        .page-title h1 {
+        .collection-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .collection-header p {
+            font-size: 15px;
+            color: #555;
+            letter-spacing: 0.3px;
         }
 
         /* GRID */
         .collection-grid {
-            max-width: 1300px;
-            margin: 0 auto 120px;
-            padding: 0 60px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 60px;
         }
 
+        /* CARD */
         .product-card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
         .product-card:hover {
             transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
-        .product-card img {
+        /* IMAGE WRAPPER — FIXED HEIGHT */
+        .product-image {
+            height: 420px; /* ✅ FIXED HEIGHT */
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
             width: 100%;
-            display: block;
-            background: #000;
+            height: 100%;
+            object-fit: cover; /* ✅ PRINTFUL SAFE */
         }
 
+        /* INFO */
         .product-info {
-            padding: 26px 20px 32px;
+            padding: 22px 22px 26px;
+            text-align: center;
         }
 
         .product-info h3 {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
-        .product-info a {
+        .product-info p {
             font-size: 14px;
-            color: #5a2cff;
-            text-decoration: none;
-            letter-spacing: 0.04em;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .price {
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
         }
 
         /* MOBILE */
         @media (max-width: 768px) {
             header {
-                padding: 20px 30px;
+                padding: 22px 28px;
             }
 
-            .page-title,
+            .collection-header {
+                padding: 60px 28px 30px;
+            }
+
             .collection-grid {
-                padding: 0 30px;
+                padding: 40px 28px;
+                gap: 30px;
             }
 
-            .page-title h1 {
-                font-size: 34px;
+            .product-image {
+                height: 360px;
             }
         }
     </style>
@@ -121,63 +166,77 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">H&CO.</div>
-        <nav>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart</a>
-        </nav>
-    </header>
+<header>
+    <a href="index.html" class="logo">H&CO.</a>
+    <nav>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
 
-    <!-- TITLE -->
-    <section class="page-title">
-        <h1>The Collection</h1>
-    </section>
+<section class="collection-header">
+    <h1>The Collection</h1>
+    <p>Timeless silhouettes. Elevated essentials. Crafted for distinction.</p>
+</section>
 
-    <!-- COLLECTION GRID -->
-    <section class="collection-grid">
+<section class="collection-grid">
 
-        <!-- Heritage Tee -->
-        <div class="product-card">
-            <img src="images/heritage-tee-white-front.webp" alt="Heritage Tee">
-            <div class="product-info">
-                <h3>Heritage Tee</h3>
-                <a href="heritage-tee.html">View Product</a>
-            </div>
+    <!-- HERITAGE TEE -->
+    <a href="heritage-tee.html" class="product-card">
+        <div class="product-image">
+            <img src="images/heritage-tee-printful.webp" alt="Heritage Tee">
         </div>
-
-        <!-- Oxford Polo -->
-        <div class="product-card">
-            <img src="images/oxford-polo-white-front.webp" alt="Oxford Polo">
-            <div class="product-info">
-                <h3>Oxford Polo</h3>
-                <a href="oxford-polo.html">View Product</a>
-            </div>
+        <div class="product-info">
+            <h3>Heritage Tee</h3>
+            <p>Premium cotton. Everyday luxury.</p>
+            <div class="price">AED 149</div>
         </div>
+    </a>
 
-        <!-- Sovereign Sweater -->
-        <div class="product-card">
-            <img src="images/sovereign-sweater.webp" alt="Sovereign Sweater">
-            <div class="product-info">
-                <h3>Sovereign Sweater</h3>
-                <a href="sovereign-sweater.html">View Product</a>
-            </div>
+    <!-- OXFORD POLO -->
+    <a href="oxford-polo.html" class="product-card">
+        <div class="product-image">
+            <img src="images/oxford-polo-printful.webp" alt="Oxford Polo">
         </div>
-
-        <!-- Harrington Jacket -->
-        <div class="product-card">
-            <img src="images/harrington-jacket.webp" alt="Harrington Jacket">
-            <div class="product-info">
-                <h3>Harrington Jacket</h3>
-                <a href="harrington-jacket.html">View Product</a>
-            </div>
+        <div class="product-info">
+            <h3>Oxford Polo</h3>
+            <p>Refined structure. Effortless elegance.</p>
+            <div class="price">AED 229</div>
         </div>
+    </a>
 
-    </section>
+    <!-- SOVEREIGN SWEATER -->
+    <a href="sovereign-sweater.html" class="product-card">
+        <div class="product-image">
+            <img src="images/sovereign-sweater-printful.webp" alt="Sovereign Sweater">
+        </div>
+        <div class="product-info">
+            <h3>Sovereign Sweater</h3>
+            <p>Soft knit. Elevated warmth.</p>
+            <div class="price">AED 349</div>
+        </div>
+    </a>
+
+    <!-- HARRINGTON JACKET -->
+    <a href="harrington-jacket.html" class="product-card">
+        <div class="product-image">
+            <img src="images/harrington-jacket-printful.webp" alt="Harrington Jacket">
+        </div>
+        <div class="product-info">
+            <h3>Harrington Jacket</h3>
+            <p>Modern heritage outerwear.</p>
+            <div class="price">AED 499</div>
+        </div>
+    </a>
+
+</section>
+
+<footer>
+    © 2025 H&CO. All rights reserved.
+</footer>
 
 </body>
 </html>
