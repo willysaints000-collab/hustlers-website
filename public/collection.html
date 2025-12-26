@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,10 +26,9 @@
             color: inherit;
         }
 
-        /* HEADER */
         header {
             padding: 28px 60px;
-            background: #fff;
+            background: #ffffff;
             border-bottom: 1px solid #e6e6e6;
             display: flex;
             justify-content: space-between;
@@ -40,8 +38,8 @@
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 26px;
-            font-weight: 600;
             letter-spacing: 2px;
+            font-weight: 600;
         }
 
         nav a {
@@ -52,7 +50,6 @@
             color: #333;
         }
 
-        /* PAGE TITLE */
         .collection-header {
             padding: 80px 60px 40px;
             text-align: center;
@@ -61,63 +58,54 @@
         .collection-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 42px;
-            font-weight: 600;
             margin-bottom: 14px;
         }
 
         .collection-header p {
             font-size: 15px;
             color: #555;
-            letter-spacing: 0.3px;
         }
 
-        /* GRID */
         .collection-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             padding: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* CARD */
         .product-card {
-            background: #fff;
+            background: #ffffff;
             border-radius: 14px;
             overflow: hidden;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 18px 36px rgba(0,0,0,0.08);
         }
 
-        /* IMAGE WRAPPER — FIXED HEIGHT */
         .product-image {
-            height: 420px; /* ✅ FIXED HEIGHT */
+            height: 420px;
             background: #f1f1f1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ✅ PRINTFUL SAFE */
+            object-fit: cover;
         }
 
-        /* INFO */
         .product-info {
-            padding: 22px 22px 26px;
+            padding: 24px;
             text-align: center;
         }
 
         .product-info h3 {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
-            font-weight: 600;
             margin-bottom: 8px;
         }
 
@@ -133,7 +121,6 @@
             font-weight: 500;
         }
 
-        /* FOOTER */
         footer {
             margin-top: 80px;
             padding: 40px;
@@ -142,7 +129,6 @@
             color: #777;
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
             header {
                 padding: 22px 28px;
@@ -154,7 +140,6 @@
 
             .collection-grid {
                 padding: 40px 28px;
-                gap: 30px;
             }
 
             .product-image {
@@ -187,7 +172,7 @@
     <!-- HERITAGE TEE -->
     <a href="heritage-tee.html" class="product-card">
         <div class="product-image">
-            <img src="images/heritage-tee-printful.webp" alt="Heritage Tee">
+            <img src="images/heritage-tee-black-front.webp" alt="Heritage Tee">
         </div>
         <div class="product-info">
             <h3>Heritage Tee</h3>
@@ -199,36 +184,12 @@
     <!-- OXFORD POLO -->
     <a href="oxford-polo.html" class="product-card">
         <div class="product-image">
-            <img src="images/oxford-polo-printful.webp" alt="Oxford Polo">
+            <img src="images/oxford-polo-black-front.webp" alt="Oxford Polo">
         </div>
         <div class="product-info">
             <h3>Oxford Polo</h3>
             <p>Refined structure. Effortless elegance.</p>
             <div class="price">AED 229</div>
-        </div>
-    </a>
-
-    <!-- SOVEREIGN SWEATER -->
-    <a href="sovereign-sweater.html" class="product-card">
-        <div class="product-image">
-            <img src="images/sovereign-sweater-printful.webp" alt="Sovereign Sweater">
-        </div>
-        <div class="product-info">
-            <h3>Sovereign Sweater</h3>
-            <p>Soft knit. Elevated warmth.</p>
-            <div class="price">AED 349</div>
-        </div>
-    </a>
-
-    <!-- HARRINGTON JACKET -->
-    <a href="harrington-jacket.html" class="product-card">
-        <div class="product-image">
-            <img src="images/harrington-jacket-printful.webp" alt="Harrington Jacket">
-        </div>
-        <div class="product-info">
-            <h3>Harrington Jacket</h3>
-            <p>Modern heritage outerwear.</p>
-            <div class="price">AED 499</div>
         </div>
     </a>
 
