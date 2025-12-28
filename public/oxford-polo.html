@@ -168,15 +168,15 @@ button:hover {
         <div class="option-group">
             <label>COLOR</label>
             <select id="colorSelect">
-                <option>Black</option>
-                <option>White</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
             </select>
         </div>
 
         <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
-            <select>
+            <select id="sizeSelect">
                 <option>S</option>
                 <option>M</option>
                 <option>L</option>
@@ -184,25 +184,51 @@ button:hover {
             </select>
         </div>
 
-        <button>Add to Cart</button>
+        <button id="addToCartBtn">Add to Cart</button>
     </div>
 
 </main>
 
-<!-- COLOR SWITCH SCRIPT -->
 <script>
+// COLOR SWITCH
 const colorSelect = document.getElementById('colorSelect');
 const productImage = document.getElementById('productImage');
 
 colorSelect.addEventListener('change', () => {
-    if (colorSelect.value === 'White') {
-        productImage.src = '/images/oxford-polo-white-front.webp';
+    productImage.src =
+        colorSelect.value === 'White'
+        ? '/images/oxford-polo-white-front.webp'
+        : '/images/oxford-polo-black-front.webp';
+});
+
+// ADD TO CART
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const item = {
+        id: 'oxford-polo',
+        name: 'Oxford Polo',
+        price: 349,
+        color: colorSelect.value,
+        size: document.getElementById('sizeSelect').value,
+        image: productImage.src,
+        quantity: 1
+    };
+
+    const existing = cart.find(
+        p => p.id === item.id && p.color === item.color && p.size === item.size
+    );
+
+    if (existing) {
+        existing.quantity += 1;
     } else {
-        productImage.src = '/images/oxford-polo-black-front.webp';
+        cart.push(item);
     }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html';
 });
 </script>
 
 </body>
 </html>
-
