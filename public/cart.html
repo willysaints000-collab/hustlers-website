@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Cart — H&CO.</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stripe -->
   <script src="https://js.stripe.com/v3/"></script>
 
   <style>
@@ -60,11 +63,13 @@
     .cart-item img {
       width: 100px;
       background: #fff;
+      border-radius: 2px;
     }
 
     .meta {
       font-size: 13px;
       color: #666;
+      line-height: 1.6;
     }
 
     .price {
@@ -83,6 +88,7 @@
       border: none;
       padding: 14px 36px;
       cursor: pointer;
+      font-size: 14px;
     }
 
     footer {
@@ -112,9 +118,9 @@
 
   <div id="cart-items"></div>
 
-  <div class="summary" id="cart-summary">
+  <div class="summary">
     <p>Total: <strong>AED <span id="cart-total">0</span></strong></p>
-    <button class="checkout-btn">Proceed to Checkout</button>
+    <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
   </div>
 </section>
 
@@ -123,6 +129,8 @@
 </footer>
 
 <script>
+/* ================= CART LOGIC ================= */
+
 const CART_KEY = "cart";
 
 function getCart() {
@@ -139,17 +147,20 @@ function renderCart() {
   let total = 0;
 
   cart.forEach(item => {
-    const itemTotal = item.price * item.quantity;
+    const qty = Number(item.quantity);
+    const price = Number(item.price);
+    const itemTotal = price * qty;
+
     total += itemTotal;
 
     itemsEl.innerHTML += `
       <div class="cart-item">
-        <img src="${item.image}" />
+        <img src="${item.image}" alt="${item.name}">
         <div>
           <strong>${item.name}</strong>
           <div class="meta">Color: ${item.color}</div>
           <div class="meta">Size: ${item.size}</div>
-          <div class="meta">Qty: ${item.quantity}</div>
+          <div class="meta">Qty: ${qty}</div>
         </div>
         <div class="price">AED ${itemTotal}</div>
       </div>
@@ -161,8 +172,25 @@ function renderCart() {
 }
 
 renderCart();
+
+/* ================= STRIPE ================= */
+
+const stripe = Stripe("pk_test_XXXXXXXXXXXXXXXXXXXXXXXX");
+
+document.getElementById("checkout-btn").addEventListener("click", async () => {
+  const cart = getCart();
+  if (!cart.length) return alert("Your cart is empty.");
+
+  const res = await fetch("/api/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cart })
+  });
+
+  const session = await res.json();
+  stripe.redirectToCheckout({ sessionId: session.id });
+});
 </script>
 
 </body>
 </html>
-
