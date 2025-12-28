@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Cart — H&CO.</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Stripe -->
   <script src="https://js.stripe.com/v3/"></script>
 
   <style>
@@ -21,7 +18,6 @@
 
     header {
       background: black;
-      color: white;
       padding: 22px 60px;
       display: flex;
       justify-content: space-between;
@@ -33,13 +29,11 @@
       text-decoration: none;
       margin-left: 35px;
       font-size: 14px;
-      letter-spacing: 1px;
     }
 
     .logo {
       font-family: 'Playfair Display';
       font-size: 26px;
-      letter-spacing: 1px;
     }
 
     .cart-wrapper {
@@ -54,13 +48,6 @@
       margin-bottom: 40px;
     }
 
-    .empty {
-      text-align: center;
-      color: #666;
-      margin-top: 80px;
-      font-size: 15px;
-    }
-
     .cart-item {
       display: grid;
       grid-template-columns: 100px 1fr 120px;
@@ -72,16 +59,7 @@
 
     .cart-item img {
       width: 100px;
-      border-radius: 2px;
       background: #fff;
-    }
-
-    .cart-details {
-      line-height: 1.6;
-    }
-
-    .cart-details strong {
-      font-size: 16px;
     }
 
     .meta {
@@ -99,23 +77,12 @@
       margin-top: 50px;
     }
 
-    .summary p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
     .checkout-btn {
       background: black;
       color: white;
       border: none;
       padding: 14px 36px;
-      font-size: 14px;
-      letter-spacing: 2px;
       cursor: pointer;
-    }
-
-    .checkout-btn:hover {
-      opacity: 0.9;
     }
 
     footer {
@@ -145,13 +112,9 @@
 
   <div id="cart-items"></div>
 
-  <p id="empty-cart" class="empty">
-    Your cart is currently empty. Explore the collection and find your essentials.
-  </p>
-
-  <div class="summary" id="cart-summary" style="display:none;">
+  <div class="summary" id="cart-summary">
     <p>Total: <strong>AED <span id="cart-total">0</span></strong></p>
-    <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+    <button class="checkout-btn">Proceed to Checkout</button>
   </div>
 </section>
 
@@ -160,9 +123,7 @@
 </footer>
 
 <script>
-/* ---------------- CART LOGIC ---------------- */
-const CART_KEY = "hco_cart";
-const stripe = Stripe("pk_test_51Scs9ZFzwWXv8OLZUJPQufIlOy6HI52MTYHzTp1wsGkF1pzqzGhAuodEs3U7S3MFd6z2slOwOt5OHlAfgpqfyfEo00V2g1zUiW");
+const CART_KEY = "cart";
 
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
@@ -171,41 +132,26 @@ function getCart() {
 function renderCart() {
   const cart = getCart();
   const itemsEl = document.getElementById("cart-items");
-  const emptyEl = document.getElementById("empty-cart");
-  const summaryEl = document.getElementById("cart-summary");
   const totalEl = document.getElementById("cart-total");
   const countEl = document.querySelector(".cart-count");
 
   itemsEl.innerHTML = "";
-
-  if (cart.length === 0) {
-    emptyEl.style.display = "block";
-    summaryEl.style.display = "none";
-    countEl.textContent = 0;
-    return;
-  }
-
-  emptyEl.style.display = "none";
-  summaryEl.style.display = "block";
-
   let total = 0;
 
   cart.forEach(item => {
-    const price = Number(item.price);
-const qty = Number(item.qty);
-
-total += price * qty;
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
 
     itemsEl.innerHTML += `
       <div class="cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div class="cart-details">
+        <img src="${item.image}" />
+        <div>
           <strong>${item.name}</strong>
           <div class="meta">Color: ${item.color}</div>
           <div class="meta">Size: ${item.size}</div>
-          <div class="meta">Quantity: ${item.qty}</div>
+          <div class="meta">Qty: ${item.quantity}</div>
         </div>
-       <div class="price">AED ${Number(item.price) * Number(item.qty)}</div>
+        <div class="price">AED ${itemTotal}</div>
       </div>
     `;
   });
@@ -215,30 +161,6 @@ total += price * qty;
 }
 
 renderCart();
-
-/* ---------------- STRIPE CHECKOUT ---------------- */
-document.getElementById("checkout-btn").addEventListener("click", async () => {
-  const cart = getCart();
-
-  if (cart.length === 0) {
-    alert("Your cart is empty.");
-    return;
-  }
-
-  const response = await fetch("/api/create-checkout-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ cart })
-  });
-
-  const session = await response.json();
-
-  if (session.id) {
-    stripe.redirectToCheckout({ sessionId: session.id });
-  } else {
-    alert("Checkout failed. Please try again.");
-  }
-});
 </script>
 
 </body>
