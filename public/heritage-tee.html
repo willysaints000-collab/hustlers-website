@@ -93,6 +93,7 @@ header a {
     margin-bottom: 8px;
 }
 
+/* SELECT */
 select {
     width: 280px;
     padding: 12px 14px;
@@ -144,10 +145,16 @@ button:hover {
 
 <main class="product-page">
 
+    <!-- PRODUCT IMAGE -->
     <div class="product-image">
-        <img src="images/heritage-tee-black.webp" alt="Heritage Tee Black">
+        <img
+            id="productImage"
+            src="/images/heritage-tee-black-front.webp"
+            alt="Heritage Tee"
+        >
     </div>
 
+    <!-- PRODUCT INFO -->
     <div class="product-info">
         <h1>Heritage Tee</h1>
         <div class="price">AED 249</div>
@@ -158,14 +165,16 @@ button:hover {
             structure, and understated refinement.
         </p>
 
+        <!-- COLOR -->
         <div class="option-group">
             <label>COLOR</label>
-            <select>
+            <select id="colorSelect">
                 <option>Black</option>
                 <option>White</option>
             </select>
         </div>
 
+        <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
             <select>
@@ -182,6 +191,19 @@ button:hover {
 
 </main>
 
+<!-- COLOR SWITCH SCRIPT -->
+<script>
+const colorSelect = document.getElementById('colorSelect');
+const productImage = document.getElementById('productImage');
+
+colorSelect.addEventListener('change', () => {
+    if (colorSelect.value === 'White') {
+        productImage.src = '/images/heritage-tee-white-front.webp';
+    } else {
+        productImage.src = '/images/heritage-tee-black-front.webp';
+    }
+});
+</script>
+
 </body>
 </html>
-
