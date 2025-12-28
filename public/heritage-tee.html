@@ -8,9 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -93,7 +91,6 @@ header a {
     margin-bottom: 8px;
 }
 
-/* SELECT */
 select {
     width: 280px;
     padding: 12px 14px;
@@ -114,19 +111,13 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    opacity: 0.85;
-}
+button:hover { opacity: 0.85; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .product-page {
         grid-template-columns: 1fr;
         gap: 50px;
-    }
-
-    .product-image img {
-        max-width: 100%;
     }
 }
 </style>
@@ -145,7 +136,7 @@ button:hover {
 
 <main class="product-page">
 
-    <!-- PRODUCT IMAGE -->
+    <!-- IMAGE -->
     <div class="product-image">
         <img
             id="productImage"
@@ -154,7 +145,7 @@ button:hover {
         >
     </div>
 
-    <!-- PRODUCT INFO -->
+    <!-- INFO -->
     <div class="product-info">
         <h1>Heritage Tee</h1>
         <div class="price">AED 249</div>
@@ -169,15 +160,15 @@ button:hover {
         <div class="option-group">
             <label>COLOR</label>
             <select id="colorSelect">
-                <option>Black</option>
-                <option>White</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
             </select>
         </div>
 
         <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
-            <select>
+            <select id="sizeSelect">
                 <option>XS</option>
                 <option>S</option>
                 <option>M</option>
@@ -186,22 +177,49 @@ button:hover {
             </select>
         </div>
 
-        <button>Add to Cart</button>
+        <button id="addToCartBtn">Add to Cart</button>
     </div>
 
 </main>
 
-<!-- COLOR SWITCH SCRIPT -->
 <script>
+// COLOR SWITCH
 const colorSelect = document.getElementById('colorSelect');
 const productImage = document.getElementById('productImage');
 
 colorSelect.addEventListener('change', () => {
-    if (colorSelect.value === 'White') {
-        productImage.src = '/images/heritage-tee-white-front.webp';
+    productImage.src =
+        colorSelect.value === 'White'
+        ? '/images/heritage-tee-white-front.webp'
+        : '/images/heritage-tee-black-front.webp';
+});
+
+// ADD TO CART
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const item = {
+        id: 'heritage-tee',
+        name: 'Heritage Tee',
+        price: 249,
+        color: colorSelect.value,
+        size: document.getElementById('sizeSelect').value,
+        image: productImage.src,
+        quantity: 1
+    };
+
+    const existing = cart.find(
+        p => p.id === item.id && p.color === item.color && p.size === item.size
+    );
+
+    if (existing) {
+        existing.quantity += 1;
     } else {
-        productImage.src = '/images/heritage-tee-black-front.webp';
+        cart.push(item);
     }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html';
 });
 </script>
 
