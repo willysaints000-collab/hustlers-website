@@ -8,9 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -113,19 +111,12 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    opacity: 0.85;
-}
+button:hover { opacity: 0.85; }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
     .product-page {
         grid-template-columns: 1fr;
         gap: 50px;
-    }
-
-    .product-image img {
-        max-width: 100%;
     }
 }
 </style>
@@ -144,7 +135,6 @@ button:hover {
 
 <main class="product-page">
 
-    <!-- PRODUCT IMAGE -->
     <div class="product-image">
         <img
             id="productImage"
@@ -153,7 +143,6 @@ button:hover {
         >
     </div>
 
-    <!-- PRODUCT INFO -->
     <div class="product-info">
         <h1>Oxford Polo</h1>
         <div class="price">AED 349</div>
@@ -164,7 +153,6 @@ button:hover {
             a refined silhouette with understated character.
         </p>
 
-        <!-- COLOR -->
         <div class="option-group">
             <label>COLOR</label>
             <select id="colorSelect">
@@ -173,7 +161,6 @@ button:hover {
             </select>
         </div>
 
-        <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
             <select id="sizeSelect">
@@ -190,6 +177,8 @@ button:hover {
 </main>
 
 <script>
+const CART_KEY = "hco_cart";
+
 // COLOR SWITCH
 const colorSelect = document.getElementById('colorSelect');
 const productImage = document.getElementById('productImage');
@@ -203,16 +192,15 @@ colorSelect.addEventListener('change', () => {
 
 // ADD TO CART
 document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
     const item = {
         id: 'oxford-polo',
-        name: 'Oxford Polo',
+        name: `Oxford Polo — ${colorSelect.value}`,
         price: 349,
         color: colorSelect.value,
         size: document.getElementById('sizeSelect').value,
-        image: productImage.src,
-        quantity: 1
+        qty: 1
     };
 
     const existing = cart.find(
@@ -220,15 +208,16 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
     );
 
     if (existing) {
-        existing.quantity += 1;
+        existing.qty += 1;
     } else {
         cart.push(item);
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
     window.location.href = 'cart.html';
 });
 </script>
 
 </body>
 </html>
+
