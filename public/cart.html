@@ -147,50 +147,5 @@ function renderCart() {
   let total = 0;
 
   cart.forEach(item => {
-    const qty = Number(item.quantity);
-    const price = Number(item.price);
-    const itemTotal = price * qty;
+    const qty = Number(item.quantity) || 1;
 
-    total += itemTotal;
-
-    itemsEl.innerHTML += `
-      <div class="cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div>
-          <strong>${item.name}</strong>
-          <div class="meta">Color: ${item.color}</div>
-          <div class="meta">Size: ${item.size}</div>
-          <div class="meta">Qty: ${qty}</div>
-        </div>
-        <div class="price">AED ${itemTotal}</div>
-      </div>
-    `;
-  });
-
-  totalEl.textContent = total;
-  countEl.textContent = cart.length;
-}
-
-renderCart();
-
-/* ================= STRIPE ================= */
-
-const stripe = Stripe("pk_test_XXXXXXXXXXXXXXXXXXXXXXXX");
-
-document.getElementById("checkout-btn").addEventListener("click", async () => {
-  const cart = getCart();
-  if (!cart.length) return alert("Your cart is empty.");
-
-  const res = await fetch("/api/create-checkout-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ cart })
-  });
-
-  const session = await res.json();
-  stripe.redirectToCheckout({ sessionId: session.id });
-});
-</script>
-
-</body>
-</html>
