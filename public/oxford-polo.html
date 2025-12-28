@@ -53,11 +53,6 @@ header a {
 }
 
 /* IMAGE */
-.product-image {
-    background: transparent;
-    padding: 0;
-}
-
 .product-image img {
     width: 100%;
     max-width: 520px;
@@ -149,10 +144,16 @@ button:hover {
 
 <main class="product-page">
 
+    <!-- PRODUCT IMAGE -->
     <div class="product-image">
-        <img src="images/oxford-polo-black.webp" alt="Oxford Polo Black">
+        <img
+            id="productImage"
+            src="/images/oxford-polo-black-front.webp"
+            alt="Oxford Polo"
+        >
     </div>
 
+    <!-- PRODUCT INFO -->
     <div class="product-info">
         <h1>Oxford Polo</h1>
         <div class="price">AED 349</div>
@@ -163,14 +164,16 @@ button:hover {
             a refined silhouette with understated character.
         </p>
 
+        <!-- COLOR -->
         <div class="option-group">
             <label>COLOR</label>
-            <select>
+            <select id="colorSelect">
                 <option>Black</option>
                 <option>White</option>
             </select>
         </div>
 
+        <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
             <select>
@@ -185,6 +188,20 @@ button:hover {
     </div>
 
 </main>
+
+<!-- COLOR SWITCH SCRIPT -->
+<script>
+const colorSelect = document.getElementById('colorSelect');
+const productImage = document.getElementById('productImage');
+
+colorSelect.addEventListener('change', () => {
+    if (colorSelect.value === 'White') {
+        productImage.src = '/images/oxford-polo-white-front.webp';
+    } else {
+        productImage.src = '/images/oxford-polo-black-front.webp';
+    }
+});
+</script>
 
 </body>
 </html>
