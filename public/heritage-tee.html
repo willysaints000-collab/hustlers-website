@@ -113,7 +113,6 @@ button {
 
 button:hover { opacity: 0.85; }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
     .product-page {
         grid-template-columns: 1fr;
@@ -136,7 +135,6 @@ button:hover { opacity: 0.85; }
 
 <main class="product-page">
 
-    <!-- IMAGE -->
     <div class="product-image">
         <img
             id="productImage"
@@ -145,7 +143,6 @@ button:hover { opacity: 0.85; }
         >
     </div>
 
-    <!-- INFO -->
     <div class="product-info">
         <h1>Heritage Tee</h1>
         <div class="price">AED 249</div>
@@ -156,7 +153,6 @@ button:hover { opacity: 0.85; }
             structure, and understated refinement.
         </p>
 
-        <!-- COLOR -->
         <div class="option-group">
             <label>COLOR</label>
             <select id="colorSelect">
@@ -165,7 +161,6 @@ button:hover { opacity: 0.85; }
             </select>
         </div>
 
-        <!-- SIZE -->
         <div class="option-group">
             <label>SIZE</label>
             <select id="sizeSelect">
@@ -183,6 +178,8 @@ button:hover { opacity: 0.85; }
 </main>
 
 <script>
+const CART_KEY = "hco_cart";
+
 // COLOR SWITCH
 const colorSelect = document.getElementById('colorSelect');
 const productImage = document.getElementById('productImage');
@@ -196,16 +193,15 @@ colorSelect.addEventListener('change', () => {
 
 // ADD TO CART
 document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
     const item = {
         id: 'heritage-tee',
-        name: 'Heritage Tee',
+        name: `Heritage Tee — ${colorSelect.value}`,
         price: 249,
         color: colorSelect.value,
         size: document.getElementById('sizeSelect').value,
-        image: productImage.src,
-        quantity: 1
+        qty: 1
     };
 
     const existing = cart.find(
@@ -213,12 +209,12 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
     );
 
     if (existing) {
-        existing.quantity += 1;
+        existing.qty += 1;
     } else {
         cart.push(item);
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
     window.location.href = 'cart.html';
 });
 </script>
