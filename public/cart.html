@@ -205,7 +205,7 @@ total += price * qty;
           <div class="meta">Size: ${item.size}</div>
           <div class="meta">Quantity: ${item.qty}</div>
         </div>
-        <div class="price">AED ${item.price * item.qty}</div>
+       <div class="price">AED ${Number(item.price) * Number(item.qty)}</div>
       </div>
     `;
   });
