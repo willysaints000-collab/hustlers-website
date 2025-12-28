@@ -214,8 +214,12 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
         cart.push(item);
     }
 
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    window.location.href = 'cart.html';
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+setTimeout(() => {
+  window.location.href = 'cart.html';
+}, 100);
+
 });
 </script>
 
