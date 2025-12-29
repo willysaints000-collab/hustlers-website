@@ -143,15 +143,16 @@ footer {
 
 <div class="summary">
   <p>Total: <strong>AED <span id="cart-total">0</span></strong></p>
-  <button class="checkout-btn">Proceed to Checkout</button>
+  <button class="checkout-btn" onclick="goCheckout()">Proceed to Checkout</button>
 </div>
 </section>
 
 <footer>© 2025 H&CO. All rights reserved.</footer>
 
 <script>
-const CART_KEY = "cart";
+const CART_KEY = "hco_cart";
 
+/* HELPERS */
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
@@ -162,11 +163,14 @@ function saveCart(cart) {
 
 function updateQty(index, change) {
   const cart = getCart();
-  cart[index].quantity = Math.max(1, cart[index].quantity + change);
+  const currentQty = cart[index].quantity ?? cart[index].qty ?? 1;
+  cart[index].quantity = Math.max(1, currentQty + change);
+  delete cart[index].qty;
   saveCart(cart);
   renderCart();
 }
 
+/* RENDER */
 function renderCart() {
   const cart = getCart();
   const itemsEl = document.getElementById("cart-items");
@@ -176,8 +180,15 @@ function renderCart() {
   itemsEl.innerHTML = "";
   let total = 0;
 
+  if (cart.length === 0) {
+    itemsEl.innerHTML = "<p>Your cart is empty.</p>";
+    totalEl.textContent = "0";
+    countEl.textContent = "0";
+    return;
+  }
+
   cart.forEach((item, index) => {
-    const qty = Number(item.quantity) || 1;
+    const qty = Number(item.quantity ?? item.qty ?? 1);
     const price = Number(item.price) || 0;
     const itemTotal = price * qty;
     total += itemTotal;
@@ -196,13 +207,18 @@ function renderCart() {
             <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
           </div>
         </div>
-        <div class="price">AED ${itemTotal}</div>
+        <div class="price">AED ${itemTotal.toFixed(2)}</div>
       </div>
     `;
   });
 
-  totalEl.textContent = total;
+  totalEl.textContent = total.toFixed(2);
   countEl.textContent = cart.length;
+}
+
+function goCheckout() {
+  if (getCart().length === 0) return;
+  window.location.href = "checkout.html";
 }
 
 renderCart();
@@ -210,3 +226,4 @@ renderCart();
 
 </body>
 </html>
+
