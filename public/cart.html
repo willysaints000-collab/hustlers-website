@@ -46,13 +46,14 @@ h1 {
   margin-bottom:40px;
 }
 
+/* CART ITEM */
 .cart-item {
   display:grid;
   grid-template-columns:100px 1fr 120px;
   gap:30px;
   padding:30px 0;
   border-bottom:1px solid #ddd;
-  align-items:center;
+  align-items:flex-start; /* ✨ polish */
 }
 
 .cart-item img {
@@ -60,9 +61,15 @@ h1 {
   background:#fff;
 }
 
+.cart-item strong {
+  display:block;           /* ✨ polish */
+  margin-bottom:6px;       /* ✨ polish */
+}
+
 .meta {
   font-size:13px;
   color:#666;
+  line-height:1.6;
 }
 
 .price {
@@ -136,7 +143,7 @@ function renderCart() {
 
   cart.forEach(item => {
     const qty = Number(item.quantity) || 1;
-    const price = Number(item.price);
+    const price = Number(item.price) || 0;
     const itemTotal = price * qty;
     total += itemTotal;
 
@@ -163,3 +170,4 @@ renderCart();
 
 </body>
 </html>
+
