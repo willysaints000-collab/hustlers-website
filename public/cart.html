@@ -142,7 +142,7 @@ function renderCart() {
 
     itemsEl.innerHTML += `
       <div class="cart-item">
-        <img src="${item.image}">
+        <img src="${item.image || '/images/placeholder.webp'}">
         <div>
           <strong>${item.name}</strong>
           <div class="meta">Color: ${item.color}</div>
