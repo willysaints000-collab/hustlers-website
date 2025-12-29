@@ -111,7 +111,9 @@ button {
     cursor: pointer;
 }
 
-button:hover { opacity: 0.85; }
+button:hover {
+    opacity: 0.85;
+}
 
 @media (max-width: 900px) {
     .product-page {
@@ -164,11 +166,11 @@ button:hover { opacity: 0.85; }
         <div class="option-group">
             <label>SIZE</label>
             <select id="sizeSelect">
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
             </select>
         </div>
 
@@ -180,48 +182,54 @@ button:hover { opacity: 0.85; }
 <script>
 const CART_KEY = "hco_cart";
 
-// COLOR SWITCH
-const colorSelect = document.getElementById('colorSelect');
-const productImage = document.getElementById('productImage');
+const colorSelect = document.getElementById("colorSelect");
+const sizeSelect = document.getElementById("sizeSelect");
+const productImage = document.getElementById("productImage");
+const addToCartBtn = document.getElementById("addToCartBtn");
 
-colorSelect.addEventListener('change', () => {
+// COLOR IMAGE SWITCH
+colorSelect.addEventListener("change", () => {
     productImage.src =
-        colorSelect.value === 'White'
-        ? '/images/heritage-tee-white-front.webp'
-        : '/images/heritage-tee-black-front.webp';
+        colorSelect.value === "White"
+        ? "/images/heritage-tee-white-front.webp"
+        : "/images/heritage-tee-black-front.webp";
 });
 
 // ADD TO CART
-document.getElementById('addToCartBtn').addEventListener('click', () => {
+addToCartBtn.addEventListener("click", () => {
     const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
+    const color = colorSelect.value;
+    const size = sizeSelect.value;
+
     const item = {
-        id: 'heritage-tee',
-        name: `Heritage Tee — ${colorSelect.value}`,
+        id: `heritage-tee-${color.toLowerCase()}`,
+        name: "Heritage Tee",
         price: 249,
-        color: colorSelect.value,
-        size: document.getElementById('sizeSelect').value,
-        qty: 1
+        color: color,
+        size: size,
+        image:
+            color === "White"
+            ? "/images/heritage-tee-white-front.webp"
+            : "/images/heritage-tee-black-front.webp",
+        quantity: 1
     };
 
     const existing = cart.find(
-        p => p.id === item.id && p.color === item.color && p.size === item.size
+        p => p.id === item.id && p.size === item.size
     );
 
     if (existing) {
-        existing.qty += 1;
+        existing.quantity += 1;
     } else {
         cart.push(item);
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-setTimeout(() => {
-  window.location.href = 'cart.html';
-}, 100);
-
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    window.location.href = "cart.html";
 });
 </script>
 
 </body>
 </html>
+
