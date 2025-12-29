@@ -49,11 +49,11 @@ h1 {
 /* CART ITEM */
 .cart-item {
   display:grid;
-  grid-template-columns:100px 1fr 120px;
+  grid-template-columns:100px 1fr 160px;
   gap:30px;
   padding:30px 0;
   border-bottom:1px solid #ddd;
-  align-items:flex-start; /* ✨ polish */
+  align-items:flex-start;
 }
 
 .cart-item img {
@@ -62,14 +62,38 @@ h1 {
 }
 
 .cart-item strong {
-  display:block;           /* ✨ polish */
-  margin-bottom:6px;       /* ✨ polish */
+  display:block;
+  margin-bottom:6px;
 }
 
 .meta {
   font-size:13px;
   color:#666;
   line-height:1.6;
+}
+
+/* QUANTITY CONTROLS */
+.qty-controls {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:10px;
+}
+
+.qty-btn {
+  width:28px;
+  height:28px;
+  border:1px solid #ccc;
+  background:#fff;
+  cursor:pointer;
+  font-size:16px;
+  line-height:1;
+}
+
+.qty-number {
+  min-width:20px;
+  text-align:center;
+  font-size:14px;
 }
 
 .price {
@@ -132,6 +156,17 @@ function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
 
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+function updateQty(index, change) {
+  const cart = getCart();
+  cart[index].quantity = Math.max(1, cart[index].quantity + change);
+  saveCart(cart);
+  renderCart();
+}
+
 function renderCart() {
   const cart = getCart();
   const itemsEl = document.getElementById("cart-items");
@@ -141,7 +176,7 @@ function renderCart() {
   itemsEl.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     const qty = Number(item.quantity) || 1;
     const price = Number(item.price) || 0;
     const itemTotal = price * qty;
@@ -154,7 +189,12 @@ function renderCart() {
           <strong>${item.name}</strong>
           <div class="meta">Color: ${item.color}</div>
           <div class="meta">Size: ${item.size}</div>
-          <div class="meta">Quantity: ${qty}</div>
+
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
+            <div class="qty-number">${qty}</div>
+            <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+          </div>
         </div>
         <div class="price">AED ${itemTotal}</div>
       </div>
@@ -170,4 +210,3 @@ renderCart();
 
 </body>
 </html>
-
