@@ -164,10 +164,10 @@ button:hover { opacity: 0.85; }
         <div class="option-group">
             <label>SIZE</label>
             <select id="sizeSelect">
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
             </select>
         </div>
 
@@ -179,42 +179,51 @@ button:hover { opacity: 0.85; }
 <script>
 const CART_KEY = "hco_cart";
 
-// COLOR SWITCH
-const colorSelect = document.getElementById('colorSelect');
-const productImage = document.getElementById('productImage');
+const colorSelect = document.getElementById("colorSelect");
+const sizeSelect = document.getElementById("sizeSelect");
+const productImage = document.getElementById("productImage");
+const addToCartBtn = document.getElementById("addToCartBtn");
 
-colorSelect.addEventListener('change', () => {
+// COLOR IMAGE SWITCH
+colorSelect.addEventListener("change", () => {
     productImage.src =
-        colorSelect.value === 'White'
-        ? '/images/oxford-polo-white-front.webp'
-        : '/images/oxford-polo-black-front.webp';
+        colorSelect.value === "White"
+        ? "/images/oxford-polo-white-front.webp"
+        : "/images/oxford-polo-black-front.webp";
 });
 
 // ADD TO CART
-document.getElementById('addToCartBtn').addEventListener('click', () => {
+addToCartBtn.addEventListener("click", () => {
     const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
+    const color = colorSelect.value;
+    const size = sizeSelect.value;
+
     const item = {
-        id: 'oxford-polo',
-        name: `Oxford Polo — ${colorSelect.value}`,
+        id: `oxford-polo-${color.toLowerCase()}`,
+        name: "Oxford Polo",
         price: 349,
-        color: colorSelect.value,
-        size: document.getElementById('sizeSelect').value,
-        qty: 1
+        color: color,
+        size: size,
+        image:
+            color === "White"
+            ? "/images/oxford-polo-white-front.webp"
+            : "/images/oxford-polo-black-front.webp",
+        quantity: 1
     };
 
     const existing = cart.find(
-        p => p.id === item.id && p.color === item.color && p.size === item.size
+        p => p.id === item.id && p.size === item.size
     );
 
     if (existing) {
-        existing.qty += 1;
+        existing.quantity += 1;
     } else {
         cart.push(item);
     }
 
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    window.location.href = 'cart.html';
+    window.location.href = "cart.html";
 });
 </script>
 
