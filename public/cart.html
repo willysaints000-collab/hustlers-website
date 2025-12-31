@@ -163,7 +163,7 @@ footer {
   <div id="cart-items"></div>
 
   <div class="summary">
-    <p>Total: <strong>AED <span id="cart-total">0</span></strong></p>
+    <p>Total: <strong>AED <span id="cart-total">0.00</span></strong></p>
     <button class="checkout-btn" onclick="goCheckout()">Proceed to Checkout</button>
   </div>
 </section>
@@ -173,11 +173,16 @@ footer {
 <script>
 const CART_KEY = "hco_cart";
 
-/* HELPERS */
+/* GET CART */
 function getCart() {
-  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  try {
+    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  } catch {
+    return [];
+  }
 }
 
+/* SAVE CART */
 function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
@@ -185,9 +190,14 @@ function saveCart(cart) {
 /* UPDATE QUANTITY */
 function updateQty(index, change) {
   const cart = getCart();
-  const currentQty = cart[index].quantity ?? cart[index].qty ?? 1;
-  cart[index].quantity = Math.max(1, currentQty + change);
+  if (!cart[index]) return;
+
+  const currentQty = Number(cart[index].quantity ?? cart[index].qty ?? 1);
+  const newQty = Math.max(1, currentQty + change);
+
+  cart[index].quantity = newQty;
   delete cart[index].qty;
+
   saveCart(cart);
   renderCart();
 }
@@ -208,11 +218,13 @@ function renderCart() {
   const countEl = document.querySelector(".cart-count");
 
   itemsEl.innerHTML = "";
+
   let total = 0;
+  let totalQty = 0;
 
   if (cart.length === 0) {
     itemsEl.innerHTML = "<p>Your cart is empty.</p>";
-    totalEl.textContent = "0";
+    totalEl.textContent = "0.00";
     countEl.textContent = "0";
     return;
   }
@@ -221,15 +233,17 @@ function renderCart() {
     const qty = Number(item.quantity ?? item.qty ?? 1);
     const price = Number(item.price) || 0;
     const itemTotal = price * qty;
+
     total += itemTotal;
+    totalQty += qty;
 
     itemsEl.innerHTML += `
       <div class="cart-item">
-        <img src="${item.image || '/images/placeholder.webp'}">
+        <img src="${item.image || 'images/placeholder.webp'}" alt="">
         <div>
-          <strong>${item.name}</strong>
-          <div class="meta">Color: ${item.color}</div>
-          <div class="meta">Size: ${item.size}</div>
+          <strong>${item.name || "Product"}</strong>
+          <div class="meta">Color: ${item.color || "-"}</div>
+          <div class="meta">Size: ${item.size || "-"}</div>
 
           <div class="qty-controls">
             <button class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
@@ -246,7 +260,7 @@ function renderCart() {
   });
 
   totalEl.textContent = total.toFixed(2);
-  countEl.textContent = cart.length;
+  countEl.textContent = totalQty;
 }
 
 /* CHECKOUT */
@@ -260,3 +274,4 @@ renderCart();
 
 </body>
 </html>
+
