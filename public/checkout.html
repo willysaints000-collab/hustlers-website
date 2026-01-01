@@ -163,9 +163,9 @@
 </section>
 
 <script>
-  // ✅ Load cart
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const CART_KEY = "hco_cart";
 
+  const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
   const summary = document.getElementById("summary");
   const totalEl = document.getElementById("total");
 
@@ -173,13 +173,13 @@
   summary.innerHTML = "";
 
   cart.forEach(item => {
-    const quantity = item.quantity || item.qty || 1;
+    const quantity = item.quantity || 1;
     const itemTotal = item.price * quantity;
     total += itemTotal;
 
     summary.innerHTML += `
       <div class="summary-item">
-        <span>${item.name}${item.size ? ` (${item.size})` : ""} × ${quantity}</span>
+        <span>${item.name} (${item.color}, ${item.size}) × ${quantity}</span>
         <span>AED ${itemTotal.toFixed(2)}</span>
       </div>
     `;
@@ -200,21 +200,20 @@
         body: JSON.stringify({ cart })
       });
 
- if (!res.ok) {
-  const errorText = await res.text();
-  console.error("API Error:", errorText);
-  alert("Checkout failed. See console.");
-  return;
-}
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error("API Error:", errorText);
+        alert("Checkout failed. See console.");
+        return;
+      }
 
-const data = await res.json();
-console.log("Stripe session response:", data);
+      const data = await res.json();
 
-if (data.url) {
-  window.location.href = data.url;
-} else {
-  alert("Stripe session created but no URL returned.");
-}
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Stripe session created but no URL returned.");
+      }
 
     } catch (err) {
       console.error(err);
