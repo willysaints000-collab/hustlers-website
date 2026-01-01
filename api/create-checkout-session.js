@@ -18,11 +18,11 @@ export default async function handler(req, res) {
       price_data: {
         currency: "aed",
         product_data: {
-          name: item.name,
+          name: `${item.name} (${item.color}, ${item.size})`,
         },
-        unit_amount: item.price * 100,
+        unit_amount: Math.round(item.price * 100), // ✅ cents, safe
       },
-      quantity: item.qty,
+      quantity: item.quantity || 1, // ✅ correct field
     }));
 
     const session = await stripe.checkout.sessions.create({
@@ -30,10 +30,11 @@ export default async function handler(req, res) {
       mode: "payment",
       line_items,
       success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+      cancel_url: `${req.headers.origin}/cart.html`,
     });
 
-    return res.status(200).json({ id: session.id });
+    // ✅ IMPORTANT: return the URL
+    return res.status(200).json({ url: session.url });
 
   } catch (error) {
     console.error("Stripe error:", error);
