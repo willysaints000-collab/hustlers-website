@@ -8,14 +8,37 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="styles.css">
-
     <style>
         body {
+            margin: 0;
             background: #ffffff;
+            font-family: "Inter", sans-serif;
+            color: #111;
         }
 
+        /* HEADER */
+        header {
+            padding: 25px 50px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #111;
+            margin-left: 30px;
+            font-size: 14px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        /* SUCCESS CONTENT */
         .success-wrapper {
             max-width: 900px;
             margin: 100px auto;
@@ -24,7 +47,7 @@
         }
 
         .success-icon {
-            font-size: 46px;
+            font-size: 48px;
             margin-bottom: 20px;
         }
 
@@ -35,7 +58,6 @@
         }
 
         .success-text {
-            font-family: "Inter", sans-serif;
             font-size: 16px;
             color: #444;
             max-width: 520px;
@@ -103,9 +125,9 @@
 <body>
 
     <!-- HEADER -->
-    <header class="header">
+    <header>
         <a href="index.html" class="logo">H&CO.</a>
-        <nav class="nav">
+        <nav>
             <a href="collection.html">Collection</a>
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
@@ -137,11 +159,17 @@
         </div>
     </section>
 
-    <!-- ✅ CLEAR CART AFTER SUCCESS -->
+    <!-- ✅ AUTO-CLEAR CART AFTER SUCCESS -->
     <script>
-        localStorage.removeItem("cart");
+        // Clear H&CO cart after successful Stripe payment
+        localStorage.removeItem("hco_cart");
+
+        // Reset cart count if user navigates
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartCount = document.querySelector(".cart-count");
+            if (cartCount) cartCount.textContent = "0";
+        });
     </script>
 
 </body>
 </html>
-
