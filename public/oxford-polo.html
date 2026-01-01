@@ -184,7 +184,7 @@ const sizeSelect = document.getElementById("sizeSelect");
 const productImage = document.getElementById("productImage");
 const addToCartBtn = document.getElementById("addToCartBtn");
 
-// COLOR IMAGE SWITCH
+/* IMAGE SWITCH */
 colorSelect.addEventListener("change", () => {
     productImage.src =
         colorSelect.value === "White"
@@ -192,7 +192,7 @@ colorSelect.addEventListener("change", () => {
         : "/images/oxford-polo-black-front.webp";
 });
 
-// ADD TO CART
+/* ADD TO CART */
 addToCartBtn.addEventListener("click", () => {
     const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
@@ -200,7 +200,7 @@ addToCartBtn.addEventListener("click", () => {
     const size = sizeSelect.value;
 
     const item = {
-        id: `oxford-polo-${color.toLowerCase()}`,
+        id: `oxford-polo-${color.toLowerCase()}-${size.toLowerCase()}`,
         name: "Oxford Polo",
         price: 349,
         color: color,
@@ -212,9 +212,7 @@ addToCartBtn.addEventListener("click", () => {
         quantity: 1
     };
 
-    const existing = cart.find(
-        p => p.id === item.id && p.size === item.size
-    );
+    const existing = cart.find(p => p.id === item.id);
 
     if (existing) {
         existing.quantity += 1;
@@ -229,4 +227,3 @@ addToCartBtn.addEventListener("click", () => {
 
 </body>
 </html>
-
