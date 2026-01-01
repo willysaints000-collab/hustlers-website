@@ -17,6 +17,7 @@ gtag('config', 'G-NEE8LB2QZR');
 <!-- End Google tag -->
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
@@ -24,77 +25,138 @@ body {
     background: #f8f6f3;
     color: #111;
 }
+
+/* HEADER */
 header {
     background: #000;
-    padding: 25px 50px;
+    padding: 26px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-header a {
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+header nav a {
     color: #fff;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 34px;
+    font-size: 14px;
+    letter-spacing: 1px;
     font-weight: 400;
 }
-header a:hover { opacity: 0.7; }
-.logo { font-family: 'Playfair Display', serif; font-size: 28px; letter-spacing: 2px; color: #fff; }
+
+header nav a:hover {
+    opacity: 0.7;
+}
+
+/* HERO */
 .hero {
-    height: 70vh;
+    height: 80vh;
     background: url('images/home-hero.webp') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
 }
+
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.38);
 }
+
 .hero-content {
     position: relative;
     text-align: center;
     color: #fff;
+    max-width: 720px;
+    padding: 0 20px;
 }
+
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    margin-bottom: 20px;
+    font-size: 64px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
 }
+
 .hero-content p {
     font-size: 18px;
-    margin-bottom: 35px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 44px;
 }
+
+/* BUTTON */
 .btn {
-    padding: 14px 28px;
+    display: inline-block;
+    padding: 16px 42px;
     background: #fff;
     color: #000;
     text-decoration: none;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
-.btn:hover { background: #ddd; }
+
+.btn:hover {
+    background: #eaeaea;
+}
+
+/* FOOTER */
 footer {
     background: #fff;
-    padding: 40px 20px;
+    padding: 50px 20px;
     text-align: center;
     border-top: 1px solid #e5e5e5;
 }
-footer a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #444;
-    font-size: 14px;
+
+footer p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 18px;
 }
-footer a:hover { color: #000; }
+
+footer a {
+    margin: 0 14px;
+    text-decoration: none;
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+footer a:hover {
+    color: #000;
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .hero-content h1 { font-size: 40px; }
-    .hero-content p { font-size: 16px; }
+    header {
+        padding: 22px 30px;
+    }
+
+    .hero {
+        height: 75vh;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <header>
