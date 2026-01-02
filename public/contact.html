@@ -14,9 +14,10 @@
       gtag('js', new Date());
       gtag('config', 'G-NEE8LB2QZR');
     </script>
-    <!-- End Google tag -->
 
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -24,6 +25,7 @@
             font-family: 'Inter', sans-serif;
             color: #111;
         }
+
         /* NAVBAR */
         header {
             width: 100%;
@@ -33,6 +35,7 @@
             align-items: center;
             background: #000;
         }
+
         header a {
             text-decoration: none;
             color: white;
@@ -41,9 +44,11 @@
             letter-spacing: 1px;
             transition: 0.3s ease;
         }
+
         header a:hover {
             opacity: 0.7;
         }
+
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -51,6 +56,7 @@
             color: white;
             letter-spacing: 2px;
         }
+
         /* HERO */
         .hero {
             width: 100%;
@@ -61,12 +67,14 @@
             align-items: center;
             position: relative;
         }
+
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
             background: rgba(20, 20, 20, 0.35);
         }
+
         .hero h1 {
             position: relative;
             font-family: "Playfair Display", serif;
@@ -77,28 +85,33 @@
             animation: fadeUp 1.2s ease forwards;
             opacity: 0;
         }
+
         /* CONTACT SECTION */
         .contact-section {
             padding: 70px 18%;
         }
+
         .contact-section h2 {
             text-align: center;
             font-family: 'Playfair Display', serif;
             font-size: 40px;
             margin-bottom: 15px;
         }
+
         .contact-section p {
             text-align: center;
             font-size: 17px;
             opacity: 0.8;
             margin-bottom: 45px;
         }
+
         /* FORM */
         form {
             display: flex;
             flex-direction: column;
             gap: 22px;
         }
+
         input,
         textarea {
             width: 100%;
@@ -109,10 +122,12 @@
             font-family: 'Inter', sans-serif;
             background: white;
         }
+
         textarea {
             height: 150px;
             resize: vertical;
         }
+
         button {
             padding: 14px;
             background: black;
@@ -124,9 +139,11 @@
             cursor: pointer;
             transition: 0.3s ease;
         }
+
         button:hover {
             background: #333;
         }
+
         /* FOOTER */
         footer {
             background: #ffffff;
@@ -135,29 +152,35 @@
             border-top: 1px solid #eee;
             margin-top: 80px;
         }
+
         footer p {
             margin-bottom: 12px;
             font-size: 14px;
             color: #666;
         }
+
         .footer-links a {
             margin: 0 12px;
             font-size: 14px;
             color: #555;
             text-decoration: none;
         }
+
         .footer-links a:hover {
             color: #000;
         }
+
         /* Animation */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         /* MOBILE */
         @media (max-width: 900px) {
             .contact-section { padding: 50px 10%; }
         }
+
         @media (max-width: 600px) {
             .hero h1 { font-size: 40px; }
             .contact-section { padding: 40px 8%; }
@@ -166,6 +189,7 @@
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <header>
         <div class="logo">H&CO.</div>
@@ -190,8 +214,14 @@
         <p>
             For inquiries, support, or collaborations, fill out the form below and our team will get back to you shortly.
         </p>
-        <!-- FORM -->
-        <form action="https://formspree.io/f/mnnevvyp" method="POST">
+
+        <!-- FORM (CONNECTED TO orders@hustlersandco.com) -->
+        <form action="https://formsubmit.co/orders@hustlersandco.com" method="POST">
+            <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://hustlersandco.com/contact.html?success=true">
+
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Email Address" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
@@ -209,7 +239,8 @@
         </div>
     </footer>
 
-    <!-- Load cart script to update cart count -->
+    <!-- Cart script -->
     <script src="cart.js"></script>
 </body>
 </html>
+
