@@ -170,13 +170,11 @@
             color: #000;
         }
 
-        /* Animation */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* MOBILE */
         @media (max-width: 900px) {
             .contact-section { padding: 50px 10%; }
         }
@@ -190,57 +188,57 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">H&CO.</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">H&CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+    </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Contact Us</h1>
-    </section>
+<section class="hero">
+    <h1>Contact Us</h1>
+</section>
 
-    <!-- CONTACT -->
-    <section class="contact-section">
-        <h2>We’d Love to Hear From You</h2>
-        <p>
-            For inquiries, support, or collaborations, fill out the form below and our team will get back to you shortly.
-        </p>
+<section class="contact-section">
+    <h2>We’d Love to Hear From You</h2>
+    <p>
+        For inquiries, support, or collaborations, fill out the form below and our team will get back to you shortly.
+    </p>
 
-        <!-- FORM (CONNECTED TO orders@hustlersandco.com) -->
-        <form action="https://formsubmit.co/orders@hustlersandco.com" method="POST">
-            <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="contact.html?success=true">
+    <!-- ✅ FINAL FIXED FORM -->
+    <form action="https://formsubmit.co/orders@hustlersandco.com" method="POST" accept-charset="UTF-8">
 
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Email Address" required />
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+        <!-- Security / config -->
+        <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="contact.html?success=true">
+        <input type="text" name="_honey" style="display:none">
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 H&CO. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="shipping.html">Shipping & Returns</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms & Conditions</a>
-        </div>
-    </footer>
+        <!-- Fields -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
 
-    <!-- Cart script -->
-    <script src="cart.js"></script>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 H&CO. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="shipping.html">Shipping & Returns</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+    </div>
+</footer>
+
+<script src="cart.js"></script>
+
 </body>
 </html>
-
