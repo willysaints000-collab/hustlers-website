@@ -48,15 +48,16 @@
       margin-bottom: 40px;
     }
 
-    #success-message p:first-child {
+    #success-message h2 {
       font-family: "Playfair Display", serif;
-      font-size: 22px;
-      margin-bottom: 6px;
+      font-size: 24px;
+      margin-bottom: 8px;
     }
 
-    #success-message p:last-child {
+    #success-message p {
       font-size: 15px;
       opacity: 0.75;
+      margin: 0;
     }
 
     form {
@@ -75,6 +76,7 @@
 
     textarea {
       height: 150px;
+      resize: vertical;
     }
 
     button {
@@ -98,7 +100,7 @@
 
   <!-- SUCCESS MESSAGE -->
   <div id="success-message">
-    <p>Thank you for reaching out</p>
+    <h2>Thank you for reaching out</h2>
     <p>Your message has been sent successfully. We’ll be in touch shortly.</p>
   </div>
 
@@ -109,11 +111,25 @@
     method="POST"
     accept-charset="UTF-8">
 
+    <!-- FormSubmit settings -->
     <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://hustlers-website.vercel.app/contact.html?success=true">
+    <input type="hidden" name="_replyto" value="%email%">
+
+    <!-- Auto-reply -->
+    <input type="hidden" name="_autoresponse" value="Thank you for reaching out to Hustlers & Co.
+
+We’ve received your message and our team will get back to you within 24 hours.
+
+Best regards,
+H&CO.
+Premium Menswear">
+
+    <!-- Spam protection -->
     <input type="text" name="_honey" style="display:none">
 
+    <!-- User inputs -->
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Email Address" required>
     <textarea name="message" placeholder="Your Message" required></textarea>
@@ -126,11 +142,8 @@
   const params = new URLSearchParams(window.location.search);
 
   if (params.get("success") === "true") {
-    const successMsg = document.getElementById("success-message");
-    const form = document.getElementById("contact-form");
-
-    if (successMsg) successMsg.style.display = "block";
-    if (form) form.style.display = "none";
+    document.getElementById("success-message").style.display = "block";
+    document.getElementById("contact-form").style.display = "none";
   }
 </script>
 
