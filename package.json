@@ -5,7 +5,8 @@
   "type": "module",
   "dependencies": {
     "stripe": "^14.0.0",
+    "micro": "^9.3.4",
     "nodemailer": "^6.9.8",
-    "micro": "^9.3.4"
+    "resend": "^3.5.0"
   }
 }
