@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    console.error("Webhook signature verification failed:", err.message);
+    console.error("Webhook verification failed:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     const customerName = session.customer_details?.name || "Customer";
     const amount = (session.amount_total / 100).toFixed(2);
 
-    // 📦 SHIPPING ADDRESS
+    /* 📦 SHIPPING ADDRESS */
     const address = session.shipping_details?.address || {};
     const shippingAddress = `
       ${session.shipping_details?.name || customerName}<br/>
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
     `;
 
     try {
-      // 🔹 FETCH LINE ITEMS
+      /* 🛍 FETCH LINE ITEMS */
       const lineItems = await stripe.checkout.sessions.listLineItems(
         session.id,
         { limit: 10 }
@@ -80,33 +80,39 @@ export default async function handler(req, res) {
         .join("");
 
       /* ============================
-         CUSTOMER EMAIL
+         📧 CUSTOMER EMAIL
       ============================ */
       await resend.emails.send({
         from: "Hustlers & Co. <orders@hustlersandco.com>",
         to: customerEmail,
         subject: "Your Hustlers & Co. Order Confirmation",
         html: `
-        <div style="max-width:600px;margin:0 auto;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#111;">
-          
-          <div style="padding:30px;text-align:center;border-bottom:1px solid #eee;">
-            <h1 style="margin:0;font-size:26px;letter-spacing:1px;">HUSTLERS & CO.</h1>
-            <p style="margin-top:6px;color:#777;font-size:14px;">
-              Premium Menswear • Timeless Style
-            </p>
+        <div style="max-width:600px;margin:0 auto;background:#ffffff;font-family:Inter,Arial,sans-serif;color:#111;">
+
+          <!-- LOGO -->
+          <div style="text-align:center;padding:40px 30px 20px;">
+            <img
+              src="https://hustlersandco.com/images/email-logo.png"
+              alt="Hustlers & Co."
+              style="max-width:180px;height:auto;"
+            />
           </div>
 
           <div style="padding:30px;">
             <p>Hi <strong>${customerName}</strong>,</p>
-            <p>Thank you for your order. Here are your details:</p>
 
-            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:20px;">
+            <p>
+              Thank you for your order. We are preparing it with care.
+            </p>
+
+            <!-- ORDER TABLE -->
+            <table width="100%" style="border-collapse:collapse;margin-top:25px;">
               <thead>
-                <tr>
-                  <th style="text-align:left;padding:10px;border-bottom:2px solid #000;">Item</th>
-                  <th style="text-align:center;padding:10px;border-bottom:2px solid #000;">Qty</th>
-                  <th style="text-align:right;padding:10px;border-bottom:2px solid #000;">Unit</th>
-                  <th style="text-align:right;padding:10px;border-bottom:2px solid #000;">Total</th>
+                <tr style="border-bottom:2px solid #000;">
+                  <th align="left" style="padding:10px;">Item</th>
+                  <th align="center" style="padding:10px;">Qty</th>
+                  <th align="right" style="padding:10px;">Unit</th>
+                  <th align="right" style="padding:10px;">Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -115,20 +121,20 @@ export default async function handler(req, res) {
             </table>
 
             <div style="margin-top:25px;text-align:right;">
-              <p style="font-size:14px;color:#555;">Total Paid</p>
-              <p style="font-size:22px;font-weight:bold;">AED ${amount}</p>
+              <p style="font-size:14px;color:#666;">Total Paid</p>
+              <p style="font-size:22px;font-weight:600;">AED ${amount}</p>
             </div>
 
-            <hr style="margin:30px 0;" />
+            <hr style="margin:30px 0;border:none;border-top:1px solid #eee;" />
 
             <h3 style="margin-bottom:8px;">Shipping Address</h3>
             <p style="line-height:1.6;">${shippingAddress}</p>
 
-            <p style="margin-top:25px;font-size:14px;">
+            <p style="margin-top:25px;">
               We’ll notify you once your order ships.
             </p>
 
-            <p style="margin-top:20px;">— The Hustlers & Co. Team</p>
+            <p style="margin-top:20px;">— Hustlers & Co.</p>
           </div>
 
           <div style="padding:20px;text-align:center;font-size:12px;color:#888;border-top:1px solid #eee;">
@@ -139,7 +145,7 @@ export default async function handler(req, res) {
       });
 
       /* ============================
-         ADMIN EMAIL
+         📧 ADMIN EMAIL
       ============================ */
       await resend.emails.send({
         from: "Hustlers & Co. <orders@hustlersandco.com>",
