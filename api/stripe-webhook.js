@@ -38,18 +38,27 @@ export default async function handler(req, res) {
     const customerName = session.customer_details?.name || "Customer";
     const amount = (session.amount_total / 100).toFixed(2);
 
+    // 📦 SHIPPING ADDRESS
+    const address = session.shipping_details?.address || {};
+    const shippingAddress = `
+      ${session.shipping_details?.name || customerName}<br/>
+      ${address.line1 || ""} ${address.line2 || ""}<br/>
+      ${address.city || ""}${address.state ? ", " + address.state : ""}<br/>
+      ${address.postal_code || ""}<br/>
+      ${address.country || ""}
+    `;
+
     try {
-      // 🔹 FETCH LINE ITEMS FROM STRIPE
+      // 🔹 FETCH LINE ITEMS
       const lineItems = await stripe.checkout.sessions.listLineItems(
         session.id,
         { limit: 10 }
       );
 
-      // 🔹 BUILD PRODUCT TABLE ROWS
       const productRows = lineItems.data
         .map((item) => {
-          const price = (item.amount_total / 100).toFixed(2);
           const unit = (item.price.unit_amount / 100).toFixed(2);
+          const total = (item.amount_total / 100).toFixed(2);
 
           return `
             <tr>
@@ -63,7 +72,7 @@ export default async function handler(req, res) {
                 AED ${unit}
               </td>
               <td style="padding:12px;text-align:right;border-bottom:1px solid #eee;">
-                AED ${price}
+                AED ${total}
               </td>
             </tr>
           `;
@@ -89,7 +98,7 @@ export default async function handler(req, res) {
 
           <div style="padding:30px;">
             <p>Hi <strong>${customerName}</strong>,</p>
-            <p>Thank you for your order. Here are your purchase details:</p>
+            <p>Thank you for your order. Here are your details:</p>
 
             <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:20px;">
               <thead>
@@ -110,7 +119,12 @@ export default async function handler(req, res) {
               <p style="font-size:22px;font-weight:bold;">AED ${amount}</p>
             </div>
 
-            <p style="margin-top:30px;font-size:14px;">
+            <hr style="margin:30px 0;" />
+
+            <h3 style="margin-bottom:8px;">Shipping Address</h3>
+            <p style="line-height:1.6;">${shippingAddress}</p>
+
+            <p style="margin-top:25px;font-size:14px;">
               We’ll notify you once your order ships.
             </p>
 
@@ -136,6 +150,9 @@ export default async function handler(req, res) {
           <p><strong>Name:</strong> ${customerName}</p>
           <p><strong>Email:</strong> ${customerEmail}</p>
           <p><strong>Total:</strong> AED ${amount}</p>
+
+          <h3>Shipping Address</h3>
+          <p>${shippingAddress}</p>
         `,
       });
     } catch (error) {
@@ -146,4 +163,3 @@ export default async function handler(req, res) {
 
   res.status(200).json({ received: true });
 }
-
