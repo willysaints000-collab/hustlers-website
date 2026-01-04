@@ -1,13 +1,18 @@
 import Stripe from "stripe";
+import { buffer } from "micro";
 import { Resend } from "resend";
 
+// Disable body parsing (REQUIRED for Stripe webhooks)
 export const config = {
   api: {
     bodyParser: false,
   },
 };
 
+// Initialize Stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+// Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
@@ -15,47 +20,48 @@ export default async function handler(req, res) {
     return res.status(405).send("Method Not Allowed");
   }
 
-  const sig = req.headers["stripe-signature"];
   let event;
 
   try {
-    const chunks = [];
-    for await (const chunk of req) {
-      chunks.push(chunk);
-    }
-    const body = Buffer.concat(chunks);
+    const rawBody = await buffer(req);
+    const signature = req.headers["stripe-signature"];
 
     event = stripe.webhooks.constructEvent(
-      body,
-      sig,
+      rawBody,
+      signature,
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    console.error("Webhook signature verification failed.", err.message);
+    console.error("❌ Webhook signature verification failed:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
+  // ✅ Handle successful checkout
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
 
     try {
+      // Send confirmation email
       await resend.emails.send({
         from: "Hustlers & Co <orders@hustlersandco.com>",
-        to: "orders@hustlersandco.com",
-        subject: "🛒 New Order Received — Hustlers & Co.",
+        to: session.customer_details?.email,
+        subject: "Order Confirmed — Hustlers & Co.",
         html: `
-          <h2>New Order Received</h2>
-          <p><strong>Customer Email:</strong> ${session.customer_details?.email}</p>
-          <p><strong>Amount:</strong> $${(session.amount_total / 100).toFixed(2)}</p>
-          <p><strong>Payment Status:</strong> ${session.payment_status}</p>
-          <p><strong>Session ID:</strong> ${session.id}</p>
+          <h2>Thank you for your order</h2>
+          <p>Your payment was successful.</p>
+          <p><strong>Order ID:</strong> ${session.id}</p>
+          <p>We’ll notify you once your order is shipped.</p>
+          <br/>
+          <p>— Hustlers & Co.</p>
         `,
       });
+
+      console.log("✅ Order email sent successfully");
     } catch (emailError) {
-      console.error("Failed to send order email:", emailError);
-      return res.status(500).send("Email sending failed");
+      console.error("❌ Email sending failed:", emailError);
     }
   }
 
+  // Acknowledge receipt
   res.status(200).json({ received: true });
 }
