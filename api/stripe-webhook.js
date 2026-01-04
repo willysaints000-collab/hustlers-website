@@ -39,8 +39,39 @@ export default async function handler(req, res) {
     const amount = (session.amount_total / 100).toFixed(2);
 
     try {
+      // 🔹 FETCH LINE ITEMS FROM STRIPE
+      const lineItems = await stripe.checkout.sessions.listLineItems(
+        session.id,
+        { limit: 10 }
+      );
+
+      // 🔹 BUILD PRODUCT TABLE ROWS
+      const productRows = lineItems.data
+        .map((item) => {
+          const price = (item.amount_total / 100).toFixed(2);
+          const unit = (item.price.unit_amount / 100).toFixed(2);
+
+          return `
+            <tr>
+              <td style="padding:12px;border-bottom:1px solid #eee;">
+                ${item.description}
+              </td>
+              <td style="padding:12px;text-align:center;border-bottom:1px solid #eee;">
+                ${item.quantity}
+              </td>
+              <td style="padding:12px;text-align:right;border-bottom:1px solid #eee;">
+                AED ${unit}
+              </td>
+              <td style="padding:12px;text-align:right;border-bottom:1px solid #eee;">
+                AED ${price}
+              </td>
+            </tr>
+          `;
+        })
+        .join("");
+
       /* ============================
-         CUSTOMER EMAIL (LUXURY)
+         CUSTOMER EMAIL
       ============================ */
       await resend.emails.send({
         from: "Hustlers & Co. <orders@hustlersandco.com>",
@@ -57,59 +88,54 @@ export default async function handler(req, res) {
           </div>
 
           <div style="padding:30px;">
-            <h2 style="font-size:20px;margin-bottom:10px;">
-              Thank you for your order
-            </h2>
+            <p>Hi <strong>${customerName}</strong>,</p>
+            <p>Thank you for your order. Here are your purchase details:</p>
 
-            <p style="font-size:15px;line-height:1.6;">
-              Hi <strong>${customerName}</strong>,
-            </p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:20px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:10px;border-bottom:2px solid #000;">Item</th>
+                  <th style="text-align:center;padding:10px;border-bottom:2px solid #000;">Qty</th>
+                  <th style="text-align:right;padding:10px;border-bottom:2px solid #000;">Unit</th>
+                  <th style="text-align:right;padding:10px;border-bottom:2px solid #000;">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${productRows}
+              </tbody>
+            </table>
 
-            <p style="font-size:15px;line-height:1.6;">
-              We’ve received your order and it’s now being carefully prepared by our team.
-            </p>
-
-            <div style="background:#f8f8f8;padding:20px;margin:25px 0;">
-              <p style="margin:0;font-size:14px;color:#555;">
-                <strong>Total Paid:</strong>
-              </p>
-              <p style="margin:5px 0 0;font-size:22px;font-weight:bold;">
-                AED ${amount}
-              </p>
+            <div style="margin-top:25px;text-align:right;">
+              <p style="font-size:14px;color:#555;">Total Paid</p>
+              <p style="font-size:22px;font-weight:bold;">AED ${amount}</p>
             </div>
 
-            <p style="font-size:14px;line-height:1.6;color:#555;">
-              You’ll receive another email once your order has been shipped.
+            <p style="margin-top:30px;font-size:14px;">
+              We’ll notify you once your order ships.
             </p>
 
-            <p style="margin-top:30px;font-size:14px;">
-              — The Hustlers & Co. Team
-            </p>
+            <p style="margin-top:20px;">— The Hustlers & Co. Team</p>
           </div>
 
           <div style="padding:20px;text-align:center;font-size:12px;color:#888;border-top:1px solid #eee;">
-            © ${new Date().getFullYear()} Hustlers & Co. All rights reserved.
+            © ${new Date().getFullYear()} Hustlers & Co.
           </div>
-
         </div>
         `,
       });
 
       /* ============================
-         ADMIN EMAIL (CLEAN)
+         ADMIN EMAIL
       ============================ */
       await resend.emails.send({
         from: "Hustlers & Co. <orders@hustlersandco.com>",
         to: "orders@hustlersandco.com",
         subject: "🛒 New Order Received",
         html: `
-        <div style="font-family:Arial,Helvetica,sans-serif;">
-          <h2>New Order Received</h2>
+          <h2>New Order</h2>
           <p><strong>Name:</strong> ${customerName}</p>
           <p><strong>Email:</strong> ${customerEmail}</p>
           <p><strong>Total:</strong> AED ${amount}</p>
-          <p>View full order details in the Stripe dashboard.</p>
-        </div>
         `,
       });
     } catch (error) {
@@ -120,3 +146,4 @@ export default async function handler(req, res) {
 
   res.status(200).json({ received: true });
 }
+
