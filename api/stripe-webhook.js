@@ -53,7 +53,7 @@ export default async function handler(req, res) {
 
     // 📩 CUSTOMER EMAIL
     await transporter.sendMail({
-      from: `"Hustlers & Co." <orders@hustlersandco.com>`,
+      from: "Hustlers & Co. <onboarding@resend.dev>"
       to: customerEmail,
       subject: "Your order with Hustlers & Co.",
       html: `
