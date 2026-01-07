@@ -7,7 +7,7 @@
 <meta name="description" content="Welcome to H&CO., the home of effortless luxury. Explore our collection of timeless, refined clothing and discover your new essentials.">
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
+<script async src="https://www.googletmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -65,19 +65,133 @@ header nav a:hover {
     position: relative;
 }
 
+/* ✅ FIXED OVERLAY LAYER */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.38);
+    z-index: 1;
 }
 
+/* ✅ FIXED TEXT LAYER */
 .hero-content {
     position: relative;
+    z-index: 2;
     text-align: center;
     color: #fff;
     max-width: 720px;
     padding: 0 20px;
 }
 
-.hero
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 44px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 16px 42px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #eaeaea;
+}
+
+/* FOOTER */
+footer {
+    background: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+footer p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 18px;
+}
+
+footer a {
+    margin: 0 14px;
+    text-decoration: none;
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+footer a:hover {
+    color: #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    header {
+        padding: 22px 30px;
+    }
+
+    .hero {
+        height: 75vh;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">H&CO.</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Effortless Luxury</h1>
+            <p>Premium craftsmanship. Timeless style. Refined essentials.</p>
+            <a href="collection.html" class="btn">Explore Collection</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 H&CO. All rights reserved.</p>
+    <a href="shipping.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms & Conditions</a>
+</footer>
+
+<script src="cart.js"></script>
+</body>
+</html>
