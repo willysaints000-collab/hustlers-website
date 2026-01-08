@@ -1,140 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manifesto — Hustlers & Co.</title>
 
-<title>Manifesto — H&CO.</title>
-<meta name="description" content="The Hustlers & Co. Manifesto. Crafted for the driven. Built for those who move with purpose.">
+  <!-- Luxury Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #f8f6f3;
-    color: #111;
-}
+    body {
+      font-family: Inter, sans-serif;
+      background: #f8f6f3;
+      color: #111;
+      line-height: 1.7;
+    }
 
-/* HEADER */
-header {
-    background: #000;
-    padding: 26px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    /* HEADER */
+    header {
+      background: #000;
+      padding: 22px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: #fff;
-}
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 35px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 34px;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      color: #fff;
+    }
 
-nav a:hover {
-    opacity: 0.7;
-}
+    /* PAGE CONTAINER */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 90px 20px 110px;
+    }
 
-/* MANIFESTO */
-.manifesto {
-    max-width: 820px;
-    margin: 120px auto;
-    padding: 0 24px;
-    text-align: center;
-}
+    /* TITLE */
+    .title {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: 44px;
+      font-weight: 600;
+      margin-bottom: 80px;
+      letter-spacing: 0.5px;
+    }
 
-.manifesto h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    margin-bottom: 40px;
-}
+    /* MANIFESTO CONTENT */
+    .manifesto {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 400;
+      color: #222;
+    }
 
-.manifesto p {
-    font-size: 18px;
-    line-height: 1.9;
-    margin-bottom: 26px;
-    font-weight: 300;
-}
+    .manifesto p {
+      margin-bottom: 34px;
+    }
 
-/* FOOTER */
-footer {
-    background: #fff;
-    padding: 50px 20px;
-    text-align: center;
-    border-top: 1px solid #e5e5e5;
-}
+    /* FINAL LINE EMPHASIS */
+    .manifesto .closing {
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: 500;
+    }
 
-footer p {
-    font-size: 13px;
-    color: #666;
-}
-</style>
+    /* FOOTER */
+    footer {
+      background: #000;
+      padding: 50px 60px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px 30px;
+      }
+
+      .title {
+        font-size: 34px;
+        margin-bottom: 60px;
+      }
+
+      .page {
+        padding: 80px 20px 100px;
+      }
+
+      footer {
+        padding: 40px 30px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">H&CO.</div>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">H&amp;CO.</div>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="manifesto.html">Manifesto</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart</a>
+      <a href="index.html">Home</a>
+      <a href="collection.html">Collection</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="contact.html">Contact</a>
     </nav>
-</header>
+  </header>
 
-<section class="manifesto">
-    <h1>The Hustlers & Co. Manifesto</h1>
+  <!-- CONTENT -->
+  <main class="page">
 
-    <p>
-        Hustlers & Co. is not about noise.  
-        It is about purpose.
-    </p>
+    <h1 class="title">The Hustlers &amp; Co. Manifesto</h1>
 
-    <p>
-        We believe true luxury is quiet.  
-        It is confidence without explanation.  
-        Style without effort.
-    </p>
+    <div class="manifesto">
+      <p>Hustlers &amp; Co. is not about noise.<br>
+      It is about purpose.</p>
 
-    <p>
-        We design for those who move with intent —  
-        who build, who persist, who grow.
-    </p>
+      <p>We believe true luxury is quiet.<br>
+      Confidence without explanation.<br>
+      Style without effort.</p>
 
-    <p>
-        Hustlers & Co. is for the driven.  
-        For those who value discipline over distraction.  
-        Substance over excess.
-    </p>
+      <p>We design for those who move with intent —<br>
+      who build, who persist, who grow.</p>
 
-    <p>
-        This is not fashion for attention.  
-        This is uniform for a mindset.
-    </p>
+      <p>Hustlers &amp; Co. is for the driven.<br>
+      For those who value discipline over distraction.<br>
+      Substance over excess.</p>
 
-    <p>
-        Crafted for the driven.  
-        Built to last.
-    </p>
-</section>
+      <p class="closing">This isn’t fast fashion.<br>
+      It’s a mindset.</p>
+    </div>
 
-<footer>
-    <p>© 2025 H&CO. All rights reserved.</p>
-</footer>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/founders-note.html">Founder’s Note</a>
+      <a href="/manifesto.html">Manifesto</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </footer>
 
 </body>
 </html>
