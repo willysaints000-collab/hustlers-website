@@ -64,7 +64,16 @@ header a {
 .product-info h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+/* DROP NOTE */
+.drop-note {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 28px;
 }
 
 .price {
@@ -147,6 +156,8 @@ button:hover {
 
     <div class="product-info">
         <h1>Heritage Tee</h1>
+        <p class="drop-note">Part of Drop 001 — The Foundation.</p>
+
         <div class="price">AED 249</div>
 
         <p class="description">
@@ -215,9 +226,7 @@ addToCartBtn.addEventListener("click", () => {
         quantity: 1
     };
 
-    const existing = cart.find(
-        p => p.id === item.id
-    );
+    const existing = cart.find(p => p.id === item.id);
 
     if (existing) {
         existing.quantity += 1;
