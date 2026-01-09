@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shipping Information — H&CO.</title>
+    <title>Shipping & Returns — H&CO.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read about H&CO.'s shipping policies including order processing times, delivery estimates, and available shipping regions.">
+    <meta name="description" content="Shipping and returns information for H&CO. Orders, delivery timelines, and return guidelines.">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
@@ -14,60 +14,146 @@
       gtag('js', new Date());
       gtag('config', 'G-NEE8LB2QZR');
     </script>
-    <!-- End Google tag -->
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
 
     <style>
+        body {
+            margin: 0;
+            background: #f8f6f3;
+            font-family: "Inter", sans-serif;
+            color: #111;
+        }
+
+        /* HEADER */
+        header {
+            padding: 24px 50px;
+            background: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        /* CONTENT */
         .policy-wrapper {
             max-width: 900px;
-            margin: 80px auto;
-            padding: 20px;
+            margin: 90px auto;
+            padding: 0 24px;
         }
+
         .policy-title {
             font-family: "Playfair Display", serif;
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 38px;
+            margin-bottom: 14px;
         }
+
+        .policy-sub {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .policy-section {
+            margin-bottom: 50px;
+        }
+
+        .policy-section h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
         .policy-text {
-            font-family: "Inter", sans-serif;
             font-size: 15px;
             color: #444;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            max-width: 760px;
+        }
+
+        @media (max-width: 600px) {
+            .policy-title {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <a href="index.html" class="logo">H&CO.</a>
-        <nav class="nav">
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-        </nav>
-    </header>
 
-    <section class="policy-wrapper">
-        <h1 class="policy-title">Shipping</h1>
-        <p class="policy-text">
-            We aim to process and dispatch all orders within <strong>1–2 business days</strong>.
-            Once your order has been shipped, you will receive a confirmation email with tracking details.
-        </p>
-        <p class="policy-text">
-            Delivery times may vary depending on your location and selected shipping method. Please note that shipping timelines are estimates and may be affected by external factors beyond our control.
-        </p>
-        <p class="policy-text">
-            At this time, H&CO. ships within selected regions. Any applicable shipping fees will be calculated and displayed at checkout.
-        </p>
-    </section>
+<header>
+    <a href="index.html" class="logo">H&CO.</a>
+    <nav>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+    </nav>
+</header>
 
-    <!-- Load cart script to update cart count -->
-    <script src="cart.js"></script>
+<section class="policy-wrapper">
+
+    <h1 class="policy-title">Shipping & Returns</h1>
+    <div class="policy-sub">Clear information, delivered with care.</div>
+
+    <!-- SHIPPING -->
+    <div class="policy-section">
+        <h2>Shipping</h2>
+
+        <p class="policy-text">
+            Orders are carefully prepared and dispatched within <strong>1–2 business days</strong>.
+            Once your order ships, you will receive a confirmation email with tracking details.
+        </p>
+
+        <p class="policy-text">
+            Delivery times vary based on location and selected shipping method.
+            While we aim for timely delivery, please note that transit times are estimates and may be affected by factors outside our control.
+        </p>
+
+        <p class="policy-text">
+            Shipping fees, if applicable, are calculated and displayed clearly at checkout.
+            At this time, H&CO. ships within selected regions.
+        </p>
+    </div>
+
+    <!-- RETURNS -->
+    <div class="policy-section">
+        <h2>Returns</h2>
+
+        <p class="policy-text">
+            If something isn’t quite right, we’re here to help.
+            Returns are accepted within <strong>14 days of delivery</strong>, provided items are unworn, unwashed, and in original condition.
+        </p>
+
+        <p class="policy-text">
+            To initiate a return, please contact our support team with your order details.
+            Once approved, return instructions will be provided.
+        </p>
+
+        <p class="policy-text">
+            Please note that original shipping fees are non-refundable, and return shipping costs may apply unless the item is faulty.
+        </p>
+    </div>
+
+</section>
+
+<script src="cart.js"></script>
+
 </body>
 </html>
 
