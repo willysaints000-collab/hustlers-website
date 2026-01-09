@@ -16,6 +16,7 @@
             color: #111;
         }
 
+        /* HEADER */
         header {
             padding: 25px 50px;
             display: flex;
@@ -36,43 +37,51 @@
             margin-left: 30px;
             text-decoration: none;
             color: #000;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1px;
         }
 
+        /* CONTENT */
         .success-wrapper {
             max-width: 900px;
-            margin: 100px auto;
+            margin: 110px auto;
             padding: 40px 20px;
             text-align: center;
         }
 
         .success-icon {
-            font-size: 46px;
-            margin-bottom: 20px;
+            font-size: 44px;
+            margin-bottom: 18px;
         }
 
         .success-title {
             font-family: "Playfair Display", serif;
-            font-size: 40px;
-            margin-bottom: 15px;
+            font-size: 42px;
+            margin-bottom: 14px;
+        }
+
+        .success-sub {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 26px;
+            letter-spacing: 0.5px;
         }
 
         .success-text {
             font-size: 16px;
             color: #444;
             max-width: 520px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
+            margin: 0 auto 34px;
+            line-height: 1.7;
         }
 
         .success-box {
             border: 1px solid #eee;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 34px;
+            border-radius: 14px;
             background: #fafafa;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            max-width: 620px;
+            margin: 0 auto 44px;
         }
 
         .success-box p {
@@ -89,11 +98,12 @@
         }
 
         .success-actions a {
-            padding: 14px 28px;
+            padding: 14px 30px;
             border-radius: 8px;
-            font-size: 15px;
+            font-size: 14px;
             text-decoration: none;
             font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
@@ -117,7 +127,7 @@
 
         @media (max-width: 600px) {
             .success-title {
-                font-size: 32px;
+                font-size: 34px;
             }
         }
     </style>
@@ -139,32 +149,32 @@
 <section class="success-wrapper">
     <div class="success-icon">✓</div>
 
-    <h1 class="success-title">Thank you for your order.</h1>
+    <h1 class="success-title">Order Confirmed</h1>
+    <div class="success-sub">Drop 001 — The Foundation</div>
 
     <p class="success-text">
-        Your payment was successful and your order has been received.
-        A confirmation email with your order details will be sent shortly.
+        Thank you for your purchase. Your order has been successfully placed
+        and is now being prepared with care.
+        A confirmation email with full details will arrive shortly.
     </p>
 
     <div class="success-box">
-        <p><strong>What happens next?</strong></p>
-        <p>• Orders are processed within 1–2 business days</p>
-        <p>• You’ll receive a shipping confirmation once dispatched</p>
-        <p>• For any questions, our support team is here to help</p>
+        <p><strong>What happens next</strong></p>
+        <p>• Orders are prepared within 1–2 business days</p>
+        <p>• You’ll receive shipping confirmation once dispatched</p>
+        <p>• Our support team is available if you need assistance</p>
     </div>
 
     <div class="success-actions">
-        <a href="shop.html" class="btn-primary">Continue Shopping</a>
+        <a href="collection.html" class="btn-primary">View the Collection</a>
         <a href="contact.html" class="btn-secondary">Contact Support</a>
     </div>
 </section>
 
-<!-- ✅ AUTO-CLEAR CART AFTER STRIPE SUCCESS -->
+<!-- ✅ CLEAR CART AFTER SUCCESS -->
 <script>
-    // Clear H&CO cart
     localStorage.removeItem("hco_cart");
 
-    // Reset cart counter if visible
     document.addEventListener("DOMContentLoaded", () => {
         const cartCount = document.querySelector(".cart-count");
         if (cartCount) cartCount.textContent = "0";
