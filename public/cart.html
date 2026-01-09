@@ -43,10 +43,20 @@ header a {
   padding: 0 40px;
 }
 
-h1 {
+/* TITLE + CONTEXT */
+.cart-title {
+  margin-bottom: 50px;
+}
+
+.cart-title h1 {
   font-family: 'Playfair Display';
   font-size: 38px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+.cart-title p {
+  font-size: 14px;
+  color: #666;
 }
 
 /* CART ITEM */
@@ -67,6 +77,7 @@ h1 {
 .cart-item strong {
   display: block;
   margin-bottom: 6px;
+  font-size: 15px;
 }
 
 .meta {
@@ -80,7 +91,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .qty-btn {
@@ -100,12 +111,12 @@ h1 {
 
 /* REMOVE */
 .remove-btn {
-  margin-top: 10px;
+  margin-top: 12px;
   background: none;
   border: none;
   padding: 0;
   font-size: 12px;
-  color: #666;
+  color: #777;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -122,16 +133,33 @@ h1 {
 
 .summary {
   text-align: right;
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+.summary p {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .checkout-btn {
   background: #000;
   color: #fff;
   border: none;
-  padding: 14px 36px;
+  padding: 14px 40px;
   cursor: pointer;
   letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.checkout-btn:hover {
+  opacity: 0.9;
+}
+
+/* EMPTY STATE */
+.empty-cart {
+  font-size: 15px;
+  color: #666;
+  margin-top: 40px;
 }
 
 /* FOOTER */
@@ -141,7 +169,7 @@ footer {
   padding: 30px;
   font-size: 13px;
   color: #666;
-  margin-top: 80px;
+  margin-top: 100px;
 }
 </style>
 </head>
@@ -158,12 +186,16 @@ footer {
 </header>
 
 <section class="cart-wrapper">
-  <h1>Your Cart</h1>
+
+  <div class="cart-title">
+    <h1>Your Selection</h1>
+    <p>Completing Drop 001 — The Foundation.</p>
+  </div>
 
   <div id="cart-items"></div>
 
   <div class="summary">
-    <p>Total: <strong>AED <span id="cart-total">0.00</span></strong></p>
+    <p>Total — <strong>AED <span id="cart-total">0.00</span></strong></p>
     <button class="checkout-btn" onclick="goCheckout()">Proceed to Checkout</button>
   </div>
 </section>
@@ -223,7 +255,7 @@ function renderCart() {
   let totalQty = 0;
 
   if (cart.length === 0) {
-    itemsEl.innerHTML = "<p>Your cart is empty.</p>";
+    itemsEl.innerHTML = `<p class="empty-cart">Your cart is currently empty.</p>`;
     totalEl.textContent = "0.00";
     countEl.textContent = "0";
     return;
@@ -242,8 +274,8 @@ function renderCart() {
         <img src="${item.image || 'images/placeholder.webp'}" alt="">
         <div>
           <strong>${item.name || "Product"}</strong>
-          <div class="meta">Color: ${item.color || "-"}</div>
-          <div class="meta">Size: ${item.size || "-"}</div>
+          <div class="meta">Color — ${item.color || "-"}</div>
+          <div class="meta">Size — ${item.size || "-"}</div>
 
           <div class="qty-controls">
             <button class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
@@ -274,4 +306,3 @@ renderCart();
 
 </body>
 </html>
-
