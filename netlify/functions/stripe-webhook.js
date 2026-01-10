@@ -6,7 +6,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.handler = async (event) => {
   const sig = event.headers["stripe-signature"];
-
   let stripeEvent;
 
   try {
@@ -23,7 +22,7 @@ exports.handler = async (event) => {
     };
   }
 
-  // ✅ Only act on completed checkout
+  // ✅ Only act on successful checkout
   if (stripeEvent.type === "checkout.session.completed") {
     const session = stripeEvent.data.object;
 
@@ -32,35 +31,35 @@ exports.handler = async (event) => {
     const totalAmount = (session.amount_total / 100).toFixed(2);
 
     try {
-      // 📩 ADMIN EMAIL
+      // 📩 ADMIN EMAIL (ONLY ONE, SAFE INBOX)
       await resend.emails.send({
-        from: "Hustlers & Co. <orders@hustlersandco.com>",
-        to: [
-          "orders@hustlersandco.com",
-          "salazarwilma104@yahoo.com"
-        ],
-        subject: "🛒 New Order Received — Hustlers & Co.",
+        from: "Hustlers & Co <orders@hustlersandco.com>",
+        to: ["willysaint000@gmail.com"],
+        subject: "🛒 New Order Received — Hustlers & Co",
         html: `
           <h2>New Order Received</h2>
           <p><strong>Name:</strong> ${customerName}</p>
           <p><strong>Email:</strong> ${customerEmail}</p>
-          <p><strong>Total:</strong> AED ${totalAmount}</p>
+          <p><strong>Total Paid:</strong> AED ${totalAmount}</p>
         `,
       });
 
-      // 📩 CUSTOMER EMAIL
-      await resend.emails.send({
-        from: "Hustlers & Co. <orders@hustlersandco.com>",
-        to: customerEmail,
-        subject: "Your Order Is Confirmed — Hustlers & Co.",
-        html: `
-          <p>Hi ${customerName},</p>
-          <p>Thank you for your order. We’ve received it and are preparing it with care.</p>
-          <p><strong>Total Paid:</strong> AED ${totalAmount}</p>
-          <br/>
-          <p>— Hustlers & Co.</p>
-        `,
-      });
+      // 📩 CUSTOMER CONFIRMATION EMAIL
+      if (customerEmail) {
+        await resend.emails.send({
+          from: "Hustlers & Co <orders@hustlersandco.com>",
+          to: customerEmail,
+          subject: "Your Order Is Confirmed — Hustlers & Co",
+          html: `
+            <p>Hi ${customerName},</p>
+            <p>Thank you for your order with <strong>Hustlers & Co.</strong></p>
+            <p>We’ve received your payment and are preparing your order with care.</p>
+            <p><strong>Total Paid:</strong> AED ${totalAmount}</p>
+            <br/>
+            <p>— Hustlers & Co.</p>
+          `,
+        });
+      }
 
     } catch (emailErr) {
       console.error("Email sending failed:", emailErr);
