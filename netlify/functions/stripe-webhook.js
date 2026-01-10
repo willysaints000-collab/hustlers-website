@@ -22,47 +22,48 @@ exports.handler = async (event) => {
     };
   }
 
-  // ✅ Only act on successful checkout
+  // ✅ Only after successful payment
   if (stripeEvent.type === "checkout.session.completed") {
     const session = stripeEvent.data.object;
 
-    const customerEmail = session.customer_details?.email;
-    const customerName = session.customer_details?.name || "Customer";
-    const totalAmount = (session.amount_total / 100).toFixed(2);
-
     try {
-      // 📩 ADMIN EMAIL (ONLY ONE, SAFE INBOX)
+      // Fetch line items
+      const lineItems = await stripe.checkout.sessions.listLineItems(
+        session.id,
+        { limit: 10 }
+      );
+
+      const itemsHtml = lineItems.data
+        .map(
+          (item) =>
+            `<li>${item.quantity} × ${item.description}</li>`
+        )
+        .join("");
+
+      // ✅ Send email
       await resend.emails.send({
         from: "Hustlers & Co <orders@hustlersandco.com>",
-        to: ["willysaint000@gmail.com"],
-        subject: "🛒 New Order Received — Hustlers & Co",
+        to: session.customer_details.email,
+        subject: "Order Confirmed — H&CO.",
         html: `
-          <h2>New Order Received</h2>
-          <p><strong>Name:</strong> ${customerName}</p>
-          <p><strong>Email:</strong> ${customerEmail}</p>
-          <p><strong>Total Paid:</strong> AED ${totalAmount}</p>
+          <h2>Thank you for your order</h2>
+          <p>Hi ${session.customer_details.name},</p>
+
+          <p>Your order has been successfully confirmed.</p>
+
+          <ul>${itemsHtml}</ul>
+
+          <p><strong>Total:</strong> ${(session.amount_total / 100).toFixed(2)} ${session.currency.toUpperCase()}</p>
+
+          <p>We’ll notify you once your order is on the way.</p>
+
+          <p>— Hustlers & Co.</p>
         `,
       });
 
-      // 📩 CUSTOMER CONFIRMATION EMAIL
-      if (customerEmail) {
-        await resend.emails.send({
-          from: "Hustlers & Co <orders@hustlersandco.com>",
-          to: customerEmail,
-          subject: "Your Order Is Confirmed — Hustlers & Co",
-          html: `
-            <p>Hi ${customerName},</p>
-            <p>Thank you for your order with <strong>Hustlers & Co.</strong></p>
-            <p>We’ve received your payment and are preparing your order with care.</p>
-            <p><strong>Total Paid:</strong> AED ${totalAmount}</p>
-            <br/>
-            <p>— Hustlers & Co.</p>
-          `,
-        });
-      }
-
+      console.log("Confirmation email sent");
     } catch (emailErr) {
-      console.error("Email sending failed:", emailErr);
+      console.error("Email error:", emailErr);
     }
   }
 
@@ -71,3 +72,4 @@ exports.handler = async (event) => {
     body: JSON.stringify({ received: true }),
   };
 };
+
