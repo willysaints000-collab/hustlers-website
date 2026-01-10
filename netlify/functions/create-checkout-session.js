@@ -33,7 +33,11 @@ exports.handler = async function (event) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+
       payment_method_types: ["card"],
+
+      /* ✅ FORCE CUSTOMER DETAILS */
+      customer_creation: "always",
 
       billing_address_collection: "required",
 
