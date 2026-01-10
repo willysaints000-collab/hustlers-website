@@ -43,7 +43,7 @@ header a {
   padding: 0 40px;
 }
 
-/* TITLE + CONTEXT */
+/* TITLE */
 .cart-title {
   margin-bottom: 50px;
 }
@@ -66,7 +66,6 @@ header a {
   gap: 30px;
   padding: 30px 0;
   border-bottom: 1px solid #ddd;
-  align-items: flex-start;
 }
 
 .cart-item img {
@@ -74,22 +73,14 @@ header a {
   background: #fff;
 }
 
-.cart-item strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 15px;
-}
-
 .meta {
   font-size: 13px;
   color: #666;
-  line-height: 1.6;
 }
 
-/* QUANTITY */
+/* QTY */
 .qty-controls {
   display: flex;
-  align-items: center;
   gap: 12px;
   margin-top: 12px;
 }
@@ -100,45 +91,12 @@ header a {
   border: 1px solid #ccc;
   background: #fff;
   cursor: pointer;
-  font-size: 16px;
 }
 
-.qty-number {
-  min-width: 20px;
-  text-align: center;
-  font-size: 14px;
-}
-
-/* REMOVE */
-.remove-btn {
-  margin-top: 12px;
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: 12px;
-  color: #777;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.remove-btn:hover {
-  color: #000;
-}
-
-/* PRICE + SUMMARY */
-.price {
-  text-align: right;
-  font-weight: 500;
-}
-
+/* SUMMARY */
 .summary {
   text-align: right;
   margin-top: 60px;
-}
-
-.summary p {
-  font-size: 16px;
-  margin-bottom: 20px;
 }
 
 .checkout-btn {
@@ -155,9 +113,7 @@ header a {
   opacity: 0.9;
 }
 
-/* EMPTY STATE */
 .empty-cart {
-  font-size: 15px;
   color: #666;
   margin-top: 40px;
 }
@@ -186,7 +142,6 @@ footer {
 </header>
 
 <section class="cart-wrapper">
-
   <div class="cart-title">
     <h1>Your Selection</h1>
     <p>Completing Drop 001 — The Foundation.</p>
@@ -205,36 +160,26 @@ footer {
 <script>
 const CART_KEY = "hco_cart";
 
-/* GET CART */
+/* CART HELPERS */
 function getCart() {
-  try {
-    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-  } catch {
-    return [];
-  }
+  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
 
-/* SAVE CART */
 function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
-/* UPDATE QUANTITY */
+/* UPDATE QTY */
 function updateQty(index, change) {
   const cart = getCart();
   if (!cart[index]) return;
 
-  const currentQty = Number(cart[index].quantity ?? cart[index].qty ?? 1);
-  const newQty = Math.max(1, currentQty + change);
-
-  cart[index].quantity = newQty;
-  delete cart[index].qty;
-
+  cart[index].quantity = Math.max(1, (cart[index].quantity || 1) + change);
   saveCart(cart);
   renderCart();
 }
 
-/* REMOVE ITEM */
+/* REMOVE */
 function removeItem(index) {
   const cart = getCart();
   cart.splice(index, 1);
@@ -242,63 +187,73 @@ function removeItem(index) {
   renderCart();
 }
 
-/* RENDER CART */
+/* RENDER */
 function renderCart() {
   const cart = getCart();
-  const itemsEl = document.getElementById("cart-items");
+  const items = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
   const countEl = document.querySelector(".cart-count");
 
-  itemsEl.innerHTML = "";
-
+  items.innerHTML = "";
   let total = 0;
-  let totalQty = 0;
+  let count = 0;
 
   if (cart.length === 0) {
-    itemsEl.innerHTML = `<p class="empty-cart">Your cart is currently empty.</p>`;
+    items.innerHTML = `<p class="empty-cart">Your cart is currently empty.</p>`;
     totalEl.textContent = "0.00";
     countEl.textContent = "0";
     return;
   }
 
-  cart.forEach((item, index) => {
-    const qty = Number(item.quantity ?? item.qty ?? 1);
+  cart.forEach((item, i) => {
+    const qty = item.quantity || 1;
     const price = Number(item.price) || 0;
-    const itemTotal = price * qty;
+    const itemTotal = qty * price;
 
     total += itemTotal;
-    totalQty += qty;
+    count += qty;
 
-    itemsEl.innerHTML += `
+    items.innerHTML += `
       <div class="cart-item">
-        <img src="${item.image || 'images/placeholder.webp'}" alt="">
+        <img src="${item.image || 'images/placeholder.webp'}">
         <div>
-          <strong>${item.name || "Product"}</strong>
+          <strong>${item.name}</strong>
           <div class="meta">Color — ${item.color || "-"}</div>
           <div class="meta">Size — ${item.size || "-"}</div>
-
           <div class="qty-controls">
-            <button class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
-            <div class="qty-number">${qty}</div>
-            <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+            <button class="qty-btn" onclick="updateQty(${i}, -1)">−</button>
+            <div>${qty}</div>
+            <button class="qty-btn" onclick="updateQty(${i}, 1)">+</button>
           </div>
-
-          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          <button onclick="removeItem(${i})">Remove</button>
         </div>
-
-        <div class="price">AED ${itemTotal.toFixed(2)}</div>
+        <div style="text-align:right">AED ${itemTotal.toFixed(2)}</div>
       </div>
     `;
   });
 
   totalEl.textContent = total.toFixed(2);
-  countEl.textContent = totalQty;
+  countEl.textContent = count;
 }
 
-/* CHECKOUT */
-function goCheckout() {
-  if (getCart().length === 0) return;
-  window.location.href = "checkout.html";
+/* STRIPE CHECKOUT */
+async function goCheckout() {
+  const cart = getCart();
+  if (!cart.length) return;
+
+  const response = await fetch("/.netlify/functions/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cart }),
+  });
+
+  const data = await response.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  } else {
+    alert("Checkout failed");
+  }
 }
 
 renderCart();
