@@ -1,51 +1,50 @@
-import Stripe from "stripe";
+const Stripe = require("stripe");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+exports.handler = async function (event) {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: "Method not allowed" }),
+    };
   }
 
   try {
-    const { cart } = req.body;
+    const { cart } = JSON.parse(event.body);
 
     if (!cart || cart.length === 0) {
-      return res.status(400).json({ error: "Cart is empty" });
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Cart is empty" }),
+      };
     }
 
-    // Build line items
     const line_items = cart.map(item => ({
       price_data: {
         currency: "aed",
         product_data: {
           name: `${item.name}${item.color ? " - " + item.color : ""}${item.size ? " (" + item.size + ")" : ""}`,
         },
-        unit_amount: Math.round(item.price * 100), // AED → fils
+        unit_amount: Math.round(Number(item.price) * 100),
       },
-      quantity: item.quantity || item.qty || 1,
+      quantity: item.quantity || 1,
     }));
 
-    // Create Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-
       payment_method_types: ["card"],
 
-      line_items,
-
-      /* ✅ COLLECT CUSTOMER DETAILS */
       billing_address_collection: "required",
 
       shipping_address_collection: {
-        allowed_countries: ["AE", "US", "GB", "EU"],
+        allowed_countries: ["AE", "US", "GB"],
       },
 
       phone_number_collection: {
         enabled: true,
       },
 
-      /* ✅ OPTIONAL SHIPPING (FREE) */
       shipping_options: [
         {
           shipping_rate_data: {
@@ -55,24 +54,28 @@ export default async function handler(req, res) {
               currency: "aed",
             },
             display_name: "Standard Shipping",
-            delivery_estimate: {
-              minimum: { unit: "business_day", value: 2 },
-              maximum: { unit: "business_day", value: 5 },
-            },
           },
         },
       ],
 
-      success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cart.html`,
+      line_items,
+
+      success_url: `${event.headers.origin}/success.html`,
+      cancel_url: `${event.headers.origin}/cart.html`,
     });
 
-    return res.status(200).json({ url: session.url });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ url: session.url }),
+    };
 
   } catch (error) {
     console.error("Stripe error:", error);
-    return res.status(500).json({ error: error.message });
-  }
-}
 
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }),
+    };
+  }
+};
 
