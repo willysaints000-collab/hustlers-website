@@ -2,16 +2,22 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+export async function handler(event) {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: "Method not allowed" }),
+    };
   }
 
   try {
-    const { cart } = req.body;
+    const { cart } = JSON.parse(event.body);
 
     if (!cart || cart.length === 0) {
-      return res.status(400).json({ error: "Cart is empty" });
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Cart is empty" }),
+      };
     }
 
     const line_items = cart.map(item => ({
@@ -20,7 +26,7 @@ export default async function handler(req, res) {
         product_data: {
           name: `${item.name} (${item.color}, ${item.size})`,
         },
-        unit_amount: item.price * 100, // Stripe = cents
+        unit_amount: Math.round(item.price * 100),
       },
       quantity: item.quantity || 1,
     }));
@@ -29,15 +35,23 @@ export default async function handler(req, res) {
       mode: "payment",
       payment_method_types: ["card"],
       line_items,
-      success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+      success_url: `${event.headers.origin}/success.html`,
+      cancel_url: `${event.headers.origin}/cancel.html`,
     });
 
-    res.status(200).json({ url: session.url });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ url: session.url }),
+    };
 
   } catch (error) {
     console.error("Stripe error:", error);
-    res.status(500).json({ error: error.message });
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }),
+    };
   }
 }
+
 
