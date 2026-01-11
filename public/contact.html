@@ -72,8 +72,25 @@
       cursor: pointer;
     }
 
+    /* ✨ Fade-in animation */
+    .fade-in {
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .success {
       margin-top: 80px;
+      opacity: 0;
     }
 
     .back-home {
@@ -84,7 +101,7 @@
       text-decoration: none;
       color: #000;
       font-size: 14px;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .back-home:hover {
@@ -102,6 +119,7 @@
 
 <div class="container">
 
+  <!-- FORM -->
   <div id="form-section">
     <h1>Contact Us</h1>
     <p>Send us a message and we’ll get back to you shortly.</p>
@@ -124,7 +142,8 @@
     </form>
   </div>
 
-  <div id="success-section" class="success" style="display:none;">
+  <!-- SUCCESS -->
+  <div id="success-section" class="success">
     <h2>Thank you</h2>
     <p>Your message has been sent successfully.</p>
 
@@ -138,7 +157,10 @@
 
   if (params.get("success") === "true") {
     document.getElementById("form-section").style.display = "none";
-    document.getElementById("success-section").style.display = "block";
+
+    const success = document.getElementById("success-section");
+    success.style.display = "block";
+    success.classList.add("fade-in");
 
     // Auto redirect after 3 seconds
     setTimeout(() => {
