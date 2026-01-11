@@ -3,7 +3,7 @@ const { Resend } = require("resend");
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.handler = async (event) => {
-  // Allow only POST
+  // ✅ Only allow POST
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -12,22 +12,23 @@ exports.handler = async (event) => {
   }
 
   try {
-    const data = new URLSearchParams(event.body);
-
-    const name = data.get("name");
-    const email = data.get("email");
-    const message = data.get("message");
+    // ✅ Parse form data
+    const params = new URLSearchParams(event.body);
+    const name = params.get("name");
+    const email = params.get("email");
+    const message = params.get("message");
 
     if (!name || !email || !message) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Missing fields" }),
+        body: "Missing required fields",
       };
     }
 
+    // ✅ Send email via Resend (TEST MODE SAFE)
     await resend.emails.send({
-      from: "H&CO Contact <onboarding@resend.dev>", // ✅ testing sender
-      to: "willysaints000@gmail.com",               // ✅ MUST be your Resend email
+      from: "H&CO Contact <onboarding@resend.dev>",
+      to: "willysaints000@gmail.com",
       subject: "New Contact Message — H&CO.",
       html: `
         <h2>New Contact Message</h2>
@@ -38,6 +39,7 @@ exports.handler = async (event) => {
       `,
     });
 
+    // ✅ Redirect back to contact page with success
     return {
       statusCode: 302,
       headers: {
@@ -46,12 +48,13 @@ exports.handler = async (event) => {
       body: "",
     };
 
-  } catch (error) {
-    console.error("Contact form error:", error);
+  } catch (err) {
+    console.error("Contact form error:", err);
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send message" }),
+      body: "Failed to send message",
     };
   }
 };
+
