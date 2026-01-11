@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — H&CO.</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -73,24 +73,6 @@
       cursor: pointer;
     }
 
-    /* ✨ Animation */
-    .fade-step {
-      opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp 0.9s ease forwards;
-    }
-
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.45s; }
-    .delay-3 { animation-delay: 0.7s; }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     .success {
       margin-top: 80px;
       display: none;
@@ -133,12 +115,9 @@
     <h1>Contact Us</h1>
     <p>Send us a message and we’ll get back to you shortly.</p>
 
-    <form
-      action="/.netlify/functions/contact-form"
-      method="POST">
-
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
 
       <button type="submit">Send Message</button>
@@ -147,28 +126,48 @@
 
   <!-- SUCCESS -->
   <div id="success-section" class="success">
-    <h2 class="fade-step delay-1">Thank you</h2>
-    <p class="fade-step delay-2">Your message has been sent successfully.</p>
+    <h2>Thank you</h2>
+    <p>Your message has been sent successfully.</p>
 
-    <a href="/index.html" class="back-home fade-step delay-3">Back to Home</a>
-    <div class="micro-text fade-step delay-3">Redirecting you home…</div>
+    <a href="/index.html" class="back-home">Back to Home</a>
+    <div class="micro-text">Redirecting you home…</div>
   </div>
 
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
+  const form = document.getElementById("contact-form");
 
-  if (params.get("success") === "true") {
-    document.getElementById("form-section").style.display = "none";
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    const success = document.getElementById("success-section");
-    success.style.display = "block";
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
 
-    setTimeout(() => {
-      window.location.href = "/index.html";
-    }, 5000);
-  }
+    try {
+      const res = await fetch("/.netlify/functions/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("success-section").style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 5000);
+
+    } catch (err) {
+      alert("Message failed. Please try again.");
+      console.error(err);
+    }
+  });
 </script>
 
 </body>
