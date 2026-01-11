@@ -3,54 +3,64 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function handler(event) {
-  if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: "Method Not Allowed",
-    };
-  }
-
   try {
-    const data = JSON.parse(event.body);
-
-    console.log("Incoming contact form data:", data);
-
-    const { name, email, message } = data;
-
-    if (!name || !email || !message) {
+    // ✅ Handle preflight (important)
+    if (event.httpMethod === "OPTIONS") {
       return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "Missing required fields" }),
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "POST, OPTIONS"
+        }
       };
     }
 
-    const response = await resend.emails.send({
-      // ✅ SAFE sender — works instantly
+    if (event.httpMethod !== "POST") {
+      return {
+        statusCode: 405,
+        body: "Method Not Allowed"
+      };
+    }
+
+    console.log("👉 Function triggered");
+
+    const data = JSON.parse(event.body);
+    const { name, email, message } = data;
+
+    console.log("📨 Payload:", { name, email });
+
+    const result = await resend.emails.send({
       from: "H&CO Contact <onboarding@resend.dev>",
       to: [process.env.CONTACT_TO_EMAIL],
-      reply_to: email,
-      subject: `New Contact Message — H&CO`,
+      subject: "New Contact Message — H&CO.",
       html: `
         <h2>New Contact Message</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+        <p><strong>Message:</strong><br/>${message}</p>
+      `
     });
 
-    console.log("Resend response:", response);
+    console.log("✅ Email sent:", result);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({ success: true })
     };
+
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("❌ Function error:", error);
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send message" }),
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({ error: "Failed to send message" })
     };
   }
 }
