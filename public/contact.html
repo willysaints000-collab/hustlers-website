@@ -115,7 +115,8 @@
     <h1>Contact Us</h1>
     <p>Send us a message and we’ll get back to you shortly.</p>
 
-    <form id="contact-form">
+    <!-- ✅ NORMAL HTML FORM (NO JS) -->
+    <form action="/.netlify/functions/contact-form" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
@@ -135,39 +136,18 @@
 
 </div>
 
+<!-- ✅ ONLY SUCCESS HANDLING SCRIPT (SAFE) -->
 <script>
-  const form = document.getElementById("contact-form");
+  const params = new URLSearchParams(window.location.search);
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  if (params.get("success") === "true") {
+    document.getElementById("form-section").style.display = "none";
+    document.getElementById("success-section").style.display = "block";
 
-    const name = form.name.value;
-    const email = form.email.value;
-    const message = form.message.value;
-
-    try {
-      const res = await fetch("/.netlify/functions/contact-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email, message })
-      });
-
-      if (!res.ok) throw new Error("Failed");
-
-      document.getElementById("form-section").style.display = "none";
-      document.getElementById("success-section").style.display = "block";
-
-      setTimeout(() => {
-        window.location.href = "/index.html";
-      }, 5000);
-
-    } catch (err) {
-      alert("Message failed. Please try again.");
-      console.error(err);
-    }
-  });
+    setTimeout(() => {
+      window.location.href = "/index.html";
+    }, 5000);
+  }
 </script>
 
 </body>
