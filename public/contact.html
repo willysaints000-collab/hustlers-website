@@ -36,6 +36,7 @@
 
     h1, h2 {
       font-family: "Playfair Display", serif;
+      margin-bottom: 10px;
     }
 
     p {
@@ -72,16 +73,18 @@
       cursor: pointer;
     }
 
-    /* ✨ Fade-in animation */
-    .fade-in {
+    /* ✨ Animation */
+    .fade-step {
+      opacity: 0;
+      transform: translateY(14px);
       animation: fadeUp 0.9s ease forwards;
     }
 
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.45s; }
+    .delay-3 { animation-delay: 0.7s; }
+
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
       to {
         opacity: 1;
         transform: translateY(0);
@@ -90,12 +93,12 @@
 
     .success {
       margin-top: 80px;
-      opacity: 0;
+      display: none;
     }
 
     .back-home {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 26px;
       padding: 12px 26px;
       border: 1px solid #000;
       text-decoration: none;
@@ -107,6 +110,12 @@
     .back-home:hover {
       background: #000;
       color: #fff;
+    }
+
+    .micro-text {
+      font-size: 13px;
+      opacity: 0.6;
+      margin-top: 18px;
     }
   </style>
 </head>
@@ -125,14 +134,8 @@
     <p>Send us a message and we’ll get back to you shortly.</p>
 
     <form
-      action="https://formsubmit.co/orders@hustlersandco.com"
-      method="POST"
-      accept-charset="UTF-8">
-
-      <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="/contact.html?success=true">
-      <input type="text" name="_honey" style="display:none">
+      action="/.netlify/functions/contact-form"
+      method="POST">
 
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
@@ -144,10 +147,11 @@
 
   <!-- SUCCESS -->
   <div id="success-section" class="success">
-    <h2>Thank you</h2>
-    <p>Your message has been sent successfully.</p>
+    <h2 class="fade-step delay-1">Thank you</h2>
+    <p class="fade-step delay-2">Your message has been sent successfully.</p>
 
-    <a href="/index.html" class="back-home">Back to Home</a>
+    <a href="/index.html" class="back-home fade-step delay-3">Back to Home</a>
+    <div class="micro-text fade-step delay-3">Redirecting you home…</div>
   </div>
 
 </div>
@@ -160,12 +164,10 @@
 
     const success = document.getElementById("success-section");
     success.style.display = "block";
-    success.classList.add("fade-in");
 
-    // Auto redirect after 3 seconds
     setTimeout(() => {
       window.location.href = "/index.html";
-    }, 3000);
+    }, 5000);
   }
 </script>
 
