@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact H&CO.</title>
+  <title>Contact — H&CO.</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
@@ -15,23 +15,24 @@
       color: #111;
     }
 
+    /* HEADER */
     header {
       background: #000;
       padding: 25px 50px;
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
     }
 
     .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
       color: white;
       text-decoration: none;
-      letter-spacing: 1px;
     }
 
     .logo:hover {
       opacity: 0.85;
     }
 
+    /* CONTENT */
     .container {
       max-width: 700px;
       margin: 80px auto;
@@ -80,6 +81,7 @@
       border: 1px solid #d6d2cc;
       border-radius: 4px;
       font-family: Inter, sans-serif;
+      background: white;
     }
 
     textarea {
@@ -125,7 +127,26 @@
 
     <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="contact.html?success=true">
+    <input type="hidden" name="_autoresponse" value="Thank you for contacting Hustlers & Co. We have received your message and will respond shortly.">
+    <input type="text" name="_honey" style="display:none">
 
-    <!-- ✅ FIXED: Netlify redirect -->
-    <input type="hidden" name="_next" value="https://hco-site.netlify.app/contact.html?success=true">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "true") {
+    document.getElementById("success-message").style.display = "block";
+    document.getElementById("contact-form").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
 
