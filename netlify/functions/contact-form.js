@@ -1,22 +1,28 @@
-const { Resend } = require("resend");
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-exports.handler = async (event) => {
+export async function handler(event) {
   try {
     const { name, email, message } = JSON.parse(event.body);
 
+    if (!name || !email || !message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Missing fields" })
+      };
+    }
+
     await resend.emails.send({
-      from: "Hustlers & Co <orders@hustlersandco.com>",
-      to: ["orders@hustlersandco.com"],
+      from: "H&CO <orders@hustlersandco.com>",
+      to: process.env.CONTACT_TO_EMAIL,
       reply_to: email,
       subject: "📩 New Contact Message — H&CO.",
       html: `
-        <h2>New Contact Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <strong>Name:</strong> ${name}<br/>
+        <strong>Email:</strong> ${email}<br/><br/>
+        <strong>Message:</strong><br/>
+        ${message}
       `
     });
 
@@ -31,5 +37,4 @@ exports.handler = async (event) => {
       body: JSON.stringify({ error: "Failed to send message" })
     };
   }
-};
-
+}
