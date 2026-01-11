@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — H&CO.</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -15,64 +15,42 @@
       color: #111;
     }
 
-    /* HEADER */
     header {
       background: #000;
       padding: 25px 50px;
+      display: flex;
+      align-items: center;
     }
 
-    .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
+    header a {
       color: white;
       text-decoration: none;
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
     }
 
-    .logo:hover {
-      opacity: 0.85;
-    }
-
-    /* CONTENT */
     .container {
       max-width: 700px;
       margin: 80px auto;
       padding: 0 20px;
+      text-align: center;
     }
 
     h1 {
       font-family: "Playfair Display", serif;
-      text-align: center;
       margin-bottom: 10px;
     }
 
     p {
-      text-align: center;
       margin-bottom: 40px;
       opacity: 0.8;
-    }
-
-    #success-message {
-      display: none;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    #success-message h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    #success-message p {
-      font-size: 15px;
-      opacity: 0.75;
-      margin: 0;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      text-align: left;
     }
 
     input, textarea {
@@ -81,7 +59,6 @@
       border: 1px solid #d6d2cc;
       border-radius: 4px;
       font-family: Inter, sans-serif;
-      background: white;
     }
 
     textarea {
@@ -96,10 +73,11 @@
       border: none;
       font-size: 15px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
-    button:hover {
-      opacity: 0.9;
+    #success {
+      display: none;
     }
   </style>
 </head>
@@ -107,46 +85,53 @@
 <body>
 
 <header>
-  <a href="index.html" class="logo">H&CO.</a>
+  <a href="index.html">H&CO.</a>
 </header>
 
 <div class="container">
   <h1>Contact Us</h1>
   <p>Send us a message and we’ll get back to you shortly.</p>
 
-  <div id="success-message">
-    <h2>Thank you for reaching out</h2>
-    <p>Your message has been sent successfully. We’ll be in touch shortly.</p>
+  <div id="success">
+    <h1>Thank you</h1>
+    <p>Your message has been sent successfully.</p>
   </div>
 
-  <form
-    id="contact-form"
-    action="https://formsubmit.co/orders@hustlersandco.com"
-    method="POST"
-    accept-charset="UTF-8">
-
-    <input type="hidden" name="_subject" value="New Contact Message — H&CO.">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="contact.html?success=true">
-    <input type="hidden" name="_autoresponse" value="Thank you for contacting Hustlers & Co. We have received your message and will respond shortly.">
-    <input type="text" name="_honey" style="display:none">
-
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
     <textarea name="message" placeholder="Your Message" required></textarea>
-
     <button type="submit">Send Message</button>
   </form>
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("success") === "true") {
-    document.getElementById("success-message").style.display = "block";
-    document.getElementById("contact-form").style.display = "none";
-  }
+  const form = document.getElementById("contact-form");
+  const success = document.getElementById("success");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    const res = await fetch("/.netlify/functions/contact-form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      form.style.display = "none";
+      success.style.display = "block";
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  });
 </script>
 
 </body>
 </html>
-
