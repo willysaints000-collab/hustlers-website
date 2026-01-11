@@ -1,44 +1,49 @@
-import { Resend } from "resend";
+const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function handler(event) {
+exports.handler = async (event) => {
   // Allow only POST
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: "Method Not Allowed" })
+      body: "Method Not Allowed",
     };
   }
 
   try {
-    // Parse JSON body
-    const { name, email, message } = JSON.parse(event.body || "{}");
+    const data = new URLSearchParams(event.body);
+
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
 
     if (!name || !email || !message) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Missing required fields" })
+        body: JSON.stringify({ error: "Missing fields" }),
       };
     }
 
-    // Send email via Resend
     await resend.emails.send({
-      from: "H&CO Contact <onboarding@resend.dev>",
-      to: process.env.CONTACT_TO_EMAIL,
+      from: "H&CO Contact <onboarding@resend.dev>", // ✅ testing sender
+      to: "willysaints000@gmail.com",               // ✅ MUST be your Resend email
       subject: "New Contact Message — H&CO.",
       html: `
         <h2>New Contact Message</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
-      `
+        <p>${message}</p>
+      `,
     });
 
     return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true })
+      statusCode: 302,
+      headers: {
+        Location: "/contact.html?success=true",
+      },
+      body: "",
     };
 
   } catch (error) {
@@ -46,8 +51,7 @@ export async function handler(event) {
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send message" })
+      body: JSON.stringify({ error: "Failed to send message" }),
     };
   }
-}
-
+};
