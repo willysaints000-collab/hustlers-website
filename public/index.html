@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>H&CO. — Timeless Menswear Built with Intention</title>
-<meta name="description" content="Timeless menswear built with intention. Designed for those who choose discipline over noise.">
+
+<title>H&CO. — Modern Tailoring Built with Discipline</title>
+<meta name="description" content="H&CO. Modern tailoring built with discipline. Quiet luxury for men who value restraint, craft, and longevity.">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
@@ -16,7 +17,7 @@ gtag('config', 'G-NEE8LB2QZR');
 </script>
 <!-- End Google tag -->
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -28,134 +29,110 @@ body {
 
 /* HEADER */
 header {
-    background: #000;
-    padding: 26px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 32px 60px;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
     letter-spacing: 2px;
-    color: #fff;
 }
 
-header nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 34px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: 400;
-}
-
-header nav a:hover {
-    opacity: 0.7;
+/* MAIN WRAPPER */
+.manifesto-wrapper {
+    max-width: 720px;
+    margin: 120px auto;
+    padding: 0 24px;
 }
 
 /* HERO */
-.hero {
-    height: 80vh;
-    background: url('images/home-hero.webp') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-/* OVERLAY */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.38);
-    z-index: 1;
-}
-
-/* HERO CONTENT */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: #fff;
-    max-width: 720px;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
+.hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 64px;
+    font-size: 44px;
+    margin-bottom: 6px;
+}
+
+.tagline {
+    font-size: 13px;
     letter-spacing: 1px;
-    margin-bottom: 22px;
+    text-transform: uppercase;
+    color: #555;
 }
 
-.hero-content p {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    margin-bottom: 44px;
+/* MANIFESTO */
+.manifesto {
+    margin: 80px 0;
+    line-height: 1.9;
 }
 
-/* BUTTON */
-.btn {
-    display: inline-block;
-    padding: 16px 42px;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
+.manifesto p {
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* STATUS */
+.status {
+    margin-bottom: 60px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* WAITLIST */
+.waitlist-title {
     font-weight: 500;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
+    margin-bottom: 6px;
 }
 
-.btn:hover {
-    background: #eaeaea;
+.waitlist-sub {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.waitlist input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 14px;
+    background: transparent;
+}
+
+.waitlist button {
+    width: 100%;
+    padding: 14px;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.waitlist button:hover {
+    opacity: 0.9;
 }
 
 /* FOOTER */
 footer {
-    background: #fff;
-    padding: 50px 20px;
     text-align: center;
-    border-top: 1px solid #e5e5e5;
-}
-
-footer p {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 18px;
-}
-
-footer a {
-    margin: 0 14px;
-    text-decoration: none;
+    margin: 140px 0 40px;
+    font-size: 12px;
     color: #555;
-    font-size: 13px;
-    letter-spacing: 0.5px;
 }
 
-footer a:hover {
-    color: #000;
+.footer-line {
+    margin-top: 6px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-    header {
-        padding: 22px 30px;
+@media (max-width: 768px) {
+    .manifesto-wrapper {
+        margin: 80px auto;
     }
 
-    .hero {
-        height: 75vh;
-    }
-
-    .hero-content h1 {
-        font-size: 42px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
+    .hero h1 {
+        font-size: 34px;
     }
 }
 </style>
@@ -165,35 +142,67 @@ footer a:hover {
 
 <header>
     <div class="logo">H&CO.</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="collection.html">Collection</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="manifesto.html">Manifesto</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-    </nav>
 </header>
 
-<main>
+<main class="manifesto-wrapper">
+
     <section class="hero">
-        <div class="hero-content">
-            <h1>Discipline Over Noise</h1>
-            <p>Timeless pieces for those who move with intent.</p>
-            <a href="collection.html" class="btn">Explore Collection</a>
-        </div>
+        <h1>H&amp;CO.</h1>
+        <p class="tagline">Modern tailoring, built with discipline.</p>
     </section>
+
+    <section class="manifesto">
+        <p>H&amp;CO. was built on discipline.</p>
+
+        <p>
+            We believe true style is not about attention,<br>
+            but intention.
+        </p>
+
+        <p>
+            We design for men who value restraint,<br>
+            craft, and longevity.
+        </p>
+
+        <p>
+            Every piece begins with purpose.<br>
+            Every decision is deliberate.
+        </p>
+
+        <p>
+            We do not chase trends.<br>
+            We build foundations.
+        </p>
+
+        <p>
+            Quiet luxury is not silence —<br>
+            it is confidence without explanation.
+        </p>
+    </section>
+
+    <section class="status">
+        <p>A tailoring project in development.</p>
+    </section>
+
+    <section class="waitlist">
+        <p class="waitlist-title">Join the private list.</p>
+        <p class="waitlist-sub">
+            Be notified when our first tailored piece is ready.
+        </p>
+
+        <form>
+            <input type="email" placeholder="Email address" required>
+            <button type="submit">Join</button>
+        </form>
+    </section>
+
 </main>
 
 <footer>
-    <p>© 2025 H&CO. All rights reserved.</p>
-    <a href="shipping.html">Shipping & Returns</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms & Conditions</a>
+    <p>© H&amp;CO.</p>
+    <p class="footer-line">Discipline Over Noise.</p>
 </footer>
 
-<script src="cart.js"></script>
 </body>
 </html>
 
