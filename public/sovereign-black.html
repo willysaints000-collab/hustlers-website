@@ -28,6 +28,23 @@
       color: #111;
     }
 
+    /* BACK TO COLLECTION */
+    .back-link {
+      padding: 0 60px;
+      margin-top: -10px;
+    }
+
+    .back-link a {
+      font-size: 13px;
+      color: #555;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      color: #111;
+    }
+
     .page {
       max-width: 1200px;
       margin: 0 auto;
@@ -35,11 +52,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 90px;
-      align-items: start; /* 🔑 KEY FIX */
+      align-items: start;
     }
 
     .image {
-      padding-top: 18px; /* 🔑 IMAGE ALIGNMENT FIX */
+      padding-top: 18px;
     }
 
     .image img {
@@ -87,6 +104,10 @@
       .image {
         padding-top: 0;
       }
+
+      .back-link {
+        padding: 0 26px;
+      }
     }
   </style>
 </head>
@@ -96,6 +117,11 @@
 <header>
   <a href="index.html">H&CO.</a>
 </header>
+
+<!-- BACK TO COLLECTION -->
+<div class="back-link">
+  <a href="collection.html">← Back to Collection</a>
+</div>
 
 <section class="page">
   <div class="image">
@@ -136,4 +162,3 @@
 
 </body>
 </html>
-
