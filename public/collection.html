@@ -2,139 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>The Sovereign Collection — H&CO.</title>
+<title>The Suit Collection — H&CO.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="The Sovereign Collection by H&CO. Four suits. One philosophy. Discipline over noise.">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: Inter, sans-serif;
-  background: #f8f6f3;
-  color: #111;
+    font-family: 'Inter', sans-serif;
+    background: #f8f6f3;
+    color: #111;
 }
+
+a { text-decoration: none; color: inherit; }
 
 /* HEADER */
 header {
-  padding: 36px 60px;
+    padding: 32px 60px;
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  letter-spacing: 2px;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    letter-spacing: 2px;
 }
 
 /* INTRO */
-.intro {
-  max-width: 760px;
-  margin: 120px auto 140px;
-  text-align: center;
-  padding: 0 24px;
+.collection-intro {
+    max-width: 720px;
+    margin: 120px auto 80px;
+    text-align: center;
+    padding: 0 24px;
 }
 
-.intro h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px;
-  margin-bottom: 20px;
+.collection-intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 16px;
 }
 
-.intro p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.8;
+.collection-intro p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
 }
 
-/* COLLECTION */
-.collection {
-  max-width: 1200px;
-  margin: 0 auto 160px;
-  padding: 0 60px;
+/* GRID */
+.suit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto 140px;
+    padding: 0 60px;
 }
 
-.item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-  align-items: center;
-  margin-bottom: 160px;
+/* CARD */
+.suit-card {
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    transition: transform .3s ease;
 }
 
-.item:nth-child(even) {
-  grid-template-columns: 1fr 1fr;
+.suit-card:hover {
+    transform: translateY(-6px);
 }
 
-.image img {
-  width: 100%;
-  display: block;
+.suit-image {
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
 }
 
-/* TEXT */
-.text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  margin-bottom: 10px;
+.suit-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
-.subtitle {
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #666;
-  margin-bottom: 34px;
+.suit-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 6px;
 }
 
-.text p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #333;
-  max-width: 460px;
-  margin-bottom: 30px;
-}
-
-.link {
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #555;
-  text-decoration: none;
-}
-
-.link:hover {
-  opacity: 0.6;
-}
-
-/* FOOTER SPACE */
-.spacer {
-  height: 80px;
+.suit-card p {
+    font-size: 14px;
+    color: #666;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  .item {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
+@media (max-width: 1100px) {
+    .suit-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 30px;
+    }
+}
 
-  header {
-    padding: 26px;
-  }
+@media (max-width: 600px) {
+    header { padding: 24px 26px; }
 
-  .collection {
-    padding: 0 26px;
-  }
+    .collection-intro {
+        margin: 80px auto 60px;
+    }
 
-  .intro {
-    margin: 80px auto 100px;
-  }
+    .collection-intro h1 {
+        font-size: 34px;
+    }
 
-  .intro h1 {
-    font-size: 34px;
-  }
+    .suit-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .suit-image {
+        height: 360px;
+    }
 }
 </style>
 </head>
@@ -142,87 +130,57 @@ header {
 <body>
 
 <header>
-  <a href="index.html" class="logo">H&CO.</a>
+    <a href="index.html" class="logo">H&CO.</a>
 </header>
 
-<section class="intro">
-  <h1>The Sovereign Collection</h1>
-  <p>
-    Four suits. One philosophy.
-    Designed as foundations of authority, restraint, and longevity.
-    This is modern tailoring built with discipline.
-  </p>
+<section class="collection-intro">
+    <h1>The Suit Collection</h1>
+    <p>
+        Four suits. Four expressions of discipline, restraint, and authority.
+        Designed as foundations of a modern formal wardrobe — composed,
+        intentional, and built to endure.
+    </p>
 </section>
 
-<section class="collection">
+<section class="suit-grid">
 
-  <!-- NAVY -->
-  <div class="item">
-    <div class="image">
-      <img src="/images/suit-navy.webp" alt="The Sovereign Navy Suit">
-    </div>
-    <div class="text">
-      <h2>The Sovereign Navy</h2>
-      <div class="subtitle">Authority Refined</div>
-      <p>
-        A study in composure and inherited confidence.
-        Designed for leadership without announcement.
-      </p>
-      <a href="sovereign-navy.html" class="link">View Suit →</a>
-    </div>
-  </div>
+    <!-- NAVY -->
+    <a href="sovereign-navy.html" class="suit-card">
+        <div class="suit-image">
+            <img src="/images/suit-navy.webp" alt="The Sovereign Navy Suit">
+        </div>
+        <h3>The Sovereign Navy</h3>
+        <p>Authority, refined.</p>
+    </a>
 
-  <!-- CHARCOAL -->
-  <div class="item">
-    <div class="image">
-      <img src="/images/suit-charcoal.webp" alt="The Sovereign Charcoal Suit">
-    </div>
-    <div class="text">
-      <h2>The Sovereign Charcoal</h2>
-      <div class="subtitle">Restraint Balanced</div>
-      <p>
-        Neutral, composed, and quietly decisive.
-        A suit designed for clarity and control.
-      </p>
-      <a href="sovereign-charcoal.html" class="link">View Suit →</a>
-    </div>
-  </div>
+    <!-- CHARCOAL -->
+    <a href="sovereign-charcoal.html" class="suit-card">
+        <div class="suit-image">
+            <img src="/images/suit-charcoal.webp" alt="The Sovereign Charcoal Suit">
+        </div>
+        <h3>The Sovereign Charcoal</h3>
+        <p>Restraint, balanced.</p>
+    </a>
 
-  <!-- OLIVE -->
-  <div class="item">
-    <div class="image">
-      <img src="/images/suit-olive.webp" alt="The Sovereign Olive Suit">
-    </div>
-    <div class="text">
-      <h2>The Sovereign Olive</h2>
-      <div class="subtitle">Depth Composed</div>
-      <p>
-        A modern expression of heritage tones.
-        Reserved, deliberate, and quietly distinctive.
-      </p>
-      <a href="sovereign-olive.html" class="link">View Suit →</a>
-    </div>
-  </div>
+    <!-- OLIVE -->
+    <a href="sovereign-olive.html" class="suit-card">
+        <div class="suit-image">
+            <img src="/images/suit-olive.webp" alt="The Sovereign Olive Suit">
+        </div>
+        <h3>The Sovereign Olive</h3>
+        <p>Depth, composed.</p>
+    </a>
 
-  <!-- BLACK -->
-  <div class="item">
-    <div class="image">
-      <img src="/images/suit-black.webp" alt="The Sovereign Black Suit">
-    </div>
-    <div class="text">
-      <h2>The Sovereign Black</h2>
-      <div class="subtitle">Absolute Authority</div>
-      <p>
-        Final, controlled, and uncompromising.
-        Black as standard — not statement.
-      </p>
-      <a href="sovereign-black.html" class="link">View Suit →</a>
-    </div>
-  </div>
+    <!-- BLACK -->
+    <a href="sovereign-black.html" class="suit-card">
+        <div class="suit-image">
+            <img src="/images/suit-black.webp" alt="The Sovereign Black Suit">
+        </div>
+        <h3>The Sovereign Black</h3>
+        <p>Absolute authority.</p>
+    </a>
 
 </section>
-
-<div class="spacer"></div>
 
 </body>
 </html>
