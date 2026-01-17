@@ -65,6 +65,8 @@ header {
     padding: 30px;
     text-align: center;
     transition: transform .3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .suit-card:hover {
@@ -76,7 +78,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
 }
 
 .suit-image img {
@@ -85,14 +86,32 @@ header {
     object-fit: contain;
 }
 
-.suit-card h3 {
+/* OVERLAY WINDOW */
+.suit-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(248, 246, 243, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.suit-card:hover .suit-overlay {
+    opacity: 1;
+}
+
+.suit-overlay h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 6px;
 }
 
-.suit-card p {
-    font-size: 14px;
+.suit-overlay p {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     color: #666;
 }
 
@@ -149,8 +168,12 @@ header {
         <div class="suit-image">
             <img src="/images/suit-navy.webp" alt="The Sovereign Navy Suit">
         </div>
-        <h3>The Sovereign Navy</h3>
-        <p>Authority, refined.</p>
+        <div class="suit-overlay">
+            <div>
+                <h3>The Sovereign Navy</h3>
+                <p>Authority, refined</p>
+            </div>
+        </div>
     </a>
 
     <!-- CHARCOAL -->
@@ -158,8 +181,12 @@ header {
         <div class="suit-image">
             <img src="/images/suit-charcoal.webp" alt="The Sovereign Charcoal Suit">
         </div>
-        <h3>The Sovereign Charcoal</h3>
-        <p>Restraint, balanced.</p>
+        <div class="suit-overlay">
+            <div>
+                <h3>The Sovereign Charcoal</h3>
+                <p>Restraint, balanced</p>
+            </div>
+        </div>
     </a>
 
     <!-- OLIVE -->
@@ -167,8 +194,12 @@ header {
         <div class="suit-image">
             <img src="/images/suit-olive.webp" alt="The Sovereign Olive Suit">
         </div>
-        <h3>The Sovereign Olive</h3>
-        <p>Depth, composed.</p>
+        <div class="suit-overlay">
+            <div>
+                <h3>The Sovereign Olive</h3>
+                <p>Depth, composed</p>
+            </div>
+        </div>
     </a>
 
     <!-- BLACK -->
@@ -176,12 +207,15 @@ header {
         <div class="suit-image">
             <img src="/images/suit-black.webp" alt="The Sovereign Black Suit">
         </div>
-        <h3>The Sovereign Black</h3>
-        <p>Absolute authority.</p>
+        <div class="suit-overlay">
+            <div>
+                <h3>The Sovereign Black</h3>
+                <p>Absolute authority</p>
+            </div>
+        </div>
     </a>
 
 </section>
 
 </body>
 </html>
-
