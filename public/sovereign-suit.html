@@ -38,7 +38,7 @@ header{
 /* PRODUCT LAYOUT */
 .product-wrapper{
   max-width:1200px;
-  margin:100px auto;
+  margin:100px auto 140px;
   padding:0 40px;
   display:grid;
   grid-template-columns:1.1fr 0.9fr;
@@ -116,20 +116,77 @@ button{
   background:#000;
   color:#fff;
   border:none;
-  cursor:pointer;
+  cursor:not-allowed;
+  opacity:0.7;
 }
 
-button:hover{
-  opacity:0.9;
+/* COMPOSITION SECTION */
+.composition{
+  padding:120px 20px;
+  background:#f8f6f3;
+  text-align:center;
+}
+
+.composition h2{
+  font-family:'Playfair Display',serif;
+  font-size:40px;
+  margin-bottom:18px;
+}
+
+.composition-intro{
+  max-width:720px;
+  margin:0 auto 70px;
+  font-size:16px;
+  color:#555;
+  line-height:1.8;
+}
+
+.composition-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:50px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.composition-item img{
+  width:100%;
+  max-height:360px;
+  object-fit:contain;
+  margin-bottom:20px;
+}
+
+.composition-item h3{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.composition-item p{
+  font-size:14px;
+  color:#666;
+  line-height:1.6;
 }
 
 /* RESPONSIVE */
+@media(max-width:1100px){
+  .composition-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
 @media(max-width:900px){
   .product-wrapper{
     grid-template-columns:1fr;
     gap:60px;
   }
   header{padding:22px 30px}
+}
+
+@media(max-width:600px){
+  .composition-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -145,6 +202,7 @@ button:hover{
   </nav>
 </header>
 
+<!-- PRODUCT -->
 <main class="product-wrapper">
 
   <!-- IMAGE -->
@@ -171,12 +229,12 @@ button:hover{
 
     <div class="section-label">Description</div>
     <p class="description">
-      The Sovereign Suit is not designed for seasons or trends.
+      The Sovereign Suit is not designed for trends or moments.
       It is built as a permanent foundation of a modern wardrobe —
       composed, intentional, and enduring.
       <br><br>
       Every line is deliberate. Every proportion considered.
-      This is tailoring stripped of excess, refined to its essence.
+      Tailoring stripped of excess and refined to its essence.
     </p>
 
     <div class="status">
@@ -188,5 +246,56 @@ button:hover{
 
 </main>
 
+<!-- COMPOSITION -->
+<section class="composition">
+
+  <h2>The Sovereign Composition</h2>
+  <p class="composition-intro">
+    The Sovereign Suit is not a single garment.
+    It is a system — engineered to function as one disciplined whole.
+  </p>
+
+  <div class="composition-grid">
+
+    <div class="composition-item">
+      <img src="images/suit-navy.webp" alt="The Sovereign Suit">
+      <h3>The Sovereign Suit</h3>
+      <p>
+        The foundation of authority. Structured lines, controlled proportions,
+        and a silhouette designed to endure beyond trend or season.
+      </p>
+    </div>
+
+    <div class="composition-item">
+      <img src="images/vest-navy-front.webp" alt="The Sovereign Vest">
+      <h3>The Sovereign Vest</h3>
+      <p>
+        A four-button vest designed to reinforce balance and presence.
+        Built to sharpen posture and refine the profile beneath the jacket.
+      </p>
+    </div>
+
+    <div class="composition-item">
+      <img src="images/shirt-white-hanging.webp" alt="White Foundation Shirt">
+      <h3>White Foundation Shirt</h3>
+      <p>
+        Cut for invisibility beneath structure.
+        Clean lines, elegant fabric, and disciplined restraint.
+      </p>
+    </div>
+
+    <div class="composition-item">
+      <img src="images/pocket-square-white.webp" alt="Pocket Square">
+      <h3>Pocket Square</h3>
+      <p>
+        A controlled accent.
+        Never decorative — always intentional.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>
+
