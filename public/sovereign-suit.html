@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Sovereign Suit — H&CO.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Sovereign Suit by H&CO. A modern foundation of tailoring — disciplined, restrained, and built to endure.">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Inter,sans-serif;
+  background:#f8f6f3;
+  color:#111;
+}
+
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+header{
+  padding:28px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  letter-spacing:2px;
+}
+
+/* PRODUCT LAYOUT */
+.product-wrapper{
+  max-width:1200px;
+  margin:100px auto;
+  padding:0 40px;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:80px;
+}
+
+/* IMAGE */
+.product-image img{
+  width:100%;
+  max-height:620px;
+  object-fit:contain;
+}
+
+/* INFO */
+.product-info h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  margin-bottom:18px;
+}
+
+.product-info .subtitle{
+  font-size:15px;
+  color:#555;
+  margin-bottom:30px;
+  line-height:1.7;
+}
+
+.section-label{
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin:36px 0 14px;
+  color:#555;
+}
+
+/* COLOR OPTIONS */
+.colors{
+  display:flex;
+  gap:14px;
+}
+
+.color{
+  border:1px solid #ccc;
+  padding:10px 18px;
+  font-size:13px;
+  cursor:pointer;
+  background:transparent;
+}
+
+.color.active{
+  border-color:#000;
+  font-weight:500;
+}
+
+/* DESCRIPTION */
+.description{
+  font-size:15px;
+  line-height:1.8;
+  color:#333;
+  margin-top:30px;
+}
+
+/* STATUS */
+.status{
+  margin-top:40px;
+  font-size:14px;
+  color:#555;
+}
+
+/* BUTTON */
+button{
+  margin-top:30px;
+  padding:14px 28px;
+  font-size:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .product-wrapper{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+  header{padding:22px 30px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<main class="product-wrapper">
+
+  <!-- IMAGE -->
+  <div class="product-image">
+    <img src="images/suit-navy.webp" alt="The Sovereign Suit">
+  </div>
+
+  <!-- INFO -->
+  <div class="product-info">
+    <h1>The Sovereign Suit</h1>
+
+    <p class="subtitle">
+      A modern foundation of tailoring.  
+      Designed with discipline, restraint, and authority.
+    </p>
+
+    <div class="section-label">Color</div>
+    <div class="colors">
+      <div class="color active">Navy</div>
+      <div class="color">Charcoal</div>
+      <div class="color">Olive</div>
+      <div class="color">Black</div>
+    </div>
+
+    <div class="section-label">Description</div>
+    <p class="description">
+      The Sovereign Suit is not designed for seasons or trends.
+      It is built as a permanent foundation of a modern wardrobe —
+      composed, intentional, and enduring.
+      <br><br>
+      Every line is deliberate. Every proportion considered.
+      This is tailoring stripped of excess, refined to its essence.
+    </p>
+
+    <div class="status">
+      Launching soon. Limited first release.
+    </div>
+
+    <button disabled>Coming Soon</button>
+  </div>
+
+</main>
+
+</body>
+</html>
