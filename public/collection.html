@@ -64,11 +64,13 @@ header {
     background: #fff;
     padding: 30px 30px 36px;
     text-align: center;
-    transition: transform .3s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
 }
 
 .suit-card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 }
 
 .suit-image {
@@ -85,7 +87,7 @@ header {
     object-fit: contain;
 }
 
-/* TEXT INSIDE CARD */
+/* TEXT */
 .suit-info h3 {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
@@ -146,7 +148,7 @@ header {
 <section class="suit-grid">
 
     <!-- NAVY -->
-    <a href="sovereign-suit.html" class="suit-card">
+    <a href="sovereign-suit.html?color=navy" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-navy.webp" alt="The Sovereign Navy Suit">
         </div>
@@ -157,7 +159,7 @@ header {
     </a>
 
     <!-- CHARCOAL -->
-    <a href="sovereign-suit.html" class="suit-card">
+    <a href="sovereign-suit.html?color=charcoal" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-charcoal.webp" alt="The Sovereign Charcoal Suit">
         </div>
@@ -168,7 +170,7 @@ header {
     </a>
 
     <!-- OLIVE -->
-    <a href="sovereign-suit.html" class="suit-card">
+    <a href="sovereign-suit.html?color=olive" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-olive.webp" alt="The Sovereign Olive Suit">
         </div>
@@ -179,7 +181,7 @@ header {
     </a>
 
     <!-- BLACK -->
-    <a href="sovereign-suit.html" class="suit-card">
+    <a href="sovereign-suit.html?color=black" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-black.webp" alt="The Sovereign Black Suit">
         </div>
@@ -193,3 +195,4 @@ header {
 
 </body>
 </html>
+
