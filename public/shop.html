@@ -40,9 +40,10 @@ nav a{
     text-transform:uppercase;
 }
 
+/* SHOP GRID */
 .shop-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr); /* ✅ 2x2 */
+    grid-template-columns:repeat(2,1fr);
     gap:50px;
     padding:80px 60px;
     max-width:1200px;
@@ -55,22 +56,16 @@ nav a{
     overflow:hidden;
 }
 
-.product{
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-}
-
 .product img{
     width:100%;
-    height:420px;
+    height:520px;
     object-fit:contain;
-    padding:30px;
+    padding:40px;
     background:#f2f2f2;
 }
 
 .product-info{
-    padding:28px;
+    padding:32px;
     text-align:center;
 }
 
@@ -87,6 +82,12 @@ nav a{
     letter-spacing:1px;
 }
 
+.product-info p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:14px;
+}
+
 .product-info a{
     font-size:13px;
     text-decoration:underline;
@@ -96,7 +97,7 @@ nav a{
 @media(max-width:768px){
     .shop-grid{grid-template-columns:1fr;padding:40px 26px}
     header{padding:22px 26px}
-    .product img{height:360px}
+    .product img{height:420px}
 }
 </style>
 </head>
@@ -104,53 +105,62 @@ nav a{
 <body>
 
 <header>
-<a href="index.html" class="logo">H&CO.</a>
-<nav>
-<a href="collection.html">Collection</a>
-<a href="shop.html">Shop</a>
-<a href="cart.html">Cart</a>
-</nav>
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="collection.html">Collection</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
 </header>
 
 <section class="shop-grid">
 
-<div class="product">
-<img src="/images/heritage-tee-white-front.webp">
-<div class="product-info">
-<h3>Heritage Tee — White</h3>
-<span>AED 249</span>
-<a href="heritage-tee.html">View Product</a>
-</div>
-</div>
+  <!-- SOVEREIGN NAVY -->
+  <div class="product">
+    <img src="/images/suit-navy.webp" alt="The Sovereign Navy">
+    <div class="product-info">
+      <h3>The Sovereign Navy</h3>
+      <p>Authority, refined.</p>
+      <span>Coming Soon</span>
+      <a href="#">View Product</a>
+    </div>
+  </div>
 
-<div class="product">
-<img src="/images/heritage-tee-black-front.webp">
-<div class="product-info">
-<h3>Heritage Tee — Black</h3>
-<span>AED 249</span>
-<a href="heritage-tee.html">View Product</a>
-</div>
-</div>
+  <!-- SOVEREIGN CHARCOAL -->
+  <div class="product">
+    <img src="/images/suit-charcoal.webp" alt="The Sovereign Charcoal">
+    <div class="product-info">
+      <h3>The Sovereign Charcoal</h3>
+      <p>Restraint, balanced.</p>
+      <span>Coming Soon</span>
+      <a href="#">View Product</a>
+    </div>
+  </div>
 
-<div class="product">
-<img src="/images/oxford-polo-white-front.webp">
-<div class="product-info">
-<h3>Oxford Polo — White</h3>
-<span>AED 349</span>
-<a href="oxford-polo.html">View Product</a>
-</div>
-</div>
+  <!-- SOVEREIGN OLIVE -->
+  <div class="product">
+    <img src="/images/suit-olive.webp" alt="The Sovereign Olive">
+    <div class="product-info">
+      <h3>The Sovereign Olive</h3>
+      <p>Depth, composed.</p>
+      <span>Coming Soon</span>
+      <a href="#">View Product</a>
+    </div>
+  </div>
 
-<div class="product">
-<img src="/images/oxford-polo-black-front.webp">
-<div class="product-info">
-<h3>Oxford Polo — Black</h3>
-<span>AED 349</span>
-<a href="oxford-polo.html">View Product</a>
-</div>
-</div>
+  <!-- SOVEREIGN BLACK -->
+  <div class="product">
+    <img src="/images/suit-black.webp" alt="The Sovereign Black">
+    <div class="product-info">
+      <h3>The Sovereign Black</h3>
+      <p>Absolute authority.</p>
+      <span>Coming Soon</span>
+      <a href="#">View Product</a>
+    </div>
+  </div>
 
 </section>
 
 </body>
 </html>
+
