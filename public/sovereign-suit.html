@@ -120,10 +120,9 @@ button{
   opacity:0.7;
 }
 
-/* COMPOSITION SECTION */
+/* COMPOSITION */
 .composition{
   padding:120px 20px;
-  background:#f8f6f3;
   text-align:center;
 }
 
@@ -168,25 +167,62 @@ button{
   line-height:1.6;
 }
 
+/* WAITLIST */
+.waitlist{
+  padding:120px 20px;
+  background:#fff;
+  text-align:center;
+}
+
+.waitlist h2{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin-bottom:18px;
+}
+
+.waitlist p{
+  max-width:600px;
+  margin:0 auto 36px;
+  font-size:16px;
+  color:#555;
+  line-height:1.8;
+}
+
+.waitlist form{
+  max-width:420px;
+  margin:0 auto;
+}
+
+.waitlist input{
+  width:100%;
+  padding:14px;
+  font-size:14px;
+  border:1px solid #ccc;
+  margin-bottom:14px;
+}
+
+.waitlist button{
+  width:100%;
+  padding:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  opacity:1;
+}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
-  .composition-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+  .composition-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:900px){
-  .product-wrapper{
-    grid-template-columns:1fr;
-    gap:60px;
-  }
+  .product-wrapper{grid-template-columns:1fr;gap:60px}
   header{padding:22px 30px}
 }
 
 @media(max-width:600px){
-  .composition-grid{
-    grid-template-columns:1fr;
-  }
+  .composition-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -198,24 +234,20 @@ button{
   <nav>
     <a href="collection.html">Collection</a>
     <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart</a>
   </nav>
 </header>
 
-<!-- PRODUCT -->
 <main class="product-wrapper">
 
-  <!-- IMAGE -->
   <div class="product-image">
     <img src="images/suit-navy.webp" alt="The Sovereign Suit">
   </div>
 
-  <!-- INFO -->
   <div class="product-info">
     <h1>The Sovereign Suit</h1>
 
     <p class="subtitle">
-      A modern foundation of tailoring.  
+      A modern foundation of tailoring.<br>
       Designed with discipline, restraint, and authority.
     </p>
 
@@ -234,67 +266,83 @@ button{
       composed, intentional, and enduring.
       <br><br>
       Every line is deliberate. Every proportion considered.
-      Tailoring stripped of excess and refined to its essence.
+      Tailoring refined to its essence.
     </p>
 
     <div class="status">
-      Launching soon. Limited first release.
+      DROP 001 — Limited first release.
     </div>
 
     <button disabled>Coming Soon</button>
   </div>
-
 </main>
 
-<!-- COMPOSITION -->
 <section class="composition">
-
   <h2>The Sovereign Composition</h2>
   <p class="composition-intro">
-    The Sovereign Suit is not a single garment.
+    This is not a single garment.<br>
     It is a system — engineered to function as one disciplined whole.
   </p>
 
   <div class="composition-grid">
-
     <div class="composition-item">
-      <img src="images/suit-navy.webp" alt="The Sovereign Suit">
+      <img src="images/suit-navy.webp">
       <h3>The Sovereign Suit</h3>
-      <p>
-        The foundation of authority. Structured lines, controlled proportions,
-        and a silhouette designed to endure beyond trend or season.
-      </p>
+      <p>The foundation of authority.</p>
     </div>
 
     <div class="composition-item">
-      <img src="images/vest-navy-front.webp" alt="The Sovereign Vest">
+      <img src="images/vest-navy-front.webp">
       <h3>The Sovereign Vest</h3>
-      <p>
-        A four-button vest designed to reinforce balance and presence.
-        Built to sharpen posture and refine the profile beneath the jacket.
-      </p>
+      <p>Four-button structure. Balanced presence.</p>
     </div>
 
     <div class="composition-item">
-      <img src="images/shirt-white-hanging.webp" alt="White Foundation Shirt">
+      <img src="images/shirt-white-hanging.webp">
       <h3>White Foundation Shirt</h3>
-      <p>
-        Cut for invisibility beneath structure.
-        Clean lines, elegant fabric, and disciplined restraint.
-      </p>
+      <p>Designed to disappear beneath structure.</p>
     </div>
 
     <div class="composition-item">
-      <img src="images/pocket-square-white.webp" alt="Pocket Square">
+      <img src="images/pocket-square-white.webp">
       <h3>Pocket Square</h3>
-      <p>
-        A controlled accent.
-        Never decorative — always intentional.
-      </p>
+      <p>A controlled accent.</p>
     </div>
-
   </div>
 </section>
+
+<section class="waitlist">
+  <h2>Private Release</h2>
+  <p>
+    DROP 001 will be released in limited quantity.<br>
+    Join the private list to receive early access.
+  </p>
+
+  <form>
+    <input type="email" placeholder="Email address" required>
+    <button type="submit">Request Access</button>
+  </form>
+</section>
+
+<script>
+const buttons = document.querySelectorAll('.color');
+const image = document.querySelector('.product-image img');
+
+const images = {
+  navy: 'images/suit-navy.webp',
+  charcoal: 'images/suit-charcoal.webp',
+  olive: 'images/suit-olive.webp',
+  black: 'images/suit-black.webp'
+};
+
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    image.src = images[btn.textContent.toLowerCase()];
+  });
+});
+</script>
 
 </body>
 </html>
