@@ -86,7 +86,12 @@ header {
 .suit-card img {
   width: 100%;
   height: auto;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  transition: transform 0.4s ease;
+}
+
+.suit-card:hover img {
+  transform: scale(1.02);
 }
 
 .suit-card h3 {
@@ -171,7 +176,7 @@ footer .line {
 <section class="hero">
   <h1>Modern Tailoring</h1>
   <p>
-    Quiet authority. Designed with discipline.  
+    Quiet authority. Designed with discipline.<br>
     Tailoring as foundation, not fashion.
   </p>
 </section>
@@ -190,25 +195,25 @@ footer .line {
 <section class="suit-grid">
 
   <div class="suit-card">
-    <img src="images/sovereign-navy.jpg" alt="The Sovereign Navy">
+    <img src="images/suit-navy.webp" alt="The Sovereign Navy">
     <h3>The Sovereign Navy</h3>
     <p>Authority, refined.</p>
   </div>
 
   <div class="suit-card">
-    <img src="images/sovereign-charcoal.jpg" alt="The Sovereign Charcoal">
+    <img src="images/suit-charcoal.webp" alt="The Sovereign Charcoal">
     <h3>The Sovereign Charcoal</h3>
     <p>Restraint, balanced.</p>
   </div>
 
   <div class="suit-card">
-    <img src="images/sovereign-olive.jpg" alt="The Sovereign Olive">
+    <img src="images/suit-olive.webp" alt="The Sovereign Olive">
     <h3>The Sovereign Olive</h3>
     <p>Depth, composed.</p>
   </div>
 
   <div class="suit-card">
-    <img src="images/sovereign-black.jpg" alt="The Sovereign Black">
+    <img src="images/suit-black.webp" alt="The Sovereign Black">
     <h3>The Sovereign Black</h3>
     <p>Absolute authority.</p>
   </div>
@@ -228,4 +233,3 @@ footer .line {
 
 </body>
 </html>
-
