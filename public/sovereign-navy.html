@@ -1,159 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Sovereign Navy — H&CO.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>The Sovereign Navy — H&CO.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Sovereign Navy Suit by H&CO. A study in composure. Quiet authority refined through discipline and proportion.">
 
-  <meta name="description" content="The Sovereign Navy Suit by H&CO. A study in composure, discipline, and refined authority.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-  <style>
-    body {
-      margin: 0;
-      background: #f8f6f3;
-      color: #111;
-      font-family: Inter, sans-serif;
-    }
+body{
+  font-family:Inter,sans-serif;
+  background:#f8f6f3;
+  color:#111;
+}
 
-    header {
-      padding: 40px 60px;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-    }
+a{text-decoration:none;color:inherit}
 
-    header a {
-      text-decoration: none;
-      color: #111;
-    }
+/* HEADER */
+header{
+  padding:28px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+}
 
-    /* Back to Collection */
-    .back-link {
-      margin-top: 10px;
-      font-size: 13px;
-      letter-spacing: 0.5px;
-    }
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  letter-spacing:2px;
+}
 
-    .back-link a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+/* BACK */
+.back{
+  margin:20px 60px 0;
+  font-size:14px;
+  color:#555;
+}
 
-    .back-link a:hover {
-      color: #111;
-    }
+/* PRODUCT */
+.product-wrapper{
+  max-width:1200px;
+  margin:80px auto 140px;
+  padding:0 40px;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:80px;
+}
 
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 90px;
-      align-items: start;
-    }
+.product-image img{
+  width:100%;
+  max-height:620px;
+  object-fit:contain;
+}
 
-    .image {
-      padding-top: 18px;
-    }
+.product-info h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  margin-bottom:18px;
+}
 
-    .image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+.subtitle{
+  font-size:15px;
+  color:#555;
+  margin-bottom:30px;
+  line-height:1.7;
+}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 46px;
-      margin: 0 0 10px 0;
-    }
+.section-label{
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin:36px 0 14px;
+  color:#555;
+}
 
-    .subtitle {
-      letter-spacing: 2px;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 36px;
-    }
+/* COLORS */
+.colors{
+  display:flex;
+  gap:14px;
+}
 
-    p {
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 22px;
-      color: #222;
-      max-width: 460px;
-    }
+.color{
+  border:1px solid #ccc;
+  padding:10px 18px;
+  font-size:13px;
+}
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-top: 54px;
-      margin-bottom: 16px;
-    }
+.color.active{
+  border-color:#000;
+  font-weight:500;
+}
 
-    @media (max-width: 900px) {
-      .page {
-        grid-template-columns: 1fr;
-        padding: 40px 26px;
-        gap: 60px;
-      }
+.description{
+  font-size:15px;
+  line-height:1.8;
+  color:#333;
+  margin-top:30px;
+}
 
-      .image {
-        padding-top: 0;
-      }
-    }
-  </style>
+.status{
+  margin-top:40px;
+  font-size:14px;
+  color:#555;
+}
+
+button{
+  margin-top:30px;
+  padding:14px 28px;
+  font-size:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:not-allowed;
+  opacity:0.7;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .product-wrapper{grid-template-columns:1fr;gap:60px}
+  header,.back{padding-left:30px;padding-right:30px}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="index.html">H&CO.</a>
-
-  <div class="back-link">
-    <a href="collection.html">← Back to Collection</a>
-  </div>
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="index.html">Collection</a>
+    <a href="shop.html">Shop</a>
+  </nav>
 </header>
 
-<section class="page">
-  <div class="image">
-    <img src="images/suit-navy.webp" alt="The Sovereign Navy Suit by H&CO.">
+<div class="back">
+  <a href="index.html">← Back to Collection</a>
+</div>
+
+<main class="product-wrapper">
+
+  <div class="product-image">
+    <img src="images/suit-navy.webp" alt="The Sovereign Navy">
   </div>
 
-  <div class="content">
+  <div class="product-info">
     <h1>The Sovereign Navy</h1>
-    <div class="subtitle">A Study in Composure</div>
 
-    <p>
-      Navy is authority refined. It balances confidence with restraint,
-      offering clarity without severity. Calm, deliberate, and enduring,
-      it speaks through presence rather than force.
+    <p class="subtitle">
+      A study in composure.<br>
+      Authority refined through restraint.
     </p>
 
-    <p>
-      The Sovereign Navy Suit is designed for men who lead with intention.
-      It reflects discipline through proportion, control through detail,
-      and confidence through quiet precision.
+    <div class="section-label">Color</div>
+    <div class="colors">
+      <a href="sovereign-navy.html" class="color active">Navy</a>
+      <a href="sovereign-charcoal.html" class="color">Charcoal</a>
+      <a href="sovereign-olive.html" class="color">Olive</a>
+      <a href="sovereign-black.html" class="color">Black</a>
+    </div>
+
+    <div class="section-label">Description</div>
+    <p class="description">
+      Navy balances confidence with restraint, offering clarity without severity.
+      Calm, deliberate, and enduring — it speaks through presence rather than force.
+      <br><br>
+      DROP 001 — Limited first release.
     </p>
 
-    <p>
-      This is a suit for moments that demand trust — boardrooms,
-      negotiations, and leadership carried with composure.
-    </p>
-
-    <h2>Craft & Tailoring</h2>
-
-    <p>
-      Tailored with classic menswear structure and refined through modern
-      proportion, the Sovereign Navy delivers sharp shoulders, a composed
-      chest line, and clean tapering. The result is a silhouette that is
-      confident, controlled, and timeless.
-    </p>
+    <button disabled>Coming Soon</button>
   </div>
-</section>
+
+</main>
 
 </body>
 </html>
+
