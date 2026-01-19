@@ -1,158 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Sovereign Charcoal — H&CO.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>The Sovereign Charcoal — H&CO.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Sovereign Charcoal Suit by H&CO. Restraint balanced with confidence. Designed for clarity and control.">
 
-  <meta name="description" content="The Sovereign Charcoal Suit by H&CO. A study in restraint, balance, and disciplined authority.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      background: #f8f6f3;
-      color: #111;
-      font-family: Inter, sans-serif;
-    }
-
-    header {
-      padding: 40px 60px;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-    }
-
-    header a {
-      text-decoration: none;
-      color: #111;
-    }
-
-    /* Back to Collection */
-    .back-link {
-      margin-top: 10px;
-      font-size: 13px;
-      letter-spacing: 0.5px;
-    }
-
-    .back-link a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .back-link a:hover {
-      color: #111;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .image {
-      padding-top: 18px;
-    }
-
-    .image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 46px;
-      margin: 0 0 10px 0;
-    }
-
-    .subtitle {
-      letter-spacing: 2px;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 36px;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 22px;
-      color: #222;
-      max-width: 460px;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-top: 54px;
-      margin-bottom: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .page {
-        grid-template-columns: 1fr;
-        padding: 40px 26px;
-        gap: 60px;
-      }
-
-      .image {
-        padding-top: 0;
-      }
-    }
-  </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,sans-serif;background:#f8f6f3;color:#111}
+a{text-decoration:none;color:inherit}
+header{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #e6e6e6}
+.logo{font-family:'Playfair Display',serif;font-size:26px;letter-spacing:2px}
+.back{margin:20px 60px 0;font-size:14px;color:#555}
+.product-wrapper{max-width:1200px;margin:80px auto 140px;padding:0 40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px}
+.product-image img{width:100%;max-height:620px;object-fit:contain}
+.product-info h1{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:18px}
+.subtitle{font-size:15px;color:#555;margin-bottom:30px;line-height:1.7}
+.section-label{font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:36px 0 14px;color:#555}
+.colors{display:flex;gap:14px}
+.color{border:1px solid #ccc;padding:10px 18px;font-size:13px}
+.color.active{border-color:#000;font-weight:500}
+.description{font-size:15px;line-height:1.8;color:#333;margin-top:30px}
+button{margin-top:30px;padding:14px 28px;font-size:14px;background:#000;color:#fff;border:none;cursor:not-allowed;opacity:0.7}
+@media(max-width:900px){.product-wrapper{grid-template-columns:1fr;gap:60px}header,.back{padding-left:30px;padding-right:30px}}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="index.html">H&CO.</a>
-
-  <div class="back-link">
-    <a href="collection.html">← Back to Collection</a>
-  </div>
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="index.html">Collection</a>
+    <a href="shop.html">Shop</a>
+  </nav>
 </header>
 
-<section class="page">
-  <div class="image">
-    <img src="images/suit-charcoal.webp" alt="The Sovereign Charcoal Suit by H&CO.">
+<div class="back">
+  <a href="index.html">← Back to Collection</a>
+</div>
+
+<main class="product-wrapper">
+  <div class="product-image">
+    <img src="images/suit-charcoal.webp" alt="The Sovereign Charcoal">
   </div>
 
-  <div class="content">
+  <div class="product-info">
     <h1>The Sovereign Charcoal</h1>
-    <div class="subtitle">A Study in Restraint</div>
 
-    <p>
-      Charcoal exists between certainty and subtlety. Neither black nor grey,
-      it carries authority without severity and formality without excess.
+    <p class="subtitle">
+      Restraint, balanced.<br>
+      Clarity without excess.
     </p>
 
-    <p>
-      The Sovereign Charcoal Suit is designed for men who value balance.
-      It communicates professionalism through understatement and confidence
-      through quiet precision.
+    <div class="section-label">Color</div>
+    <div class="colors">
+      <a href="sovereign-navy.html" class="color">Navy</a>
+      <a href="sovereign-charcoal.html" class="color active">Charcoal</a>
+      <a href="sovereign-olive.html" class="color">Olive</a>
+      <a href="sovereign-black.html" class="color">Black</a>
+    </div>
+
+    <div class="section-label">Description</div>
+    <p class="description">
+      Charcoal expresses authority through balance.
+      Neither severe nor soft, it delivers control with restraint —
+      composed, precise, and quietly confident.
+      <br><br>
+      DROP 001 — Limited first release.
     </p>
 
-    <p>
-      This is a suit for daily leadership — composed environments where
-      credibility is earned through consistency, not display.
-    </p>
-
-    <h2>Craft & Tailoring</h2>
-
-    <p>
-      Tailored with classic menswear structure and refined through modern
-      proportion, the Sovereign Charcoal offers controlled shoulders,
-      a clean chest line, and a refined taper. The silhouette is disciplined,
-      versatile, and enduring.
-    </p>
+    <button disabled>Coming Soon</button>
   </div>
-</section>
+</main>
 
 </body>
 </html>
