@@ -1,164 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The Sovereign Black — H&CO.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>The Sovereign Black — H&CO.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Sovereign Black Suit by H&CO. Absolute authority expressed through restraint and precision.">
 
-  <meta name="description" content="The Sovereign Black Suit by H&CO. A study in authority, discipline, and timeless control.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      background: #f8f6f3;
-      color: #111;
-      font-family: Inter, sans-serif;
-    }
-
-    header {
-      padding: 40px 60px;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-    }
-
-    header a {
-      text-decoration: none;
-      color: #111;
-    }
-
-    /* BACK TO COLLECTION */
-    .back-link {
-      padding: 0 60px;
-      margin-top: -10px;
-    }
-
-    .back-link a {
-      font-size: 13px;
-      color: #555;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-    }
-
-    .back-link a:hover {
-      color: #111;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .image {
-      padding-top: 18px;
-    }
-
-    .image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 46px;
-      margin: 0 0 10px 0;
-    }
-
-    .subtitle {
-      letter-spacing: 2px;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 36px;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 22px;
-      color: #222;
-      max-width: 460px;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-top: 54px;
-      margin-bottom: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .page {
-        grid-template-columns: 1fr;
-        padding: 40px 26px;
-        gap: 60px;
-      }
-
-      .image {
-        padding-top: 0;
-      }
-
-      .back-link {
-        padding: 0 26px;
-      }
-    }
-  </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,sans-serif;background:#f8f6f3;color:#111}
+a{text-decoration:none;color:inherit}
+header{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #e6e6e6}
+.logo{font-family:'Playfair Display',serif;font-size:26px;letter-spacing:2px}
+.back{margin:20px 60px 0;font-size:14px;color:#555}
+.product-wrapper{max-width:1200px;margin:80px auto 140px;padding:0 40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px}
+.product-image img{width:100%;max-height:620px;object-fit:contain}
+.product-info h1{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:18px}
+.subtitle{font-size:15px;color:#555;margin-bottom:30px;line-height:1.7}
+.section-label{font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:36px 0 14px;color:#555}
+.colors{display:flex;gap:14px}
+.color{border:1px solid #ccc;padding:10px 18px;font-size:13px}
+.color.active{border-color:#000;font-weight:500}
+.description{font-size:15px;line-height:1.8;color:#333;margin-top:30px}
+button{margin-top:30px;padding:14px 28px;font-size:14px;background:#000;color:#fff;border:none;cursor:not-allowed;opacity:0.7}
+@media(max-width:900px){.product-wrapper{grid-template-columns:1fr;gap:60px}header,.back{padding-left:30px;padding-right:30px}}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="index.html">H&CO.</a>
+  <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="index.html">Collection</a>
+    <a href="shop.html">Shop</a>
+  </nav>
 </header>
 
-<!-- BACK TO COLLECTION -->
-<div class="back-link">
-  <a href="collection.html">← Back to Collection</a>
+<div class="back">
+  <a href="index.html">← Back to Collection</a>
 </div>
 
-<section class="page">
-  <div class="image">
-    <img src="images/suit-black.webp" alt="The Sovereign Black Suit by H&CO.">
+<main class="product-wrapper">
+  <div class="product-image">
+    <img src="images/suit-black.webp" alt="The Sovereign Black">
   </div>
 
-  <div class="content">
+  <div class="product-info">
     <h1>The Sovereign Black</h1>
-    <div class="subtitle">A Study in Authority</div>
 
-    <p>
-      Black is not a colour of excess. It is the absence of uncertainty.
-      Absolute, deliberate, and uncompromising — it communicates authority
-      before words are spoken.
+    <p class="subtitle">
+      Absolute authority.<br>
+      Precision without noise.
     </p>
 
-    <p>
-      The Sovereign Black Suit is designed for men who understand presence
-      as discipline. It does not seek attention; it commands it through
-      restraint, precision, and clarity of form.
+    <div class="section-label">Color</div>
+    <div class="colors">
+      <a href="sovereign-navy.html" class="color">Navy</a>
+      <a href="sovereign-charcoal.html" class="color">Charcoal</a>
+      <a href="sovereign-olive.html" class="color">Olive</a>
+      <a href="sovereign-black.html" class="color active">Black</a>
+    </div>
+
+    <div class="section-label">Description</div>
+    <p class="description">
+      Black is authority at its most refined.
+      Severe only when mishandled — here, it is controlled,
+      intentional, and exacting.
+      <br><br>
+      DROP 001 — Limited first release.
     </p>
 
-    <p>
-      This is a suit for moments that require resolve — leadership,
-      ceremony, and decisions that carry weight.
-    </p>
-
-    <h2>Craft & Tailoring</h2>
-
-    <p>
-      Tailored with classic menswear structure and refined through modern
-      proportion, the Sovereign Black delivers sharp shoulders, a composed
-      chest line, and clean tapering. The result is a silhouette that is
-      controlled, confident, and enduring.
-    </p>
+    <button disabled>Coming Soon</button>
   </div>
-</section>
+</main>
 
 </body>
 </html>
+
