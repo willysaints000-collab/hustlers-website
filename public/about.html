@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About H&CO. — Our Story & Values</title>
-    <meta name="description" content="Discover the story behind H&CO., a brand dedicated to effortless luxury. Learn about our origins, our values, and our commitment to timeless design and quality.">
+    <title>About H&CO. — Built With Intention</title>
+    <meta name="description" content="H&CO. is built on discipline, restraint, and quiet authority. Discover the foundation, values, and philosophy behind the brand.">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEE8LB2QZR"></script>
@@ -14,7 +14,6 @@
       gtag('js', new Date());
       gtag('config', 'G-NEE8LB2QZR');
     </script>
-    <!-- End Google tag -->
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -51,7 +50,7 @@
             opacity: 0.7;
         }
 
-        /* CLICKABLE LOGO */
+        /* LOGO */
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -59,10 +58,6 @@
             letter-spacing: 2px;
             color: white;
             text-decoration: none;
-        }
-
-        .logo:hover {
-            opacity: 0.85;
         }
 
         /* HERO */
@@ -79,10 +74,7 @@
         .hero::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(20, 20, 20, 0.35);
         }
 
@@ -112,12 +104,19 @@
 
         .about-section p {
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             opacity: 0.85;
             margin-bottom: 30px;
         }
 
-        /* VALUES SECTION */
+        .anchor-line {
+            margin-top: 40px;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        /* VALUES */
         .values {
             padding: 60px 15%;
             background: white;
@@ -135,11 +134,11 @@
             padding: 30px 20px;
             background: #f1eee9;
             border-radius: 6px;
-            transition: 0.3s ease;
+            transition: 0.25s ease;
         }
 
         .value-box:hover {
-            transform: translateY(-6px);
+            transform: translateY(-3px);
         }
 
         .value-box h3 {
@@ -155,13 +154,11 @@
             line-height: 1.6;
         }
 
-        /* ANIMATIONS */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVE */
         @media (max-width: 900px) {
             .values-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -175,61 +172,66 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <a href="index.html" class="logo">H&CO.</a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="collection.html">Collection</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-        </nav>
-    </header>
+<header>
+    <a href="index.html" class="logo">H&CO.</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+    </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Our Story</h1>
-    </section>
+<section class="hero">
+    <h1>Built With Intention</h1>
+</section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section">
-        <h2>Crafting Luxury With Purpose</h2>
-        <p>
-            Hustlers &amp; Co. was created with a simple belief: luxury should feel effortless.
-            Every piece we design blends premium craftsmanship, timeless aesthetics,
-            and the spirit of the modern hustler — someone who moves with quiet confidence,
-            ambition, and purpose.
-        </p>
-        <p>
-            Our collections are inspired by classic menswear silhouettes, elevated with refined fabrics and meticulous attention to detail.
-            We are committed to creating pieces that last — in quality, in style, and in the stories they become part of.
-        </p>
-    </section>
+<section class="about-section">
+    <h2>Our Foundation</h2>
 
-    <!-- VALUES SECTION -->
-    <section class="values">
-        <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:40px; font-weight:600;">Our Values</h2>
-        <div class="values-grid">
-            <div class="value-box">
-                <h3>Timeless Design</h3>
-                <p>We create pieces that never go out of style — refined, classic, and enduring.</p>
-            </div>
-            <div class="value-box">
-                <h3>Premium Quality</h3>
-                <p>Every material is carefully selected to ensure comfort, durability, and true luxury.</p>
-            </div>
-            <div class="value-box">
-                <h3>Modern Ambition</h3>
-                <p>H&amp;CO. embodies the mindset of those who strive to elevate their everyday life.</p>
-            </div>
+    <p>
+        H&amp;CO. was created with a clear philosophy — luxury should be composed, not excessive.
+        Every piece is designed with discipline, restraint, and purpose, favouring longevity
+        over trend and substance over spectacle.
+    </p>
+
+    <p>
+        Drawing from the foundations of classic menswear, we refine form, proportion,
+        and material until only what matters remains. Our garments are built to endure —
+        not only in construction, but in relevance.
+    </p>
+
+    <p class="anchor-line">
+        H&amp;CO. is not seasonal. It is foundational.
+    </p>
+</section>
+
+<section class="values">
+    <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:40px; font-weight:600;">
+        Our Values
+    </h2>
+
+    <div class="values-grid">
+        <div class="value-box">
+            <h3>Discipline in Design</h3>
+            <p>Every decision is deliberate. Nothing added without purpose.</p>
         </div>
-    </section>
 
-    <!-- Load cart script -->
-    <script src="cart.js"></script>
+        <div class="value-box">
+            <h3>Quiet Authority</h3>
+            <p>Confidence expressed through restraint, not display.</p>
+        </div>
+
+        <div class="value-box">
+            <h3>Enduring Quality</h3>
+            <p>Built to last — in material, structure, and relevance.</p>
+        </div>
+    </div>
+</section>
+
+<script src="cart.js"></script>
 
 </body>
 </html>
-
