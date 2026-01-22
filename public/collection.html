@@ -110,12 +110,73 @@ header {
     border-bottom: 1px solid rgba(0,0,0,0.35);
 }
 
+/* ===== FINAL LOCKED FOOTER ===== */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 20px 60px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: 0.8;
+  transition: opacity 0.25s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+}
+
 /* RESPONSIVE */
 @media (max-width: 1100px) {
     .suit-grid {
         grid-template-columns: repeat(2, 1fr);
         padding: 0 30px;
     }
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-nav {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -158,7 +219,6 @@ header {
 
 <section class="suit-grid">
 
-    <!-- NAVY -->
     <a href="sovereign-suit.html?color=navy" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-navy.webp" alt="The Sovereign Navy Suit">
@@ -170,7 +230,6 @@ header {
         </div>
     </a>
 
-    <!-- CHARCOAL -->
     <a href="sovereign-suit.html?color=charcoal" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-charcoal.webp" alt="The Sovereign Charcoal Suit">
@@ -182,7 +241,6 @@ header {
         </div>
     </a>
 
-    <!-- OLIVE -->
     <a href="sovereign-suit.html?color=olive" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-olive.webp" alt="The Sovereign Olive Suit">
@@ -194,7 +252,6 @@ header {
         </div>
     </a>
 
-    <!-- BLACK -->
     <a href="sovereign-suit.html?color=black" class="suit-card">
         <div class="suit-image">
             <img src="/images/suit-black.webp" alt="The Sovereign Black Suit">
@@ -207,6 +264,23 @@ header {
     </a>
 
 </section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">H&CO.</div>
+      <div class="footer-tagline">Discipline Over Noise.</div>
+      <div class="footer-copy">© H&CO.</div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="founders-note.html">Founder’s Note</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
