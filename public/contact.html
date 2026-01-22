@@ -127,13 +127,11 @@
       please leave your message below.
     </p>
 
-    <!-- NETLIFY NATIVE FORM (SAFE) -->
-    <form name="contact"
-          method="POST"
-          data-netlify="true"
-          action="?success=true"
+    <!-- NETLIFY NATIVE FORM (NO REDIRECT, SAFE) -->
+    <form name="contact" method="POST" data-netlify="true">
 
       <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
 
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
@@ -158,17 +156,22 @@
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
+  const form = document.querySelector("form");
+  const formSection = document.getElementById("form-section");
+  const successSection = document.getElementById("success-section");
 
-  if (params.get("success") === "true") {
-    document.getElementById("form-section").style.display = "none";
-    document.getElementById("success-section").style.display = "block";
-
+  form.addEventListener("submit", function () {
     setTimeout(() => {
-      window.location.href = "/index.html";
-    }, 5000);
-  }
+      formSection.style.display = "none";
+      successSection.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 5000);
+    }, 500);
+  });
 </script>
 
 </body>
 </html>
+
