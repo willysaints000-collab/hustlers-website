@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contact — H&CO.</title>
+  <meta name="description" content="Contact H&CO. for enquiries, collaborations, or private access requests. Modern tailoring built with discipline.">
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
@@ -100,6 +102,12 @@
       opacity: 0.6;
       margin-top: 18px;
     }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 70px auto;
+      }
+    }
   </style>
 </head>
 
@@ -119,8 +127,14 @@
       please leave your message below.
     </p>
 
-    <!-- NETLIFY FORM -->
-    <form action="/.netlify/functions/contact-form" method="POST">
+    <!-- NETLIFY NATIVE FORM (SAFE) -->
+    <form name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/contact.html?success=true">
+
+      <input type="hidden" name="form-name" value="contact" />
+
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
