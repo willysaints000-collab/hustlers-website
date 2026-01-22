@@ -64,7 +64,7 @@
       font-family: "Playfair Display", serif;
       font-size: 44px;
       font-weight: 600;
-      margin-bottom: 80px; /* refined */
+      margin-bottom: 80px;
       letter-spacing: 0.5px;
     }
 
@@ -79,43 +79,68 @@
     }
 
     .manifesto p {
-      margin-bottom: 40px; /* FINAL book rhythm */
+      margin-bottom: 40px;
     }
 
-    /* OPENING EMPHASIS */
     .manifesto p:first-child {
       font-weight: 500;
       letter-spacing: 0.02em;
     }
 
-    /* CLOSING */
     .manifesto .closing {
       margin-top: 55px;
       font-size: 18px;
       font-weight: 500;
     }
 
-    /* FOOTER */
-    footer {
+    /* ===== FINAL LOCKED FOOTER ===== */
+    .site-footer {
       background: #000;
-      padding: 50px 60px;
+      color: #fff;
+      padding: 80px 20px 60px;
     }
 
-    .footer-links {
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      gap: 30px;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
     }
 
-    .footer-links a {
-      color: #bbb;
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      opacity: 0.75;
+      margin-bottom: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-nav a {
+      color: #fff;
       text-decoration: none;
       font-size: 13px;
-      letter-spacing: 0.4px;
+      opacity: 0.8;
+      transition: opacity 0.25s ease;
     }
 
-    .footer-links a:hover {
-      color: #fff;
+    .footer-nav a:hover {
+      opacity: 1;
     }
 
     /* MOBILE */
@@ -133,14 +158,13 @@
         padding: 80px 20px 100px;
       }
 
-      footer {
-        padding: 40px 30px;
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+      .footer-nav {
+        gap: 20px;
       }
     }
   </style>
@@ -163,7 +187,6 @@
 
   <!-- CONTENT -->
   <main class="page">
-
     <h1 class="title">The H&amp;CO. Manifesto</h1>
 
     <div class="manifesto">
@@ -195,18 +218,26 @@
         It is a mindset.
       </p>
     </div>
-
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-links">
-      <a href="/about.html">About</a>
-      <a href="/founders-note.html">Founder’s Note</a>
-      <a href="/manifesto.html">Manifesto</a>
-      <a href="/contact.html">Contact</a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">H&CO.</div>
+        <div class="footer-tagline">Discipline Over Noise.</div>
+        <div class="footer-copy">© H&CO.</div>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="founders-note.html">Founder’s Note</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </footer>
 
 </body>
 </html>
+
