@@ -86,7 +86,6 @@ header {
   padding: 0 40px;
 }
 
-/* CLICKABLE SUIT LINK */
 .suit-link {
   text-decoration: none;
   color: inherit;
@@ -140,22 +139,71 @@ header {
   padding-bottom: 3px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 120px 20px 40px;
-  font-size: 12px;
-  color: #555;
+/* ===== FINAL LOCKED FOOTER ===== */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 20px 60px;
 }
 
-footer .line {
-  margin-top: 6px;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: 0.8;
+  transition: opacity 0.25s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .suit-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-nav {
+    gap: 20px;
   }
 }
 
@@ -186,7 +234,6 @@ footer .line {
   <a href="index.html" class="logo">H&CO.</a>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <h1>Modern Tailoring</h1>
   <p>
@@ -195,7 +242,6 @@ footer .line {
   </p>
 </section>
 
-<!-- COLLECTION INTRO -->
 <section class="collection-intro">
   <h2>The Suit Collection</h2>
   <p>
@@ -205,9 +251,7 @@ footer .line {
   </p>
 </section>
 
-<!-- SUIT GRID -->
 <section class="suit-grid">
-
   <a href="sovereign-navy.html" class="suit-link">
     <div class="suit-card">
       <img src="images/suit-navy.webp" alt="The Sovereign Navy">
@@ -239,18 +283,28 @@ footer .line {
       <p>Absolute authority.</p>
     </div>
   </a>
-
 </section>
 
-<!-- MANIFESTO TEASER -->
 <section class="manifesto-teaser">
   <p>True luxury is quiet.</p>
   <a href="manifesto.html">Read the Manifesto</a>
 </section>
 
-<footer>
-  <p>© H&amp;CO.</p>
-  <p class="line">Discipline Over Noise.</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">H&CO.</div>
+      <div class="footer-tagline">Discipline Over Noise.</div>
+      <div class="footer-copy">© H&CO.</div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="founders-note.html">Founder’s Note</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </footer>
 
 </body>
