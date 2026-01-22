@@ -103,6 +103,68 @@
       margin-top: 18px;
     }
 
+    /* ===== FINAL LOCKED FOOTER ===== */
+    .site-footer {
+      background: #000;
+      color: #fff;
+      padding: 80px 20px 60px;
+      margin-top: 140px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      opacity: 0.75;
+      margin-bottom: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.8;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-nav {
+        gap: 20px;
+      }
+    }
+
     @media (max-width: 600px) {
       .container {
         margin: 70px auto;
@@ -127,9 +189,8 @@
       please leave your message below.
     </p>
 
-    <!-- NETLIFY NATIVE FORM (NO REDIRECT, SAFE) -->
+    <!-- NETLIFY NATIVE FORM -->
     <form name="contact" method="POST" data-netlify="true">
-
       <input type="hidden" name="form-name" value="contact" />
       <input type="hidden" name="bot-field" />
 
@@ -154,6 +215,23 @@
   </div>
 
 </div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">H&CO.</div>
+      <div class="footer-tagline">Discipline Over Noise.</div>
+      <div class="footer-copy">© H&CO.</div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="founders-note.html">Founder’s Note</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
 
 <script>
   const form = document.querySelector("form");
