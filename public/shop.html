@@ -96,6 +96,56 @@ nav a{
     text-decoration:underline;
 }
 
+/* ===== FINAL LOCKED FOOTER ===== */
+.site-footer{
+    background:#000;
+    color:#fff;
+    padding:80px 20px 60px;
+}
+
+.footer-inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.footer-logo{
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.footer-tagline{
+    font-size:13px;
+    opacity:.75;
+    margin-bottom:12px;
+}
+
+.footer-copy{
+    font-size:12px;
+    opacity:.5;
+}
+
+.footer-nav{
+    display:flex;
+    gap:28px;
+}
+
+.footer-nav a{
+    color:#fff;
+    font-size:13px;
+    opacity:.8;
+    transition:opacity .25s ease;
+}
+
+.footer-nav a:hover{
+    opacity:1;
+}
+
+/* RESPONSIVE */
 @media(max-width:768px){
     .shop-grid{
         grid-template-columns:1fr;
@@ -106,6 +156,13 @@ nav a{
     }
     .product img{
         height:420px;
+    }
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+    .footer-nav{
+        gap:20px;
     }
 }
 </style>
@@ -123,7 +180,6 @@ nav a{
 
 <section class="shop-grid">
 
-  <!-- SOVEREIGN NAVY -->
   <div class="product">
     <img src="images/suit-navy.webp" alt="The Sovereign Navy">
     <div class="product-info">
@@ -134,7 +190,6 @@ nav a{
     </div>
   </div>
 
-  <!-- SOVEREIGN CHARCOAL -->
   <div class="product">
     <img src="images/suit-charcoal.webp" alt="The Sovereign Charcoal">
     <div class="product-info">
@@ -145,7 +200,6 @@ nav a{
     </div>
   </div>
 
-  <!-- SOVEREIGN OLIVE -->
   <div class="product">
     <img src="images/suit-olive.webp" alt="The Sovereign Olive">
     <div class="product-info">
@@ -156,7 +210,6 @@ nav a{
     </div>
   </div>
 
-  <!-- SOVEREIGN BLACK -->
   <div class="product">
     <img src="images/suit-black.webp" alt="The Sovereign Black">
     <div class="product-info">
@@ -168,6 +221,23 @@ nav a{
   </div>
 
 </section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">H&CO.</div>
+      <div class="footer-tagline">Discipline Over Noise.</div>
+      <div class="footer-copy">© H&CO.</div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="founders-note.html">Founder’s Note</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
