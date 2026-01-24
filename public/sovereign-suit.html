@@ -74,7 +74,7 @@ header{
   color:#555;
 }
 
-/* COLOR OPTIONS */
+/* COLORS */
 .colors{
   display:flex;
   gap:14px;
@@ -85,12 +85,38 @@ header{
   padding:10px 18px;
   font-size:13px;
   cursor:pointer;
-  background:transparent;
 }
 
 .color.active{
   border-color:#000;
   font-weight:500;
+}
+
+/* SIZES */
+.sizes{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.size{
+  border:1px solid #ccc;
+  padding:10px 16px;
+  font-size:13px;
+}
+
+.size-note{
+  font-size:13px;
+  color:#666;
+  margin-top:10px;
+}
+
+.size-guide{
+  display:inline-block;
+  margin-top:6px;
+  font-size:13px;
+  text-decoration:underline;
+  cursor:pointer;
 }
 
 /* DESCRIPTION */
@@ -101,11 +127,12 @@ header{
   margin-top:30px;
 }
 
-/* STATUS */
-.status{
-  margin-top:40px;
+/* META */
+.meta{
+  margin-top:36px;
   font-size:14px;
   color:#555;
+  line-height:1.7;
 }
 
 /* BUTTON */
@@ -120,109 +147,51 @@ button{
   opacity:0.7;
 }
 
-/* COMPOSITION */
-.composition{
-  padding:120px 20px;
-  text-align:center;
+/* SIZE GUIDE MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
 }
 
-.composition h2{
+.modal-content{
+  background:#fff;
+  padding:40px;
+  max-width:600px;
+  width:90%;
+}
+
+.modal h3{
   font-family:'Playfair Display',serif;
-  font-size:40px;
-  margin-bottom:18px;
-}
-
-.composition-intro{
-  max-width:720px;
-  margin:0 auto 70px;
-  font-size:16px;
-  color:#555;
-  line-height:1.8;
-}
-
-.composition-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:50px;
-  max-width:1400px;
-  margin:0 auto;
-}
-
-.composition-item img{
-  width:100%;
-  max-height:360px;
-  object-fit:contain;
   margin-bottom:20px;
 }
 
-.composition-item h3{
-  font-family:'Playfair Display',serif;
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.composition-item p{
+.modal table{
+  width:100%;
+  border-collapse:collapse;
   font-size:14px;
-  color:#666;
-  line-height:1.6;
 }
 
-/* WAITLIST */
-.waitlist{
-  padding:120px 20px;
-  background:#fff;
+.modal th,.modal td{
+  border-bottom:1px solid #ddd;
+  padding:10px;
   text-align:center;
 }
 
-.waitlist h2{
-  font-family:'Playfair Display',serif;
-  font-size:38px;
-  margin-bottom:18px;
-}
-
-.waitlist p{
-  max-width:600px;
-  margin:0 auto 36px;
-  font-size:16px;
-  color:#555;
-  line-height:1.8;
-}
-
-.waitlist form{
-  max-width:420px;
-  margin:0 auto;
-}
-
-.waitlist input{
-  width:100%;
-  padding:14px;
-  font-size:14px;
-  border:1px solid #ccc;
-  margin-bottom:14px;
-}
-
-.waitlist button{
-  width:100%;
-  padding:14px;
-  background:#000;
-  color:#fff;
-  border:none;
+.close{
+  margin-top:20px;
+  text-align:right;
   cursor:pointer;
-  opacity:1;
+  font-size:13px;
+  text-decoration:underline;
 }
 
 /* RESPONSIVE */
-@media(max-width:1100px){
-  .composition-grid{grid-template-columns:repeat(2,1fr)}
-}
-
 @media(max-width:900px){
-  .product-wrapper{grid-template-columns:1fr;gap:60px}
-  header{padding:22px 30px}
-}
-
-@media(max-width:600px){
-  .composition-grid{grid-template-columns:1fr}
+  .product-wrapper{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -259,91 +228,60 @@ button{
       <div class="color">Black</div>
     </div>
 
+    <div class="section-label">Size</div>
+    <div class="sizes">
+      <div class="size">46</div>
+      <div class="size">48</div>
+      <div class="size">50</div>
+      <div class="size">52</div>
+      <div class="size">54</div>
+    </div>
+    <div class="size-note">Size 44 available upon request.</div>
+    <div class="size-guide" onclick="openGuide()">View Size Guide</div>
+
     <div class="section-label">Description</div>
     <p class="description">
-      The Sovereign Suit is not designed for trends or moments.
-      It is built as a permanent foundation of a modern wardrobe —
-      composed, intentional, and enduring.
-      <br><br>
+      The Sovereign Suit is built as a permanent foundation of a modern wardrobe.
       Every line is deliberate. Every proportion considered.
       Tailoring refined to its essence.
     </p>
 
-    <div class="status">
-      DROP 001 — Limited first release.
-    </div>
+    <div class="section-label">Fabric & Construction</div>
+    <p class="meta">
+      Crafted from 100% wool (Super 120s).<br>
+      Structured canvas construction with a clean, balanced drape.
+    </p>
+
+    <div class="section-label">Delivery</div>
+    <p class="meta">
+      Made to order.<br>
+      Estimated delivery: 10–14 days.
+    </p>
 
     <button disabled>Coming Soon</button>
   </div>
 </main>
 
-<section class="composition">
-  <h2>The Sovereign Composition</h2>
-  <p class="composition-intro">
-    This is not a single garment.<br>
-    It is a system — engineered to function as one disciplined whole.
-  </p>
-
-  <div class="composition-grid">
-    <div class="composition-item">
-      <img src="images/suit-navy.webp">
-      <h3>The Sovereign Suit</h3>
-      <p>The foundation of authority.</p>
-    </div>
-
-    <div class="composition-item">
-      <img src="images/vest-navy-front.webp">
-      <h3>The Sovereign Vest</h3>
-      <p>Four-button structure. Balanced presence.</p>
-    </div>
-
-    <div class="composition-item">
-      <img src="/images/foundation-shirt-white.webp" alt="White Foundation Shirt">
-      <h3>White Foundation Shirt</h3>
-      <p>Designed to disappear beneath structure.</p>
-    </div>
-
-    <div class="composition-item">
-      <img src="images/pocket-square-white.webp">
-      <h3>Pocket Square</h3>
-      <p>A controlled accent.</p>
-    </div>
+<!-- SIZE GUIDE MODAL -->
+<div class="modal" id="sizeModal">
+  <div class="modal-content">
+    <h3>Size Guide (EU)</h3>
+    <table>
+      <tr><th>Size</th><th>Chest (cm)</th><th>Waist (cm)</th></tr>
+      <tr><td>46</td><td>96</td><td>84</td></tr>
+      <tr><td>48</td><td>100</td><td>88</td></tr>
+      <tr><td>50</td><td>104</td><td>92</td></tr>
+      <tr><td>52</td><td>108</td><td>96</td></tr>
+      <tr><td>54</td><td>112</td><td>100</td></tr>
+    </table>
+    <div class="close" onclick="closeGuide()">Close</div>
   </div>
-</section>
-
-<section class="waitlist">
-  <h2>Private Release</h2>
-  <p>
-    DROP 001 will be released in limited quantity.<br>
-    Join the private list to receive early access.
-  </p>
-
-  <form>
-    <input type="email" placeholder="Email address" required>
-    <button type="submit">Request Access</button>
-  </form>
-</section>
+</div>
 
 <script>
-const buttons = document.querySelectorAll('.color');
-const image = document.querySelector('.product-image img');
-
-const images = {
-  navy: 'images/suit-navy.webp',
-  charcoal: 'images/suit-charcoal.webp',
-  olive: 'images/suit-olive.webp',
-  black: 'images/suit-black.webp'
-};
-
-buttons.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    buttons.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    image.src = images[btn.textContent.toLowerCase()];
-  });
-});
+function openGuide(){document.getElementById('sizeModal').style.display='flex'}
+function closeGuide(){document.getElementById('sizeModal').style.display='none'}
 </script>
 
 </body>
 </html>
-
