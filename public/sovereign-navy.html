@@ -35,7 +35,7 @@ header{
   letter-spacing:2px;
 }
 
-/* BACK TO COLLECTION (REFINED) */
+/* BACK */
 .back{
   margin:26px 60px 0;
 }
@@ -44,9 +44,7 @@ header{
   font-size:13px;
   color:#666;
   letter-spacing:0.4px;
-  display:inline-block;
   border-bottom:1px solid transparent;
-  transition:all 0.3s ease;
 }
 
 .back a:hover{
@@ -108,11 +106,46 @@ header{
   font-weight:500;
 }
 
+/* SIZES */
+.sizes{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.size{
+  border:1px solid #ccc;
+  padding:10px 16px;
+  font-size:13px;
+}
+
+.size-note{
+  font-size:13px;
+  color:#666;
+  margin-top:10px;
+}
+
+.size-guide{
+  display:inline-block;
+  margin-top:6px;
+  font-size:13px;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+/* TEXT */
 .description{
   font-size:15px;
   line-height:1.8;
   color:#333;
   margin-top:30px;
+}
+
+.meta{
+  margin-top:26px;
+  font-size:14px;
+  color:#555;
+  line-height:1.7;
 }
 
 button{
@@ -126,9 +159,51 @@ button{
   opacity:0.7;
 }
 
+/* SIZE GUIDE MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-content{
+  background:#fff;
+  padding:40px;
+  max-width:600px;
+  width:90%;
+}
+
+.modal h3{
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px;
+}
+
+.modal table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+
+.modal th,.modal td{
+  border-bottom:1px solid #ddd;
+  padding:10px;
+  text-align:center;
+}
+
+.close{
+  margin-top:20px;
+  text-align:right;
+  cursor:pointer;
+  font-size:13px;
+  text-decoration:underline;
+}
+
 /* RESPONSIVE */
 @media(max-width:900px){
-  .product-wrapper{grid-template-columns:1fr;gap:60px}
+  .product-wrapper{grid-template-columns:1fr}
   header,.back{padding-left:30px;padding-right:30px}
 }
 </style>
@@ -139,13 +214,13 @@ button{
 <header>
   <a href="index.html" class="logo">H&CO.</a>
   <nav>
-    <a href="index.html">Collection</a>
+    <a href="collection.html">Collection</a>
     <a href="shop.html">Shop</a>
   </nav>
 </header>
 
 <div class="back">
-  <a href="index.html">← Back to Collection</a>
+  <a href="collection.html">← Back to Collection</a>
 </div>
 
 <main class="product-wrapper">
@@ -170,6 +245,17 @@ button{
       <a href="sovereign-black.html" class="color">Black</a>
     </div>
 
+    <div class="section-label">Size</div>
+    <div class="sizes">
+      <div class="size">46</div>
+      <div class="size">48</div>
+      <div class="size">50</div>
+      <div class="size">52</div>
+      <div class="size">54</div>
+    </div>
+    <div class="size-note">Size 44 available upon request.</div>
+    <div class="size-guide" onclick="openGuide()">View Size Guide</div>
+
     <div class="section-label">Description</div>
     <p class="description">
       Navy balances confidence with restraint, offering clarity without severity.
@@ -178,10 +264,43 @@ button{
       DROP 001 — Limited first release.
     </p>
 
+    <div class="section-label">Fabric & Construction</div>
+    <p class="meta">
+      100% wool (Super 120s).<br>
+      Structured canvas construction with a clean, balanced drape.
+    </p>
+
+    <div class="section-label">Delivery</div>
+    <p class="meta">
+      Made to order.<br>
+      Estimated delivery: 10–14 days.
+    </p>
+
     <button disabled>Coming Soon</button>
   </div>
-
 </main>
+
+<!-- SIZE GUIDE MODAL -->
+<div class="modal" id="sizeModal">
+  <div class="modal-content">
+    <h3>Size Guide (EU)</h3>
+    <table>
+      <tr><th>Size</th><th>Chest (cm)</th><th>Waist (cm)</th></tr>
+      <tr><td>46</td><td>96</td><td>84</td></tr>
+      <tr><td>48</td><td>100</td><td>88</td></tr>
+      <tr><td>50</td><td>104</td><td>92</td></tr>
+      <tr><td>52</td><td>108</td><td>96</td></tr>
+      <tr><td>54</td><td>112</td><td>100</td></tr>
+    </table>
+    <div class="close" onclick="closeGuide()">Close</div>
+  </div>
+</div>
+
+<script>
+function openGuide(){document.getElementById('sizeModal').style.display='flex'}
+function closeGuide(){document.getElementById('sizeModal').style.display='none'}
+</script>
 
 </body>
 </html>
+
