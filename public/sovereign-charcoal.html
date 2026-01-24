@@ -35,7 +35,7 @@ header{
   letter-spacing:2px;
 }
 
-/* BACK TO COLLECTION (REFINED) */
+/* BACK */
 .back{
   margin:26px 60px 0;
 }
@@ -44,9 +44,8 @@ header{
   font-size:13px;
   color:#666;
   letter-spacing:0.4px;
-  display:inline-block;
   border-bottom:1px solid transparent;
-  transition:all 0.3s ease;
+  transition:.3s ease;
 }
 
 .back a:hover{
@@ -108,13 +107,40 @@ header{
   font-weight:500;
 }
 
+/* SIZE */
+.sizes{
+  display:flex;
+  gap:12px;
+}
+
+.size-box{
+  border:1px solid #ccc;
+  padding:10px 16px;
+  font-size:13px;
+}
+
+.size-note{
+  font-size:13px;
+  color:#666;
+  margin-top:8px;
+}
+
+.size-guide{
+  display:inline-block;
+  margin-top:6px;
+  font-size:13px;
+  border-bottom:1px solid rgba(0,0,0,0.3);
+}
+
+/* TEXT */
 .description{
   font-size:15px;
   line-height:1.8;
   color:#333;
-  margin-top:30px;
+  margin-top:18px;
 }
 
+/* BUTTON */
 button{
   margin-top:30px;
   padding:14px 28px;
@@ -170,6 +196,18 @@ button{
       <a href="sovereign-black.html" class="color">Black</a>
     </div>
 
+    <div class="section-label">Size</div>
+    <div class="sizes">
+      <div class="size-box">46</div>
+      <div class="size-box">48</div>
+      <div class="size-box">50</div>
+      <div class="size-box">52</div>
+      <div class="size-box">54</div>
+    </div>
+
+    <div class="size-note">Size 44 available upon request.</div>
+    <a href="size-guide.html" class="size-guide">View Size Guide</a>
+
     <div class="section-label">Description</div>
     <p class="description">
       Charcoal expresses authority through balance.
@@ -179,6 +217,18 @@ button{
       DROP 001 — Limited first release.
     </p>
 
+    <div class="section-label">Fabric & Construction</div>
+    <p class="description">
+      100% wool (Super 120s).<br>
+      Structured canvas construction with a clean, balanced drape.
+    </p>
+
+    <div class="section-label">Delivery</div>
+    <p class="description">
+      Made to order.<br>
+      Estimated delivery: 10–14 days.
+    </p>
+
     <button disabled>Coming Soon</button>
   </div>
 
@@ -186,3 +236,4 @@ button{
 
 </body>
 </html>
+
