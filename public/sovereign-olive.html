@@ -77,7 +77,7 @@ header{
 .subtitle{
   font-size:15px;
   color:#555;
-  margin-bottom:30px;
+  margin-bottom:10px;
   line-height:1.7;
 }
 
@@ -117,7 +117,6 @@ header{
   border:1px solid #ccc;
   padding:10px 16px;
   font-size:13px;
-  color:#777;
 }
 
 .size-note{
@@ -128,29 +127,29 @@ header{
 
 .size-guide{
   display:inline-block;
-  margin-top:8px;
+  margin-top:6px;
   font-size:13px;
-  border-bottom:1px solid #111;
+  border-bottom:1px solid rgba(0,0,0,0.3);
 }
 
-/* DESCRIPTION */
+/* TEXT */
 .description{
   font-size:15px;
   line-height:1.8;
   color:#333;
-  margin-top:30px;
+  margin-top:18px;
 }
 
-/* META */
 .meta{
+  margin-top:18px;
   font-size:14px;
   color:#555;
-  line-height:1.8;
-  margin-top:30px;
+  line-height:1.7;
 }
 
+/* BUTTON */
 button{
-  margin-top:36px;
+  margin-top:30px;
   padding:14px 28px;
   font-size:14px;
   background:#000;
@@ -173,13 +172,13 @@ button{
 <header>
   <a href="index.html" class="logo">H&CO.</a>
   <nav>
-    <a href="index.html">Collection</a>
+    <a href="collection.html">Collection</a>
     <a href="shop.html">Shop</a>
   </nav>
 </header>
 
 <div class="back">
-  <a href="index.html">← Back to Collection</a>
+  <a href="collection.html">← Back to Collection</a>
 </div>
 
 <main class="product-wrapper">
@@ -212,6 +211,7 @@ button{
       <div class="size">52</div>
       <div class="size">54</div>
     </div>
+
     <div class="size-note">Size 44 available upon request.</div>
     <a href="size-guide.html" class="size-guide">View Size Guide</a>
 
@@ -225,16 +225,16 @@ button{
     </p>
 
     <div class="section-label">Fabric & Construction</div>
-    <div class="meta">
+    <p class="meta">
       100% wool (Super 120s).<br>
       Structured canvas construction with a clean, balanced drape.
-    </div>
+    </p>
 
     <div class="section-label">Delivery</div>
-    <div class="meta">
+    <p class="meta">
       Made to order.<br>
       Estimated delivery: 10–14 days.
-    </div>
+    </p>
 
     <button disabled>Coming Soon</button>
   </div>
