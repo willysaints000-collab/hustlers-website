@@ -35,7 +35,7 @@ header{
   letter-spacing:2px;
 }
 
-/* BACK TO COLLECTION (REFINED) */
+/* BACK */
 .back{
   margin:26px 60px 0;
 }
@@ -44,9 +44,7 @@ header{
   font-size:13px;
   color:#666;
   letter-spacing:0.4px;
-  display:inline-block;
   border-bottom:1px solid transparent;
-  transition:all 0.3s ease;
 }
 
 .back a:hover{
@@ -108,6 +106,34 @@ header{
   font-weight:500;
 }
 
+/* SIZES */
+.sizes{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.size{
+  border:1px solid #ccc;
+  padding:10px 16px;
+  font-size:13px;
+  color:#777;
+}
+
+.size-note{
+  font-size:13px;
+  color:#666;
+  margin-top:10px;
+}
+
+.size-guide{
+  display:inline-block;
+  margin-top:8px;
+  font-size:13px;
+  border-bottom:1px solid #111;
+}
+
+/* DESCRIPTION */
 .description{
   font-size:15px;
   line-height:1.8;
@@ -115,8 +141,16 @@ header{
   margin-top:30px;
 }
 
-button{
+/* META */
+.meta{
+  font-size:14px;
+  color:#555;
+  line-height:1.8;
   margin-top:30px;
+}
+
+button{
+  margin-top:36px;
   padding:14px 28px;
   font-size:14px;
   background:#000;
@@ -170,6 +204,17 @@ button{
       <a href="sovereign-black.html" class="color active">Black</a>
     </div>
 
+    <div class="section-label">Size</div>
+    <div class="sizes">
+      <div class="size">46</div>
+      <div class="size">48</div>
+      <div class="size">50</div>
+      <div class="size">52</div>
+      <div class="size">54</div>
+    </div>
+    <div class="size-note">Size 44 available upon request.</div>
+    <a href="size-guide.html" class="size-guide">View Size Guide</a>
+
     <div class="section-label">Description</div>
     <p class="description">
       Black is authority at its most refined.
@@ -179,6 +224,18 @@ button{
       DROP 001 — Limited first release.
     </p>
 
+    <div class="section-label">Fabric & Construction</div>
+    <div class="meta">
+      100% wool (Super 120s).<br>
+      Structured canvas construction with a clean, balanced drape.
+    </div>
+
+    <div class="section-label">Delivery</div>
+    <div class="meta">
+      Made to order.<br>
+      Estimated delivery: 10–14 days.
+    </div>
+
     <button disabled>Coming Soon</button>
   </div>
 
@@ -186,3 +243,4 @@ button{
 
 </body>
 </html>
+
