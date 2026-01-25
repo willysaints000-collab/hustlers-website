@@ -45,7 +45,9 @@ header{
   color:#666;
 }
 
-.back a:hover{color:#111}
+.back a:hover{
+  color:#111;
+}
 
 /* PRODUCT */
 .product-wrapper{
@@ -72,7 +74,7 @@ header{
 .subtitle{
   font-size:15px;
   color:#555;
-  margin-bottom:10px;
+  margin-bottom:14px;
   line-height:1.7;
 }
 
@@ -80,7 +82,7 @@ header{
 .price{
   font-size:18px;
   font-weight:500;
-  margin-top:12px;
+  margin-top:10px;
 }
 
 .price-note{
@@ -89,7 +91,6 @@ header{
   margin-top:4px;
 }
 
-/* SECTIONS */
 .section-label{
   font-size:13px;
   letter-spacing:1px;
@@ -140,20 +141,10 @@ header{
   margin-top:10px;
 }
 
-/* BUTTON */
-button{
-  margin-top:30px;
-  padding:14px 28px;
-  font-size:14px;
-  background:#000;
-  color:#fff;
-  border:none;
-  opacity:0.5;
-  cursor:not-allowed;
-}
-
-button.enabled{
-  opacity:1;
+.size-guide{
+  margin-top:6px;
+  font-size:13px;
+  text-decoration:underline;
   cursor:pointer;
 }
 
@@ -162,14 +153,25 @@ button.enabled{
   font-size:15px;
   line-height:1.8;
   color:#333;
-  margin-top:30px;
+  margin-top:26px;
 }
 
 .meta{
-  margin-top:26px;
+  margin-top:18px;
   font-size:14px;
   color:#555;
   line-height:1.7;
+}
+
+/* BUTTON */
+button{
+  margin-top:32px;
+  padding:14px 28px;
+  font-size:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
 }
 
 /* RESPONSIVE */
@@ -184,6 +186,10 @@ button.enabled{
 
 <header>
   <a href="index.html" class="logo">H&CO.</a>
+  <nav>
+    <a href="collection.html">Collection</a>
+    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+  </nav>
 </header>
 
 <div class="back">
@@ -217,16 +223,14 @@ button.enabled{
 
     <div class="section-label">Size</div>
     <div class="sizes">
-      <div class="size">46</div>
-      <div class="size">48</div>
-      <div class="size">50</div>
-      <div class="size">52</div>
-      <div class="size">54</div>
+      <div class="size" onclick="selectSize(this)">46</div>
+      <div class="size" onclick="selectSize(this)">48</div>
+      <div class="size" onclick="selectSize(this)">50</div>
+      <div class="size" onclick="selectSize(this)">52</div>
+      <div class="size" onclick="selectSize(this)">54</div>
     </div>
 
     <div class="size-note">Size 44 available upon request.</div>
-
-    <button id="addToCart" disabled>Add to Cart</button>
 
     <div class="section-label">Description</div>
     <p class="description">
@@ -246,7 +250,7 @@ button.enabled{
     <p class="meta">
       Professional dry clean only.<br>
       Steam to refresh shape and drape.<br>
-      Store on a structured hanger when not in use.
+      Store on a structured hanger.
     </p>
 
     <div class="section-label">Delivery</div>
@@ -255,28 +259,27 @@ button.enabled{
       Estimated delivery: 10–14 days.
     </p>
 
+    <button onclick="addNavyToCart()">Add to Cart</button>
   </div>
+
 </main>
 
 <script src="cart.js"></script>
 
 <script>
-let selectedSize = null;
-const sizes = document.querySelectorAll(".size");
-const button = document.getElementById("addToCart");
+let selectedSize = "";
 
-sizes.forEach(size => {
-  size.addEventListener("click", () => {
-    sizes.forEach(s => s.classList.remove("active"));
-    size.classList.add("active");
-    selectedSize = size.textContent;
-    button.classList.add("enabled");
-    button.disabled = false;
-  });
-});
+function selectSize(el){
+  document.querySelectorAll(".size").forEach(s => s.classList.remove("active"));
+  el.classList.add("active");
+  selectedSize = el.textContent.trim();
+}
 
-button.addEventListener("click", () => {
-  if (!selectedSize) return;
+function addNavyToCart(){
+  if(!selectedSize){
+    alert("Please select a size.");
+    return;
+  }
 
   addToCart(
     "The Sovereign Navy",
@@ -286,9 +289,8 @@ button.addEventListener("click", () => {
   );
 
   window.location.href = "cart.html";
-});
+}
 </script>
 
 </body>
 </html>
-
