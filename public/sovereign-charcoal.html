@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>The Sovereign Charcoal — H&CO.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Sovereign Charcoal Suit by H&CO. Restraint, balanced. Clarity without excess.">
+<meta name="description" content="The Sovereign Charcoal Suit by H&CO. Restraint balanced with confidence. Designed for clarity and control.">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -25,7 +25,6 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:#f8f6f3;
 }
 
 .logo{
@@ -60,7 +59,6 @@ header{
   object-fit:contain;
 }
 
-/* INFO */
 .product-info h1{
   font-family:'Playfair Display',serif;
   font-size:42px;
@@ -70,19 +68,21 @@ header{
 .subtitle{
   font-size:15px;
   color:#555;
-  margin-bottom:14px;
+  margin-bottom:10px;
   line-height:1.7;
 }
 
+/* PRICE */
 .price{
   font-size:18px;
   font-weight:500;
-  margin-bottom:4px;
+  margin-top:12px;
 }
 
 .price-note{
   font-size:13px;
   color:#666;
+  margin-top:4px;
 }
 
 .section-label{
@@ -110,20 +110,21 @@ header{
   font-weight:500;
 }
 
-/* SIZE */
+/* SIZES */
 .sizes{
   display:flex;
   gap:12px;
+  flex-wrap:wrap;
 }
 
-.size-box{
+.size{
   border:1px solid #ccc;
   padding:10px 16px;
   font-size:13px;
   cursor:pointer;
 }
 
-.size-box.active{
+.size.active{
   border-color:#000;
   font-weight:500;
 }
@@ -131,19 +132,20 @@ header{
 .size-note{
   font-size:13px;
   color:#666;
-  margin-top:8px;
+  margin-top:10px;
 }
 
 .size-guide{
   display:inline-block;
-  margin-top:10px;
+  margin-top:6px;
   font-size:13px;
-  border-bottom:1px solid rgba(0,0,0,0.3);
+  text-decoration:underline;
+  cursor:pointer;
 }
 
 /* BUTTON */
-.add-btn{
-  margin-top:28px;
+button{
+  margin-top:22px;
   padding:14px 28px;
   font-size:14px;
   background:#000;
@@ -157,11 +159,11 @@ header{
   font-size:15px;
   line-height:1.8;
   color:#333;
-  margin-top:18px;
+  margin-top:30px;
 }
 
 .meta{
-  margin-top:18px;
+  margin-top:26px;
   font-size:14px;
   color:#555;
   line-height:1.7;
@@ -191,12 +193,10 @@ header{
 
 <main class="product-wrapper">
 
-  <!-- IMAGE -->
   <div class="product-image">
     <img src="images/suit-charcoal.webp" alt="The Sovereign Charcoal">
   </div>
 
-  <!-- INFO -->
   <div class="product-info">
     <h1>The Sovereign Charcoal</h1>
 
@@ -208,36 +208,34 @@ header{
     <div class="price">AED 2,650</div>
     <div class="price-note">Made to order · Limited release</div>
 
-    <!-- COLORS -->
     <div class="section-label">Color</div>
     <div class="colors">
       <a href="sovereign-navy.html" class="color">Navy</a>
-      <span class="color active">Charcoal</span>
+      <a href="sovereign-charcoal.html" class="color active">Charcoal</a>
       <a href="sovereign-olive.html" class="color">Olive</a>
       <a href="sovereign-black.html" class="color">Black</a>
     </div>
 
-    <!-- SIZE -->
     <div class="section-label">Size</div>
-    <div class="sizes" id="sizes">
-      <div class="size-box">46</div>
-      <div class="size-box">48</div>
-      <div class="size-box">50</div>
-      <div class="size-box">52</div>
-      <div class="size-box">54</div>
+    <div class="sizes">
+      <div class="size" onclick="selectSize(this)">46</div>
+      <div class="size" onclick="selectSize(this)">48</div>
+      <div class="size" onclick="selectSize(this)">50</div>
+      <div class="size" onclick="selectSize(this)">52</div>
+      <div class="size" onclick="selectSize(this)">54</div>
     </div>
 
     <div class="size-note">Size 44 available upon request.</div>
-    <a href="size-guide.html" class="size-guide">View Size Guide</a>
+    <div class="size-guide">View Size Guide</div>
 
-    <!-- ADD TO CART -->
-    <button class="add-btn" onclick="handleAdd()">Add to Cart</button>
+    <!-- ✅ ADD TO CART — SAME POSITION AS NAVY -->
+    <button onclick="handleAddToCart()">Add to Cart</button>
 
-    <!-- DESCRIPTION -->
     <div class="section-label">Description</div>
     <p class="description">
-      Charcoal expresses authority through balance. Neither severe nor soft,
-      it delivers control with restraint — composed, precise, and quietly confident.
+      Charcoal expresses authority through balance.
+      Neither severe nor soft, it delivers control with restraint —
+      composed, precise, and quietly confident.
       <br><br>
       DROP 001 — Limited first release.
     </p>
@@ -267,28 +265,26 @@ header{
 <script src="cart.js"></script>
 
 <script>
-let selectedSize = null;
+let selectedSize = "";
 
-document.querySelectorAll('.size-box').forEach(box=>{
-  box.addEventListener('click',()=>{
-    document.querySelectorAll('.size-box').forEach(b=>b.classList.remove('active'));
-    box.classList.add('active');
-    selectedSize = box.textContent;
-  });
-});
+function selectSize(el){
+  document.querySelectorAll(".size").forEach(s=>s.classList.remove("active"));
+  el.classList.add("active");
+  selectedSize = el.textContent;
+}
 
-function handleAdd(){
+function handleAddToCart(){
   if(!selectedSize){
-    alert("Please select a size");
+    alert("Please select a size.");
     return;
   }
-
   addToCart(
     "The Sovereign Charcoal",
     2650,
     "images/suit-charcoal.webp",
     selectedSize
   );
+  window.location.href = "cart.html";
 }
 </script>
 
