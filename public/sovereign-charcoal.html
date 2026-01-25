@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>The Sovereign Charcoal — H&CO.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Sovereign Charcoal Suit by H&CO. Restraint balanced with confidence. Designed for clarity and control.">
+<meta name="description" content="The Sovereign Charcoal Suit by H&CO. Restraint, balanced. Clarity without excess.">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -25,8 +25,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:#fff;
-  border-bottom:1px solid #e6e6e6;
+  background:#f8f6f3;
 }
 
 .logo{
@@ -43,12 +42,6 @@ header{
 .back a{
   font-size:13px;
   color:#666;
-  border-bottom:1px solid transparent;
-}
-
-.back a:hover{
-  color:#111;
-  border-bottom-color:#111;
 }
 
 /* PRODUCT */
@@ -67,6 +60,7 @@ header{
   object-fit:contain;
 }
 
+/* INFO */
 .product-info h1{
   font-family:'Playfair Display',serif;
   font-size:42px;
@@ -76,20 +70,19 @@ header{
 .subtitle{
   font-size:15px;
   color:#555;
+  margin-bottom:14px;
   line-height:1.7;
 }
 
-/* PRICE */
 .price{
   font-size:18px;
   font-weight:500;
-  margin-top:12px;
+  margin-bottom:4px;
 }
 
 .price-note{
   font-size:13px;
   color:#666;
-  margin-top:4px;
 }
 
 .section-label{
@@ -123,14 +116,14 @@ header{
   gap:12px;
 }
 
-.size{
+.size-box{
   border:1px solid #ccc;
   padding:10px 16px;
   font-size:13px;
   cursor:pointer;
 }
 
-.size.active{
+.size-box.active{
   border-color:#000;
   font-weight:500;
 }
@@ -143,9 +136,20 @@ header{
 
 .size-guide{
   display:inline-block;
-  margin-top:6px;
+  margin-top:10px;
   font-size:13px;
   border-bottom:1px solid rgba(0,0,0,0.3);
+}
+
+/* BUTTON */
+.add-btn{
+  margin-top:28px;
+  padding:14px 28px;
+  font-size:14px;
+  background:#000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
 }
 
 /* TEXT */
@@ -163,17 +167,6 @@ header{
   line-height:1.7;
 }
 
-/* BUTTON */
-button{
-  margin-top:30px;
-  padding:14px 28px;
-  font-size:14px;
-  background:#000;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-}
-
 /* RESPONSIVE */
 @media(max-width:900px){
   .product-wrapper{grid-template-columns:1fr}
@@ -188,7 +181,7 @@ button{
   <a href="index.html" class="logo">H&CO.</a>
   <nav>
     <a href="collection.html">Collection</a>
-    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
   </nav>
 </header>
 
@@ -198,10 +191,12 @@ button{
 
 <main class="product-wrapper">
 
+  <!-- IMAGE -->
   <div class="product-image">
     <img src="images/suit-charcoal.webp" alt="The Sovereign Charcoal">
   </div>
 
+  <!-- INFO -->
   <div class="product-info">
     <h1>The Sovereign Charcoal</h1>
 
@@ -213,33 +208,36 @@ button{
     <div class="price">AED 2,650</div>
     <div class="price-note">Made to order · Limited release</div>
 
+    <!-- COLORS -->
     <div class="section-label">Color</div>
     <div class="colors">
       <a href="sovereign-navy.html" class="color">Navy</a>
-      <a href="sovereign-charcoal.html" class="color active">Charcoal</a>
+      <span class="color active">Charcoal</span>
       <a href="sovereign-olive.html" class="color">Olive</a>
       <a href="sovereign-black.html" class="color">Black</a>
     </div>
 
+    <!-- SIZE -->
     <div class="section-label">Size</div>
-    <div class="sizes">
-      <div class="size">46</div>
-      <div class="size">48</div>
-      <div class="size">50</div>
-      <div class="size">52</div>
-      <div class="size">54</div>
+    <div class="sizes" id="sizes">
+      <div class="size-box">46</div>
+      <div class="size-box">48</div>
+      <div class="size-box">50</div>
+      <div class="size-box">52</div>
+      <div class="size-box">54</div>
     </div>
 
     <div class="size-note">Size 44 available upon request.</div>
     <a href="size-guide.html" class="size-guide">View Size Guide</a>
 
-    <button onclick="handleAddToCart()">Add to Cart</button>
+    <!-- ADD TO CART -->
+    <button class="add-btn" onclick="handleAdd()">Add to Cart</button>
 
+    <!-- DESCRIPTION -->
     <div class="section-label">Description</div>
     <p class="description">
-      Charcoal expresses authority through balance.
-      Neither severe nor soft, it delivers control with restraint —
-      composed, precise, and quietly confident.
+      Charcoal expresses authority through balance. Neither severe nor soft,
+      it delivers control with restraint — composed, precise, and quietly confident.
       <br><br>
       DROP 001 — Limited first release.
     </p>
@@ -253,8 +251,8 @@ button{
     <div class="section-label">Care & Maintenance</div>
     <p class="meta">
       Professional dry clean only.<br>
-      Steam to restore shape and structure.<br>
-      Store on a wide, structured hanger.
+      Steam to refresh shape and drape.<br>
+      Store on a structured hanger.
     </p>
 
     <div class="section-label">Delivery</div>
@@ -269,19 +267,19 @@ button{
 <script src="cart.js"></script>
 
 <script>
-let selectedSize = "";
+let selectedSize = null;
 
-document.querySelectorAll(".size").forEach(el => {
-  el.addEventListener("click", () => {
-    document.querySelectorAll(".size").forEach(s => s.classList.remove("active"));
-    el.classList.add("active");
-    selectedSize = el.textContent.trim();
+document.querySelectorAll('.size-box').forEach(box=>{
+  box.addEventListener('click',()=>{
+    document.querySelectorAll('.size-box').forEach(b=>b.classList.remove('active'));
+    box.classList.add('active');
+    selectedSize = box.textContent;
   });
 });
 
-function handleAddToCart(){
+function handleAdd(){
   if(!selectedSize){
-    alert("Please select a size.");
+    alert("Please select a size");
     return;
   }
 
@@ -291,8 +289,6 @@ function handleAddToCart(){
     "images/suit-charcoal.webp",
     selectedSize
   );
-
-  window.location.href = "cart.html";
 }
 </script>
 
