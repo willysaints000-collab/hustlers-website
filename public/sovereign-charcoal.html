@@ -43,9 +43,7 @@ header{
 .back a{
   font-size:13px;
   color:#666;
-  letter-spacing:0.4px;
   border-bottom:1px solid transparent;
-  transition:.3s ease;
 }
 
 .back a:hover{
@@ -78,7 +76,6 @@ header{
 .subtitle{
   font-size:15px;
   color:#555;
-  margin-bottom:10px;
   line-height:1.7;
 }
 
@@ -126,10 +123,16 @@ header{
   gap:12px;
 }
 
-.size-box{
+.size{
   border:1px solid #ccc;
   padding:10px 16px;
   font-size:13px;
+  cursor:pointer;
+}
+
+.size.active{
+  border-color:#000;
+  font-weight:500;
 }
 
 .size-note{
@@ -168,13 +171,12 @@ button{
   background:#000;
   color:#fff;
   border:none;
-  cursor:not-allowed;
-  opacity:0.7;
+  cursor:pointer;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .product-wrapper{grid-template-columns:1fr;gap:60px}
+  .product-wrapper{grid-template-columns:1fr}
   header,.back{padding-left:30px;padding-right:30px}
 }
 </style>
@@ -221,15 +223,17 @@ button{
 
     <div class="section-label">Size</div>
     <div class="sizes">
-      <div class="size-box">46</div>
-      <div class="size-box">48</div>
-      <div class="size-box">50</div>
-      <div class="size-box">52</div>
-      <div class="size-box">54</div>
+      <div class="size">46</div>
+      <div class="size">48</div>
+      <div class="size">50</div>
+      <div class="size">52</div>
+      <div class="size">54</div>
     </div>
 
     <div class="size-note">Size 44 available upon request.</div>
     <a href="size-guide.html" class="size-guide">View Size Guide</a>
+
+    <button onclick="handleAddToCart()">Add to Cart</button>
 
     <div class="section-label">Description</div>
     <p class="description">
@@ -259,10 +263,38 @@ button{
       Estimated delivery: 10–14 days.
     </p>
 
-    <button disabled>Coming Soon</button>
   </div>
-
 </main>
+
+<script src="cart.js"></script>
+
+<script>
+let selectedSize = "";
+
+document.querySelectorAll(".size").forEach(el => {
+  el.addEventListener("click", () => {
+    document.querySelectorAll(".size").forEach(s => s.classList.remove("active"));
+    el.classList.add("active");
+    selectedSize = el.textContent.trim();
+  });
+});
+
+function handleAddToCart(){
+  if(!selectedSize){
+    alert("Please select a size.");
+    return;
+  }
+
+  addToCart(
+    "The Sovereign Charcoal",
+    2650,
+    "images/suit-charcoal.webp",
+    selectedSize
+  );
+
+  window.location.href = "cart.html";
+}
+</script>
 
 </body>
 </html>
