@@ -43,7 +43,6 @@ header{
 .back a{
   font-size:13px;
   color:#666;
-  letter-spacing:0.4px;
 }
 
 .back a:hover{color:#111}
@@ -90,6 +89,7 @@ header{
   margin-top:4px;
 }
 
+/* SECTIONS */
 .section-label{
   font-size:13px;
   letter-spacing:1px;
@@ -175,6 +175,7 @@ button.enabled{
 /* RESPONSIVE */
 @media(max-width:900px){
   .product-wrapper{grid-template-columns:1fr}
+  header,.back{padding-left:30px;padding-right:30px}
 }
 </style>
 </head>
@@ -206,6 +207,14 @@ button.enabled{
     <div class="price">AED 2,650</div>
     <div class="price-note">Made to order · Limited release</div>
 
+    <div class="section-label">Color</div>
+    <div class="colors">
+      <a href="sovereign-navy.html" class="color active">Navy</a>
+      <a href="sovereign-charcoal.html" class="color">Charcoal</a>
+      <a href="sovereign-olive.html" class="color">Olive</a>
+      <a href="sovereign-black.html" class="color">Black</a>
+    </div>
+
     <div class="section-label">Size</div>
     <div class="sizes">
       <div class="size">46</div>
@@ -217,49 +226,68 @@ button.enabled{
 
     <div class="size-note">Size 44 available upon request.</div>
 
-    <button id="addToCart">Add to Cart</button>
+    <button id="addToCart" disabled>Add to Cart</button>
 
     <div class="section-label">Description</div>
     <p class="description">
       Navy balances confidence with restraint, offering clarity without severity.
       Calm, deliberate, and enduring — it speaks through presence rather than force.
+      <br><br>
+      DROP 001 — Limited first release.
     </p>
+
+    <div class="section-label">Fabric & Construction</div>
+    <p class="meta">
+      100% wool (Super 120s).<br>
+      Structured canvas construction with a clean, balanced drape.
+    </p>
+
+    <div class="section-label">Care & Maintenance</div>
+    <p class="meta">
+      Professional dry clean only.<br>
+      Steam to refresh shape and drape.<br>
+      Store on a structured hanger when not in use.
+    </p>
+
+    <div class="section-label">Delivery</div>
+    <p class="meta">
+      Made to order.<br>
+      Estimated delivery: 10–14 days.
+    </p>
+
   </div>
 </main>
 
+<script src="cart.js"></script>
+
 <script>
 let selectedSize = null;
-const sizes = document.querySelectorAll('.size');
-const button = document.getElementById('addToCart');
+const sizes = document.querySelectorAll(".size");
+const button = document.getElementById("addToCart");
 
 sizes.forEach(size => {
-  size.addEventListener('click', () => {
-    sizes.forEach(s => s.classList.remove('active'));
-    size.classList.add('active');
+  size.addEventListener("click", () => {
+    sizes.forEach(s => s.classList.remove("active"));
+    size.classList.add("active");
     selectedSize = size.textContent;
-    button.classList.add('enabled');
+    button.classList.add("enabled");
     button.disabled = false;
   });
 });
 
-button.addEventListener('click', () => {
+button.addEventListener("click", () => {
   if (!selectedSize) return;
 
-  const item = {
-    id: 'sovereign-navy',
-    name: 'The Sovereign Navy',
-    price: 2650,
-    size: selectedSize,
-    image: 'images/suit-navy.webp',
-    quantity: 1
-  };
+  addToCart(
+    "The Sovereign Navy",
+    2650,
+    "images/suit-navy.webp",
+    selectedSize
+  );
 
-  addToCart(item);
-  window.location.href = 'cart.html';
+  window.location.href = "cart.html";
 });
 </script>
-
-<script src="cart.js"></script>
 
 </body>
 </html>
