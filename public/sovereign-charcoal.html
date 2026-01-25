@@ -143,30 +143,30 @@ header{
   cursor:pointer;
 }
 
+/* TEXT */
+.description{
+  font-size:15px;
+  line-height:1.8;
+  color:#333;
+  margin-top:18px;
+}
+
+.meta{
+  margin-top:18px;
+  font-size:14px;
+  color:#555;
+  line-height:1.7;
+}
+
 /* BUTTON */
-button{
-  margin-top:22px;
+.add-to-cart{
+  margin-top:30px;
   padding:14px 28px;
   font-size:14px;
   background:#000;
   color:#fff;
   border:none;
   cursor:pointer;
-}
-
-/* TEXT */
-.description{
-  font-size:15px;
-  line-height:1.8;
-  color:#333;
-  margin-top:30px;
-}
-
-.meta{
-  margin-top:26px;
-  font-size:14px;
-  color:#555;
-  line-height:1.7;
 }
 
 /* RESPONSIVE */
@@ -228,9 +228,6 @@ button{
     <div class="size-note">Size 44 available upon request.</div>
     <div class="size-guide">View Size Guide</div>
 
-    <!-- ✅ ADD TO CART — SAME POSITION AS NAVY -->
-    <button onclick="handleAddToCart()">Add to Cart</button>
-
     <div class="section-label">Description</div>
     <p class="description">
       Charcoal expresses authority through balance.
@@ -258,6 +255,9 @@ button{
       Made to order.<br>
       Estimated delivery: 10–14 days.
     </p>
+
+    <!-- ✅ ADD TO CART — EXACT SAME POSITION AS NAVY -->
+    <button class="add-to-cart" onclick="handleAddToCart()">Add to Cart</button>
 
   </div>
 </main>
