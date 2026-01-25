@@ -8,108 +8,150 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:Inter,sans-serif;
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
   background:#f8f6f3;
   color:#111;
 }
 
-header{
+/* LINKS RESET */
+a { text-decoration:none; color:inherit; }
+
+/* HEADER */
+header {
   padding:28px 60px;
 }
 
-.logo{
-  font-family:'Playfair Display',serif;
+.logo {
+  font-family:'Playfair Display', serif;
   font-size:26px;
   letter-spacing:2px;
+  color:#000;
 }
 
-.cart-wrapper{
-  max-width:1100px;
-  margin:100px auto 160px;
+.logo:visited,
+.logo:hover,
+.logo:active {
+  color:#000;
+  text-decoration:none;
+}
+
+/* CART WRAPPER */
+.cart-wrapper {
+  max-width:1200px;
+  margin:90px auto 140px;
   padding:0 40px;
   display:grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns: 1.2fr 0.6fr;
   gap:80px;
 }
 
-h1{
-  font-family:'Playfair Display',serif;
+/* LEFT */
+.cart-left h1 {
+  font-family:'Playfair Display', serif;
   font-size:36px;
   margin-bottom:10px;
 }
 
-.subtitle{
+.cart-left p {
   font-size:15px;
   color:#666;
   margin-bottom:40px;
 }
 
 /* CART ITEMS */
-.cart-row{
+.cart-row {
   display:flex;
-  gap:20px;
-  margin-bottom:30px;
+  gap:24px;
+  padding:28px 0;
+  border-bottom:1px solid #e6e6e6;
 }
 
-.cart-img{
-  width:120px;
+.cart-img {
+  width:140px;
   height:auto;
+  object-fit:contain;
+  background:#fff;
+  padding:10px;
 }
 
-.cart-info h3{
-  font-size:16px;
+.cart-info h3 {
+  font-family:'Playfair Display', serif;
+  font-size:20px;
   margin-bottom:6px;
 }
 
-.cart-info p{
+.cart-info p {
   font-size:14px;
   color:#555;
+  margin-bottom:10px;
 }
 
-.cart-info input{
-  margin-top:10px;
+.cart-info input {
   width:60px;
   padding:6px;
+  font-size:14px;
 }
 
-.remove-btn{
+.remove-btn {
   margin-top:10px;
   background:none;
   border:none;
-  color:#666;
+  font-size:13px;
+  color:#777;
   cursor:pointer;
   text-decoration:underline;
 }
 
-/* SUMMARY */
-.summary{
+/* RIGHT SUMMARY */
+.cart-summary {
   border-top:1px solid #ddd;
   padding-top:30px;
 }
 
-.total{
-  font-size:18px;
-  font-weight:500;
-  margin-bottom:24px;
+.cart-summary h4 {
+  font-size:15px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:14px;
 }
 
-.checkout-btn{
+.cart-total {
+  font-size:18px;
+  font-weight:500;
+  margin-bottom:26px;
+}
+
+.checkout-btn {
   display:inline-block;
+  padding:14px 30px;
   background:#000;
   color:#fff;
-  padding:14px 28px;
   font-size:14px;
-  text-decoration:none;
+  border:none;
+  cursor:pointer;
 }
 
 /* FOOTER */
-footer{
+footer {
   text-align:center;
-  padding:60px 20px;
-  font-size:12px;
+  padding:50px 20px;
+  font-size:13px;
   color:#777;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .cart-wrapper {
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+
+  header {
+    padding:24px 30px;
+  }
 }
 </style>
 </head>
@@ -123,20 +165,17 @@ footer{
 <main class="cart-wrapper">
 
   <!-- LEFT -->
-  <section>
+  <section class="cart-left">
     <h1>Your Selection</h1>
-    <div class="subtitle">Completing Drop 001 — The Foundation.</div>
+    <p>Completing Drop 001 — The Foundation.</p>
 
-    <!-- 🔑 REQUIRED ID -->
     <div id="cart-items"></div>
   </section>
 
   <!-- RIGHT -->
-  <aside class="summary">
-    <div class="total">
-      Total — <span id="cart-total">AED 0.00</span>
-    </div>
-
+  <aside class="cart-summary">
+    <h4>Total</h4>
+    <div class="cart-total" id="cart-total">AED 0.00</div>
     <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
   </aside>
 
