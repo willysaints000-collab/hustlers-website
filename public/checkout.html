@@ -200,29 +200,37 @@
 </section>
 
 <script>
-  const CART_KEY = "hco_cart";
+  /* 🔗 SAME CART AS cart.js */
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  }
 
-  const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  const cart = getCart();
   const summary = document.getElementById("summary");
   const totalEl = document.getElementById("total");
 
   let total = 0;
   summary.innerHTML = "";
 
-  cart.forEach(item => {
-    const quantity = item.quantity || 1;
-    const itemTotal = item.price * quantity;
-    total += itemTotal;
+  if (cart.length === 0) {
+    summary.innerHTML = `<p style="font-size:14px;color:#777;">Your cart is empty.</p>`;
+    totalEl.textContent = "0.00";
+  } else {
+    cart.forEach(item => {
+      const qty = item.qty || 1;
+      const itemTotal = item.price * qty;
+      total += itemTotal;
 
-    summary.innerHTML += `
-      <div class="summary-item">
-        <span>${item.name} — ${item.color}, ${item.size} × ${quantity}</span>
-        <span>AED ${itemTotal.toFixed(2)}</span>
-      </div>
-    `;
-  });
+      summary.innerHTML += `
+        <div class="summary-item">
+          <span>${item.name} (${item.size}) × ${qty}</span>
+          <span>AED ${itemTotal.toFixed(2)}</span>
+        </div>
+      `;
+    });
 
-  totalEl.textContent = total.toFixed(2);
+    totalEl.textContent = total.toFixed(2);
+  }
 
   async function payNow() {
     if (!cart.length) {
@@ -237,24 +245,15 @@
         body: JSON.stringify({ cart })
       });
 
-      if (!res.ok) {
-        const errorText = await res.text();
-        console.error("API Error:", errorText);
-        alert("Checkout failed. See console.");
-        return;
-      }
-
       const data = await res.json();
-
       if (data.url) {
         window.location.href = data.url;
       } else {
-        alert("Stripe session created but no URL returned.");
+        alert("Stripe session error.");
       }
-
     } catch (err) {
       console.error(err);
-      alert("Payment failed. Check console.");
+      alert("Payment failed.");
     }
   }
 </script>
