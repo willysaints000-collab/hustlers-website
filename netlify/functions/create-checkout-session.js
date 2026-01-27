@@ -24,25 +24,22 @@ exports.handler = async function (event) {
       price_data: {
         currency: "aed",
         product_data: {
-          name: `${item.name}${item.color ? " - " + item.color : ""}${item.size ? " (" + item.size + ")" : ""}`,
+          name: `${item.name}${item.size ? " (" + item.size + ")" : ""}`,
         },
         unit_amount: Math.round(Number(item.price) * 100),
       },
-      quantity: item.quantity || 1,
+      quantity: item.qty || 1, // ✅ FIXED
     }));
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-
       payment_method_types: ["card"],
 
-      /* ✅ FORCE CUSTOMER DETAILS */
       customer_creation: "always",
-
       billing_address_collection: "required",
 
       shipping_address_collection: {
-        allowed_countries: ["AE", "US", "GB"],
+        allowed_countries: ["AE"],
       },
 
       phone_number_collection: {
@@ -82,3 +79,4 @@ exports.handler = async function (event) {
     };
   }
 };
+
