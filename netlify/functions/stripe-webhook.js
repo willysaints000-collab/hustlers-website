@@ -42,7 +42,7 @@ exports.handler = async (event) => {
 
       // ✅ Send email
       await resend.emails.send({
-        from: "Hustlers & Co <orders@hustlersandco.com>",
+        from: "Hustlers & Co <onboarding@resend.dev>",
         to: session.customer_details.email,
         subject: "Order Confirmed — H&CO.",
         html: `
