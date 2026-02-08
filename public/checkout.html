@@ -177,67 +177,50 @@
 </section>
 
 <script>
-  function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  }
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
 
+async function payNow() {
   const cart = getCart();
-  const summary = document.getElementById("summary");
-  const totalEl = document.getElementById("total");
+  const email = document.getElementById("email").value.trim();
 
-  let total = 0;
-  summary.innerHTML = "";
-
-  if (cart.length === 0) {
-    summary.innerHTML = "<p>Your cart is empty.</p>";
-  } else {
-    cart.forEach(item => {
-      const qty = item.qty || 1;
-      const itemTotal = item.price * qty;
-      total += itemTotal;
-
-      summary.innerHTML += `
-        <div class="summary-item">
-          <span>${item.name} ${item.size ? "(" + item.size + ")" : ""} × ${qty}</span>
-          <span>AED ${itemTotal.toFixed(2)}</span>
-        </div>
-      `;
-    });
+  if (!cart.length) {
+    alert("Your cart is empty.");
+    return;
   }
 
-  totalEl.textContent = total.toFixed(2);
+  if (!email) {
+    alert("Please enter your email address.");
+    return;
+  }
 
-  async function payNow() {
-    const email = document.getElementById("email").value.trim();
-
-    if (!email) {
-      alert("Please enter your email address.");
-      return;
-    }
-
-    try {
-      const res = await fetch("/.netlify/functions/create-checkout-session", {
+  try {
+    const res = await fetch(
+      "/.netlify/functions/create-checkout-session",
+      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          cart,
-          email
-        })
-      });
-
-      const data = await res.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Checkout error.");
+        body: JSON.stringify({ cart, email })
       }
-    } catch (err) {
-      console.error(err);
-      alert("Payment failed.");
+    );
+
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      console.error(data);
+      alert("Stripe checkout failed.");
     }
+
+  } catch (err) {
+    console.error(err);
+    alert("Checkout error.");
   }
+}
 </script>
+
 
 </body>
 </html>
