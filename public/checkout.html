@@ -15,7 +15,6 @@
       color: #111;
     }
 
-    /* HEADER */
     header {
       padding: 24px 50px;
       background: #000;
@@ -39,7 +38,6 @@
       letter-spacing: 2px;
     }
 
-    /* LAYOUT */
     .checkout-container {
       max-width: 1200px;
       margin: 70px auto;
@@ -91,7 +89,6 @@
       font-size: 14px;
     }
 
-    /* SUMMARY */
     .summary-item {
       display: flex;
       justify-content: space-between;
@@ -110,7 +107,6 @@
       justify-content: space-between;
     }
 
-    /* CTA */
     .pay-btn {
       width: 100%;
       padding: 16px;
@@ -122,10 +118,6 @@
       letter-spacing: 2px;
       cursor: pointer;
       margin-top: 28px;
-    }
-
-    .pay-btn:hover {
-      opacity: 0.9;
     }
 
     .trust {
@@ -157,31 +149,15 @@
 
 <section class="checkout-container">
 
-  <!-- DETAILS -->
+  <!-- BILLING -->
   <div class="box">
     <h1>Checkout</h1>
     <div class="subhead">Completing Drop 001 — The Foundation</div>
 
-    <h2>Billing Details</h2>
+    <h2>Contact Details</h2>
 
-    <label>Full Name</label>
-<input id="fullName" type="text" required>
-
-<label>Email Address</label>
-<input id="email" type="email" required>
-
-<label>Phone Number</label>
-<input id="phone" type="text" required>
-
-<label>Shipping Address</label>
-<input id="address" type="text" required>
-
-<label>City</label>
-<input id="city" type="text" required>
-
-<label>Country</label>
-<input id="country" type="text" required>
-
+    <label>Email Address</label>
+    <input id="email" type="email" placeholder="Email address" required>
 
     <button class="pay-btn" onclick="payNow()">Proceed to Secure Payment</button>
     <div class="trust">Secure checkout powered by Stripe</div>
@@ -201,7 +177,6 @@
 </section>
 
 <script>
-  /* 🔗 SAME CART AS cart.js */
   function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
   }
@@ -214,8 +189,7 @@
   summary.innerHTML = "";
 
   if (cart.length === 0) {
-    summary.innerHTML = `<p style="font-size:14px;color:#777;">Your cart is empty.</p>`;
-    totalEl.textContent = "0.00";
+    summary.innerHTML = "<p>Your cart is empty.</p>";
   } else {
     cart.forEach(item => {
       const qty = item.qty || 1;
@@ -224,64 +198,47 @@
 
       summary.innerHTML += `
         <div class="summary-item">
-          <span>${item.name} (${item.size}) × ${qty}</span>
+          <span>${item.name} ${item.size ? "(" + item.size + ")" : ""} × ${qty}</span>
           <span>AED ${itemTotal.toFixed(2)}</span>
         </div>
       `;
     });
-
-    totalEl.textContent = total.toFixed(2);
   }
 
- async function payNow() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  totalEl.textContent = total.toFixed(2);
 
-  if (!cart.length) {
-    alert("Your cart is empty");
-    return;
-  }
+  async function payNow() {
+    const email = document.getElementById("email").value.trim();
 
-  const billing = {
-    name: document.getElementById("fullName").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    phone: document.getElementById("phone").value.trim(),
-    address: document.getElementById("address").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    country: document.getElementById("country").value.trim()
-  };
-
-  if (!billing.name || !billing.email || !billing.address) {
-    alert("Please complete all billing details.");
-    return;
-  }
-
-  try {
-    const res = await fetch(
-      "/.netlify/functions/create-checkout-session",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart, billing })
-      }
-    );
-
-    const data = await res.json();
-
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      console.error(data);
-      alert("Stripe session error.");
+    if (!email) {
+      alert("Please enter your email address.");
+      return;
     }
 
-  } catch (err) {
-    console.error(err);
-    alert("Payment failed.");
+    try {
+      const res = await fetch("/.netlify/functions/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cart,
+          email
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Checkout error.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Payment failed.");
+    }
   }
-}
-
-
 </script>
 
 </body>
 </html>
+
