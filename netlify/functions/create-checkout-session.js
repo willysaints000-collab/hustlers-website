@@ -1,5 +1,4 @@
 const Stripe = require("stripe");
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async function (event) {
@@ -11,7 +10,8 @@ exports.handler = async function (event) {
   }
 
   try {
-    const { cart } = JSON.parse(event.body);
+    const body = JSON.parse(event.body);
+    const cart = body.cart;
 
     if (!cart || cart.length === 0) {
       return {
@@ -20,6 +20,7 @@ exports.handler = async function (event) {
       };
     }
 
+    // ✅ Build Stripe line items
     const line_items = cart.map(item => ({
       price_data: {
         currency: "aed",
@@ -28,14 +29,16 @@ exports.handler = async function (event) {
         },
         unit_amount: Math.round(Number(item.price) * 100),
       },
-      quantity: item.qty || 1, // ✅ FIXED
+      quantity: item.qty || 1,
     }));
 
+    // ✅ CREATE CHECKOUT SESSION (EMAIL RECEIPT ENABLED)
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
 
       customer_creation: "always",
+
       billing_address_collection: "required",
 
       shipping_address_collection: {
@@ -61,6 +64,10 @@ exports.handler = async function (event) {
 
       line_items,
 
+      // ✅ THIS IS THE KEY PART (FOR EMAIL RECEIPTS)
+      customer_email: body.email || undefined,
+      receipt_email: body.email || undefined,
+
       success_url: `${event.headers.origin}/success.html`,
       cancel_url: `${event.headers.origin}/cart.html`,
     });
@@ -79,4 +86,3 @@ exports.handler = async function (event) {
     };
   }
 };
-
