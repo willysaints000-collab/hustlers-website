@@ -94,7 +94,6 @@
       justify-content: space-between;
       margin-bottom: 14px;
       font-size: 14px;
-      color: #333;
     }
 
     .summary-total {
@@ -118,10 +117,6 @@
       letter-spacing: 2px;
       cursor: pointer;
       margin-top: 28px;
-    }
-
-    .pay-btn:hover {
-      opacity: 0.9;
     }
 
     .trust {
@@ -163,7 +158,7 @@
     <label>Email Address</label>
     <input id="email" type="email" placeholder="Email address" required>
 
-    <button class="pay-btn" id="payBtn" onclick="payNow()">Proceed to Secure Payment</button>
+    <button class="pay-btn" onclick="payNow()">Proceed to Secure Payment</button>
     <div class="trust">Secure checkout powered by Stripe</div>
   </div>
 
@@ -181,77 +176,71 @@
 </section>
 
 <script>
-  function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  }
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
 
-  // Render summary
+// Render summary
+const cart = getCart();
+const summary = document.getElementById("summary");
+const totalEl = document.getElementById("total");
+let total = 0;
+
+if (!cart.length) {
+  summary.innerHTML = "<p>Your cart is empty.</p>";
+} else {
+  cart.forEach(item => {
+    const qty = item.qty || 1;
+    const itemTotal = item.price * qty;
+    total += itemTotal;
+
+    summary.innerHTML += `
+      <div class="summary-item">
+        <span>${item.name} ${item.size ? `(${item.size})` : ""} × ${qty}</span>
+        <span>AED ${itemTotal.toFixed(2)}</span>
+      </div>
+    `;
+  });
+}
+
+totalEl.textContent = total.toFixed(2);
+
+// Checkout
+async function payNow() {
+  const email = document.getElementById("email").value.trim();
   const cart = getCart();
-  const summary = document.getElementById("summary");
-  const totalEl = document.getElementById("total");
-  let total = 0;
+
+  if (!email) {
+    alert("Please enter your email address.");
+    return;
+  }
 
   if (!cart.length) {
-    summary.innerHTML = '<p style="font-size:14px;color:#777;">Your cart is empty.</p>';
-  } else {
-    cart.forEach(item => {
-      const qty = item.qty || 1;
-      const itemTotal = item.price * qty;
-      total += itemTotal;
+    alert("Your cart is empty.");
+    return;
+  }
 
-      summary.innerHTML += `
-        <div class="summary-item">
-          <span>${item.name}${item.size ? ` (${item.size})` : ""} × ${qty}</span>
-          <span>AED ${itemTotal.toFixed(2)}</span>
-        </div>
-      `;
+  try {
+    const res = await fetch("/.netlify/functions/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cart, email })
     });
+
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      console.error(data);
+      alert("Stripe checkout failed.");
+    }
+
+  } catch (err) {
+    console.error(err);
+    alert("Checkout error.");
   }
-
-  totalEl.textContent = total.toFixed(2);
-
-  async function payNow() {
-    const email = document.getElementById("email").value.trim();
-    const button = document.getElementById("payBtn");
-
-    if (!cart.length) {
-      alert("Your cart is empty.");
-      return;
-    }
-
-    if (!email) {
-      alert("Please enter your email address.");
-      return;
-    }
-
-    button.disabled = true;
-    button.textContent = "Redirecting…";
-
-    try {
-      const res = await fetch("/.netlify/functions/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart, email })
-      });
-
-      const data = await res.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        console.error(data);
-        alert("Stripe checkout failed.");
-        button.disabled = false;
-        button.textContent = "Proceed to Secure Payment";
-      }
-
-    } catch (err) {
-      console.error(err);
-      alert("Checkout error.");
-      button.disabled = false;
-      button.textContent = "Proceed to Secure Payment";
-    }
-  }
+}
 </script>
 
 </body>
