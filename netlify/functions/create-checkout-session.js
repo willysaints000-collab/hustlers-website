@@ -3,24 +3,20 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async function (event) {
   if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed" }),
-    };
+    return { statusCode: 405, body: "Method not allowed" };
   }
 
   try {
-    const body = JSON.parse(event.body);
-    const cart = body.cart;
+    const { cart, email } = JSON.parse(event.body);
 
     if (!cart || cart.length === 0) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "Cart is empty" }),
-      };
+      return { statusCode: 400, body: "Cart is empty" };
     }
 
-    // ✅ Build Stripe line items
+    if (!email) {
+      return { statusCode: 400, body: "Email is required" };
+    }
+
     const line_items = cart.map(item => ({
       price_data: {
         currency: "aed",
@@ -32,12 +28,11 @@ exports.handler = async function (event) {
       quantity: item.qty || 1,
     }));
 
-    // ✅ CREATE CHECKOUT SESSION (EMAIL RECEIPT ENABLED)
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
 
-      customer_creation: "always",
+      customer_email: email, // ✅ THIS IS THE KEY
 
       billing_address_collection: "required",
 
@@ -53,20 +48,13 @@ exports.handler = async function (event) {
         {
           shipping_rate_data: {
             type: "fixed_amount",
-            fixed_amount: {
-              amount: 0,
-              currency: "aed",
-            },
+            fixed_amount: { amount: 0, currency: "aed" },
             display_name: "Standard Shipping",
           },
         },
       ],
 
       line_items,
-
-      // ✅ THIS IS THE KEY PART (FOR EMAIL RECEIPTS)
-      customer_email: body.email || undefined,
-      receipt_email: body.email || undefined,
 
       success_url: `${event.headers.origin}/success.html`,
       cancel_url: `${event.headers.origin}/cart.html`,
@@ -77,12 +65,12 @@ exports.handler = async function (event) {
       body: JSON.stringify({ url: session.url }),
     };
 
-  } catch (error) {
-    console.error("Stripe error:", error);
-
+  } catch (err) {
+    console.error("Stripe error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: err.message }),
     };
   }
 };
+
