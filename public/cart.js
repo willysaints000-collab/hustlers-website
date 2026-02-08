@@ -64,7 +64,6 @@ function displayCart() {
   list.innerHTML = "";
   let total = 0;
 
-  /* ✅ EMPTY CART LUXURY MESSAGE */
   if (cart.length === 0) {
     list.innerHTML = `
       <div style="
@@ -125,3 +124,44 @@ function removeItem(i) {
 }
 
 document.addEventListener("DOMContentLoaded", displayCart);
+
+/* ========= CHECKOUT (EMAIL FIX) ========= */
+
+function checkout() {
+  const cartItems = getCart();
+  const emailInput = document.querySelector("#email");
+
+  if (!emailInput || !emailInput.value) {
+    alert("Please enter your email address.");
+    return;
+  }
+
+  if (cartItems.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+  fetch("/.netlify/functions/create-checkout-session", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      cart: cartItems,
+      email: emailInput.value
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Checkout failed. Please try again.");
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    });
+}
+
