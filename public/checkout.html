@@ -120,6 +120,10 @@
       margin-top: 28px;
     }
 
+    .pay-btn:hover {
+      opacity: 0.9;
+    }
+
     .trust {
       font-size: 12px;
       color: #666;
@@ -149,7 +153,7 @@
 
 <section class="checkout-container">
 
-  <!-- BILLING -->
+  <!-- CONTACT -->
   <div class="box">
     <h1>Checkout</h1>
     <div class="subhead">Completing Drop 001 — The Foundation</div>
@@ -159,7 +163,7 @@
     <label>Email Address</label>
     <input id="email" type="email" placeholder="Email address" required>
 
-    <button class="pay-btn" onclick="payNow()">Proceed to Secure Payment</button>
+    <button class="pay-btn" id="payBtn" onclick="payNow()">Proceed to Secure Payment</button>
     <div class="trust">Secure checkout powered by Stripe</div>
   </div>
 
@@ -177,50 +181,78 @@
 </section>
 
 <script>
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  }
 
-async function payNow() {
+  // Render summary
   const cart = getCart();
-  const email = document.getElementById("email").value.trim();
+  const summary = document.getElementById("summary");
+  const totalEl = document.getElementById("total");
+  let total = 0;
 
   if (!cart.length) {
-    alert("Your cart is empty.");
-    return;
+    summary.innerHTML = '<p style="font-size:14px;color:#777;">Your cart is empty.</p>';
+  } else {
+    cart.forEach(item => {
+      const qty = item.qty || 1;
+      const itemTotal = item.price * qty;
+      total += itemTotal;
+
+      summary.innerHTML += `
+        <div class="summary-item">
+          <span>${item.name}${item.size ? ` (${item.size})` : ""} × ${qty}</span>
+          <span>AED ${itemTotal.toFixed(2)}</span>
+        </div>
+      `;
+    });
   }
 
-  if (!email) {
-    alert("Please enter your email address.");
-    return;
-  }
+  totalEl.textContent = total.toFixed(2);
 
-  try {
-    const res = await fetch(
-      "/.netlify/functions/create-checkout-session",
-      {
+  async function payNow() {
+    const email = document.getElementById("email").value.trim();
+    const button = document.getElementById("payBtn");
+
+    if (!cart.length) {
+      alert("Your cart is empty.");
+      return;
+    }
+
+    if (!email) {
+      alert("Please enter your email address.");
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Redirecting…";
+
+    try {
+      const res = await fetch("/.netlify/functions/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cart, email })
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error(data);
+        alert("Stripe checkout failed.");
+        button.disabled = false;
+        button.textContent = "Proceed to Secure Payment";
       }
-    );
 
-    const data = await res.json();
-
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      console.error(data);
-      alert("Stripe checkout failed.");
+    } catch (err) {
+      console.error(err);
+      alert("Checkout error.");
+      button.disabled = false;
+      button.textContent = "Proceed to Secure Payment";
     }
-
-  } catch (err) {
-    console.error(err);
-    alert("Checkout error.");
   }
-}
 </script>
-
 
 </body>
 </html>
